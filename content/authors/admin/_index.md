@@ -1,6 +1,7 @@
 ---
 title: Jason
 role: Nurse Practitioner - Emergency & Urgent Care
+avatar_filename: symbol.png
 bio: My interests include health care, AI, UI, and webdesign
 interests:
   - Artificial Intelligence
