@@ -1,7 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
 title:
-date: 2022-10-24
+date: 2023-07-13
 type: landing
 
 sections:
@@ -86,10 +86,12 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Deep Learning
-          tag: Deep Learning
-        - name: Other
-          tag: Demo
+        - name: Start here
+          tag: start
+        - name: MSK
+          tag: MSK
+        - name: ENT
+          tag: ENT
     design:
       # Choose how many columns the section has. Valid values: '1' or '2'.
       columns: '1'
@@ -97,11 +99,6 @@ sections:
       # For Showcase view, flip alternate rows?
       flip_alt_rows: false
 
-  - block: tag_cloud
-    content:
-      title: Popular Topics
-    design:
-      columns: '2'
 
   - block: contact
     id: contact
@@ -109,7 +106,7 @@ sections:
       title: Contact
       subtitle:
       text: |-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi diam, venenatis ut magna et, vehicula efficitur enim.
+        If you want to get it touch - send me a message
       # Contact (add or remove contact options as necessary)
       contact_links:
 
