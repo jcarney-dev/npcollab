@@ -9,7 +9,7 @@ sections:
     content:
       title: NP COLAB
       image:
-        filename: hero-academic.png
+        filename: symbol.png
       cta:
         label: '**Get Started**'
         url: #
