@@ -68,7 +68,7 @@ sections:
       view: compact
       columns: '2'
 
-    <!--This is the projects section-->
+  
   - block: portfolio
     id: projects
     content:
