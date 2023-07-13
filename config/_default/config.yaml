@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: NPCOLLAB # Website name
-baseURL: 'https://npcollab.com/' # Website URL
+baseURL: 'http://npcollab.com/' # Website URL
 
 ############################
 ## LANGUAGE
