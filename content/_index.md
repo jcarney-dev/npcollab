@@ -103,7 +103,6 @@ sections:
     design:
       columns: '2'
 
-    <!--Contact me section -->
   - block: contact
     id: contact
     content:
