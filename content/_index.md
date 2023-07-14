@@ -7,7 +7,7 @@ type: landing
 sections:
   - block: hero
     content:
-      title: NP COLAB
+      title: 
       image:
         filename: icon.png
       cta:
@@ -32,7 +32,7 @@ sections:
       background:
         gradient_end: '#ff7e3c'
         gradient_start: '#ffc2a2'
-        text_color_light: false
+        text_color_light: true
   - block: about.biography
     id: about
     content:
