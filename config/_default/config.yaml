@@ -15,7 +15,7 @@ cascade:
   # Docs folder options
   - _target:
       path: /docs/**
-    editable: true
+    editable: false
     show_breadcrumb: true
 
 ############################
