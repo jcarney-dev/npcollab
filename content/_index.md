@@ -9,7 +9,7 @@ sections:
     content:
       title: NP COLAB
       image:
-        filename: symbol.png
+        filename: icon.png
       cta:
         label: '**Get Started**'
         url: #
@@ -30,7 +30,7 @@ sections:
         <script async defer src="https://buttons.github.io/buttons.js"></script>
     design:
       background:
-        gradient_end: '#ff7e3x'
+        gradient_end: '#ff7e3c'
         gradient_start: '#ffc2a2'
         text_color_light: false
   - block: about.biography
