@@ -1,7 +1,7 @@
 ---
 title: Jason
 role: Nurse Practitioner - Emergency & Urgent Care
-avatar_filename: np-collab.png
+avatar_filename: assets/media/avatar.png
 bio: My interests include health care, AI, UI, and webdesign
 interests:
   - Artificial Intelligence
@@ -24,9 +24,9 @@ education:
 superuser: true
 status:
   icon: ☕️
-last_name: Wu
+last_name: 
 highlight_name: true
-first_name: Alice
+first_name: Jason
 email: ""
 ---
 Just a guy who likes to help 
