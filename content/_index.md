@@ -5,18 +5,12 @@ date: 2023-07-13
 type: landing
 
 sections:
-    
   - block: about.biography
     id: about
     content:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
-      design:
-      background:
-        gradient_end: '#ff7e3c'
-        gradient_start: '#ffc2a2'
-        text_color_light: true
 
   - block: collection
     id: posts
