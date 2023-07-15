@@ -1,7 +1,7 @@
 ---
 # Title, summary, and page position.
 linktitle: 
-summary: Embarking on the learning path of pediatrics provides students with the knowledge and skills necessary to deliver specialized care to infants, children, and adolescents. By understanding the unique aspects of child development and addressing the specific health needs of pediatric patients, learners contribute to promoting the well-being and optimal growth of the younger population.
+summary: Embarking on the learning path of peadiatrics provides students with the knowledge and skills necessary to deliver specialized care to infants, children, and adolescents. By understanding the unique aspects of child development and addressing the specific health needs of pediatric patients, learners contribute to promoting the well-being and optimal growth of the younger population.
 weight: 120
 icon: book-reader
 icon_pack: fas
