@@ -5,40 +5,22 @@ date: 2023-07-13
 type: landing
 
 sections:
-  - block: hero
-    content:
-      title: 
-      image:
-        filename: icon.png
-      cta:
-        label: '**Get Started**'
-        url: #
-      cta_alt:
-        label: Ask a question
-        url: #
-      cta_note:
-        label: >-
-         
-      text: |-
-        **A place to learn, create and collaborate**
-
-        From learning modules, presentations, guides, and more.
-
         <!--Custom spacing-->
         <div class="mb-3"></div>
         <!--GitHub Button JS-->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
-    design:
-      background:
-        gradient_end: '#ff7e3c'
-        gradient_start: '#ffc2a2'
-        text_color_light: true
+    
   - block: about.biography
     id: about
     content:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
+      design:
+      background:
+        gradient_end: '#ff7e3c'
+        gradient_start: '#ffc2a2'
+        text_color_light: true
 
   - block: collection
     id: posts
