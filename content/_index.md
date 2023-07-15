@@ -5,10 +5,6 @@ date: 2023-07-13
 type: landing
 
 sections:
-        <!--Custom spacing-->
-        <div class="mb-3"></div>
-        <!--GitHub Button JS-->
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
     
   - block: about.biography
     id: about
