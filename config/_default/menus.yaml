@@ -16,7 +16,7 @@ main:
   - name: Contact
     url: '#contact'
     weight: 40
-  - name: Modules
+  - name: NP Program
     url: docs/
     weight: 50
 
