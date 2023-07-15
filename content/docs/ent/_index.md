@@ -1,18 +1,18 @@
 ---
 # Title, summary, and page position.
-linktitle: History taking
-summary: Embarking on the learning journey of Introduction to Assessment and Diagnostics equips learners with the fundamental knowledge and practical skills necessary to effectively evaluate and diagnose various conditions, paving the way for informed decision-making and improved patient outcomes.
-weight: 30
+linktitle: 
+summary: Embarking on the learning path of Ear, Nose, and Throat (ENT) provides students with a comprehensive understanding of the anatomy, diagnosis, and treatment of disorders related to the head and neck region, equipping them with the skills needed to deliver specialized care to patients with ENT conditions.
+weight: 50
 icon: book-reader
 icon_pack: fas
 
 # Page metadata.
-title: Introduction to Assessment and diagnostics
+title: Musculoskeletal (MSK)
 date: '2018-09-09T00:00:00Z'
 type: book # Do not modify.
 ---
 
-## History Taking 
+## ENT
 
 
 
