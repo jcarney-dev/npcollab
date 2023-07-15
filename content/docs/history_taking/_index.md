@@ -1,6 +1,6 @@
 ---
 # Title, summary, and page position.
-linktitle: 
+linktitle: History taking
 summary: Embarking on the learning journey of Introduction to Assessment and Diagnostics equips learners with the fundamental knowledge and practical skills necessary to effectively evaluate and diagnose various conditions, paving the way for informed decision-making and improved patient outcomes.
 weight: 30
 icon: book-reader
