@@ -1,13 +1,13 @@
 ---
 # Title, summary, and page position.
 linktitle: 
-summary: Mastering the intricacies of the musculoskeletal system (MSK) is a rewarding endeavor that empowers healthcare professionals to provide comprehensive care and accurate diagnoses for their patients.
-weight: 40
+summary: Embarking on the learning journey of Introduction to Assessment and Diagnostics equips learners with the fundamental knowledge and practical skills necessary to effectively evaluate and diagnose various conditions, paving the way for informed decision-making and improved patient outcomes.
+weight: 30
 icon: book-reader
 icon_pack: fas
 
 # Page metadata.
-title: Musculoskeletal (MSK)
+title: Introduction to Assessment and diagnostics
 date: '2018-09-09T00:00:00Z'
 type: book # Do not modify.
 ---

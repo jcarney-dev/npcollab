@@ -1,13 +1,13 @@
 ---
 # Title, summary, and page position.
 linktitle: 
-summary: Mastering the intricacies of the musculoskeletal system (MSK) is a rewarding endeavor that empowers healthcare professionals to provide comprehensive care and accurate diagnoses for their patients.
-weight: 40
+summary: Gaining proficiency in fundamental procedures is vital for emergency nurse practitioners, as it enables them to deliver timely and life-saving interventions in critical situations, ensuring optimal patient care and maximizing positive outcomes.
+weight: 20
 icon: book-reader
 icon_pack: fas
 
 # Page metadata.
-title: Musculoskeletal (MSK)
+title: Fundamentals Procedures
 date: '2018-09-09T00:00:00Z'
 type: book # Do not modify.
 ---
