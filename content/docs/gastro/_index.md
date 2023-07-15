@@ -2,7 +2,7 @@
 # Title, summary, and page position.
 linktitle: 
 summary: Engaging in the study of gastrointestinal (GI) conditions provides students with the expertise to comprehend the intricate workings of the digestive system, enabling them to effectively diagnose and manage a diverse range of GI disorders, thus promoting optimal digestive health and well-being for their patient
-weight: 70
+weight: 90
 icon: book-reader
 icon_pack: fas
 

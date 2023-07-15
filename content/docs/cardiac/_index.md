@@ -2,7 +2,7 @@
 # Title, summary, and page position.
 linktitle: 
 summary: Embarking on the journey of learning about the intricacies of the cardiac system empowers students to acquire the knowledge and skills necessary for accurate assessment, diagnosis, and management of cardiac conditions, playing a crucial role in preserving heart health and enhancing the well-being of patients.
-weight: 70
+weight: 80
 icon: book-reader
 icon_pack: fas
 
