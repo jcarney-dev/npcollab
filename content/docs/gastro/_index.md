@@ -1,18 +1,18 @@
 ---
 # Title, summary, and page position.
 linktitle: 
-summary: Embarking on the journey of learning about the intricacies of the cardiac system empowers students to acquire the knowledge and skills necessary for accurate assessment, diagnosis, and management of cardiac conditions, playing a crucial role in preserving heart health and enhancing the well-being of patients.
+summary: Engaging in the study of gastrointestinal (GI) conditions provides students with the expertise to comprehend the intricate workings of the digestive system, enabling them to effectively diagnose and manage a diverse range of GI disorders, thus promoting optimal digestive health and well-being for their patient
 weight: 70
 icon: book-reader
 icon_pack: fas
 
 # Page metadata.
-title: Cardiac
+title: Gastrointestinal
 date: '2018-09-09T00:00:00Z'
 type: book # Do not modify.
 ---
 
-## Cardiac
+## Gastrointestinal
 
 
 
