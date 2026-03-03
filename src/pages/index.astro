@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Home" breadcrumb="Home">
+  <div class="hero">
+    <div class="label">🩺 Australian Nurse Practitioner Hub</div>
+    <h1>Clinical knowledge,<br><em>built by NPs</em><br>for NPs.</h1>
+    <p>NPCollab is a free, collaborative learning resource for Australian Nurse Practitioners and NP students — covering scope of practice, assessment frameworks, SOAP notes, and clinical modules.</p>
+    <div class="hero-cta">
+      <a href={`${base}scope/`} class="btn-primary">Start with Scope of Practice →</a>
+      <a href={`${base}modules/eyes/`} class="btn-outline">Browse Clinical Modules</a>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">2<span>+</span></div><div class="stat-label">Clinical Modules</div></div>
+    <div class="stat-card"><div class="num">40<span>+</span></div><div class="stat-label">Practice Quiz Questions</div></div>
+    <div class="stat-card"><div class="num">2</div><div class="stat-label">Example SOAP Notes</div></div>
+    <div class="stat-card"><div class="num">100<span>%</span></div><div class="stat-label">Free, No Ads</div></div>
+  </div>
+  <div class="label" style="margin-bottom:14px">Foundation</div>
+  <div class="modules-grid" style="margin-bottom:40px">
+    <a href={`${base}scope/`} class="module-card">
+      <div class="module-icon">🛡️</div>
+      <h3>Scope of Practice</h3>
+      <p>Understand the regulatory framework, NMBA standards, and how to build and document your NP scope.</p>
+      <div class="module-meta"><span>📋 Framework</span><span>🔗 NMBA Resources</span></div>
+    </a>
+    <a href={`${base}assessment/`} class="module-card">
+      <div class="module-icon">📋</div>
+      <h3>Patient Assessment</h3>
+      <p>OLDCARTS framework, comprehensive history taking, physical examination principles, and clinical reasoning.</p>
+      <div class="module-meta"><span>📋 Framework</span><span>🧠 Clinical Reasoning</span></div>
+    </a>
+  </div>
+  <div class="label" style="margin-bottom:14px">Clinical Modules</div>
+  <div class="modules-grid">
+    <a href={`${base}modules/eyes/`} class="module-card">
+      <div class="module-icon">👁️</div>
+      <h3>Eyes (Ophthalmology)</h3>
+      <p>Visual assessment, red eye differentials, acute vs chronic presentations, and referral pathways.</p>
+      <div class="module-meta"><span>📋 Assessment</span><span>📝 SOAP Note</span><span>❓ 20 Qs</span></div>
+    </a>
+    <a href={`${base}modules/ent/`} class="module-card">
+      <div class="module-icon">👂</div>
+      <h3>ENT (Ears, Nose, Throat)</h3>
+      <p>Otoscopic assessment, epistaxis, throat infections, hearing loss, and when to refer.</p>
+      <div class="module-meta"><span>📋 Assessment</span><span>📝 SOAP Note</span><span>❓ 20 Qs</span></div>
+    </a>
+    <div class="module-card coming-soon">
+      <span class="tag-coming">Soon</span>
+      <div class="module-icon">❤️</div>
+      <h3>Cardiac</h3>
+      <p>Cardiovascular assessment, chest pain differentials, ECG interpretation, and ACS pathways.</p>
+      <div class="module-meta"><span>📋 Assessment</span><span>📝 SOAP Note</span><span>❓ 20 Qs</span></div>
+    </div>
+    <div class="module-card coming-soon">
+      <span class="tag-coming">Soon</span>
+      <div class="module-icon">🫁</div>
+      <h3>Respiratory</h3>
+      <p>Respiratory assessment, wheeze differentials, spirometry, and acute management.</p>
+      <div class="module-meta"><span>📋 Assessment</span><span>📝 SOAP Note</span><span>❓ 20 Qs</span></div>
+    </div>
+  </div>
+  <div class="info-box">
+    <p>📚 <strong>New to NP practice?</strong> Start with <a href={`${base}scope/`}>Scope of Practice</a>, then work through <a href={`${base}assessment/`}>Patient Assessment Frameworks</a> before diving into clinical modules.</p>
+  </div>
+</BaseLayout>

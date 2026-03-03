@@ -1,0 +1,73 @@
+---
+import ModuleLayout from '../../../layouts/ModuleLayout.astro';
+import SoapNote from '../../../components/SoapNote.astro';
+
+const sections = [
+  {
+    letter: 'S',
+    title: 'Subjective',
+    fields: [
+      { label: 'Presenting Complaint', content: '28-year-old male with a 3-day history of severe sore throat and fever.' },
+      { label: 'History of Presenting Complaint', content: 'Onset 3 days ago, gradual. Severe odynophagia (8/10), worse on swallowing. Fever confirmed at home (38.9°C). No cough. No rhinorrhoea. No hoarseness. Mouth opens normally. No drooling. No neck stiffness. One episode of vomiting yesterday. Missed 2 days work.' },
+      { label: 'Relevant History', content: 'No previous similar episodes. Documented penicillin allergy — NKDA otherwise. Immunisation up to date. Smoker: 5 cigarettes per day. Works in a childcare centre.' },
+      { label: "Patient's Concerns", content: '"I need antibiotics, I cannot afford more time off work." Shared decision-making approach discussed.' }
+    ]
+  },
+  {
+    letter: 'O',
+    title: 'Objective',
+    fields: [
+      { label: 'Vital Signs', content: 'BP 126/78 mmHg | HR 96 bpm | Temp 38.7°C | RR 16 | SpO2 99% RA' },
+      { label: 'Examination Findings', content: [
+        'General: flushed, uncomfortable, no respiratory distress',
+        'Throat: tonsils 3+ bilaterally, white tonsillar exudate, no uvula deviation, posterior pharynx mildly injected',
+        'No trismus, no peritonsillar bulge, no drooling',
+        'Cervical lymphadenopathy: tender anterior cervical nodes bilaterally, largest approximately 1.5cm',
+        'No splenomegaly on abdominal palpation (EBV consideration)',
+        'No rash',
+        'Ears and nose: normal bilaterally'
+      ]},
+      { label: 'McIsaac Score', content: 'Fever >38°C (+1) | No cough (+1) | Anterior cervical lymphadenopathy (+1) | Tonsillar exudate (+1) | Age 15–44 (0) = Score: 4/5 — High probability Group A Strep' }
+    ]
+  },
+  {
+    letter: 'A',
+    title: 'Assessment',
+    fields: [
+      { label: 'Primary Diagnosis', content: 'Acute bacterial tonsillitis — likely Group A Streptococcal pharyngitis (J03.00)' },
+      { label: 'Differential Diagnoses Considered', content: [
+        'Infectious mononucleosis (EBV) — considered given bilateral exudate and lymphadenopathy; no splenomegaly; no posterior cervical nodes; monospot not performed at this visit',
+        'Peritonsillar abscess — excluded: no uvula deviation, no trismus, no unilateral fullness',
+        'Viral pharyngitis — less likely given McIsaac 4/5 and purulent exudate'
+      ]}
+    ]
+  },
+  {
+    letter: 'P',
+    title: 'Plan',
+    fields: [
+      { label: 'Management', content: [
+        'Penicillin ALLERGY confirmed — use Cefalexin 500mg BD for 10 days (confirm NKDA — cephalosporin cross-reactivity approximately 1–2%)',
+        'Alternative if cephalosporin not tolerated: Roxithromycin 300mg daily for 10 days',
+        'Paracetamol 1g QID with food, regular (not PRN) for first 3 days',
+        'Ibuprofen 400mg TDS with food (if tolerated, no contraindications)',
+        'Throat lozenges and warm fluids — encourage oral hydration'
+      ]},
+      { label: 'Investigations', content: 'Throat swab MC&S sent. FBE and monospot if no improvement by 48–72h or concerns regarding EBV.' },
+      { label: 'Safety Netting', content: [
+        'Return immediately: stridor, drooling, difficulty swallowing fluids, neck swelling, unilateral throat worsening',
+        'Return 48–72h if no clinical improvement on antibiotics',
+        'Exclude from childcare until afebrile for 24h and on antibiotics for minimum 24h'
+      ]},
+      { label: 'Patient Education', content: 'Discussed diagnosis, antibiotic choice given penicillin allergy, expected course, and childcare exclusion requirements. Patient verbalised understanding.' }
+    ]
+  }
+];
+---
+<ModuleLayout title="ENT (Ears, Nose & Throat)" moduleId="ent" icon="👂" description="Assessment framework, SOAP note, resources, and quiz for ENT presentations" activeTab="soap">
+  <div style="margin-bottom:20px">
+    <h3 style="color:var(--navy);margin-bottom:6px;font-family:var(--font-body)">Example SOAP Note — Acute Sore Throat</h3>
+    <p style="color:var(--text-muted);font-size:0.88rem">Sample presentation: acute bacterial tonsillitis in an adult with penicillin allergy working in childcare.</p>
+  </div>
+  <SoapNote title="Acute Sore Throat — Adult Patient" sections={sections} />
+</ModuleLayout>

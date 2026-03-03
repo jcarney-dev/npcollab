@@ -1,0 +1,72 @@
+---
+import ModuleLayout from '../../../layouts/ModuleLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<ModuleLayout title="ENT (Ears, Nose & Throat)" moduleId="ent" icon="👂" description="Assessment framework, SOAP note, resources, and quiz for ENT presentations" activeTab="overview">
+  <div class="content-prose">
+    <h2>Clinical Overview</h2>
+    <p>ENT presentations are among the most frequent in primary care. NPs must be confident in differentiating viral from bacterial illness, managing common conditions independently, and identifying serious presentations requiring urgent referral.</p>
+    <div class="highlight-box">
+      <h4>⚠️ Red Flags — Refer Urgently</h4>
+      <ul>
+        <li>Mastoiditis (post-auricular swelling, protrusion of pinna)</li>
+        <li>Peritonsillar abscess (unilateral swelling, uvula deviation, trismus, drooling)</li>
+        <li>Epiglottitis (drooling, stridor, toxic appearance, tripod position)</li>
+        <li>Sudden sensorineural hearing loss (refer within 24–48 hours)</li>
+        <li>Epistaxis unresponsive to first-aid management</li>
+        <li>Neck mass persistent beyond 3 weeks</li>
+        <li>Stridor in any patient</li>
+        <li>Hoarseness persisting more than 3 weeks in a smoker</li>
+      </ul>
+    </div>
+    <h2>Common Presentations by Region</h2>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">👂</div><h4>Ear Conditions</h4></div>
+        <ul>
+          <li>Acute otitis media (AOM)</li>
+          <li>Otitis media with effusion</li>
+          <li>Otitis externa</li>
+          <li>Cerumen impaction</li>
+          <li>Tympanic membrane perforation</li>
+          <li>Sudden SNHL ⚠️</li>
+          <li>Mastoiditis ⚠️</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">👃</div><h4>Nose Conditions</h4></div>
+        <ul>
+          <li>Allergic rhinitis</li>
+          <li>Acute viral rhinosinusitis</li>
+          <li>Acute bacterial rhinosinusitis</li>
+          <li>Epistaxis (anterior and posterior)</li>
+          <li>Nasal polyps</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">👄</div><h4>Throat Conditions</h4></div>
+        <ul>
+          <li>Viral pharyngitis and tonsillitis</li>
+          <li>Group A Strep pharyngitis</li>
+          <li>Infectious mononucleosis (EBV)</li>
+          <li>Peritonsillar abscess ⚠️</li>
+          <li>Epiglottitis ⚠️</li>
+          <li>Laryngitis and hoarseness</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🦻</div><h4>Hearing and Balance</h4></div>
+        <ul>
+          <li>Presbycusis (age-related)</li>
+          <li>BPPV</li>
+          <li>Ménière's disease</li>
+          <li>Labyrinthitis and vestibular neuritis</li>
+          <li>Noise-induced hearing loss</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-box">
+      <p>👉 Continue to the <a href={`${base}modules/ent/assessment/`}>Assessment tab</a> for targeted history and examination steps.</p>
+    </div>
+  </div>
+</ModuleLayout>
