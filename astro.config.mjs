@@ -7,5 +7,14 @@ export default defineConfig({
   trailingSlash: 'always',
   build: {
     assets: 'assets'
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@layouts': '/src/layouts',
+        '@components': '/src/components',
+        '@content': '/src/content',
+      }
+    }
   }
 });
