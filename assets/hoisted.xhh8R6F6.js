@@ -1,0 +1,1 @@
+function e(){document.getElementById("sidebar").classList.toggle("open"),document.getElementById("overlay").classList.toggle("show")}function o(){document.getElementById("sidebar").classList.remove("open"),document.getElementById("overlay").classList.remove("show")}window.toggleSidebar=e;window.closeSidebar=o;
