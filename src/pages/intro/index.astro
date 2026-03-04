@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Introduction" breadcrumb="Introduction">
+  <div class="page-header">
+    <div class="label">Getting Started</div>
+    <h1>Welcome to NPCollab</h1>
+    <p>A free, collaborative learning resource built by Australian Nurse Practitioners — for Nurse Practitioners and NP students.</p>
+  </div>
+
+  <div class="content-prose">
+
+    <h2>What is NPCollab?</h2>
+    <p>NPCollab is a free educational resource designed specifically for Australian Nurse Practitioners, Transitional Nurse Practitioners, and NP students. Whether you are just beginning your NP journey, preparing for your AHPRA endorsement, or looking for a clinical reference to keep your practice sharp — this is a space built for you.</p>
+
+    <p>Everything here is written by practising Australian NPs, grounded in Australian guidelines, and structured to reflect the realities of NP practice in this country. No paywalls. No advertising. No generic overseas content that does not translate.</p>
+
+    <div class="highlight-box">
+      <h4>Who NPCollab is For</h4>
+      <ul>
+        <li><strong>NP students</strong> completing a Masters of Nurse Practitioner program</li>
+        <li><strong>Transitional Nurse Practitioners (TNPs)</strong> working toward full endorsement</li>
+        <li><strong>Endorsed Nurse Practitioners</strong> looking for a quick clinical reference or quiz refresher</li>
+        <li><strong>Registered Nurses</strong> considering the NP pathway and wanting to understand the role</li>
+        <li><strong>Collaborating clinicians</strong> who want to understand what NPs do and how we practise</li>
+      </ul>
+    </div>
+
+    <h2>What You Will Find Here</h2>
+
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🛡️</div><h4>Getting Started</h4></div>
+        <p>Everything you need to understand the NP role — from the regulatory framework and metaspecialties, to how to start your first TNP or NP position with confidence.</p>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">📋</div><h4>Foundation Knowledge</h4></div>
+        <p>Scope of practice and patient assessment frameworks that underpin safe, confident advanced practice — whatever your clinical context.</p>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🩺</div><h4>Clinical Modules</h4></div>
+        <p>System-based modules covering common NP presentations — each with an overview, assessment framework, example SOAP note, curated resources, and a 20-question quiz.</p>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">❓</div><h4>Practice Quizzes</h4></div>
+        <p>20 questions per module with detailed explanations for every answer. Use them to test your knowledge, prepare for exams, or refresh before a clinical placement.</p>
+      </div>
+    </div>
+
+    <h2>How to Use This Resource</h2>
+    <p>There is no prescribed order — use what is useful, when it is useful. That said, if you are brand new to the NP world, a suggested starting path might look like this:</p>
+
+    <ol>
+      <li><strong>Start here</strong> — read this Introduction and the <a href={`${base}metaspecialties/`}>Metaspecialties</a> page to understand the landscape</li>
+      <li><strong>If you are starting out</strong> — head to <a href={`${base}starting-role/`}>Starting Your Role</a> for practical guidance on the TNP and NP pathway</li>
+      <li><strong>Build your foundation</strong> — work through <a href={`${base}scope/`}>Scope of Practice</a> and <a href={`${base}assessment/`}>Patient Assessment</a></li>
+      <li><strong>Go clinical</strong> — pick the module most relevant to your practice area and work through Overview → Assessment → SOAP Note → Resources → Quiz</li>
+      <li><strong>Come back regularly</strong> — new modules are added as the resource grows</li>
+    </ol>
+
+    <h2>A Note on Accuracy</h2>
+    <p>All content is written to reflect current Australian guidelines, including NMBA standards, Therapeutic Guidelines, and relevant specialty society recommendations. We update content when guidelines change, but clinical practice evolves quickly — always verify prescribing decisions against current sources and apply your own clinical judgement.</p>
+
+    <div class="info-box">
+      <p>📚 <strong>Disclaimer:</strong> All content on NPCollab is for <strong>educational purposes only</strong>. It does not constitute clinical advice. Always apply your own clinical judgement and refer to current Australian guidelines when managing patients.</p>
+    </div>
+
+    <h2>About the Contributors</h2>
+    <p>NPCollab is built and maintained by practising Australian NPs who believe that good clinical education should be freely available to everyone in the profession. If you are an NP and want to contribute content, fix something you disagree with, or suggest a new module — visit the <a href={`${base}about/`}>About page</a> to find out how.</p>
+
+    <div class="highlight-box">
+      <h4>Ready to start?</h4>
+      <p>If you are new to NP practice or still on the pathway, head to <a href={`${base}metaspecialties/`}>Metaspecialties →</a> to understand the different NP practice areas in Australia, or jump straight to <a href={`${base}starting-role/`}>Starting Your Role →</a> for practical career guidance.</p>
+    </div>
+
+  </div>
+</BaseLayout>
