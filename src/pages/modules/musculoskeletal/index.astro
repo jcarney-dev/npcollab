@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Musculoskeletal" breadcrumb="Musculoskeletal">
+  <div class="page-header">
+    <div class="label">Clinical Module</div>
+    <h1>🦴 Musculoskeletal</h1>
+    <p>Region-specific assessment and management guides for musculoskeletal presentations in NP practice.</p>
+  </div>
+  <div class="content-prose">
+    <div class="modules-grid">
+      <a href={`${base}modules/musculoskeletal/back/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">🔙</div><h3>Back Pain</h3><p>Acute and chronic back pain, red flags, and management.</p></a>
+      <a href={`${base}modules/musculoskeletal/neck/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">🦒</div><h3>Neck Pain</h3><p>Cervical spine, whiplash, and radiculopathy.</p></a>
+      <a href={`${base}modules/musculoskeletal/shoulder/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">💆</div><h3>Shoulder</h3><p>Rotator cuff, impingement, and frozen shoulder.</p></a>
+      <a href={`${base}modules/musculoskeletal/elbow/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">💪</div><h3>Elbow</h3><p>Epicondylitis, bursitis, and elbow injuries.</p></a>
+      <a href={`${base}modules/musculoskeletal/wrist/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">⌚</div><h3>Wrist</h3><p>Wrist pain, fractures, and TFCC injuries.</p></a>
+      <a href={`${base}modules/musculoskeletal/hand/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">✋</div><h3>Hand</h3><p>Hand injuries, carpal tunnel, and tendon conditions.</p></a>
+      <a href={`${base}modules/musculoskeletal/chest/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">🫁</div><h3>Chest Wall</h3><p>Costochondritis, rib injuries, and chest wall pain.</p></a>
+      <a href={`${base}modules/musculoskeletal/hip-pelvis/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">🦴</div><h3>Hip & Pelvis</h3><p>Hip pain, bursitis, and pelvic assessment.</p></a>
+      <a href={`${base}modules/musculoskeletal/knee/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">🦵</div><h3>Knee</h3><p>Meniscal injuries, ligaments, and patellofemoral pain.</p></a>
+      <a href={`${base}modules/musculoskeletal/foot-ankle/`} class="module-card coming-soon"><span class="tag-coming">Soon</span><div class="module-icon">🦶</div><h3>Foot & Ankle</h3><p>Ankle sprains, plantar fasciitis, and Achilles.</p></a>
+    </div>
+  </div>
+</BaseLayout>
