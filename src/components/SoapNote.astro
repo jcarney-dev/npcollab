@@ -1,0 +1,48 @@
+---
+export interface SoapSection {
+  letter: string;
+  title: string;
+  fields: { label: string; content: string | string[] }[];
+}
+export interface Props {
+  title: string;
+  meta?: string;
+  sections: SoapSection[];
+}
+const { title, meta = "NP Clinic · Primary Care · Example only", sections } = Astro.props;
+---
+<div class="soap-wrapper">
+  <div class="soap-header">
+    <h3>{title}</h3>
+    <span class="soap-meta">{meta}</span>
+  </div>
+  {sections.map((section) => (
+    <div class="soap-section">
+      <button class="soap-section-header" onclick="toggleSoap(this)" aria-expanded="false" type="button">
+        <div class={`soap-letter ${section.letter}`}>{section.letter}</div>
+        <h4>{section.title}</h4>
+        <span class="soap-chevron" aria-hidden="true">▼</span>
+      </button>
+      <div class="soap-body">
+        {section.fields.map((field) => (
+          <div class="soap-field">
+            <label>{field.label}</label>
+            {Array.isArray(field.content)
+              ? <ul>{field.content.map((item) => <li>{item}</li>)}</ul>
+              : <p set:html={field.content} />}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+<script>
+function toggleSoap(btn) {
+  var isOpen = btn.classList.contains("open");
+  btn.classList.toggle("open", !isOpen);
+  btn.setAttribute("aria-expanded", String(!isOpen));
+  var body = btn.nextElementSibling;
+  if (body) body.classList.toggle("open", !isOpen);
+}
+window.toggleSoap = toggleSoap;
+</script>

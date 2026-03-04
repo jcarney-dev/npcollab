@@ -1,0 +1,159 @@
+---
+// src/layouts/BaseLayout.astro
+// The main shell: sidebar + topbar + page content
+// To add a new nav item: add an entry to the navItems arrays below
+
+export interface Props {
+  title: string;
+  section?: string;
+  breadcrumb?: string;
+}
+
+const { title, section = '', breadcrumb = '' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// ── NAV STRUCTURE ─────────────────────────────────────
+// To add a new page: add { label, href, icon } to the
+// appropriate group. Set active: true is handled automatically.
+const currentPath = Astro.url.pathname;
+
+const navGroups = [
+  {
+    label: 'Getting Started',
+    items: [
+      { label: 'Home',               href: `${base}`,                   icon: '🏠' },
+      { label: 'Scope of Practice',  href: `${base}scope/`,             icon: '🛡️' },
+      { label: 'Patient Assessment', href: `${base}assessment/`,        icon: '📋' },
+    ]
+  },
+  {
+    label: 'Clinical Modules',
+    items: [
+      { label: 'Eyes (Ophthalmology)',     href: `${base}modules/eyes/`,  icon: '👁️' },
+      { label: 'ENT (Ears, Nose, Throat)', href: `${base}modules/ent/`,   icon: '👂' },
+      { label: 'Cardiac',                  href: '#',                      icon: '❤️',  disabled: true, coming: true },
+      { label: 'Respiratory',              href: '#',                      icon: '🫁',  disabled: true, coming: true },
+      { label: 'Gastrointestinal',         href: '#',                      icon: '🫃',  disabled: true, coming: true },
+      { label: 'MSK',                      href: '#',                      icon: '🦴',  disabled: true, coming: true },
+    ]
+  },
+  {
+    label: 'Site',
+    items: [
+      { label: 'About & Contributors', href: `${base}about/`,     icon: '👥' },
+      { label: 'Support NPCollab',     href: `${base}support/`,   icon: '❤️' },
+      { label: 'Analytics',            href: `${base}analytics/`, icon: '📊' },
+    ]
+  }
+];
+
+function isActive(href: string) {
+  if (href === '#') return false;
+  if (href === base || href === base + '/') {
+    return currentPath === base || currentPath === base + '/';
+  }
+  return currentPath.startsWith(href);
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} — NPCollab</title>
+  <meta name="description" content="NPCollab - A free collaborative clinical learning resource for Australian Nurse Practitioners and NP students." />
+  <link rel="stylesheet" href={`${base}styles/global.css`} />
+
+  <!-- Analytics: replace with your Plausible or GA4 snippet -->
+  <!-- <script defer data-domain="npcollab.com" src="https://plausible.io/js/script.js"></script> -->
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- ══════ SIDEBAR ══════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href={base} class="wordmark">NP<span>Collab</span></a>
+      <span class="tagline">Australian Nurse Practitioner Resources</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      {navGroups.map(group => (
+        <div>
+          <span class="nav-section-label">{group.label}</span>
+          {group.items.map(item => (
+            <a
+              href={item.disabled ? undefined : item.href}
+              class={`nav-item ${isActive(item.href) ? 'active' : ''} ${item.disabled ? 'disabled' : ''}`}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              <span class="nav-icon" aria-hidden="true">{item.icon}</span>
+              {item.label}
+              {item.coming && <span style="margin-left:auto;font-size:0.6rem;background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:3px;color:rgba(255,255,255,0.4)">SOON</span>}
+            </a>
+          ))}
+        </div>
+      ))}
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="support-badge">
+        <p>Free forever for Australian NPs. Help cover hosting costs.</p>
+        <a href={`${base}support/`} class="btn-support">☕ Support NPCollab</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <!-- ══════ MAIN ══════ -->
+  <div class="main-content">
+
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:14px">
+        <button class="hamburger" onclick="toggleSidebar()" aria-label="Open menu">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <div class="topbar-breadcrumb">
+          <a href={base} style="color:var(--text-muted);text-decoration:none">NPCollab</a>
+          {breadcrumb && <span> → <span>{breadcrumb}</span></span>}
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="pill-badge">🇦🇺 AU Resources</span>
+        <span class="pill-badge">AHPRA Aligned</span>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <slot />
+    </main>
+
+    <footer class="page-footer">
+      <div>© {new Date().getFullYear()} NPCollab · Built by NPs, for NPs ·
+        <a href="https://www.nursingmidwiferyboard.gov.au" target="_blank" rel="noopener">NMBA</a> ·
+        <a href="https://www.ahpra.gov.au" target="_blank" rel="noopener">AHPRA</a>
+      </div>
+      <div>⚠️ Educational purposes only. Always apply your own clinical judgement.</div>
+    </footer>
+  </div>
+</div>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar')!.classList.toggle('open');
+    document.getElementById('overlay')!.classList.toggle('show');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar')!.classList.remove('open');
+    document.getElementById('overlay')!.classList.remove('show');
+  }
+  // Make closeSidebar available globally for the overlay onclick
+  (window as any).toggleSidebar = toggleSidebar;
+  (window as any).closeSidebar = closeSidebar;
+</script>
+</body>
+</html>

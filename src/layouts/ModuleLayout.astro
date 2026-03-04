@@ -1,0 +1,51 @@
+---
+// src/layouts/ModuleLayout.astro
+// Wraps clinical module pages with the tab interface
+// Props: title, moduleId, icon, description, activeTab
+
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  moduleId: string;
+  icon: string;
+  description: string;
+  activeTab: 'overview' | 'assessment' | 'soap' | 'resources' | 'quiz';
+}
+
+const { title, moduleId, icon, description, activeTab } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const tabs = [
+  { id: 'overview',   label: 'Overview' },
+  { id: 'assessment', label: 'Assessment' },
+  { id: 'soap',       label: 'SOAP Note' },
+  { id: 'resources',  label: 'Resources' },
+  { id: 'quiz',       label: 'Quiz' },
+];
+---
+
+<BaseLayout title={title} breadcrumb={title}>
+  <div class="page-header">
+    <div class="label">Clinical Module</div>
+    <h1>{icon} {title}</h1>
+    <p>{description}</p>
+  </div>
+
+  <div class="module-tabs" role="tablist">
+    {tabs.map(tab => (
+      <a
+        href={`${base}modules/${moduleId}/${tab.id === 'overview' ? '' : tab.id + '/'}`}
+        class={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+        role="tab"
+        aria-selected={activeTab === tab.id}
+      >
+        {tab.label}
+      </a>
+    ))}
+  </div>
+
+  <div class="tab-content active">
+    <slot />
+  </div>
+</BaseLayout>
