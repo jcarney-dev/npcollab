@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="About" breadcrumb="About & Contributors">
   <div class="page-header">
@@ -9,20 +9,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </div>
   <div class="content-prose">
     <h2>Our Mission</h2>
-    <p>NPCollab exists to provide free, high-quality, evidence-based clinical learning resources for Australian Nurse Practitioners — whether you are just starting out in your NP career, completing your Master's degree, or looking for a quick clinical reference.</p>
+    <p>NPCollab exists to provide free, high-quality, evidence-based clinical learning resources for Australian Nurse Practitioners — whether you are just starting out, completing your Masters, or looking for a quick clinical reference.</p>
     <p>Every resource on NPCollab is:</p>
     <ul>
       <li><strong>Free</strong> — no paywalls, no subscriptions, no advertising</li>
-      <li><strong>Australian-contextualised</strong> — AHPRA-aligned, uses Australian guidelines (TG, NMBA, RACGP)</li>
+      <li><strong>Australian-contextualised</strong> — AHPRA-aligned, uses Australian guidelines</li>
       <li><strong>Clinically grounded</strong> — written and reviewed by practising NPs</li>
       <li><strong>Open to contribution</strong> — via GitHub for those who want to add or improve content</li>
     </ul>
     <div class="highlight-box">
       <h4>Important Disclaimer</h4>
-      <p>All content on NPCollab is for <strong>educational purposes only</strong>. It does not constitute clinical advice. Always apply your own clinical judgement, refer to current Australian guidelines, and consult with colleagues when managing complex presentations. NPCollab is not a substitute for formal clinical supervision, employer credentialing requirements, or the NMBA Standards for Practice.</p>
+      <p>All content on NPCollab is for <strong>educational purposes only</strong>. It does not constitute clinical advice. Always apply your own clinical judgement, refer to current Australian guidelines, and consult with colleagues when managing complex presentations.</p>
     </div>
     <h2>Contributors</h2>
-    <p>NPCollab is maintained by a small team of practising Australian Nurse Practitioners who contribute in their own time.</p>
     <div class="contributors-grid">
       <div class="contributor-card">
         <div class="contributor-avatar">🩺</div>
@@ -38,16 +37,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       </div>
     </div>
     <h2>How to Contribute</h2>
-    <p>NPCollab is built on GitHub. Content is stored as Markdown files — if you can write a Word document, you can contribute to NPCollab. You do not need to know how to code.</p>
     <ol>
       <li>Visit the NPCollab GitHub repository</li>
-      <li>Open the relevant content file (e.g. <code>src/content/modules/ent/index.md</code>)</li>
-      <li>Click the pencil (edit) icon</li>
-      <li>Make your changes and submit a pull request with a brief description</li>
-      <li>The site maintainer will review and merge approved contributions</li>
+      <li>Open the relevant content file</li>
+      <li>Click the pencil edit icon</li>
+      <li>Make your changes and submit a pull request</li>
+      <li>The maintainer will review and merge approved contributions</li>
     </ol>
-    <div class="info-box">
-      <p>📬 <strong>Want to contribute a new module?</strong> Raise an issue on GitHub describing the module you would like to add and we will set up the template structure for you.</p>
-    </div>
   </div>
 </BaseLayout>

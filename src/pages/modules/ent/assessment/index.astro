@@ -1,5 +1,5 @@
 ---
-import ModuleLayout from '../../@layouts/ModuleLayout.astro';
+import ModuleLayout from '../../../../layouts/ModuleLayout.astro';
 ---
 <ModuleLayout title="ENT (Ears, Nose & Throat)" moduleId="ent" icon="👂" description="Assessment framework, SOAP note, resources, and quiz for ENT presentations" activeTab="assessment">
   <div class="content-prose">
@@ -12,7 +12,7 @@ import ModuleLayout from '../../@layouts/ModuleLayout.astro';
           <li>Hearing loss — one or both ears, sudden or gradual?</li>
           <li>Discharge — colour, consistency, odour</li>
           <li>Tinnitus — character, duration, pulsatile?</li>
-          <li>Vertigo and dizziness — type, triggers, associated nausea/vomiting</li>
+          <li>Vertigo and dizziness — type, triggers, associated nausea</li>
           <li>Recent URTI, swimming, or ear instrumentation</li>
           <li>Previous ear infections or surgery</li>
         </ul>
@@ -20,13 +20,13 @@ import ModuleLayout from '../../@layouts/ModuleLayout.astro';
       <div class="assessment-card">
         <div class="card-header"><div class="icon-circle">👃</div><h4>Nasal and Sinus Symptoms</h4></div>
         <ul>
-          <li>Congestion and obstruction — duration, unilateral or bilateral</li>
+          <li>Congestion — duration, unilateral or bilateral?</li>
           <li>Discharge — anterior or posterior, colour, consistency</li>
           <li>Anosmia or hyposmia</li>
-          <li>Facial pain or pressure — location, worse on bending?</li>
+          <li>Facial pain or pressure — worse on bending?</li>
           <li>Epistaxis — frequency, site, volume, precipitants</li>
-          <li>Allergy history — seasonal vs perennial, known triggers</li>
-          <li>NSAID sensitivity (nasal polyp risk)</li>
+          <li>Allergy history — seasonal vs perennial</li>
+          <li>NSAID sensitivity — nasal polyp risk</li>
         </ul>
       </div>
       <div class="assessment-card">
@@ -36,20 +36,19 @@ import ModuleLayout from '../../@layouts/ModuleLayout.astro';
           <li>Odynophagia vs dysphagia</li>
           <li>Voice change — hoarseness onset and duration</li>
           <li>Drooling or difficulty opening mouth</li>
-          <li>Uvula position (central or deviated?)</li>
+          <li>Uvula position — central or deviated?</li>
           <li>Fever, tonsillar exudate</li>
-          <li>McIsaac score criteria (strep risk)</li>
+          <li>McIsaac score criteria for strep risk</li>
         </ul>
       </div>
       <div class="assessment-card">
-        <div class="card-header"><div class="icon-circle">📋</div><h4>Systemic and Background</h4></div>
+        <div class="card-header"><div class="icon-circle">📋</div><h4>Background History</h4></div>
         <ul>
-          <li>Immunosuppression (increased risk unusual pathogens)</li>
-          <li>Diabetes (increased risk malignant otitis externa)</li>
-          <li>Anticoagulants (epistaxis management)</li>
-          <li>Occupation noise exposure (hearing loss)</li>
-          <li>Smoking history (head and neck cancer risk)</li>
-          <li>Recent travel (tropical infections)</li>
+          <li>Immunosuppression — increased risk of unusual pathogens</li>
+          <li>Diabetes — increased risk malignant otitis externa</li>
+          <li>Anticoagulants — epistaxis management implications</li>
+          <li>Occupation noise exposure — hearing loss</li>
+          <li>Smoking history — head and neck cancer risk</li>
           <li>Childhood ear disease or grommets</li>
         </ul>
       </div>
@@ -61,40 +60,20 @@ import ModuleLayout from '../../@layouts/ModuleLayout.astro';
         <ul>
           <li>Inspect pinna, post-auricular area, EAC</li>
           <li>Otoscopy: TM colour, light reflex, mobility, perforation</li>
-          <li>Pneumatic otoscopy (effusion assessment)</li>
-          <li>Tragal tenderness (otitis externa)</li>
+          <li>Pneumatic otoscopy for effusion assessment</li>
+          <li>Tragal tenderness for otitis externa</li>
           <li>Tuning fork tests: Rinne and Weber</li>
-        </ul>
-      </div>
-      <div class="assessment-card">
-        <div class="card-header"><div class="icon-circle">🔍</div><h4>Nasal Examination</h4></div>
-        <ul>
-          <li>External inspection — symmetry, deformity</li>
-          <li>Anterior rhinoscopy (or nasal speculum)</li>
-          <li>Nasal septum position and vasculature</li>
-          <li>Turbinate appearance (pallor or congestion)</li>
-          <li>Polyp assessment</li>
-          <li>Facial sinus percussion and transillumination</li>
         </ul>
       </div>
       <div class="assessment-card">
         <div class="card-header"><div class="icon-circle">💡</div><h4>Throat Examination</h4></div>
         <ul>
           <li>Inspect lips, buccal mucosa, teeth and gums</li>
-          <li>Tonsils — size (1–4), exudate, asymmetry</li>
+          <li>Tonsils — size 1 to 4, exudate, asymmetry</li>
           <li>Posterior pharyngeal wall</li>
           <li>Uvula — central or deviated</li>
-          <li>Laryngoscopy if hoarseness or stridor</li>
-        </ul>
-      </div>
-      <div class="assessment-card">
-        <div class="card-header"><div class="icon-circle">🦷</div><h4>Head and Neck</h4></div>
-        <ul>
           <li>Cervical lymphadenopathy — size, tenderness, mobility</li>
-          <li>Thyroid palpation</li>
-          <li>Parotid and submandibular glands</li>
-          <li>Facial nerve function</li>
-          <li>Cranial nerve screen if indicated</li>
+          <li>Laryngoscopy if hoarseness or stridor</li>
         </ul>
       </div>
     </div>

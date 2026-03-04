@@ -1,8 +1,8 @@
 ---
-import ModuleLayout from '@layouts/ModuleLayout.astro';
-import Quiz from '@components/Quiz.astro';
-
-const questions = await import('@content/modules/eyes/quiz.json').then(m => m.default);
+import ModuleLayout from '../../../../layouts/ModuleLayout.astro';
+import Quiz from '../../../../components/Quiz.astro';
+const res = await fetch(new URL('../../../../content/modules/eyes/quiz.json', import.meta.url));
+const questions = await res.json().catch(() => []);
 ---
 <ModuleLayout title="Eyes (Ophthalmology)" moduleId="eyes" icon="👁️" description="Assessment framework, SOAP note, resources, and quiz for ophthalmic presentations" activeTab="quiz">
   <div style="margin-bottom:24px">

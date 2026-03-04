@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Patient Assessment" breadcrumb="Patient Assessment">
   <div class="page-header">
@@ -9,23 +9,21 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   </div>
   <div class="content-prose">
     <h2>The NP Assessment Approach</h2>
-    <p>As a Nurse Practitioner, your assessment must go beyond the immediate presenting complaint. You are providing advanced practice care, which means your assessment should be systematic, holistic, and explicitly document your clinical reasoning throughout.</p>
-
+    <p>As a Nurse Practitioner, your assessment must go beyond the immediate presenting complaint. You are providing advanced practice care — your assessment should be systematic, holistic, and explicitly document your clinical reasoning throughout.</p>
     <div class="highlight-box">
       <h4>OLDCARTS — Symptom History Framework</h4>
       <p>Use this mnemonic for every presenting symptom:</p>
       <ul>
-        <li><strong>O</strong>nset — When did it start? Was it sudden or gradual?</li>
+        <li><strong>O</strong>nset — When did it start? Sudden or gradual?</li>
         <li><strong>L</strong>ocation — Where exactly? Does it radiate?</li>
         <li><strong>D</strong>uration — How long does it last? Constant or intermittent?</li>
-        <li><strong>C</strong>haracter — What does it feel like? (sharp, dull, burning, pressure)</li>
+        <li><strong>C</strong>haracter — What does it feel like? Sharp, dull, burning, pressure?</li>
         <li><strong>A</strong>ssociated symptoms — What else accompanies it?</li>
-        <li><strong>R</strong>elieving/aggravating factors — What makes it better or worse?</li>
+        <li><strong>R</strong>elieving and aggravating factors — What makes it better or worse?</li>
         <li><strong>T</strong>reatments tried — What has the patient already tried?</li>
         <li><strong>S</strong>everity — Pain or impact scale 0–10</li>
       </ul>
     </div>
-
     <h2>Comprehensive History Components</h2>
     <div class="assessment-grid">
       <div class="assessment-card">
@@ -43,7 +41,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
         <ul>
           <li>Current medical conditions</li>
           <li>Previous surgeries and hospitalisations</li>
-          <li>Current medications (including OTC, herbal)</li>
+          <li>Current medications including OTC and herbal</li>
           <li>Allergies and adverse drug reactions</li>
           <li>Immunisation history</li>
         </ul>
@@ -51,17 +49,17 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       <div class="assessment-card">
         <div class="card-header"><div class="icon-circle">👨‍👩‍👧</div><h4>Family History</h4></div>
         <ul>
-          <li>First-degree relatives' significant conditions</li>
+          <li>First-degree relatives significant conditions</li>
           <li>Hereditary conditions relevant to complaint</li>
           <li>Cardiac, cancer, metabolic disease history</li>
-          <li>Cause of death (parents and siblings)</li>
+          <li>Cause of death of parents and siblings</li>
         </ul>
       </div>
       <div class="assessment-card">
         <div class="card-header"><div class="icon-circle">🌿</div><h4>Social History</h4></div>
         <ul>
-          <li>Smoking (pack-year history)</li>
-          <li>Alcohol (standard drinks per week)</li>
+          <li>Smoking pack-year history</li>
+          <li>Alcohol standard drinks per week</li>
           <li>Illicit or recreational substances</li>
           <li>Occupation and occupational exposures</li>
           <li>Living situation and social supports</li>
@@ -69,29 +67,25 @@ import BaseLayout from '@layouts/BaseLayout.astro';
         </ul>
       </div>
     </div>
-
     <h2>Physical Examination Principles</h2>
-    <p>Examinations follow the standard sequence: <strong>Inspect → Palpate → Percuss → Auscultate</strong> (modified for each body system). Always begin with general inspection.</p>
+    <p>Follow the standard sequence: <strong>Inspect → Palpate → Percuss → Auscultate</strong> (modified per system). Always begin with general inspection.</p>
     <ul>
       <li>Document positive and relevant negative findings</li>
       <li>Use anatomical landmarks and standardised terminology</li>
       <li>Compare bilateral structures where applicable</li>
       <li>Record vital signs in full on every encounter</li>
     </ul>
-
     <h2>Clinical Reasoning Framework</h2>
-    <p>After your history and examination, document your clinical reasoning explicitly:</p>
     <ol>
-      <li><strong>Problem list:</strong> What are all the active problems?</li>
-      <li><strong>Differential diagnosis:</strong> Most likely to least likely (minimum 3)</li>
-      <li><strong>Investigations:</strong> What diagnostics do you need and why?</li>
+      <li><strong>Problem list:</strong> All active problems</li>
+      <li><strong>Differential diagnosis:</strong> Most to least likely — minimum 3</li>
+      <li><strong>Investigations:</strong> What diagnostics and why?</li>
       <li><strong>Management plan:</strong> Pharmacological, non-pharmacological, referral</li>
-      <li><strong>Safety netting:</strong> What red flags must the patient return for?</li>
+      <li><strong>Safety netting:</strong> Red flags to return for</li>
       <li><strong>Follow-up:</strong> When and who?</li>
     </ol>
-
     <div class="info-box">
-      <p>💡 <strong>Medicolegally:</strong> If it is not documented, it was not done. Your assessment notes are both a clinical tool and a legal document. Be specific, use precise language, and avoid ambiguous abbreviations.</p>
+      <p>💡 <strong>Medicolegally:</strong> If it is not documented, it was not done. Your notes are both a clinical tool and a legal document.</p>
     </div>
   </div>
 </BaseLayout>
