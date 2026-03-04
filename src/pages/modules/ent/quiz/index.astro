@@ -1,8 +1,7 @@
 ---
 import ModuleLayout from '../../../../layouts/ModuleLayout.astro';
 import Quiz from '../../../../components/Quiz.astro';
-const res = await fetch(new URL('../../../../content/modules/ent/quiz.json', import.meta.url));
-const questions = await res.json().catch(() => []);
+import questions from '../../../../content/modules/ent/quiz.json';
 ---
 <ModuleLayout title="ENT (Ears, Nose & Throat)" moduleId="ent" icon="👂" description="Assessment framework, SOAP note, resources, and quiz for ENT presentations" activeTab="quiz">
   <div style="margin-bottom:24px">
