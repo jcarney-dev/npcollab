@@ -1,0 +1,202 @@
+---
+import ModuleLayout from '../../../layouts/ModuleLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<ModuleLayout title="Respiratory" moduleId="respiratory" icon="🫁" description="Dyspnoea differentials, asthma, COPD, pneumonia, PE, and spirometry interpretation" activeTab="overview">
+  <div class="content-prose">
+    <h2>Clinical Overview</h2>
+    <p>Respiratory presentations range from acute life-threatening emergencies to chronic disease management. As a Nurse Practitioner, your core skills are rapid assessment of respiratory distress, differentiating obstructive from restrictive and infective pathology, and knowing when to escalate versus manage in primary care.</p>
+
+    <div class="highlight-box">
+      <h4>⚠️ Red Flags — Call 000 / Emergency Transfer Immediately</h4>
+      <ul>
+        <li>SpO2 &lt;92% on air (or &lt;88% in known COPD) — or rapidly falling</li>
+        <li>RR &gt;30 breaths/min or accessory muscle use at rest</li>
+        <li>Silent chest on auscultation in asthma — near-fatal attack</li>
+        <li>Cyanosis — central or peripheral</li>
+        <li>Altered consciousness or exhaustion in respiratory distress</li>
+        <li>Tension pneumothorax — absent breath sounds, tracheal deviation, haemodynamic instability</li>
+        <li>Massive haemoptysis (&gt;100mL / 24h)</li>
+        <li>Stridor — upper airway obstruction</li>
+        <li>Suspected PE with haemodynamic compromise</li>
+      </ul>
+    </div>
+
+    <h2>Dyspnoea — The Critical Differentials</h2>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🚨</div><h4>Acute — Must Not Miss</h4></div>
+        <ul>
+          <li>Acute severe asthma</li>
+          <li>Acute exacerbation of COPD (AECOPD)</li>
+          <li>Pulmonary embolism</li>
+          <li>Pneumothorax (spontaneous or tension)</li>
+          <li>Acute pulmonary oedema (cardiac cause)</li>
+          <li>Pneumonia with sepsis</li>
+          <li>Anaphylaxis with bronchospasm</li>
+          <li>Foreign body airway obstruction</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🩺</div><h4>Chronic or Subacute</h4></div>
+        <ul>
+          <li>Asthma — poorly controlled or new diagnosis</li>
+          <li>COPD — stable or mild exacerbation</li>
+          <li>Pleural effusion</li>
+          <li>Lung malignancy</li>
+          <li>Interstitial lung disease</li>
+          <li>Cardiac failure (dyspnoea at rest or exertion)</li>
+          <li>Anaemia</li>
+          <li>Deconditioning and obesity</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Asthma</h2>
+    <p>Asthma is a chronic inflammatory airway disease characterised by variable airflow obstruction. Australian prevalence is approximately 11% — one of the highest in the world. NPs play a key role in chronic asthma management, education, and written action plan development.</p>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">📊</div><h4>Severity Classification</h4></div>
+        <ul>
+          <li>Mild intermittent — symptoms &lt;2 days/week, no nocturnal symptoms</li>
+          <li>Mild persistent — symptoms &gt;2 days/week, some nocturnal</li>
+          <li>Moderate persistent — daily symptoms, nocturnal &gt;1/week</li>
+          <li>Severe persistent — continuous symptoms, frequent nocturnal</li>
+          <li>Well controlled: no daytime sx, no reliever use, no waking, no limitation</li>
+          <li>Partially controlled: 1–2 of the above present</li>
+          <li>Uncontrolled: 3–4 of the above present</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">💊</div><h4>Stepwise Pharmacotherapy (GINA 2024)</h4></div>
+        <ul>
+          <li>Step 1: Low-dose ICS-formoterol PRN (preferred) or SABA PRN</li>
+          <li>Step 2: Low-dose ICS daily + SABA PRN</li>
+          <li>Step 3: Low-dose ICS-LABA daily + SABA PRN</li>
+          <li>Step 4: Medium/high-dose ICS-LABA daily</li>
+          <li>Step 5: Add tiotropium, anti-IgE, anti-IL5, or oral corticosteroid</li>
+          <li>SMART therapy: budesonide-formoterol as both maintenance and reliever</li>
+          <li>Review and step down when well controlled for 3 months</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Acute Severe Asthma</h2>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🚨</div><h4>Assessment of Severity</h4></div>
+        <ul>
+          <li>Mild: speaks in sentences, SpO2 ≥94%, RR &lt;25, HR &lt;110</li>
+          <li>Moderate: speaks in phrases, SpO2 ≥90%, wheeze audible</li>
+          <li>Severe: speaks in words, SpO2 &lt;90%, RR &gt;30, HR &gt;120, accessory muscles</li>
+          <li>Near-fatal: silent chest, cyanosis, poor respiratory effort, altered consciousness</li>
+          <li>PEFR &lt;50% predicted = severe; &lt;33% = near-fatal</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">💊</div><h4>Acute Management</h4></div>
+        <ul>
+          <li>Salbutamol 2.5–5mg nebulised or 4–8 puffs via spacer, repeat every 20 min</li>
+          <li>Ipratropium bromide 0.5mg nebulised — add for moderate to severe</li>
+          <li>Prednisolone 40–50mg oral (or IV hydrocortisone 100mg if unable to swallow)</li>
+          <li>Supplemental oxygen to target SpO2 93–95%</li>
+          <li>Call 000 for severe or near-fatal — do not delay</li>
+          <li>Magnesium sulphate IV — for severe cases in hospital setting</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>COPD</h2>
+    <p>COPD is a progressive, largely irreversible airflow obstruction caused by chronic airway inflammation, typically from smoking. It affects approximately 1.5 million Australians, with many undiagnosed.</p>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">📉</div><h4>GOLD Staging (Post-Bronchodilator FEV₁)</h4></div>
+        <ul>
+          <li>GOLD 1 (Mild): FEV₁ ≥80% predicted</li>
+          <li>GOLD 2 (Moderate): FEV₁ 50–79% predicted</li>
+          <li>GOLD 3 (Severe): FEV₁ 30–49% predicted</li>
+          <li>GOLD 4 (Very severe): FEV₁ &lt;30% predicted</li>
+          <li>All require FEV₁/FVC &lt;0.70 post-bronchodilator for diagnosis</li>
+          <li>CAT score and mMRC dyspnoea scale guide symptom severity</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">💊</div><h4>Stable COPD Management</h4></div>
+        <ul>
+          <li>Smoking cessation — most effective intervention at any stage</li>
+          <li>LAMA (tiotropium, umeclidinium) — first-line bronchodilator</li>
+          <li>LABA (salmeterol, formoterol) — add if symptomatic on LAMA</li>
+          <li>LAMA + LABA combination — for persistent symptoms</li>
+          <li>ICS — only if frequent exacerbations AND eosinophils ≥300</li>
+          <li>Pulmonary rehabilitation — improves exercise tolerance and QoL</li>
+          <li>Influenza, pneumococcal, COVID, and pertussis vaccinations</li>
+          <li>Oxygen therapy if resting SpO2 ≤88% on air</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Pneumonia</h2>
+    <p>Community-acquired pneumonia (CAP) is a common and potentially serious infection. NPs must assess severity, guide antibiotic choice, and determine appropriate site of care.</p>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🌡️</div><h4>CURB-65 Severity Score</h4></div>
+        <ul>
+          <li>C — Confusion (new)</li>
+          <li>U — Urea &gt;7 mmol/L</li>
+          <li>R — RR ≥30 breaths/min</li>
+          <li>B — BP systolic &lt;90 or diastolic ≤60 mmHg</li>
+          <li>65 — Age ≥65 years</li>
+          <li>Score 0–1: low risk — outpatient treatment</li>
+          <li>Score 2: moderate risk — consider short admission</li>
+          <li>Score 3–5: high risk — hospital admission, ICU if ≥4</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">💊</div><h4>CAP Antibiotic Treatment (Therapeutic Guidelines)</h4></div>
+        <ul>
+          <li>Mild CAP (outpatient): Amoxicillin 1g TDS for 5 days</li>
+          <li>If atypical suspected (younger, dry cough, insidious): Doxycycline 100mg BD for 5–7 days</li>
+          <li>Penicillin allergy (non-anaphylactic): Doxycycline or Cefalexin</li>
+          <li>Penicillin allergy (anaphylactic): Doxycycline or Moxifloxacin</li>
+          <li>Moderate CAP (inpatient): Amoxicillin + Doxycycline, or Ceftriaxone + Azithromycin</li>
+          <li>Always review allergy history and local resistance patterns</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Pulmonary Embolism</h2>
+    <div class="assessment-grid">
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">🩸</div><h4>Wells Score for PE</h4></div>
+        <ul>
+          <li>Clinical signs of DVT (+3)</li>
+          <li>PE more likely than alternative diagnosis (+3)</li>
+          <li>HR &gt;100 (+1.5)</li>
+          <li>Immobilisation or surgery in past 4 weeks (+1.5)</li>
+          <li>Previous DVT or PE (+1.5)</li>
+          <li>Haemoptysis (+1)</li>
+          <li>Malignancy (+1)</li>
+          <li>Score ≤4: low probability — D-dimer first</li>
+          <li>Score &gt;4: high probability — proceed to CTPA</li>
+        </ul>
+      </div>
+      <div class="assessment-card">
+        <div class="card-header"><div class="icon-circle">📊</div><h4>Spirometry Interpretation</h4></div>
+        <ul>
+          <li>FVC — total air exhaled in a forced breath</li>
+          <li>FEV₁ — air exhaled in first second</li>
+          <li>FEV₁/FVC ratio — key discriminating value</li>
+          <li>Obstructive: FEV₁/FVC &lt;0.70, FEV₁ reduced, FVC normal or reduced</li>
+          <li>Restrictive: FEV₁/FVC ≥0.70, FVC reduced, FEV₁ reduced proportionally</li>
+          <li>Mixed: FEV₁/FVC &lt;0.70 AND FVC &lt;80% predicted</li>
+          <li>Reversibility: ≥12% and 200mL improvement in FEV₁ post-bronchodilator = significant</li>
+          <li>Always perform post-bronchodilator for COPD diagnosis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p>👉 Continue to the <a href={`${base}modules/respiratory/assessment/`}>Assessment tab</a> for targeted respiratory history and examination steps.</p>
+    </div>
+  </div>
+</ModuleLayout>

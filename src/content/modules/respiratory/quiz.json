@@ -1,0 +1,122 @@
+[
+  {
+    "q": "A 28-year-old female with known asthma presents acutely. She is speaking in words only, RR 32, HR 128, SpO2 88% on air, with bilateral wheeze and use of accessory muscles. How do you classify this attack and what is the immediate action?",
+    "options": ["Mild asthma — give salbutamol 2 puffs and review in 30 minutes", "Moderate asthma — nebulise salbutamol and give oral prednisolone", "Severe asthma — call 000, give back-to-back salbutamol nebs, ipratropium, and systemic corticosteroids immediately", "Near-fatal asthma — reassure and wait for spontaneous improvement"],
+    "correct": 2,
+    "explanation": "Speaking in words only, SpO2 88%, RR 32, and HR 128 with accessory muscle use meets criteria for severe acute asthma. Call 000 immediately. Initiate salbutamol 5mg nebulised (repeat every 20 minutes), add ipratropium 0.5mg, give prednisolone 50mg or IV hydrocortisone, and target SpO2 93–95% with supplemental oxygen."
+  },
+  {
+    "q": "When interpreting spirometry, which pattern is consistent with COPD?",
+    "options": ["FEV₁/FVC ≥0.70 with reduced FVC — restrictive pattern", "FEV₁/FVC <0.70 post-bronchodilator with reduced FEV₁ — obstructive, not fully reversible", "FEV₁/FVC <0.70 with ≥12% reversibility — consistent with asthma", "Normal spirometry — excludes COPD diagnosis"],
+    "correct": 1,
+    "explanation": "COPD requires a post-bronchodilator FEV₁/FVC ratio <0.70. The airflow obstruction is not fully reversible (unlike asthma). Spirometry must be performed after bronchodilator administration for COPD diagnosis. Normal spirometry does not exclude early COPD if symptoms are present."
+  },
+  {
+    "q": "A 67-year-old male with COPD has a resting SpO2 of 87% on two separate occasions when clinically stable. What is the threshold for considering long-term oxygen therapy (LTOT)?",
+    "options": ["SpO2 ≤92% on air qualifies for LTOT automatically", "SpO2 ≤88% on air on two separate measurements at least 3 weeks apart when clinically stable", "SpO2 <94% on exertion only qualifies for LTOT", "LTOT is only indicated if the patient requests it"],
+    "correct": 1,
+    "explanation": "Australian guidelines recommend LTOT in COPD when resting SpO2 ≤88% (PaO2 ≤55 mmHg) on two measurements at least 3 weeks apart when clinically stable. LTOT for ≥15–16 hours per day has proven mortality benefit in severe COPD with chronic hypoxia."
+  },
+  {
+    "q": "Using the CURB-65 score, a 74-year-old woman with pneumonia has: new confusion, RR 28, BP 96/60, and urea 9.2 mmol/L. What is her score and recommended site of care?",
+    "options": ["Score 2 — outpatient oral antibiotics appropriate", "Score 3 — consider hospital admission", "Score 4 — hospital admission required, consider ICU assessment", "Score 5 — ICU admission required immediately"],
+    "correct": 2,
+    "explanation": "Confusion (+1) + Urea >7 (+1) + RR ≥30 — she is 28, so this does not score (+0) + BP systolic <90 (+1) + Age ≥65 (+1) = Score 4. CURB-65 ≥3 = high risk requiring hospital admission. Score 4–5 warrants ICU assessment."
+  },
+  {
+    "q": "A 35-year-old male smoker has a productive cough and dyspnoea. Spirometry shows FEV₁/FVC 0.62 post-bronchodilator with FEV₁ 52% predicted. What is the GOLD stage and first-line treatment?",
+    "options": ["GOLD 1 — education and smoking cessation only", "GOLD 2 — LAMA bronchodilator (e.g. tiotropium) and smoking cessation", "GOLD 3 — start ICS-LABA combination immediately", "GOLD 4 — refer for lung transplant assessment"],
+    "correct": 1,
+    "explanation": "FEV₁ 52% predicted = GOLD 2 (moderate, 50–79%). First-line is a long-acting bronchodilator — LAMA (tiotropium, umeclidinium) or LABA. Smoking cessation is the most effective intervention at any stage. ICS is not routinely first-line unless frequent exacerbations and eosinophils ≥300."
+  },
+  {
+    "q": "Which clinical feature most helps differentiate a spontaneous pneumothorax from an acute asthma attack in a tall thin 22-year-old male with sudden dyspnoea and chest pain?",
+    "options": ["Bilateral wheeze on auscultation", "Unilateral reduced or absent breath sounds with hyper-resonance on percussion on the affected side", "SpO2 of 94% on air", "Tachycardia of 110bpm"],
+    "correct": 1,
+    "explanation": "Unilateral absent breath sounds with hyper-resonance on percussion is the hallmark of pneumothorax. Asthma causes bilateral wheeze. A tension pneumothorax additionally causes tracheal deviation away from the affected side and haemodynamic instability — a life-threatening emergency."
+  },
+  {
+    "q": "According to current GINA guidelines, what is the preferred reliever therapy for mild asthma in adults (Step 1)?",
+    "options": ["SABA (salbutamol) alone PRN with no maintenance therapy", "Low-dose ICS-formoterol (e.g. budesonide-formoterol) PRN", "LABA monotherapy PRN", "Oral prednisolone PRN"],
+    "correct": 1,
+    "explanation": "GINA 2024 recommends low-dose ICS-formoterol PRN as the preferred Step 1 reliever for adults and adolescents. This provides both bronchodilation and anti-inflammatory protection with each use, reducing the risk of severe exacerbations compared to SABA-only therapy."
+  },
+  {
+    "q": "A patient using their salbutamol inhaler more than twice per week for symptom relief is classified as having:",
+    "options": ["Well-controlled asthma — SABA use up to daily is acceptable", "Partially controlled asthma — review and consider step-up", "Severe uncontrolled asthma — immediate oral steroids required", "Exercise-induced bronchoconstriction only — no change needed"],
+    "correct": 1,
+    "explanation": "Reliever use more than twice per week is a marker of at least partially controlled asthma and indicates need for review. It may signal the need for step-up of maintenance therapy, inhaler technique review, trigger identification, or a written asthma action plan update."
+  },
+  {
+    "q": "What is the key reason to avoid high-flow oxygen in a COPD patient with known chronic hypercapnia during an acute exacerbation?",
+    "options": ["Oxygen toxicity causes immediate lung damage at high concentrations", "Excess oxygen suppresses hypoxic respiratory drive and can worsen CO2 retention and respiratory acidosis", "High-flow oxygen causes bronchospasm in COPD patients", "Oxygen is only beneficial above SpO2 88% and has no effect below this"],
+    "correct": 1,
+    "explanation": "In chronic hypercapnic COPD, some patients rely partially on hypoxic drive. Excessive oxygen can suppress ventilatory drive, increase V/Q mismatch, and worsen hypercapnia. Target SpO2 88–92% in known COPD to balance adequate oxygenation with avoiding CO2 retention."
+  },
+  {
+    "q": "A 55-year-old woman on the oral contraceptive pill returns from a long-haul flight with sudden onset right pleuritic chest pain, dyspnoea, and haemoptysis. Her Wells score is 6. What is the most appropriate next investigation?",
+    "options": ["D-dimer — if negative, PE is excluded", "CT pulmonary angiogram (CTPA) — high probability PE, proceed directly", "Ventilation-perfusion (V/Q) scan only", "Echocardiogram to assess right heart strain"],
+    "correct": 1,
+    "explanation": "Wells score >4 = high probability PE. D-dimer is not useful in high-probability PE — it will likely be positive but adds no diagnostic value and delays CTPA. Proceed directly to CTPA. This patient has multiple risk factors: OCP, recent long-haul flight, haemoptysis."
+  },
+  {
+    "q": "First-line antibiotic for mild community-acquired pneumonia in an otherwise well adult with no allergies in Australian primary care is:",
+    "options": ["Azithromycin 500mg daily for 5 days", "Amoxicillin 1g three times daily for 5 days", "Moxifloxacin 400mg daily for 7 days", "Cefalexin 500mg four times daily for 7 days"],
+    "correct": 1,
+    "explanation": "Australian Therapeutic Guidelines recommend amoxicillin 1g TDS for 5 days as first-line for mild CAP in adults without allergy or atypical features. Doxycycline is added or substituted if atypical organisms (Mycoplasma, Chlamydophila) are suspected — typically in younger patients with gradual onset and dry cough."
+  },
+  {
+    "q": "A patient with asthma asks about the SMART regimen. What does SMART stand for and what is its advantage?",
+    "options": ["Stepwise Management And Reliever Therapy — uses different inhalers for maintenance and relief", "Single inhaler Maintenance And Reliever Therapy — budesonide-formoterol used as both daily maintenance and PRN reliever", "Steroid Minimising Asthma Reliever Therapy — reduces ICS dose", "Sustained release Medication And Reliever Treatment — once-daily dosing"],
+    "correct": 1,
+    "explanation": "SMART uses budesonide-formoterol (e.g. Symbicort) as both the daily maintenance inhaler and the as-needed reliever. Each reliever puff delivers ICS to reduce inflammation at the time of symptoms. SMART has been shown to reduce severe exacerbations and hospitalisations compared to fixed-dose ICS plus SABA."
+  },
+  {
+    "q": "Which finding on CXR is most consistent with a right-sided pleural effusion?",
+    "options": ["Hyperinflation with flattened diaphragms bilaterally", "Homogeneous opacification of the right lower zone with blunting of the costophrenic angle and meniscus sign", "Bilateral perihilar infiltrates in a butterfly pattern", "Unilateral hyperlucency with absent lung markings on the right"],
+    "correct": 1,
+    "explanation": "A pleural effusion appears as homogeneous opacification with blunting of the costophrenic angle and a meniscus sign (concave upper border). Bilateral perihilar infiltrates suggest pulmonary oedema. Hyperlucency with absent markings suggests pneumothorax. Flattened diaphragms suggest hyperinflation (COPD)."
+  },
+  {
+    "q": "A spirometry report shows FEV₁/FVC 0.78, FVC 58% predicted, FEV₁ 62% predicted. What pattern does this represent?",
+    "options": ["Obstructive — FEV₁/FVC is borderline low", "Restrictive — FEV₁/FVC ≥0.70 with reduced FVC", "Mixed obstructive and restrictive", "Normal spirometry"],
+    "correct": 1,
+    "explanation": "FEV₁/FVC ≥0.70 with reduced FVC (and proportionally reduced FEV₁) = restrictive pattern. Causes include pulmonary fibrosis, pleural disease, neuromuscular weakness, obesity, and kyphoscoliosis. Full lung function testing (TLC) is needed to confirm restriction."
+  },
+  {
+    "q": "What is the recommended duration of antibiotic therapy for mild community-acquired pneumonia according to Australian Therapeutic Guidelines?",
+    "options": ["3 days", "5 days", "10 days", "14 days"],
+    "correct": 1,
+    "explanation": "Australian Therapeutic Guidelines recommend 5 days of antibiotic therapy for mild CAP in adults. Shorter courses (5 days) have equivalent efficacy to longer courses and reduce adverse effects, Clostridioides difficile risk, and antimicrobial resistance. Review at 5 days and extend only if incomplete clinical response."
+  },
+  {
+    "q": "An asthmatic patient's PEFR is 210 L/min. Their personal best PEFR is 500 L/min. What percentage of personal best is this and what zone does it represent in a standard asthma action plan?",
+    "options": ["42% — green zone, continue usual medications", "42% — yellow zone, increase reliever and start prednisolone", "42% — red zone, call 000 immediately", "42% — orange zone, double ICS dose only"],
+    "correct": 1,
+    "explanation": "210/500 = 42% of personal best. Standard asthma action plans use: Green zone ≥80%, Yellow/amber zone 50–79% (increase reliever, consider oral steroids), Red zone <50% (call 000, continuous salbutamol). At 42%, this patient is in the red zone and requires emergency management."
+  },
+  {
+    "q": "Which medication is NOT recommended as first-line for stable COPD management according to current COPD-X guidelines?",
+    "options": ["Tiotropium (LAMA)", "Salmeterol (LABA)", "Inhaled corticosteroid (ICS) monotherapy", "Combination LAMA-LABA (e.g. umeclidinium-vilanterol)"],
+    "correct": 2,
+    "explanation": "ICS monotherapy is not recommended in COPD — it has no mortality benefit when used alone and increases pneumonia risk. ICS is used in combination with LABA (ICS-LABA) only in patients with frequent exacerbations and blood eosinophils ≥300 cells/μL. LAMAs are the preferred first-line bronchodilator."
+  },
+  {
+    "q": "A 42-year-old non-smoker with progressive dyspnoea and bilateral basal crackles has a CXR showing bilateral interstitial infiltrates. Spirometry reveals a restrictive pattern. What is the most likely diagnosis to consider?",
+    "options": ["COPD — common in non-smokers", "Interstitial lung disease (ILD) — refer to respiratory specialist", "Community-acquired pneumonia — start antibiotics", "Asthma — commence ICS-LABA"],
+    "correct": 1,
+    "explanation": "Progressive dyspnoea, bilateral basal crackles, interstitial infiltrates on CXR, and a restrictive spirometry pattern in a non-smoker is classic for interstitial lung disease (ILD) — e.g. idiopathic pulmonary fibrosis, hypersensitivity pneumonitis, connective tissue disease-related ILD. Urgent respiratory specialist referral is indicated."
+  },
+  {
+    "q": "What is the significance of a positive bronchodilator reversibility test in spirometry (≥12% and 200mL improvement in FEV₁)?",
+    "options": ["Confirms COPD diagnosis", "Suggests significant reversible airflow obstruction — consistent with asthma", "Indicates the patient needs surgery", "Rules out any respiratory diagnosis"],
+    "correct": 1,
+    "explanation": "A reversibility of ≥12% AND ≥200mL in FEV₁ post-bronchodilator is considered clinically significant and suggests asthma (reversible obstruction). In COPD, obstruction is largely irreversible. Note: some patients with asthma do not show reversibility at a single test, and some COPD patients show partial reversibility."
+  },
+  {
+    "q": "A patient with COPD has had 3 exacerbations in the past 12 months. Their blood eosinophil count is 380 cells/μL. Which addition to their current LAMA + LABA therapy is now supported by evidence?",
+    "options": ["Add oral theophylline for bronchodilation", "Add ICS — triple therapy (ICS-LABA-LAMA) reduces exacerbation frequency in this phenotype", "Add azithromycin prophylaxis as first choice", "Add oral prednisolone long-term"],
+    "correct": 1,
+    "explanation": "Triple therapy (ICS + LABA + LAMA) is recommended in COPD patients with frequent exacerbations (≥2/year or ≥1 hospitalisation) AND blood eosinophils ≥300 cells/μL. The eosinophil count predicts ICS response. Long-term oral steroids are avoided due to significant systemic side effects."
+  }
+]
