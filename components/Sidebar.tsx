@@ -22,7 +22,7 @@ const navGroups = [
       { label: 'Cardiac',               href: '/modules/cardiac',             icon: '❤️' },
       { label: 'Cardiovascular',        href: '/modules/cardiovascular',      icon: '🫀', disabled: true, coming: true },
       { label: 'Drugs & Alcohol',       href: '/modules/drugs-alcohol',       icon: '🧪', disabled: true, coming: true },
-      { label: 'Endocrine',             href: '/modules/endocrine',           icon: '🔬', disabled: true, coming: true },
+      { label: 'Endocrine',             href: '/modules/endocrine',           icon: '🔬' },
       { label: 'ENT',                   href: '/modules/ent',                 icon: '👂' },
       { label: 'General Medical',       href: '/modules/general-medical',     icon: '🩺', disabled: true, coming: true },
       { label: 'GI & Hepatobiliary',    href: '/modules/gi-hepatobiliary',    icon: '🫃', disabled: true, coming: true },
@@ -30,9 +30,9 @@ const navGroups = [
       { label: 'Integumentary',         href: '/modules/integumentary',       icon: '🩹', disabled: true, coming: true },
       { label: 'Maxillofacial/Dental',  href: '/modules/maxillofacial-dental',icon: '🦷', disabled: true, coming: true },
       { label: "Men's Health",          href: '/modules/mens-health',         icon: '👨', disabled: true, coming: true },
-      { label: 'Mental Health',         href: '/modules/mental-health',       icon: '🧠', disabled: true, coming: true },
-      { label: 'Musculoskeletal',       href: '/modules/musculoskeletal',     icon: '🦴', disabled: true, coming: true },
-      { label: 'Neurology',             href: '/modules/neurology',           icon: '🧬', disabled: true, coming: true },
+      { label: 'Mental Health',         href: '/modules/mental-health',       icon: '🧠' },
+      { label: 'MSK — Shoulder',         href: '/modules/musculoskeletal/shoulder', icon: '🦴' },
+      { label: 'Neurology',             href: '/modules/neurology',           icon: '🧬' },
       { label: 'Onco-Haematology',      href: '/modules/onco-haematology',   icon: '🩸', disabled: true, coming: true },
       { label: 'Ophthalmology',         href: '/modules/eyes',               icon: '👁️' },
       { label: 'Paediatrics',           href: '/modules/paediatrics',         icon: '👶', disabled: true, coming: true },
@@ -41,6 +41,13 @@ const navGroups = [
       { label: 'Surgical',              href: '/modules/surgical',            icon: '🔪', disabled: true, coming: true },
       { label: 'Toxicology',            href: '/modules/toxicology',          icon: '⚗️', disabled: true, coming: true },
       { label: "Women's Health",        href: '/modules/womens-health',       icon: '👩', disabled: true, coming: true },
+    ]
+  },
+  {
+    label: 'Community',
+    items: [
+      { label: 'Job Board', href: '/community/jobs', icon: '💼', disabled: true, coming: true },
+      { label: 'News',      href: '/community/news', icon: '📰', disabled: true, coming: true },
     ]
   },
   {

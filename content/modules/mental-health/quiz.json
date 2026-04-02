@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 38-year-old woman presents with 3 weeks of low mood, anhedonia, poor sleep, fatigue, and difficulty concentrating. PHQ-9 score is 14. She has no suicidal ideation and no previous psychiatric history. What is the most appropriate initial management?",
+    "options": [
+      "Commence sertraline and refer for CBT via Better Access",
+      "Refer to psychiatry immediately",
+      "Prescribe diazepam 5mg TDS for 4 weeks",
+      "Watchful waiting for 4 weeks with no treatment"
+    ],
+    "correct": 0,
+    "explanation": "A PHQ-9 of 14 indicates moderate depression. First-line management per Australian guidelines is combined antidepressant (SSRI — sertraline is a standard first-line choice) and psychological intervention (CBT via Better Access Mental Health Care). Diazepam is not first-line for depression. Psychiatry referral is not required for uncomplicated moderate depression in NP practice. Watchful waiting alone is insufficient at this severity."
+  },
+  {
+    "q": "You are assessing a 28-year-old man with a new presentation of psychotic symptoms. Which investigation is MOST important to perform first?",
+    "options": [
+      "CT brain, UDS, TFTs, and blood glucose",
+      "MRI brain under general anaesthesia",
+      "Immediate antipsychotic therapy without investigations",
+      "EEG only"
+    ],
+    "correct": 0,
+    "explanation": "Before attributing psychosis to a primary psychiatric illness, organic causes must be excluded. CT brain (or MRI if available) excludes structural causes; UDS identifies substance-induced psychosis (cannabis, amphetamines); TFTs identify thyroid causes; blood glucose excludes hypoglycaemia-induced altered mental state. These are the priority investigations for first-episode psychosis."
+  },
+  {
+    "q": "A 55-year-old man on clozapine for treatment-resistant schizophrenia presents for a routine monitoring appointment. What is the MANDATORY monitoring requirement for clozapine in Australia?",
+    "options": [
+      "Regular FBC via the Clozapine Patient Monitoring Service (CPMS) — without safe ANC, clozapine cannot be dispensed",
+      "Monthly liver function tests only",
+      "Six-monthly ECG only",
+      "Annual fasting lipids and glucose only"
+    ],
+    "correct": 0,
+    "explanation": "Clozapine carries a risk of agranulocytosis — a potentially fatal reduction in neutrophils. In Australia, clozapine can only be dispensed if the patient is enrolled in the Clozapine Patient Monitoring Service (CPMS) and has a current safe absolute neutrophil count (ANC). Monitoring is weekly for the first 18 weeks, fortnightly to 12 months, then monthly. This is a non-negotiable safety requirement."
+  },
+  {
+    "q": "A patient presents with passive suicidal ideation — 'I've thought it would be easier if I wasn't here' — but denies a plan or intent. She has two children at home, is engaged with treatment, and agrees to a safety plan. How would you classify her risk?",
+    "options": [
+      "Low acute risk — document protective factors, develop safety plan, arrange follow-up",
+      "High risk — immediately call for involuntary hospitalisation",
+      "Moderate-high risk — prescribe benzodiazepines and discharge",
+      "No risk — passive ideation requires no further action"
+    ],
+    "correct": 0,
+    "explanation": "Passive suicidal ideation (without plan or intent) combined with strong protective factors (children, treatment engagement), good insight, and willingness to safety plan indicates low acute risk. The appropriate response is thorough documentation of risk assessment, co-development of a safety plan, and planned follow-up. All ideation requires documentation — passive ideation is never dismissed. High-risk features would include active plan, intent, access to means, previous attempts, or refusal to engage."
+  },
+  {
+    "q": "Which screening tool is most appropriate for initial assessment of depression severity in Australian primary care and NP practice?",
+    "options": [
+      "PHQ-9 (Patient Health Questionnaire-9)",
+      "Hamilton Rating Scale for Depression (HAM-D)",
+      "Beck Depression Inventory (BDI)",
+      "Columbia Suicide Severity Rating Scale (C-SSRS)"
+    ],
+    "correct": 0,
+    "explanation": "The PHQ-9 is the gold standard depression screening and severity tool for primary care and NP settings in Australia. It is free, self-administered, takes 2–3 minutes, and directly maps to DSM-5 criteria. It is recommended by RACGP and is used in the Better Access programme. The HAM-D is clinician-administered. The BDI is less commonly used in Australian primary care. The C-SSRS is a suicide severity rating scale, not a depression measure."
+  },
+  {
+    "q": "A patient with GAD is asking about benzodiazepines for their anxiety. What is the MOST accurate statement about benzodiazepine use in GAD?",
+    "options": [
+      "Benzodiazepines are not recommended as first-line treatment — they carry dependence risk and do not treat the underlying disorder",
+      "Benzodiazepines are first-line therapy for GAD and should be commenced immediately",
+      "Benzodiazepines have no role in any anxiety disorder",
+      "Long-term benzodiazepine use is safe and appropriate for GAD"
+    ],
+    "correct": 0,
+    "explanation": "Per Australian and international guidelines, benzodiazepines are NOT first-line for GAD. They carry significant risks of tolerance, dependence, withdrawal, cognitive impairment, and falls in older adults. They do not address the underlying anxiety disorder. First-line is CBT and/or SSRI/SNRI. Benzodiazepines may have a limited role as short-term adjuncts in specific situations (e.g., acute panic attack), but long-term use in GAD is not recommended."
+  },
+  {
+    "q": "You are commencing sertraline for a patient with moderate depression. What is the most important advice to give at initiation?",
+    "options": [
+      "Therapeutic response takes 4–6 weeks; initial anxiety or GI upset is common and usually transient; do not stop abruptly",
+      "They should feel better within 48 hours; if not, the medication is not working",
+      "Sertraline can be stopped at any time without tapering",
+      "They must avoid all physical activity while taking sertraline"
+    ],
+    "correct": 0,
+    "explanation": "Key patient education for SSRI initiation includes: (1) full therapeutic effect takes 4–6 weeks — patients may be disappointed by lack of early response; (2) common initial side effects include GI upset, headache, and increased anxiety — usually transient; (3) abrupt cessation can cause discontinuation syndrome — always taper; (4) review at 2 weeks after initiation. Early dropout is common without this education."
+  },
+  {
+    "q": "A 22-year-old woman is prescribed sodium valproate for bipolar disorder. What is MANDATORY before prescribing valproate to a woman of reproductive age in Australia?",
+    "options": [
+      "Contraceptive counselling and documentation under the Valproate Pregnancy Prevention Programme — valproate is highly teratogenic",
+      "Pregnancy test only — no other requirements",
+      "Obtain psychiatry approval only",
+      "No special requirements — valproate is safe in pregnancy"
+    ],
+    "correct": 0,
+    "explanation": "Valproate is one of the most teratogenic medications in clinical use — it causes neural tube defects, cognitive impairment (average IQ reduction of 8–10 points), and foetal valproate syndrome. In Australia, the Valproate Pregnancy Prevention Programme requires mandatory contraceptive counselling, documentation that the patient understands the risks, and is enrolled in the programme before prescribing. Never prescribe valproate to a woman of reproductive age without this process."
+  },
+  {
+    "q": "A patient with alcohol use disorder is brought to the emergency department intoxicated and vomiting. Before giving IV dextrose, what must be administered?",
+    "options": [
+      "Parenteral thiamine (vitamin B1) — to prevent Wernicke's encephalopathy",
+      "Oral multivitamins",
+      "IV magnesium only",
+      "Nothing — dextrose can be given first"
+    ],
+    "correct": 0,
+    "explanation": "Wernicke's encephalopathy is caused by thiamine (B1) deficiency, which is extremely common in people with alcohol use disorder. Glucose administration without preceding thiamine can precipitate acute Wernicke's by consuming the last available thiamine. In any patient with suspected alcohol use disorder or malnutrition, parenteral thiamine (500mg IV/IM TDS for 3 days in high-risk patients) must be given BEFORE any glucose. This is a critical safety principle — Wernicke's that progresses to Korsakoff's syndrome causes permanent anterograde amnesia."
+  },
+  {
+    "q": "What is the clinical triad of Wernicke's encephalopathy?",
+    "options": [
+      "Ophthalmoplegia, ataxia, and confusion",
+      "Fever, neck stiffness, and photophobia",
+      "Tremor, bradykinesia, and rigidity",
+      "Hyperreflexia, clonus, and hyperthermia"
+    ],
+    "correct": 0,
+    "explanation": "The classic triad of Wernicke's encephalopathy is ophthalmoplegia (typically lateral rectus palsy or nystagmus), ataxia (cerebellar — wide-based gait), and confusion (global confusion, disorientation). However, only ~20% of patients present with all three features — the absence of the full triad does not exclude Wernicke's. Any patient with alcohol use disorder and altered consciousness or ataxia should receive empirical parenteral thiamine. The other options describe meningitis, Parkinson's disease, and serotonin syndrome respectively."
+  },
+  {
+    "q": "A 65-year-old woman with a 3-month history of increasing memory problems, social withdrawal, low mood, and sleep disturbance presents for review. What is the MOST important differential to exclude before diagnosing a primary mood disorder?",
+    "options": [
+      "Dementia — cognitive symptoms may represent early dementia with secondary depression, rather than primary depression causing pseudodementia",
+      "Acute psychosis",
+      "Alcohol use disorder as the sole explanation",
+      "Malingering"
+    ],
+    "correct": 0,
+    "explanation": "In older adults presenting with cognitive symptoms and low mood, distinguishing dementia from depression (or their co-occurrence) is critical. Depression can cause 'pseudodementia' — reversible cognitive impairment. However, cognitive symptoms in the context of social withdrawal and sleep disturbance may represent early dementia with secondary depression. Formal cognitive assessment (MoCA, MMSE), TFTs, B12, folate, FBC, EUC, and CT/MRI brain are indicated. Misdiagnosing dementia as depression delays appropriate management and support."
+  },
+  {
+    "q": "A patient discloses a history of trauma and presents with nightmares, avoidance of places that remind them of the trauma, hypervigilance, and emotional numbness for the past 3 months. Which diagnosis best fits, and what is the first-line psychological treatment?",
+    "options": [
+      "PTSD — first-line treatment is trauma-focused CBT or EMDR",
+      "GAD — first-line is benzodiazepines",
+      "Adjustment disorder — no treatment required",
+      "Major Depressive Disorder — first-line is watchful waiting"
+    ],
+    "correct": 0,
+    "explanation": "This presentation is consistent with PTSD: intrusion symptoms (nightmares), avoidance, negative alterations in cognition/mood (numbness), and hyperarousal (hypervigilance), present for >1 month following a traumatic event. Per RANZCP and international guidelines, first-line psychological treatments are trauma-focused CBT (TF-CBT) and Eye Movement Desensitisation and Reprocessing (EMDR). SSRIs (sertraline) are first-line pharmacotherapy. Non-trauma-focused therapies (relaxation alone, supportive counselling) are less effective. Refer to a trauma-specialised psychologist."
+  },
+  {
+    "q": "A patient with schizophrenia on olanzapine 10mg daily has gained 15kg over 12 months and has a new fasting glucose of 7.4 mmol/L and total cholesterol of 6.8 mmol/L. What is the most appropriate response?",
+    "options": [
+      "Discuss metabolic side effects, consider switching to a lower metabolic risk antipsychotic (e.g. aripiprazole) in consultation with psychiatrist, address lifestyle, and manage cardiovascular risk factors",
+      "Continue olanzapine unchanged — metabolic effects are not clinically significant",
+      "Stop olanzapine immediately without review",
+      "Add a second antipsychotic to manage the metabolic effects"
+    ],
+    "correct": 0,
+    "explanation": "Olanzapine carries a high risk of metabolic side effects — weight gain, type 2 diabetes, and dyslipidaemia. This patient has developed impaired fasting glucose and hypercholesterolaemia. Appropriate management includes: discussing findings with the patient; considering a switch to a lower metabolic risk antipsychotic (aripiprazole or ziprasidone have lower metabolic burden) in collaboration with the managing psychiatrist; lifestyle intervention; and treating metabolic cardiovascular risk factors. Abrupt cessation risks relapse. Continuing unchanged ignores a significant and modifiable risk."
+  },
+  {
+    "q": "Which of the following is the strongest independent predictor of future suicide attempt?",
+    "options": [
+      "A previous suicide attempt",
+      "Male sex",
+      "Older age",
+      "Current employment"
+    ],
+    "correct": 0,
+    "explanation": "A previous suicide attempt is the single strongest predictor of future suicidal behaviour. The risk of a completed suicide is significantly higher in those with previous attempts, particularly those with high-lethality methods. Other major risk factors include psychiatric illness (depression, psychosis, substance use disorder), hopelessness, access to lethal means, and recent significant loss. Current employment is generally a protective factor. While male sex and older age are associated with higher lethality of attempts and completed suicide, previous attempt remains the strongest independent predictor."
+  },
+  {
+    "q": "A patient presents seeking help for cannabis use — they smoke cannabis daily and have been experiencing anxiety, low mood, and poor motivation for 18 months. They attribute these symptoms to 'stress'. What is the most important assessment to perform?",
+    "options": [
+      "Assess the temporal relationship between cannabis use and psychiatric symptoms — symptoms that predate or persist with abstinence suggest primary psychiatric illness rather than cannabis-induced disorder",
+      "Prescribe an antidepressant immediately without addressing cannabis use",
+      "Refer to a psychiatrist without assessment",
+      "Reassure them that cannabis is safe and continue use"
+    ],
+    "correct": 0,
+    "explanation": "Cannabis can cause or worsen anxiety, depression, and motivational disorders (amotivational syndrome). The critical assessment is the temporal relationship: did symptoms precede cannabis use (primary psychiatric illness with secondary cannabis use), or did they develop or worsen with cannabis use (cannabis-induced disorder)? Symptoms that persist with abstinence suggest primary illness. Cannabis use before age 16 and heavy use is associated with increased risk of psychosis. Addressing cannabis use is essential — it is a significant modifiable risk factor. Prescribing without addressing the cannabis use is suboptimal."
+  },
+  {
+    "q": "A 19-year-old presents as a first-episode psychosis. Which of the following is an NP's most appropriate scope of practice response?",
+    "options": [
+      "Perform a thorough assessment, obtain urgent investigations to exclude organic causes, arrange urgent psychiatric review, and provide safety and support to the patient and family",
+      "Prescribe a high-dose antipsychotic and discharge",
+      "Reassure the patient that the symptoms will resolve spontaneously without treatment",
+      "Initiate clozapine as it is the most effective antipsychotic"
+    ],
+    "correct": 0,
+    "explanation": "First-episode psychosis in a young person is a psychiatric emergency requiring urgent specialist input. The NP's role is: comprehensive assessment; exclusion of organic causes (bloods, CT brain, UDS); safety assessment; psychoeducation and support to patient and family; and facilitation of urgent psychiatric review (may involve Emergency Department presentation or direct psychiatric referral). NPs should NOT independently initiate antipsychotic therapy for first-episode psychosis without psychiatric involvement. Clozapine is reserved for treatment-resistant cases only."
+  },
+  {
+    "q": "You are completing a Mental Health Treatment Plan under the Better Access programme. How many Medicare-rebated psychology sessions is a patient entitled to in a calendar year?",
+    "options": [
+      "Up to 10 sessions per calendar year — initial referral for 6, additional 4 after review",
+      "Unlimited sessions",
+      "2 sessions per year only",
+      "20 sessions per year"
+    ],
+    "correct": 0,
+    "explanation": "Under the Better Access to Mental Health Care initiative, a patient can access up to 10 individual sessions with a registered psychologist, clinical psychologist, or other eligible mental health professional per calendar year, with Medicare rebates. The initial referral is for up to 6 sessions. A review must be conducted before the remaining 4 sessions are authorised. NPs can initiate Mental Health Treatment Plans and make referrals under this programme."
+  },
+  {
+    "q": "A patient with Major Depressive Disorder has been on sertraline 100mg daily for 8 weeks with a partial response (PHQ-9 has reduced from 18 to 12). What is the MOST appropriate next step?",
+    "options": [
+      "Consider dose increase to 200mg, optimise psychological therapy, or consider augmentation — discuss with prescriber/specialist",
+      "Declare treatment failure and immediately cease sertraline",
+      "Add a benzodiazepine as the primary intervention",
+      "Continue unchanged for another 12 months without reassessment"
+    ],
+    "correct": 0,
+    "explanation": "A partial response (significant but incomplete improvement) at 8 weeks on adequate dose warrants a treatment review. Options include: dose increase (sertraline can be increased to 200mg); review and optimise psychological therapy (if not already engaged); consider augmentation strategy (e.g. addition of quetiapine, olanzapine, or lithium — in consultation with psychiatrist); or switch to an alternative antidepressant. Continued reassessment with validated tools (PHQ-9) guides treatment decisions. Abrupt cessation risks discontinuation syndrome and relapse. Benzodiazepine is not the appropriate next-line antidepressant intervention."
+  },
+  {
+    "q": "Which of the following is a contraindication to prescribing an SSRI antidepressant?",
+    "options": [
+      "Concurrent use of irreversible monoamine oxidase inhibitors (MAOIs) — risk of serotonin syndrome",
+      "Mild-to-moderate depression",
+      "Age over 18",
+      "Normal renal function"
+    ],
+    "correct": 0,
+    "explanation": "Concurrent use of irreversible MAOIs (e.g., phenelzine, tranylcypromine) with SSRIs is absolutely contraindicated due to the risk of serotonin syndrome — a potentially life-threatening condition characterised by agitation, hyperthermia, clonus, diaphoresis, and in severe cases, rhabdomyolysis and death. A washout period of at least 14 days (5 weeks for fluoxetine, due to its long half-life) is required when switching between these classes. Other relative contraindications include QTc prolongation (particularly with citalopram/escitalopram), bleeding disorders, and the third trimester of pregnancy."
+  },
+  {
+    "q": "A safety plan is being developed with a patient who has expressed suicidal ideation. Which of the following is an essential component of a safety plan?",
+    "options": [
+      "Warning signs, coping strategies, support contacts, reasons for living, means restriction, and emergency contacts",
+      "Only a list of medications to avoid",
+      "A promise not to harm themselves",
+      "Only a phone number for a crisis line"
+    ],
+    "correct": 0,
+    "explanation": "A comprehensive safety plan (Stanley-Brown Safety Planning Intervention) includes six components: (1) personalised warning signs that a crisis may be developing; (2) internal coping strategies (self-calming); (3) social contacts and activities that distract; (4) people to contact for support; (5) professionals and agencies to contact in crisis (including Lifeline, Suicide Call Back Service, ED); and (6) means restriction — removing or securing access to lethal means. Simply extracting a promise or providing a phone number alone is insufficient. Means restriction (particularly for firearms and medications) has strong evidence as a suicide prevention strategy."
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "q": "A 52-year-old male presents with a 4-week history of anterolateral right shoulder pain, worse with overhead activities and lying on the affected side at night. Examination reveals a painful arc from 70–120° of abduction and positive Neer and Hawkins-Kennedy tests. Strength is intact. What is the most likely diagnosis?",
+    "options": ["Adhesive capsulitis — global ROM restriction is the hallmark", "Subacromial impingement syndrome / rotator cuff tendinopathy", "Glenohumeral osteoarthritis — common in patients over 50", "AC joint arthritis — presents with anterolateral pain and painful arc"],
+    "correct": 1,
+    "explanation": "The combination of anterolateral shoulder pain, painful arc (60–120° abduction), night pain, and positive impingement tests (Neer and Hawkins-Kennedy) is classic for subacromial impingement syndrome / rotator cuff tendinopathy. Intact strength suggests tendinopathy rather than a full-thickness tear. Adhesive capsulitis has global passive ROM restriction; OA typically presents in older patients with crepitus and diffuse stiffness."
+  },
+  {
+    "q": "You perform a drop arm test on a patient with acute right shoulder pain following a fall. The patient is unable to slowly lower their arm from 90° abduction without it dropping suddenly. What does this finding indicate?",
+    "options": ["Positive impingement — subacromial bursitis is confirmed", "Possible massive rotator cuff tear — urgent imaging and orthopaedic review warranted", "Anterior glenohumeral instability — Bankart lesion likely", "Normal finding in elderly patients with muscle weakness"],
+    "correct": 1,
+    "explanation": "A positive drop arm test (inability to control lowering of the abducted arm) indicates a likely massive or large rotator cuff tear, particularly involving supraspinatus. This is particularly significant following acute trauma. Urgent shoulder ultrasound or MRI should be arranged, and orthopaedic referral considered — large acute tears in active patients may benefit from early surgical repair."
+  },
+  {
+    "q": "A 55-year-old woman with type 2 diabetes presents with a 4-month history of progressive right shoulder pain and stiffness. She reports inability to reach overhead or behind her back. Examination reveals global restriction of passive ROM in all planes: abduction limited to 80°, external rotation to 20°, internal rotation to L5. What is the most likely diagnosis?",
+    "options": ["Large rotator cuff tear — passive ROM should be preserved if only active limited", "Adhesive capsulitis (frozen shoulder) — global passive restriction in all planes is characteristic", "Glenohumeral osteoarthritis — common in diabetic patients over 55", "Posterior shoulder dislocation — missed trauma"],
+    "correct": 1,
+    "explanation": "Adhesive capsulitis (frozen shoulder) is characterised by global restriction of passive ROM in all planes, with external rotation being the most restricted. It is strongly associated with diabetes — up to 20% of patients with T2DM develop frozen shoulder. The key differentiating feature is passive restriction (not just active), which distinguishes it from rotator cuff pathology where passive ROM is usually preserved."
+  },
+  {
+    "q": "Which of the following best describes the management of stage 1 (painful/freezing phase) adhesive capsulitis?",
+    "options": ["Complete rest and sling immobilisation for 6 weeks", "Aggressive physiotherapy with passive stretching to force ROM restoration", "Analgesia, intra-articular corticosteroid injection, and gentle physiotherapy — avoid forced stretching", "Immediate surgical capsular release — the only effective treatment"],
+    "correct": 2,
+    "explanation": "In the painful/freezing phase of adhesive capsulitis, management focuses on pain control (NSAIDs, paracetamol), intra-articular corticosteroid injection (most effective intervention in this phase — reduces pain and may shorten duration), and gentle physiotherapy (pendulum exercises, gentle ROM). Aggressive forced stretching is contraindicated in the painful phase as it worsens inflammation. The condition is largely self-limiting but may take 18 months to 3 years to resolve."
+  },
+  {
+    "q": "A 23-year-old male rugby player presents after a tackle where his right arm was forced into abduction and external rotation. He felt a 'pop' and the shoulder 'went out'. He is holding his arm in slight abduction and internal rotation. On examination there is a loss of the normal shoulder contour. What is the most appropriate first step?",
+    "options": ["Immediately attempt manual reduction without imaging", "Obtain X-ray (AP and axillary) before attempting reduction to exclude associated fracture", "Apply a sling and review in 1 week", "Refer directly to physiotherapy for shoulder stabilisation exercises"],
+    "correct": 1,
+    "explanation": "Before any attempt at shoulder reduction, X-ray (AP and axillary views) is essential to confirm the direction of dislocation, exclude associated fractures (greater tuberosity fracture occurs in 15–35% of anterior dislocations, and glenoid rim fractures also occur), and guide the safest reduction technique. Attempting reduction without imaging risks displacing a fracture fragment. Following successful reduction, a post-reduction X-ray confirms relocation."
+  },
+  {
+    "q": "When performing the anterior apprehension test for shoulder instability, a positive result is defined as:",
+    "options": ["Pain at the shoulder during the test — confirms anterior impingement", "A sensation of apprehension or fear of subluxation/dislocation — not simply pain", "Clicking or clunking felt during the test — confirms labral tear", "Weakness on resisted abduction — confirms rotator cuff involvement"],
+    "correct": 1,
+    "explanation": "The anterior apprehension test is positive when the patient experiences apprehension (a sense that the shoulder is about to dislocate) as the arm is placed in 90° abduction and external rotation. Pain alone is not a positive test — this decreases specificity significantly. The Jobe relocation test (applying posterior pressure to the humeral head) should relieve the apprehension if truly positive, confirming anterior instability."
+  },
+  {
+    "q": "A patient has point tenderness over the AC joint, pain reproduced with cross-arm adduction test, and a visible step deformity at the AC joint. Shoulder ROM is otherwise full. What is the most likely diagnosis?",
+    "options": ["Rotator cuff tendinopathy — impingement can cause AC region pain", "Acromioclavicular joint separation — injury to the AC and coracoclavicular ligaments", "Sternoclavicular joint dislocation — requires CT for assessment", "Shoulder dislocation — humeral head has displaced laterally"],
+    "correct": 1,
+    "explanation": "AC joint separation (sprain or separation of the AC and coracoclavicular ligaments) presents with: point tenderness directly over the AC joint, pain with cross-arm adduction, and a visible step deformity in higher grades. It typically results from a direct fall on the tip of the shoulder. Grading I–VI guides management — grades I–II are managed conservatively; grades IV–VI require orthopaedic review for possible surgical stabilisation."
+  },
+  {
+    "q": "A 65-year-old female patient presents with acute-onset severe right shoulder pain and has calcification seen on shoulder X-ray in the supraspinatus tendon. Her pain is 9/10, she is unable to move the shoulder at all, and she is holding it rigidly. Examination reveals extreme tenderness over the supraspinatus insertion and markedly elevated local warmth. What stage of calcific tendinopathy is this likely to represent?",
+    "options": ["Chronic calcific tendinopathy — gradual pain over years from calcium build-up", "Acute resorptive phase of calcific tendinopathy — most painful stage, calcium becoming fluid", "Adhesive capsulitis secondary to calcium deposit — frozen shoulder developing", "Septic arthritis — fever and systemic signs required to distinguish"],
+    "correct": 1,
+    "explanation": "The acute resorptive phase of calcific tendinopathy is classically the most painful shoulder presentation — often described as one of the worst pains patients have experienced. During this phase, the calcium deposit becomes fluid (chalky paste to liquid) and causes intense local inflammatory reaction. Management: urgent analgesia (strong NSAIDs, opioids if needed), subacromial corticosteroid injection for rapid relief, and physiotherapy referral once acute phase resolves."
+  },
+  {
+    "q": "A 40-year-old female presents with right anterior shoulder pain and tenderness in the bicipital groove. Speed's test is positive. There is no weakness or instability. What structure is most likely involved?",
+    "options": ["Supraspinatus tendon at the greater tuberosity insertion", "Long head of biceps tendon at the bicipital groove — bicipital tendinopathy", "Subscapularis tendon — internal rotator involvement", "Anterior labrum — Bankart lesion from instability"],
+    "correct": 1,
+    "explanation": "Speed's test (resisted elbow flexion with forearm supinated and arm at 60–90°) is positive for long head of biceps (LHB) tendinopathy when it reproduces bicipital groove pain. The LHB tendon runs through the bicipital groove and inserts on the superior labrum (SLAP attachment). Bicipital tendinopathy often co-exists with rotator cuff pathology. Treatment: physiotherapy, activity modification, and subacromial/bicipital sheath injection if not improving."
+  },
+  {
+    "q": "What is the primary purpose of the Hawkins-Kennedy test?",
+    "options": ["Assess integrity of the subscapularis tendon (internal rotator)", "Reproduce subacromial impingement by internally rotating the shoulder at 90° — positive if pain reproduced", "Assess for glenohumeral instability by loading the anterior capsule", "Evaluate acromioclavicular joint integrity"],
+    "correct": 1,
+    "explanation": "The Hawkins-Kennedy test assesses for subacromial impingement. With the shoulder and elbow at 90°, the examiner internally rotates the shoulder — this forces the greater tuberosity and supraspinatus tendon into the coracoacromial ligament, reproducing impingement pain. Sensitivity is approximately 79%, specificity 59%. It is one of the most commonly used and reliable tests for subacromial impingement alongside the Neer test."
+  },
+  {
+    "q": "A patient with suspected rotator cuff tear is being investigated. Which imaging modality is most appropriate as a first-line investigation in Australian primary care?",
+    "options": ["MRI with contrast — gold standard for all soft tissue shoulder pathology", "Shoulder ultrasound — first-line, accessible, cost-effective, and accurate for cuff tears", "Plain X-ray — sufficient to diagnose most rotator cuff pathology", "CT arthrogram — required for all rotator cuff assessments before treatment"],
+    "correct": 1,
+    "explanation": "Shoulder ultrasound is the recommended first-line investigation for suspected rotator cuff tears in Australian primary care. It is accessible, cost-effective, dynamic (can assess movement), and accurate for full-thickness tears (sensitivity ~94%) and partial tears (sensitivity ~67–84%) when performed by an experienced sonographer. MRI provides superior soft tissue detail (labrum, cartilage, bone marrow) and is used when ultrasound findings are equivocal or surgical planning is required. X-ray does not directly visualise soft tissue structures."
+  },
+  {
+    "q": "A 28-year-old competitive swimmer presents with shoulder pain and clicking during overhead strokes. She reports the shoulder 'feels loose' at the top of her stroke. What is the most likely diagnosis?",
+    "options": ["Rotator cuff tendinopathy — most common cause of shoulder pain in athletes", "Glenohumeral instability with possible SLAP tear — overhead athletes at risk", "Adhesive capsulitis — rare in young athletes but possible", "AC joint OA — common in overhead sports"],
+    "correct": 1,
+    "explanation": "Young overhead athletes (swimmers, throwers, volleyball players) are at risk of glenohumeral instability and superior labrum anterior-posterior (SLAP) tears from repetitive overhead loading and traction forces. A sense of looseness or 'dead arm' during overhead activity, along with clicking, is characteristic. O'Brien's test and Yergason's may be positive. MRI arthrogram is the gold standard investigation. Management: shoulder stabilisation physiotherapy; surgical labral repair for refractory cases."
+  },
+  {
+    "q": "Which of the following correctly describes the recommended maximum frequency of subacromial corticosteroid injections for rotator cuff tendinopathy?",
+    "options": ["Monthly injections until symptoms resolve — most effective approach", "Maximum 2 injections per year — more frequent injections risk tendon weakening and rupture", "A single injection only — repeat injections have no additional benefit", "No limit — frequency should be guided entirely by symptom recurrence"],
+    "correct": 1,
+    "explanation": "Subacromial corticosteroid injections provide short-term (4–6 week) benefit for rotator cuff tendinopathy and bursitis. However, repeated injections are associated with tendon weakening, collagen degradation, and increased risk of tendon rupture. Australian guidelines generally recommend a maximum of 2–3 injections per year, with adequate spacing between injections. Injections should be combined with physiotherapy for sustained benefit — they do not address the underlying mechanical cause."
+  },
+  {
+    "q": "Parsonage-Turner syndrome (brachial neuritis) is an important differential for shoulder pain. Which clinical feature best distinguishes it from rotator cuff pathology?",
+    "options": ["Onset with overhead activity — typical rotator cuff pattern", "Acute severe burning shoulder and arm pain followed by rapid muscle weakness and wasting — often post-viral or post-vaccine", "Point tenderness at the greater tuberosity — indicates bony pathology", "Gradual progressive stiffness in all planes — classic for adhesive capsulitis"],
+    "correct": 1,
+    "explanation": "Parsonage-Turner syndrome (neuralgic amyotrophy / brachial neuritis) presents with acute severe burning or stabbing shoulder and arm pain — often waking patients at night — followed over days to weeks by rapid muscle weakness and wasting in the shoulder girdle and arm, often out of proportion to pain. It is frequently post-viral, post-surgical, or post-vaccination. EMG/nerve conduction studies confirm the diagnosis. Management is supportive — most patients recover over months to 2 years but complete recovery is variable."
+  },
+  {
+    "q": "A patient presents with right shoulder pain and you suspect cervical radiculopathy rather than primary shoulder pathology. Which finding most strongly supports a cervical origin?",
+    "options": ["Night pain — common in both rotator cuff disease and cervical radiculopathy", "Pain and paraesthesia radiating below the elbow to the hand, with positive Spurling test reproducing arm symptoms", "Painful arc of abduction between 60–120° — specific for impingement", "Anterior shoulder tenderness in the bicipital groove"],
+    "correct": 1,
+    "explanation": "The hallmark of cervical radiculopathy mimicking shoulder pain is: symptoms radiating distal to the elbow (into the forearm and hand), dermatomal distribution (C5: lateral arm; C6: thumb and index; C7: middle finger; C8: ring and little finger), positive Spurling test (axial compression with lateral flexion reproduces arm symptoms), and neurological deficits (reflex changes, weakness). Shoulder conditions typically do not radiate below the elbow and will not reproduce symptoms with cervical provocation tests."
+  },
+  {
+    "q": "After reducing an anterior shoulder dislocation in a 22-year-old male following a sports injury, what is the most important consideration regarding recurrence risk?",
+    "options": ["Recurrence is rare in young males — they can return to full sport within 2 weeks", "Recurrence rate after first anterior dislocation under age 25 is approximately 70–95% — orthopaedic review recommended", "Immobilisation in internal rotation for 6 weeks prevents recurrence", "MRI is not required after a first dislocation in a young patient"],
+    "correct": 1,
+    "explanation": "The recurrence rate after a first anterior shoulder dislocation is age-dependent: under age 25 the recurrence rate is 70–95%. This is due to the associated structural damage (Bankart lesion, Hill-Sachs deformity) and the high activity demands in this age group. Orthopaedic referral after first dislocation in young patients is recommended to discuss surgical stabilisation (arthroscopic Bankart repair), which significantly reduces recurrence compared to conservative management alone."
+  },
+  {
+    "q": "Which rotator cuff muscle is responsible for external rotation of the shoulder and is tested by the external rotation lag sign?",
+    "options": ["Supraspinatus — primary abductor of the shoulder", "Subscapularis — primary internal rotator", "Infraspinatus (and teres minor) — primary external rotators", "Deltoid — most powerful abductor and flexor"],
+    "correct": 2,
+    "explanation": "Infraspinatus (and teres minor to a lesser extent) are the primary external rotators of the shoulder. They are tested by the external rotation lag sign — if the patient cannot maintain a fully externally rotated position when the examiner releases their arm, this suggests a full-thickness infraspinatus tear. The external rotation lag sign has high specificity (~93%) for full-thickness posterior cuff tears. Supraspinatus is the primary abductor; subscapularis is the primary internal rotator."
+  },
+  {
+    "q": "A patient presents with right shoulder pain and you are considering ordering imaging. Which clinical scenario would make plain X-ray the most important first-line investigation?",
+    "options": ["Gradual onset pain in a 45-year-old — plain X-ray shows bursitis well", "Acute onset pain following a fall with visible deformity — X-ray to exclude fracture or dislocation", "Chronic rotator cuff symptoms for 6 months — ultrasound more informative", "Suspected frozen shoulder — MRI needed for diagnosis"],
+    "correct": 1,
+    "explanation": "Plain X-ray is the most important first-line investigation when acute trauma has occurred and there is clinical concern for fracture (proximal humerus, clavicle, greater tuberosity) or dislocation. X-ray also identifies calcific tendinopathy, AC joint separation (stress views), OA changes, and bony lesions. For soft tissue pathology (rotator cuff tears, bursitis, frozen shoulder), ultrasound or MRI is more informative. The key indication for urgent X-ray is trauma with deformity or significant pain on movement."
+  },
+  {
+    "q": "What is the hallmark physical examination finding of adhesive capsulitis that distinguishes it from other shoulder conditions?",
+    "options": ["A painful arc from 60–120° of abduction", "Global restriction of passive ROM in all planes, most marked in external rotation", "Point tenderness at the greater tuberosity with preserved passive ROM", "Positive anterior apprehension test with apprehension on external rotation at 90°"],
+    "correct": 1,
+    "explanation": "Adhesive capsulitis (frozen shoulder) is characterised by global restriction of both active and passive ROM in all planes of shoulder movement — flexion, abduction, external rotation, and internal rotation are all restricted. External rotation loss is the most sensitive and early sign. This pattern of restriction in all planes of passive movement is the hallmark finding that distinguishes frozen shoulder from other conditions: rotator cuff tears preserve passive ROM; impingement has a painful arc but full passive ROM; instability has normal or excessive ROM."
+  },
+  {
+    "q": "A 70-year-old woman presents with new-onset bilateral shoulder and hip girdle aching, morning stiffness lasting over 1 hour, and an ESR of 82 mm/hr and CRP of 48 mg/L. She has no other joint swelling. What diagnosis should be strongly considered?",
+    "options": ["Bilateral rotator cuff tendinopathy — common in elderly women", "Polymyalgia rheumatica (PMR) — classic presentation in over-50s with elevated inflammatory markers", "Bilateral frozen shoulder — can occur in diabetic patients", "Rheumatoid arthritis — always presents with peripheral small joint involvement first"],
+    "correct": 1,
+    "explanation": "Polymyalgia rheumatica (PMR) is an inflammatory condition almost exclusively occurring in patients over 50 (mean age 73). It presents with bilateral shoulder and hip girdle aching and stiffness, prominent morning stiffness >45 minutes, and markedly elevated ESR and CRP. Importantly, there is often no true peripheral joint swelling. Management: prednisolone 15–25mg daily produces a rapid and dramatic response (diagnostic response within 72 hours). Refer for rheumatology co-management. Always screen for giant cell arteritis (new headache, scalp tenderness, jaw claudication, vision change)."
+  },
+  {
+    "q": "A patient with a suspected full-thickness rotator cuff tear on ultrasound asks about treatment options. Which factors most strongly favour surgical repair over conservative management?",
+    "options": ["Age over 65 and dominant arm involvement — always requires surgery", "Young age (<60), acute tear after trauma, significant functional limitation, and failure of 3+ months of conservative management", "Positive impingement tests — surgery always preferred when tests are positive", "Large amount of calcium on X-ray — indicates surgical debridement needed"],
+    "correct": 1,
+    "explanation": "Indications for rotator cuff repair include: younger patient (<60–65), acute traumatic tear, dominant arm, high functional demands (workers, athletes), significant weakness, and failure of at least 3 months of structured physiotherapy. Elderly patients with chronic degenerative tears often have excellent outcomes with conservative management. Surgical decisions should involve orthopaedic consultation and shared decision-making, accounting for tear size, chronicity, muscle quality, and patient goals."
+  }
+]

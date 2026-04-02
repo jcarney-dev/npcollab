@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 48-year-old man presents to your clinic with the sudden onset of the worst headache of his life, which he describes as 'like being hit in the back of the head with a bat.' It reached maximum intensity within seconds. He has no neurological deficit and no fever. What is the most important next step?",
+    "options": [
+      "Urgent CT brain non-contrast, followed by lumbar puncture if CT is negative",
+      "Prescribe sumatriptan and review in 2 weeks",
+      "Reassure him it is likely tension-type headache and provide analgesia",
+      "Order an MRI brain and review in 4–6 weeks"
+    ],
+    "correct": 0,
+    "explanation": "A thunderclap headache — sudden onset, reaching peak intensity within seconds, and described as the worst headache of the patient's life — is subarachnoid haemorrhage (SAH) until proven otherwise. The first investigation is urgent CT brain non-contrast. If CT is negative (sensitivity ~98% within 6 hours of onset, falls to ~90% at 24 hours), lumbar puncture must follow to look for xanthochromia (breakdown products of blood in CSF), which remains positive for up to 2 weeks. Never dismiss a thunderclap headache as tension-type without excluding SAH."
+  },
+  {
+    "q": "Which of the following combinations of features is MOST consistent with a diagnosis of migraine without aura?",
+    "options": [
+      "Unilateral, pulsating, moderate–severe headache lasting 4–72 hours, with nausea and photophobia, worsened by routine activity",
+      "Bilateral, pressing, mild–moderate headache, not worsened by activity, no nausea",
+      "Unilateral orbital pain lasting 15–180 minutes with ipsilateral lacrimation and nasal congestion",
+      "Sudden-onset severe headache associated with exertion"
+    ],
+    "correct": 0,
+    "explanation": "Migraine without aura (IHS criteria) requires ≥5 attacks fulfilling: duration 4–72 hours; at least 2 of — unilateral location, pulsating quality, moderate–severe intensity, aggravation by routine activity; and at least 1 of — nausea/vomiting or photophobia and phonophobia. Option B describes tension-type headache (bilateral, pressing, not worsened by activity). Option C describes cluster headache (unilateral orbital, short duration, ipsilateral autonomic features). Option D is a red flag (exertional thunderclap)."
+  },
+  {
+    "q": "A patient with a known history of migraine presents taking ibuprofen for headache on 4–5 days per week. Her headaches have increased in frequency from 2 per month to 18 per month over the past year. What is the most likely explanation?",
+    "options": [
+      "Medication overuse headache (MOH) — regular analgesic use ≥15 days per month is the threshold",
+      "New intracranial pathology — neuroimaging is urgently required",
+      "The ibuprofen is effectively treating each headache and the frequency increase is coincidental",
+      "She has developed chronic tension-type headache unrelated to her migraine"
+    ],
+    "correct": 0,
+    "explanation": "Medication overuse headache (MOH) is a common and underdiagnosed condition. Regular use of simple analgesics ≥15 days per month (or triptans ≥10 days per month) in a patient with a pre-existing primary headache disorder paradoxically causes chronic daily headache. The mechanism involves central sensitisation and downregulation of endogenous pain modulation. The primary treatment is withdrawal of the overused medication, which often temporarily worsens headache before improving. This is the most likely explanation for a dramatic increase in headache frequency in this context."
+  },
+  {
+    "q": "A 65-year-old woman presents with 30 minutes of left arm weakness and slurred speech that completely resolved before she arrived at your clinic. Observations are normal. What is the correct immediate management?",
+    "options": [
+      "Urgent same-day assessment including CT brain, ECG, and commencement of antiplatelet therapy — TIA has a high short-term stroke risk",
+      "Reassure her the symptoms have resolved and arrange a routine neurology referral in 4–6 weeks",
+      "Prescribe aspirin and discharge home with review in 2 weeks",
+      "Admit for thrombolysis as she has had a stroke"
+    ],
+    "correct": 0,
+    "explanation": "A TIA (transient ischaemic attack) carries a 10–15% risk of completed stroke within 90 days, with the highest risk in the first 24–48 hours. This is a neurological emergency requiring urgent same-day assessment. The ABCD2 score should be calculated. Investigations include CT brain (to exclude small haemorrhage or infarct), 12-lead ECG (AF), carotid Doppler, and bloods. Antiplatelet therapy (aspirin 300mg loading dose) should be commenced immediately unless contraindicated. Urgent referral to a TIA clinic or ED is required. Symptoms that have fully resolved do not reduce the urgency of assessment."
+  },
+  {
+    "q": "Which medication must be AVOIDED in a patient with Parkinson's disease who requires an antiemetic for nausea?",
+    "options": [
+      "Metoclopramide — it is a dopamine antagonist and will worsen Parkinsonism",
+      "Domperidone — it does not cross the blood-brain barrier and is safe in Parkinson's disease",
+      "Ondansetron — it causes dopamine blockade",
+      "Ginger — it worsens tremor"
+    ],
+    "correct": 0,
+    "explanation": "Metoclopramide and prochlorperazine are dopamine D2 receptor antagonists that cross the blood-brain barrier and can significantly worsen Parkinson's disease motor symptoms — causing or exacerbating bradykinesia, rigidity, and tremor. In Parkinson's disease, the safe antiemetic for nausea is domperidone, which acts peripherally and does not cross the blood-brain barrier. Ondansetron (5HT3 antagonist) is also an alternative. This is a critical prescribing safety point for NPs managing patients with PD."
+  },
+  {
+    "q": "You are reviewing a 30-year-old woman with newly diagnosed focal epilepsy who is about to commence carbamazepine. She is sexually active and not currently trying to conceive. What is the most important counselling point?",
+    "options": [
+      "Carbamazepine is a potent enzyme inducer that reduces efficacy of the oral contraceptive pill — contraceptive advice and alternative or additional contraception is essential",
+      "Carbamazepine is safe in pregnancy and no additional contraceptive measures are required",
+      "She should stop driving immediately and permanently",
+      "Carbamazepine has no significant drug interactions"
+    ],
+    "correct": 0,
+    "explanation": "Carbamazepine is a potent inducer of cytochrome P450 enzymes (CYP3A4), which significantly reduces the plasma concentration and efficacy of the combined oral contraceptive pill, leading to contraceptive failure risk. Women of reproductive age commencing carbamazepine must be counselled about this interaction and advised to use a non-hormonal contraceptive method or a high-dose OCP (50 micrograms ethinylestradiol) in consultation with their prescriber. Carbamazepine is also teratogenic (neural tube defects). Driving restrictions in epilepsy are 12 months seizure-free, not permanent."
+  },
+  {
+    "q": "What is the primary mechanism of migraine preventive therapy with topiramate, and what is a critical contraindication in women of reproductive age?",
+    "options": [
+      "Topiramate reduces cortical excitability and neuronal firing; it is highly teratogenic (foetal malformations) and requires mandatory contraception counselling",
+      "Topiramate works by blocking beta-adrenoceptors; it is contraindicated only in severe asthma",
+      "Topiramate is a calcium channel blocker; it is contraindicated in cardiac disease",
+      "Topiramate has no teratogenic risk and can be used freely in pregnant women"
+    ],
+    "correct": 0,
+    "explanation": "Topiramate is a sodium channel blocker and GABA modulator that reduces cortical excitability, making it effective for migraine prevention. It is highly teratogenic — associated with oral clefts and other congenital malformations, as well as reduced IQ in exposed children. Topiramate should not be prescribed to women of reproductive age unless they are using reliable contraception, and pregnancy planning must be discussed. This is similar to valproate's teratogenicity requirements. In Australia, prescribers are expected to document this counselling. Other side effects include cognitive slowing, paraesthesia, and kidney stones."
+  },
+  {
+    "q": "A patient on phenytoin for epilepsy has a routine level checked and the total serum phenytoin is 12 mg/L (therapeutic range 10–20 mg/L). However, her albumin is low at 22 g/L (normal 35–50 g/L). How should this result be interpreted?",
+    "options": [
+      "The free (unbound) phenytoin may be higher than expected — correction for hypoalbuminaemia is required; the patient may actually be phenytoin toxic despite a normal total level",
+      "The level is within range and no adjustment is required",
+      "She is phenytoin toxic — reduce the dose immediately",
+      "Phenytoin levels are not affected by albumin levels"
+    ],
+    "correct": 0,
+    "explanation": "Phenytoin is highly protein-bound (~90% bound to albumin). In hypoalbuminaemia, a greater fraction is free (pharmacologically active). A 'normal' total level may therefore represent toxicity if albumin is low. The Sheiner-Tozer equation corrects for hypoalbuminaemia: Corrected phenytoin = measured level / (0.2 × albumin in g/dL + 0.1). In this case, albumin 22 g/L = 2.2 g/dL; corrected level = 12 / (0.2 × 2.2 + 0.1) = 12 / 0.54 ≈ 22 mg/L — which is supratherapeutic. Signs of phenytoin toxicity: nystagmus, ataxia, diplopia, cognitive impairment."
+  },
+  {
+    "q": "A 72-year-old man with Parkinson's disease on levodopa/carbidopa is brought in by his family. They report he has been seeing vivid, non-threatening visual hallucinations of small animals for 3 weeks. He is otherwise stable. What is the most appropriate initial management?",
+    "options": [
+      "Review and reduce dopaminergic medications if possible; if antipsychotic required, use quetiapine or clozapine — avoid all other antipsychotics which worsen PD",
+      "Commence haloperidol — it is the most potent antipsychotic",
+      "Reassure the family and ignore — visual hallucinations in Parkinson's disease are not treatable",
+      "Immediately cease all Parkinson's disease medications"
+    ],
+    "correct": 0,
+    "explanation": "Visual hallucinations in Parkinson's disease are common (20–40%) and are often related to dopaminergic therapy. The initial approach is to identify and address contributing factors (infection, metabolic disturbance, anticholinergic medications) and to rationalise dopaminergic medications — reduce or cease adjunctive agents (anticholinergics, amantadine, MAO-B inhibitors, dopamine agonists) before reducing levodopa. If antipsychotic therapy is required, only quetiapine or clozapine are safe in PD (low D2 blockade). All other antipsychotics (including haloperidol, risperidone, olanzapine) substantially worsen motor function in PD and should be avoided."
+  },
+  {
+    "q": "Which of the following correctly describes the clinical features differentiating an upper motor neuron (UMN) lesion from a lower motor neuron (LMN) lesion?",
+    "options": [
+      "UMN: spastic tone, brisk reflexes, Babinski positive, minimal wasting. LMN: flaccid tone, absent reflexes, fasciculations, significant wasting",
+      "UMN: flaccid tone, absent reflexes, significant wasting. LMN: spastic tone, brisk reflexes, no wasting",
+      "Both UMN and LMN lesions produce identical clinical findings",
+      "UMN lesions always cause complete paralysis; LMN lesions cause only mild weakness"
+    ],
+    "correct": 0,
+    "explanation": "Upper motor neuron (UMN) lesions (above the anterior horn cell — brain, brainstem, spinal cord) produce: spastic hypertonia, hyperreflexia, positive Babinski sign (extensor plantar), clonus, minimal muscle wasting (disuse only). Lower motor neuron (LMN) lesions (anterior horn cell, nerve root, peripheral nerve, neuromuscular junction, muscle) produce: flaccid hypotonia, diminished or absent reflexes, significant muscle wasting (denervation atrophy), fasciculations, and Babinski absent. This distinction is fundamental to neurological localisation."
+  },
+  {
+    "q": "A 25-year-old man has a generalised tonic-clonic seizure during his sleep. Witnesses describe him shaking all four limbs for approximately 90 seconds, followed by a 20-minute period of confusion and drowsiness. He had a similar event 6 months ago. He has no prior epilepsy diagnosis. What is the most important next step?",
+    "options": [
+      "Refer urgently to neurology — this presentation meets criteria for epilepsy (two unprovoked seizures); MRI brain and EEG are required before commencing antiepileptic therapy",
+      "Prescribe levetiracetam immediately without investigations",
+      "Reassure him that two seizures are needed before any action is taken",
+      "Perform a CT brain and if normal, reassure and discharge"
+    ],
+    "correct": 0,
+    "explanation": "Two or more unprovoked seizures more than 24 hours apart meets the ILAE definition of epilepsy. This patient requires urgent neurology referral for formal diagnosis and management. MRI brain (preferred over CT for first-episode epilepsy — better detection of cortical dysplasia, hippocampal sclerosis, low-grade tumours) and EEG (seizure classification, interictal abnormalities) are essential before commencing antiepileptic therapy. AED choice depends on seizure type and classification — commencing treatment without investigations risks misclassification and inappropriate therapy. CT alone is insufficient for new-onset epilepsy evaluation."
+  },
+  {
+    "q": "A 68-year-old woman presents with a new bilateral symmetric 'glove and stocking' pattern of numbness and tingling, with absent ankle reflexes. She is a known type 2 diabetic with HbA1c of 72 mmol/mol. What is the MOST likely diagnosis?",
+    "options": [
+      "Diabetic peripheral neuropathy — the most common cause of distal symmetric polyneuropathy in Australia",
+      "Multiple sclerosis",
+      "Motor neuron disease",
+      "Carpal tunnel syndrome"
+    ],
+    "correct": 0,
+    "explanation": "Diabetic peripheral neuropathy is the most common cause of distal symmetric polyneuropathy in Australia. The classic presentation is exactly as described: bilateral, symmetric, sensory-predominant, distal 'glove and stocking' distribution, with loss of ankle reflexes (S1 is preferentially affected). HbA1c of 72 mmol/mol confirms poorly controlled diabetes. Multiple sclerosis causes asymmetric, relapsing-remitting deficits in younger patients. Motor neuron disease causes motor predominant features (wasting, fasciculations) without sensory loss. Carpal tunnel syndrome is a focal mononeuropathy (median nerve territory, unilateral or bilateral but not symmetric stocking distribution)."
+  },
+  {
+    "q": "You are seeing a patient post-ischaemic stroke for a 3-month follow-up. Investigations have identified permanent atrial fibrillation as the cardioembolic source. Blood pressure today is 138/86 mmHg. What is the most important element of secondary stroke prevention in this patient?",
+    "options": [
+      "Therapeutic anticoagulation with a direct oral anticoagulant (DOAC) — DOACs are first-line for stroke prevention in non-valvular AF",
+      "Aspirin 100mg daily — antiplatelet therapy is adequate for AF-related stroke",
+      "Blood pressure management alone — achieving target BP is sufficient for secondary prevention",
+      "Statins are contraindicated post-stroke"
+    ],
+    "correct": 0,
+    "explanation": "In AF-related ischaemic stroke, therapeutic anticoagulation is the cornerstone of secondary prevention — it reduces stroke recurrence by approximately two-thirds compared to antiplatelet therapy alone. DOACs (apixaban, rivaroxaban, dabigatran) are first-line for non-valvular AF and are superior to warfarin in most patients. Aspirin alone is inadequate for cardioembolic stroke prevention in AF. BP target post-stroke is <130/80 mmHg (lower than primary prevention). High-intensity statin therapy is also indicated regardless of baseline LDL in ischaemic stroke. All four elements (anticoagulation, BP, statin, lifestyle) are required for comprehensive secondary prevention."
+  },
+  {
+    "q": "What is the FAST acronym used for in stroke recognition, and why is time critical?",
+    "options": [
+      "Face drooping, Arm weakness, Speech difficulty, Time to call 000 — every minute of untreated stroke destroys approximately 1.9 million neurons",
+      "Fever, Ataxia, Syncope, Tingling — used to identify meningitis",
+      "Facial pain, Arm tremor, Slurred speech, Treatment",
+      "Function, Activity, Sensation, Temperature — a comprehensive neurological screen"
+    ],
+    "correct": 0,
+    "explanation": "FAST (Face, Arms, Speech, Time) is the Australian public awareness tool for stroke recognition — call 000 immediately. 'Time is brain' because ischaemic stroke causes the loss of approximately 1.9 million neurons, 13.8 billion synapses, and 12 km of myelinated axon fibres per minute of untreated large vessel occlusion. Intravenous thrombolysis (alteplase) has a treatment window of 4.5 hours from symptom onset; endovascular thrombectomy (EVT) may extend to 24 hours in selected patients with salvageable penumbra. Every minute of delay reduces the likelihood of independent outcome. NPs must be fluent in FAST and ensure patients and carers can recognise and act on stroke symptoms."
+  },
+  {
+    "q": "Which of the following is a cardinal feature REQUIRED for the clinical diagnosis of Parkinson's disease?",
+    "options": [
+      "Bradykinesia — slowness of movement, required for diagnosis",
+      "Resting tremor — the most visible feature but not required for diagnosis",
+      "Rigidity — not required in isolation",
+      "Postural instability — a late feature, not required for diagnosis"
+    ],
+    "correct": 0,
+    "explanation": "Per the MDS (Movement Disorder Society) Parkinson's disease criteria, bradykinesia is the only required cardinal feature for diagnosis. Bradykinesia is defined as slowness of movement with progressive decrement in speed and amplitude with repetitive movements (tapping fingers, hands, feet). At least one of the following must also be present: rest tremor (4–6 Hz) or rigidity (cogwheel or lead pipe). Postural instability is a late feature and is not used in early diagnosis. Importantly, other causes of parkinsonism (drug-induced, Lewy body dementia, MSA, PSP) must be excluded."
+  },
+  {
+    "q": "A 35-year-old woman with migraine with aura attends your clinic seeking a repeat prescription for the combined oral contraceptive pill (OCP). Why is this combination a concern?",
+    "options": [
+      "Migraine with aura combined with OCP use significantly increases the risk of ischaemic stroke — alternative contraception should be recommended",
+      "The OCP prevents migraine and should always be continued",
+      "Migraine without aura carries the same stroke risk as migraine with aura with OCP",
+      "The OCP is contraindicated only in patients over 50 with migraine"
+    ],
+    "correct": 0,
+    "explanation": "Migraine with aura is an independent risk factor for ischaemic stroke. The combined OCP (containing oestrogen) further multiplies this risk — together, the combination increases relative stroke risk approximately 8-fold compared to non-migraineurs not using OCP. The WHO Medical Eligibility Criteria for Contraceptive Use classifies migraine with aura as a Category 4 condition for combined OCP (unacceptable health risk — do not use). Alternatives include the progesterone-only pill, Mirena IUD, condoms, or other non-oestrogen methods. Migraine without aura is lower risk (Category 2 — benefits generally outweigh risks)."
+  },
+  {
+    "q": "A patient with a known seizure disorder has been seizure-free for 12 months on lamotrigine. He asks whether he can start driving again. What is the correct advice in Australia?",
+    "options": [
+      "A minimum of 12 months seizure-free is required in most Australian states before private vehicle driving may be permitted — he should confirm with the relevant state licensing authority",
+      "He can drive immediately as long as he takes his medication every day",
+      "He will never be able to drive — epilepsy is a permanent disqualification",
+      "Only 3 months seizure-free is required before driving"
+    ],
+    "correct": 0,
+    "explanation": "In Australia, the standard requirement for private vehicle driving with a history of epilepsy or seizures is a minimum of 12 months seizure-free. This applies in most states and territories, though specific requirements can vary slightly. Commercial vehicle licensing has stricter requirements (typically 2–5 years seizure-free or more). The patient must notify the relevant state licensing authority and their insurer. NPs must document that they have provided this advice. Epilepsy Action Australia maintains up-to-date state-specific driving guidelines. Driving is not a permanent disqualification — it depends on seizure control."
+  },
+  {
+    "q": "Which of the following best describes the HINTS exam used in the emergency assessment of acute vertigo?",
+    "options": [
+      "Head Impulse, Nystagmus, Test of Skew — used to distinguish peripheral from central vertigo; a negative head impulse test, direction-changing nystagmus, or vertical skew deviation suggests a central (dangerous) cause",
+      "Hearing, Inflammation, Neurological Testing, Sensation — a comprehensive vertigo assessment",
+      "Headache, Instability, Nystagmus, Tinnitus, Syncope — a scoring system for Ménière's disease",
+      "HINTS is used for headache assessment, not vertigo"
+    ],
+    "correct": 0,
+    "explanation": "The HINTS exam (Head Impulse, Nystagmus, Test of Skew) is used to differentiate dangerous central vertigo (posterior circulation stroke/TIA) from benign peripheral causes (vestibular neuritis, BPPV) in patients with acute continuous vertigo. Central cause (dangerous) is suggested by: NORMAL head impulse test (no corrective saccade — abnormal in peripheral), direction-CHANGING nystagmus (central), or ANY vertical skew deviation. The mnemonic is reversed: a 'positive HINTS' (H negative, N direction-changing, T positive skew) = central cause requiring urgent neuroimaging. HINTS has been shown to be more sensitive than early MRI for posterior circulation stroke."
+  },
+  {
+    "q": "A patient with a documented penicillin allergy has bacterial meningitis. Which antibiotic is most appropriate?",
+    "options": [
+      "Chloramphenicol IV — alternative for penicillin-allergic patients when cephalosporins are also contraindicated",
+      "Amoxicillin IV — penicillin allergy is irrelevant in life-threatening infection",
+      "Metronidazole — covers all meningitis organisms",
+      "No antibiotics — meningitis is always viral"
+    ],
+    "correct": 0,
+    "explanation": "Bacterial meningitis is a life-threatening emergency requiring immediate empirical antibiotic therapy. Standard first-line is benzylpenicillin or cephalosporins (ceftriaxone, cefotaxime). In documented severe penicillin allergy (anaphylaxis) where cephalosporins are also contraindicated due to cross-reactivity, chloramphenicol IV is the recommended alternative in Australian guidelines (Therapeutic Guidelines). Notably, in true anaphylaxis to penicillin, cephalosporins carry a small cross-reactivity risk (~1–2%) but are often still used in life-threatening situations under cover. Bacterial meningitis is NOT always viral — meningococcus, pneumococcus, and Listeria are common causes. Never delay antibiotics."
+  },
+  {
+    "q": "What is the recommended first-line preventive pharmacotherapy for chronic migraine (≥15 headache days per month for >3 months, of which ≥8 have migrainous features) in Australia, and when should CGRP monoclonal antibodies be considered?",
+    "options": [
+      "First-line: topiramate or sodium valproate (with contraceptive counselling); CGRP monoclonal antibodies (e.g. erenumab, fremanezumab) are PBS-listed for chronic migraine after ≥2 failed adequate preventive trials",
+      "First-line: CGRP monoclonal antibodies without prior preventive therapy trials",
+      "First-line: paracetamol regularly; CGRP antibodies are not available in Australia",
+      "First-line: opioid analgesics; CGRP antibodies are investigational only"
+    ],
+    "correct": 0,
+    "explanation": "Chronic migraine (≥15 headache days/month, ≥8 with migraine features, for >3 months) requires preventive therapy. Australian first-line preventive agents include topiramate and sodium valproate (both teratogenic — contraceptive counselling mandatory in women of reproductive age), propranolol, and amitriptyline. CGRP (calcitonin gene-related peptide) monoclonal antibodies — erenumab (Aimovig) and fremanezumab (Ajovy) — are highly effective and well tolerated. In Australia, they are PBS-listed for chronic migraine in patients who have tried and failed at least two adequate trials of preventive therapy. They represent a significant advance for treatment-refractory patients."
+  }
+]
