@@ -1,0 +1,122 @@
+[
+  {
+    "q": "A 45-year-old male has a fasting plasma glucose of 7.4 mmol/L on two separate occasions. He has no symptoms. According to Australian/WHO diagnostic criteria, what is the diagnosis?",
+    "options": ["Impaired fasting glucose — pre-diabetes, no treatment needed", "Type 2 diabetes mellitus — confirmed diagnosis", "Stress hyperglycaemia — repeat in 6 weeks", "Type 1 diabetes mellitus — commence insulin immediately"],
+    "correct": 1,
+    "explanation": "Fasting plasma glucose ≥7.0 mmol/L on two separate occasions confirms a diagnosis of diabetes mellitus in an asymptomatic patient. A single result ≥7.0 with classic symptoms (polyuria, polydipsia, weight loss) is also diagnostic. This patient has T2DM — type 1 is less likely in a 45-year-old without symptoms of rapid onset."
+  },
+  {
+    "q": "A patient with T2DM has an HbA1c of 72 mmol/mol (8.7%) despite metformin 1g BD for 6 months with good adherence. She has established cardiovascular disease. Which add-on agent is most strongly indicated according to Australian guidelines?",
+    "options": ["Gliclazide MR 30mg — sulfonylurea, low cost and effective", "Sitagliptin 100mg — DPP-4 inhibitor, weight neutral and safe", "Empagliflozin 10mg — SGLT2 inhibitor with proven cardiovascular mortality benefit", "Insulin glargine — most effective glucose-lowering agent"],
+    "correct": 2,
+    "explanation": "In patients with T2DM and established cardiovascular disease, SGLT2 inhibitors (empagliflozin, dapagliflozin) and GLP-1 RAs (semaglutide, dulaglutide) have proven cardiovascular mortality benefits beyond glucose lowering. The EMPA-REG OUTCOME trial demonstrated a 38% reduction in CV death with empagliflozin. Australian guidelines prioritise these agents in patients with existing CVD."
+  },
+  {
+    "q": "You are managing a 62-year-old patient with T2DM and an eGFR of 25 mL/min/1.73m². Which medication adjustment is most appropriate?",
+    "options": ["Continue metformin at full dose — eGFR is not a concern below age 65", "Cease metformin — contraindicated when eGFR <30 due to lactic acidosis risk", "Switch metformin to twice-daily insulin immediately", "Reduce metformin to 500mg daily — safe at all eGFR levels"],
+    "correct": 1,
+    "explanation": "Metformin is contraindicated when eGFR falls below 30 mL/min/1.73m² due to the risk of lactic acidosis from reduced renal clearance. It should be used with caution and dose reduction between eGFR 30–45. At eGFR 25, it must be ceased. The prescriber should consider alternative agents — SGLT2 inhibitors have limited glucose-lowering efficacy at this eGFR but may still have renal protective effects (dapagliflozin is approved for CKD at eGFR ≥25)."
+  },
+  {
+    "q": "A patient presents with a 3-week history of increasing fatigue, cold intolerance, constipation, and mild weight gain. Her TSH is 18.4 mIU/L and free T4 is 8.2 pmol/L (low). What is the diagnosis and first-line treatment?",
+    "options": ["Subclinical hypothyroidism — no treatment required, repeat in 6 months", "Primary hypothyroidism — commence levothyroxine and titrate TSH to 0.4–4.0 mIU/L", "Secondary hypothyroidism — urgent pituitary MRI required before treatment", "Hyperthyroidism — commence carbimazole and refer to endocrinology"],
+    "correct": 1,
+    "explanation": "Elevated TSH with low free T4 and symptoms confirms primary hypothyroidism. First-line treatment is levothyroxine, starting at 25–50 mcg daily (lower starting dose in elderly or cardiac patients). Recheck TFTs 6–8 weeks after commencement or dose change. Target TSH is 0.4–4.0 mIU/L for most adults, though some patients feel better with TSH in the lower half of the range."
+  },
+  {
+    "q": "A 34-year-old female presents with a 2-month history of weight loss, palpitations, heat intolerance, and tremor. She has exophthalmos and a diffuse goitre on examination. Her TSH is undetectable and free T4 is markedly elevated. TRAb antibodies are positive. What is the most likely diagnosis?",
+    "options": ["Hashimoto's thyroiditis — hypothyroid phase", "Toxic multinodular goitre — multiple autonomous nodules", "Graves' disease — autoimmune hyperthyroidism", "Subacute thyroiditis — post-viral thyroid inflammation"],
+    "correct": 2,
+    "explanation": "Graves' disease is an autoimmune condition caused by TSH receptor-stimulating antibodies (TRAb). It presents with hyperthyroidism, diffuse goitre, and the characteristic features of Graves' orbitopathy (exophthalmos, lid lag, ophthalmoplegia) and occasionally pretibial myxoedema. Positive TRAb confirms the diagnosis. Refer to endocrinology for definitive management: carbimazole, radioiodine ablation, or thyroidectomy."
+  },
+  {
+    "q": "A 28-year-old male with T1DM presents via ambulance with GCS 12, Kussmaul breathing, and blood glucose of 18.4 mmol/L. His blood ketones are 4.8 mmol/L and arterial pH is 7.21. What is the diagnosis and appropriate action?",
+    "options": ["Hyperosmolar hyperglycaemic state — give IV fluids only", "Severe hypoglycaemia — give IV 50% dextrose and glucagon", "Diabetic ketoacidosis — call 000 and transfer to ED for IV fluids and insulin infusion", "Hyperglycaemic hyperosmolar state — commence oral rehydration and monitor"],
+    "correct": 2,
+    "explanation": "DKA is defined by hyperglycaemia (BSL >11), elevated ketones (>3.0 mmol/L), and metabolic acidosis (pH <7.3, bicarbonate <18). This is a life-threatening emergency requiring IV fluid resuscitation (normal saline), IV insulin infusion, electrolyte monitoring (especially potassium), and hourly observation. DKA cannot be managed safely in primary care. Call 000 immediately."
+  },
+  {
+    "q": "According to the 'rule of 15' for hypoglycaemia management in a conscious patient with a BSL of 2.8 mmol/L, what is the correct immediate treatment?",
+    "options": ["Call 000 immediately — BSL below 3.0 always requires ambulance", "Give 15g fast-acting carbohydrate, recheck BSL in 15 minutes, repeat if still below 4 mmol/L", "Give 30g complex carbohydrate and rest for 30 minutes", "Administer glucagon 1mg IM and call 000"],
+    "correct": 1,
+    "explanation": "The rule of 15: give 15g of fast-acting carbohydrate (e.g. 150–200mL fruit juice, 6 jelly beans, 3–4 glucose tablets), recheck BSL after 15 minutes, and repeat if still below 4 mmol/L. Once resolved, have a snack with complex carbohydrate if the next meal is more than 1 hour away. Glucagon IM is reserved for severe hypoglycaemia with altered consciousness or inability to swallow."
+  },
+  {
+    "q": "A 55-year-old female taking long-term prednisolone 10mg daily for rheumatoid arthritis presents with central obesity, thin skin, easy bruising, purple striae, and proximal muscle weakness. Her BP is 156/94 and her blood glucose is elevated. What is the most likely diagnosis?",
+    "options": ["Metabolic syndrome — treat individual cardiovascular risk factors", "Cushing's syndrome — most likely iatrogenic from exogenous glucocorticoids", "Primary hyperaldosteronism — elevated BP and metabolic changes", "Hypothyroidism — fatigue, weight gain, and skin changes"],
+    "correct": 1,
+    "explanation": "The clinical picture is classic Cushing's syndrome: central obesity, proximal myopathy, easy bruising, purple striae >1cm, hypertension, and hyperglycaemia. In this patient taking prednisolone 10mg daily long term, iatrogenic (exogenous) Cushing's is the most likely cause. Avoid abrupt cessation — gradual dose reduction under specialist guidance. If endogenous causes are suspected (no exogenous steroids), investigate with 24h urinary free cortisol and/or overnight dexamethasone suppression test."
+  },
+  {
+    "q": "A patient with known Addison's disease develops a severe gastroenteritis with profuse vomiting and is unable to keep oral medications down. She presents with BP 86/52 mmHg, HR 118 bpm, and feels faint. What is the most appropriate immediate management?",
+    "options": ["Advise to double oral hydrocortisone dose and rest at home with fluids", "Call 000 — likely Addisonian crisis; requires parenteral hydrocortisone and IV fluids urgently", "Give 1L of oral rehydration solution and review in 4 hours", "Arrange urgent endocrinology outpatient review within 24 hours"],
+    "correct": 1,
+    "explanation": "This is an Addisonian crisis precipitated by physiological stress (gastroenteritis) in a patient unable to absorb oral glucocorticoids. Features: hypotension, tachycardia, vomiting. Treatment: hydrocortisone 100mg IV or IM immediately, followed by IV normal saline. This is life-threatening and requires emergency hospital management. All Addison's patients should have an emergency injection kit (hydrocortisone 100mg IM) and be trained in sick day rules."
+  },
+  {
+    "q": "Which of the following correctly describes the glycaemic target recommended by RACGP 2020 guidelines for a 75-year-old with T2DM, mild cognitive impairment, and multiple comorbidities?",
+    "options": ["HbA1c <48 mmol/mol (<6.5%) — strict control prevents all complications", "HbA1c <53 mmol/mol (<7%) — standard target for all adults with T2DM", "HbA1c <64 mmol/mol (<8%) — relaxed target appropriate for frail elderly patients", "HbA1c <70 mmol/mol (<8.6%) — any control is acceptable in the elderly"],
+    "correct": 2,
+    "explanation": "Australian RACGP guidelines recommend individualised HbA1c targets. For elderly, frail patients or those with limited life expectancy, cognitive impairment, or multiple comorbidities, a relaxed target of <64 mmol/mol (<8%) is appropriate to minimise hypoglycaemia risk, which in this population can cause falls, cardiac events, and hospitalisation. Strict targets are harmful in frail elderly patients."
+  },
+  {
+    "q": "A 40-year-old male with T2DM on metformin has an HbA1c of 65 mmol/mol. He is obese (BMI 38) and wants to lose weight. Which add-on medication has the strongest evidence for weight loss alongside glucose lowering?",
+    "options": ["Gliclazide MR — effective glucose lowering with modest weight gain", "Sitagliptin — DPP-4 inhibitor, weight neutral", "Semaglutide (Ozempic) — GLP-1 receptor agonist with significant weight reduction evidence", "Empagliflozin — SGLT2 inhibitor with modest weight loss of 2–3kg"],
+    "correct": 2,
+    "explanation": "GLP-1 receptor agonists, especially semaglutide (subcutaneous weekly), produce the most significant weight loss alongside glucose lowering — trials show 10–15% body weight reduction. The STEP and SUSTAIN trials demonstrate superiority over other agents for weight loss in T2DM. Semaglutide is PBS-listed for T2DM in Australia (Ozempic). The higher-dose formulation (Wegovy) is approved for obesity. Empagliflozin causes modest 2–3kg weight loss via glucosuria."
+  },
+  {
+    "q": "A patient presents with a thyroid nodule 2.2cm in diameter found incidentally on neck ultrasound. TSH is normal. The nodule is solid and hypoechoic on ultrasound. What is the most appropriate next step?",
+    "options": ["Reassure and repeat ultrasound in 5 years — most nodules are benign", "Commence levothyroxine to suppress TSH and shrink the nodule", "Refer for fine needle aspiration biopsy (FNAB) to assess for malignancy", "Arrange thyroid scintigraphy — all nodules require nuclear medicine assessment"],
+    "correct": 2,
+    "explanation": "Solid hypoechoic nodules ≥1cm in diameter warrant fine needle aspiration biopsy (FNAB) to exclude thyroid malignancy. The Australian Thyroid Association guidelines recommend FNAB based on ultrasound characteristics (vascularity, echogenicity, margins) and size. TSH suppression with levothyroxine is not recommended for nodule management. Scintigraphy is useful for hyperfunctioning ('hot') nodules when TSH is suppressed."
+  },
+  {
+    "q": "Which of the following is the most reliable indicator that an SGLT2 inhibitor should NOT be started in a patient with T2DM?",
+    "options": ["Age over 65 years", "eGFR of 35 mL/min/1.73m² — reduced but not a hard contraindication", "Current urinary tract infection", "History of type 1 diabetes"],
+    "correct": 3,
+    "explanation": "SGLT2 inhibitors are contraindicated in T1DM (not PBS-listed for T1DM in Australia — risk of euglycaemic DKA is high). A current UTI is a relative contraindication — wait until resolved as SGLT2i increase glucosuria which can worsen infection risk. eGFR 35 is not a hard contraindication — dapagliflozin has renal protective effects approved down to eGFR ≥25 for CKD with albuminuria. Age >65 is not a contraindication."
+  },
+  {
+    "q": "A patient with known hypothyroidism on levothyroxine 100mcg daily has a TSH of 0.1 mIU/L (suppressed) at routine review. She has no symptoms of hyperthyroidism. What is the most appropriate management?",
+    "options": ["Continue current dose — suppressed TSH is the treatment target for hypothyroidism", "Reduce levothyroxine dose — suppressed TSH increases risk of atrial fibrillation and osteoporosis", "Cease levothyroxine and repeat TFTs in 6 weeks", "Refer urgently to endocrinology for thyroid storm workup"],
+    "correct": 1,
+    "explanation": "Suppressed TSH (<0.4 mIU/L) in a patient on levothyroxine indicates over-replacement. Even without symptoms, subclinical hyperthyroidism significantly increases the risk of atrial fibrillation (x3 risk), osteoporosis, and fractures. The dose should be reduced — typically by 12.5–25 mcg — and TFTs rechecked in 6–8 weeks. The target TSH for most patients on replacement therapy is 0.4–4.0 mIU/L."
+  },
+  {
+    "q": "An obese patient with T2DM and microalbuminuria (ACR 5.8 mg/mmol) has a BP of 142/88 mmHg. He is not currently on antihypertensive therapy. What is the most appropriate first-line antihypertensive agent?",
+    "options": ["Amlodipine 5mg — calcium channel blocker, first line in all diabetic hypertension", "Perindopril 5mg or another ACE inhibitor — nephroprotective in diabetes with albuminuria", "Indapamide 2.5mg — thiazide diuretic, effective and low cost", "Metoprolol 25mg — beta-blocker, cardioprotective in diabetes"],
+    "correct": 1,
+    "explanation": "In patients with diabetes and microalbuminuria (or macroalbuminuria), ACE inhibitors or ARBs are the preferred first-line antihypertensives due to their nephroprotective effects — they reduce intraglomerular pressure and slow progression of diabetic nephropathy independently of BP lowering. The BP target in diabetes is <130/80 mmHg per Australian guidelines. ACEi/ARB also have cardiorenal protective benefits in this population."
+  },
+  {
+    "q": "What is the primary mechanism of action of GLP-1 receptor agonists (e.g. semaglutide, dulaglutide) in managing type 2 diabetes?",
+    "options": ["Block renal glucose reabsorption causing glucosuria", "Inhibit DPP-4 enzyme, increasing endogenous GLP-1 levels", "Stimulate pancreatic beta cells to release insulin in a glucose-dependent manner, reduce glucagon, and delay gastric emptying", "Directly stimulate insulin secretion regardless of blood glucose level — high hypoglycaemia risk"],
+    "correct": 2,
+    "explanation": "GLP-1 receptor agonists (exenatide, liraglutide, semaglutide, dulaglutide) mimic the action of endogenous GLP-1: they stimulate insulin release from pancreatic beta cells in a glucose-dependent manner (minimal hypoglycaemia risk), suppress glucagon secretion, delay gastric emptying (reducing post-prandial glucose spikes), and reduce appetite. They do not directly stimulate insulin independently of glucose — hence the low hypoglycaemia risk when used without insulin or sulfonylureas."
+  },
+  {
+    "q": "A 52-year-old woman with a BMI of 29 and waist circumference of 92cm presents for a check-up. Her investigations show: triglycerides 2.1 mmol/L, HDL 0.98 mmol/L, BP 134/84 mmHg, and fasting glucose 5.8 mmol/L. She has no known CVD or diabetes. How many criteria for metabolic syndrome does she meet?",
+    "options": ["2 criteria — does not meet the threshold for metabolic syndrome", "3 criteria — meets the diagnostic threshold for metabolic syndrome", "4 criteria — definite metabolic syndrome with high CVD risk", "0 criteria — her values are all within normal limits"],
+    "correct": 2,
+    "explanation": "IDF/AHA metabolic syndrome criteria: central obesity (waist ≥80cm in women — she has 92cm ✓) plus ≥2 of: TG ≥1.7 ✓, HDL <1.29 women ✓, BP ≥130/85 ✓, fasting glucose ≥5.6 ✓. She meets central obesity plus all 4 additional criteria = 5 criteria total, well above the threshold. She has metabolic syndrome and is at high risk for T2DM and CVD. Lifestyle intervention and cardiovascular risk assessment are essential."
+  },
+  {
+    "q": "A patient with T2DM has been commenced on empagliflozin. Three days later she presents with genital itching, redness, and a cottage-cheese discharge. There is no fever or systemic symptoms. What is the most likely diagnosis and management?",
+    "options": ["Urinary tract infection — send MSU and commence trimethoprim", "Vulvovaginal candidiasis — common with SGLT2 inhibitors; treat with fluconazole 150mg single dose", "Allergic reaction to empagliflozin — cease and change to alternative agent", "Bacterial vaginosis — treat with metronidazole"],
+    "correct": 1,
+    "explanation": "SGLT2 inhibitors cause glucosuria, which promotes fungal growth in the genital area. Vulvovaginal candidiasis (in women) and balanitis (in men) are common adverse effects, occurring in approximately 3–8% of patients. Management: oral fluconazole 150mg single dose or topical antifungal. Empagliflozin does not need to be ceased — but genital hygiene counselling should be provided at initiation. Recurrent infections may require consideration of alternative therapy."
+  },
+  {
+    "q": "Which investigation is considered the gold standard for confirming a diagnosis of primary adrenal insufficiency (Addison's disease)?",
+    "options": ["Random serum cortisol — a level below 100 nmol/L is diagnostic", "24-hour urinary cortisol — low levels confirm adrenal insufficiency", "Short Synacthen stimulation test — peak cortisol <500 nmol/L at 30 or 60 minutes confirms diagnosis", "Overnight dexamethasone suppression test — used to exclude adrenal insufficiency"],
+    "correct": 2,
+    "explanation": "The short Synacthen test (SST) is the gold standard investigation for primary adrenal insufficiency. Synthetic ACTH (tetracosactide 250mcg IV or IM) is given and cortisol is measured at 0, 30, and 60 minutes. A peak cortisol <500 nmol/L at 30 or 60 minutes is diagnostic of adrenal insufficiency. Random cortisol is inadequate for diagnosis as cortisol is pulsatile. The dexamethasone suppression test is used to diagnose Cushing's syndrome (excess cortisol), not adrenal insufficiency."
+  },
+  {
+    "q": "A patient with T2DM asks about the difference between a sulfonylurea (gliclazide) and a DPP-4 inhibitor (sitagliptin). Which statement correctly compares these two drug classes?",
+    "options": ["Both have equal hypoglycaemia risk and similar weight effects", "Gliclazide causes weight gain and carries hypoglycaemia risk; sitagliptin is weight neutral with very low hypoglycaemia risk when used without insulin or sulfonylureas", "Sitagliptin is more effective at lowering HbA1c than gliclazide in all patients", "Gliclazide is contraindicated in CKD; sitagliptin can be used at full dose in all eGFR levels"],
+    "correct": 1,
+    "explanation": "Sulfonylureas (gliclazide, glipizide) stimulate insulin secretion regardless of glucose level — they carry a clinically significant hypoglycaemia risk (especially with missed meals or exercise) and cause modest weight gain (1–2kg). DPP-4 inhibitors (sitagliptin, saxagliptin, vildagliptin) increase endogenous GLP-1 in a glucose-dependent manner — very low hypoglycaemia risk and weight neutral. Sitagliptin requires dose reduction in CKD (not full dose at all eGFR levels). Gliclazide is relatively safe in mild-moderate CKD but should be used cautiously."
+  }
+]
