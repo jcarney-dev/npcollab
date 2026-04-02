@@ -6,7 +6,15 @@ export const metadata: Metadata = {
   description: 'Enter your NPCollab access code to access NP educational resources.',
 };
 
-export default function EnterAccessPage() {
+interface Props {
+  searchParams: Promise<{ from?: string }>;
+}
+
+export default async function EnterAccessPage({ searchParams }: Props) {
+  const { from } = await searchParams;
+  // Only use the `from` value if it's a safe internal path
+  const redirectTo = from && from.startsWith('/') && !from.startsWith('//') ? from : '/';
+
   return (
     <div className="public-page">
       <div className="public-card">
@@ -19,7 +27,7 @@ export default function EnterAccessPage() {
           Enter the access code you received by email to access NPCollab resources.
           Don&apos;t have a code? <a href="/request-access" className="public-link">Request access here</a>.
         </p>
-        <EnterAccessForm />
+        <EnterAccessForm redirectTo={redirectTo} />
       </div>
     </div>
   );

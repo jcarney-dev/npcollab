@@ -2,37 +2,42 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyAccessCookie, COOKIE_NAME } from '@/lib/auth';
 
 /**
- * Routes that require a valid access cookie.
- * Everything else (/, /request-access, /enter-access, /about, /support) is public.
+ * Public routes — everything else requires a valid access cookie.
  */
-const PROTECTED_PREFIXES = [
-  '/modules',
-  '/scope',
-  '/assessment',
-  '/clinical-essentials',
-  '/health-tech',
-  '/research',
-  '/business',
-];
+const PUBLIC_PATHS = new Set([
+  '/',
+  '/request-access',
+  '/enter-access',
+  '/about',
+  '/support',
+  '/analytics',
+  '/admin/login',
+]);
 
-/**
- * Admin routes — protected by a separate admin cookie.
- */
-const ADMIN_PREFIX = '/admin';
-
-function isProtected(pathname: string): boolean {
-  return PROTECTED_PREFIXES.some(prefix => pathname.startsWith(prefix));
+function isPublic(pathname: string): boolean {
+  if (PUBLIC_PATHS.has(pathname)) return true;
+  // Allow Next.js internals and API routes that don't need protection
+  if (pathname.startsWith('/_next/')) return true;
+  if (pathname.startsWith('/favicon')) return true;
+  // Admin API routes and public API routes are handled separately
+  if (pathname.startsWith('/api/')) return true;
+  return false;
 }
 
-function isAdmin(pathname: string): boolean {
-  return pathname.startsWith(ADMIN_PREFIX);
+function isAdminRoute(pathname: string): boolean {
+  return pathname.startsWith('/admin') && pathname !== '/admin/login';
 }
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Admin routes
-  if (isAdmin(pathname) && pathname !== '/admin/login') {
+  // Skip public paths early
+  if (isPublic(pathname)) {
+    return NextResponse.next();
+  }
+
+  // Admin routes — protected by admin password cookie
+  if (isAdminRoute(pathname)) {
     const adminCookie = req.cookies.get('npcollab_admin');
     if (!adminCookie?.value || adminCookie.value !== process.env.ADMIN_PASSWORD) {
       const loginUrl = req.nextUrl.clone();
@@ -42,21 +47,19 @@ export async function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // Protected content routes
-  if (isProtected(pathname)) {
-    const accessCookie = req.cookies.get(COOKIE_NAME);
+  // All other routes require a valid access cookie
+  const accessCookie = req.cookies.get(COOKIE_NAME);
 
-    if (!accessCookie?.value) {
-      return redirectToEnterAccess(req);
-    }
+  if (!accessCookie?.value) {
+    return redirectToEnterAccess(req);
+  }
 
-    const userId = await verifyAccessCookie(accessCookie.value);
-    if (!userId) {
-      return redirectToEnterAccess(req);
-    }
-
-    // Valid — pass through
-    return NextResponse.next();
+  const userId = await verifyAccessCookie(accessCookie.value);
+  if (!userId) {
+    // Cookie present but invalid — clear it and redirect
+    const response = redirectToEnterAccess(req);
+    response.cookies.delete(COOKIE_NAME);
+    return response;
   }
 
   return NextResponse.next();
@@ -64,20 +67,15 @@ export async function proxy(req: NextRequest) {
 
 function redirectToEnterAccess(req: NextRequest): NextResponse {
   const url = req.nextUrl.clone();
+  const from = req.nextUrl.pathname;
   url.pathname = '/enter-access';
-  url.searchParams.set('from', req.nextUrl.pathname);
+  url.searchParams.set('from', from);
   return NextResponse.redirect(url);
 }
 
 export const config = {
+  // Match everything except static files
   matcher: [
-    '/modules/:path*',
-    '/scope/:path*',
-    '/assessment/:path*',
-    '/clinical-essentials/:path*',
-    '/health-tech/:path*',
-    '/research/:path*',
-    '/business/:path*',
-    '/admin/:path*',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js)$).*)',
   ],
 };

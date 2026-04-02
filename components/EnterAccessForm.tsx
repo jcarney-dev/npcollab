@@ -5,7 +5,11 @@ import { useRouter } from 'next/navigation';
 
 type FormState = 'idle' | 'submitting' | 'error';
 
-export default function EnterAccessForm() {
+interface Props {
+  redirectTo: string;
+}
+
+export default function EnterAccessForm({ redirectTo }: Props) {
   const [state, setState] = useState<FormState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const router = useRouter();
@@ -22,14 +26,14 @@ export default function EnterAccessForm() {
       const res = await fetch('/api/enter-access', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code }),
+        body: JSON.stringify({ code, redirectTo }),
       });
       const json = await res.json();
       if (!res.ok) {
         setErrorMsg(json.error || 'Invalid access code. Please check and try again.');
         setState('error');
       } else {
-        router.push(json.redirect || '/');
+        router.push(json.redirect);
         router.refresh();
       }
     } catch {

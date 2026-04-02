@@ -7,7 +7,7 @@ import { signAccessCookie } from '@/lib/auth';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { code } = body;
+    const { code, redirectTo } = body;
 
     if (!code || typeof code !== 'string') {
       return Response.json({ error: 'Access code is required.' }, { status: 400 });
@@ -31,7 +31,13 @@ export async function POST(req: NextRequest) {
 
     const cookieValue = await signAccessCookie(user.id);
 
-    const response = Response.json({ ok: true, redirect: '/' });
+    // Determine safe redirect destination
+    const destination =
+      redirectTo && typeof redirectTo === 'string' && redirectTo.startsWith('/') && !redirectTo.startsWith('//')
+        ? redirectTo
+        : '/';
+
+    const response = Response.json({ ok: true, redirect: destination });
     response.headers.set(
       'Set-Cookie',
       `npcollab_access=${cookieValue}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`
