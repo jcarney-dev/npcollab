@@ -18,7 +18,7 @@ const navGroups = [
   {
     label: 'Clinical Modules',
     items: [
-      { label: 'Aged Care',             href: '/modules/aged-care',           icon: '🧓', disabled: true, coming: true },
+      { label: 'Aged Care',             href: '/modules/aged-care',           icon: '🧓' },
       { label: 'Cardiac',               href: '/modules/cardiac',             icon: '❤️' },
       { label: 'Cardiovascular',        href: '/modules/cardiovascular',      icon: '🫀', disabled: true, coming: true },
       { label: 'Drugs & Alcohol',       href: '/modules/drugs-alcohol',       icon: '🧪', disabled: true, coming: true },
@@ -40,7 +40,7 @@ const navGroups = [
       { label: 'Respiratory',           href: '/modules/respiratory',         icon: '🫁' },
       { label: 'Surgical',              href: '/modules/surgical',            icon: '🔪', disabled: true, coming: true },
       { label: 'Toxicology',            href: '/modules/toxicology',          icon: '⚗️', disabled: true, coming: true },
-      { label: "Women's Health",        href: '/modules/womens-health',       icon: '👩', disabled: true, coming: true },
+      { label: "Women's Health",        href: '/modules/womens-health',       icon: '👩' },
     ]
   },
   {

@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 32-year-old woman presents with 9 days of heavy menstrual bleeding, passing large clots, and flooding through her clothing. FBC shows Hb 89 g/L and ferritin 4 μg/L. She has no desire for pregnancy currently. What is the MOST appropriate first-line long-term management?",
+    "options": [
+      "Levonorgestrel-releasing IUD (Mirena) — most effective medical treatment for HMB, reduces blood loss by 80–90%, and provides highly effective contraception",
+      "Hysterectomy — definitive treatment should be offered immediately",
+      "Oral iron supplementation only — blood loss is not clinically significant",
+      "Combined oral contraceptive pill — most effective medical treatment for HMB"
+    ],
+    "correct": 0,
+    "explanation": "The levonorgestrel-releasing IUD (LNG-IUD, Mirena) is recommended as the first-line medical treatment for heavy menstrual bleeding by RANZCOG and NICE. It reduces menstrual blood loss by 80–90%, is more effective than oral medical treatments (including the COCP, tranexamic acid, and norethisterone), and simultaneously provides highly effective contraception. In this patient with significant iron deficiency anaemia secondary to HMB, the most appropriate approach combines iron replacement with LNG-IUD insertion. Hysterectomy, while definitive, is not first-line."
+  },
+  {
+    "q": "According to the National Cervical Screening Programme (NCSP) in Australia, how often should a cervical screening test (CST) be performed in a woman with a normal result, and what does the test detect?",
+    "options": [
+      "Every 5 years — primary HPV testing (with reflex LBC if HPV detected), replacing the previous 2-yearly Pap smear",
+      "Every 2 years — LBC (liquid-based cytology) only",
+      "Annually — HPV and LBC combined test every year",
+      "Every 10 years — HPV vaccination has eliminated the need for frequent screening"
+    ],
+    "correct": 0,
+    "explanation": "Australia's NCSP changed from 2-yearly Pap smears to 5-yearly primary HPV testing in December 2017. The cervical screening test (CST) detects high-risk HPV strains first. If HPV is detected, liquid-based cytology (LBC) is automatically performed on the same sample to assess for cellular abnormalities. If HPV is not detected, the woman is recalled in 5 years. This change was supported by evidence that HPV primary testing is more sensitive than cytology alone, and that HPV-negative women have very low risk of developing cervical cancer within 5 years. Vaccination has reduced HPV prevalence but screening remains essential."
+  },
+  {
+    "q": "A 51-year-old woman presents with 18 months of hot flushes, night sweats, and sleep disturbance significantly impacting her quality of life. Her LMP was 14 months ago. She has an intact uterus and no contraindications to MHT. What is the most appropriate initial treatment?",
+    "options": [
+      "Combined menopausal hormone therapy (oestrogen + progestogen) — oestrogen alone causes endometrial hyperplasia in women with an intact uterus; MHT is the most effective treatment for vasomotor symptoms",
+      "Oestrogen-only MHT — suitable for all postmenopausal women regardless of uterine status",
+      "Herbal supplements (black cohosh) — evidence-based first-line treatment for menopausal symptoms",
+      "No treatment — menopausal symptoms should not be medicated"
+    ],
+    "correct": 0,
+    "explanation": "Menopausal hormone therapy (MHT) is the most effective treatment for vasomotor symptoms (VMS) and is appropriate for this woman who is symptomatic, within the first 10 years of menopause, and has no contraindications. For women with an intact uterus, oestrogen must ALWAYS be combined with progestogen (to prevent unopposed oestrogen stimulation of the endometrium, which causes endometrial hyperplasia and cancer). Oestrogen-only MHT is only appropriate for women who have had a hysterectomy. Black cohosh has limited and inconsistent evidence — it is not recommended as first-line by Australian or international guidelines. MHT benefits typically outweigh risks for symptomatic women under 60 or within 10 years of menopause onset."
+  },
+  {
+    "q": "A 38-year-old woman with migraine with aura is requesting combined oral contraceptive pill (COCP) for contraception. What is the correct advice?",
+    "options": [
+      "COCP is contraindicated (WHO MEC 4) in women with migraine with aura — it significantly increases ischaemic stroke risk; recommend a progestogen-only method or non-hormonal contraception",
+      "COCP is safe in all women with migraine — prescribe without restriction",
+      "COCP is contraindicated only if she is over 40 years old",
+      "COCP can be prescribed if she takes her migraine medication at the same time as the OCP"
+    ],
+    "correct": 0,
+    "explanation": "Migraine with aura is a WHO Medical Eligibility Criteria (MEC) Category 4 condition for combined oral contraceptive use — meaning the health risks outweigh the benefits and it should NOT be prescribed. Women with migraine with aura have an independently elevated risk of ischaemic stroke; the COCP (oestrogen-containing) further multiplies this risk approximately 8-fold compared to non-migraineurs not using the COCP. Safe alternatives include progestogen-only methods (POP, implant, LNG-IUD) which do not increase stroke risk, or non-hormonal methods (copper IUD, barrier methods). Migraine without aura carries a lower risk (MEC 2 — benefits generally outweigh risks)."
+  },
+  {
+    "q": "A 25-year-old woman presents 68 hours after unprotected sexual intercourse requesting emergency contraception. She has no contraindications. Which option is MOST appropriate?",
+    "options": [
+      "Ulipristal acetate (EllaOne) — effective up to 120 hours after intercourse; more effective than levonorgestrel especially as time increases",
+      "Levonorgestrel (Postinor) — equally effective at 68 hours as at 24 hours",
+      "Combined OCP ('Yuzpe method') — first-line emergency contraception in Australia",
+      "Copper IUD is not available until 5 or more days after intercourse"
+    ],
+    "correct": 0,
+    "explanation": "Ulipristal acetate (EllaOne, a selective progesterone receptor modulator) is effective for emergency contraception up to 120 hours (5 days) after unprotected sex. It maintains effectiveness throughout the 120-hour window, making it more effective than levonorgestrel at 48–120 hours (levonorgestrel's efficacy declines significantly after 72 hours). At 68 hours, ulipristal acetate is the preferred pharmacological option. The copper IUD is the most effective emergency contraception (>99% effective) if inserted within 5 days and also provides ongoing contraception — it should be offered as an option. The Yuzpe method (high-dose COCP) is less effective and no longer recommended as first-line."
+  },
+  {
+    "q": "What is the recommended management of genitourinary syndrome of menopause (GSM) causing significant vaginal dryness and dyspareunia in a 58-year-old woman who is unable to use systemic MHT due to a history of breast cancer?",
+    "options": [
+      "Topical vaginal oestrogen (cream, pessary, or tablet) — delivers oestrogen locally with minimal systemic absorption and is generally considered safe even in women with a history of breast cancer (discuss with oncologist)",
+      "Oral MHT — systemic oestrogen is required and breast cancer history is not a contraindication",
+      "No treatment — vaginal dryness is expected and not treatable after breast cancer",
+      "Topical testosterone cream — first-line for GSM in breast cancer survivors"
+    ],
+    "correct": 0,
+    "explanation": "Genitourinary syndrome of menopause (GSM) causes significant symptoms including vaginal dryness, dyspareunia, vulvovaginal atrophy, and urinary urgency due to local oestrogen deficiency. Topical (vaginal) oestrogen — available as cream (Ovestin), pessary (Vagifem/Vagirux), or ring — delivers oestrogen locally with very low systemic absorption. Australian guidelines (Jean Hailes, AMS) generally consider low-dose topical vaginal oestrogen to be safe for use in women with a history of hormone-receptor positive breast cancer, but oncologist input should be sought for individual cases. Non-hormonal lubricants and moisturisers are also recommended as adjuncts. Systemic MHT is relatively or absolutely contraindicated after certain breast cancers."
+  },
+  {
+    "q": "A 29-year-old woman with a cervical screening result of 'HPV 16 detected, LBC: LSIL' is notified of her result. What is the correct management pathway per the NCSP?",
+    "options": [
+      "Refer for colposcopy — HPV 16 or 18 detection requires colposcopy regardless of the LBC result",
+      "Repeat co-test in 12 months — all abnormal results require a 12-month repeat before colposcopy",
+      "No action required — LSIL with HPV 16 is expected in young women and will clear spontaneously",
+      "Immediate LEEP/LLETZ — HPV 16 always requires treatment"
+    ],
+    "correct": 0,
+    "explanation": "Under the National Cervical Screening Programme (NCSP) pathway, detection of HPV 16 or HPV 18 (the highest-risk HPV genotypes) requires immediate referral for colposcopy, regardless of the liquid-based cytology (LBC) result. This is because HPV 16 and 18 carry the highest risk of progression to cervical intraepithelial neoplasia and cancer. Other high-risk HPV genotypes (not 16 or 18) with a normal LBC result are managed with a 12-month repeat co-test. LSIL (low-grade squamous intraepithelial lesion) is not an indication for immediate treatment — colposcopy will determine whether high-grade lesions are present before any treatment decision is made."
+  },
+  {
+    "q": "Which of the following is a characteristic feature of endometriosis that distinguishes it from primary dysmenorrhoea?",
+    "options": [
+      "Secondary dysmenorrhoea (pain worsening over time, associated with deep dyspareunia, dysuria, or dyschezia, and inadequate response to NSAIDs and COCP) — endometriosis should be suspected",
+      "Primary dysmenorrhoea always begins in the first 6–12 months after menarche — endometriosis cannot occur in adolescents",
+      "Endometriosis always causes infertility — fertility preservation is required immediately on diagnosis",
+      "Endometriosis is excluded by a normal pelvic ultrasound"
+    ],
+    "correct": 0,
+    "explanation": "Endometriosis is a chronic inflammatory condition where endometrial-like tissue grows outside the uterus. Key features that distinguish it from primary dysmenorrhoea include: onset of dysmenorrhoea that worsens over time (primary dysmenorrhoea typically improves or stays stable); deep dyspareunia (pain with intercourse — especially deep penetration); dyschezia (pain with defaecation, often cyclical); dysuria or haematuria (bladder endometriosis); inadequate response to NSAIDs and/or COCP; and subfertility. A normal pelvic ultrasound does NOT exclude endometriosis — deep infiltrating endometriosis and superficial peritoneal deposits are not reliably detected by ultrasound. Diagnostic gold standard is laparoscopy with histological confirmation."
+  },
+  {
+    "q": "A 45-year-old woman has post-menopausal bleeding — her LMP was 18 months ago. She is otherwise well with no other symptoms. What is the most important next step?",
+    "options": [
+      "Urgent gynaecology referral for transvaginal ultrasound and endometrial assessment — postmenopausal bleeding is endometrial cancer until proven otherwise",
+      "Reassure her that postmenopausal bleeding is common and review in 3 months",
+      "Commence MHT — the bleeding is likely due to oestrogen deficiency",
+      "Perform a cervical screening test only and review the result"
+    ],
+    "correct": 0,
+    "explanation": "Postmenopausal bleeding (PMB) is defined as any uterine bleeding occurring 12 or more months after the last menstrual period in a menopausal woman not on MHT (or unexpected bleeding on MHT). It is endometrial cancer until proven otherwise — approximately 10% of women with PMB will have endometrial cancer, and it is the most common gynaecological cancer in Australian women. Urgent gynaecology referral is required for transvaginal ultrasound (endometrial thickness ≥4 mm in postmenopausal women warrants biopsy) and endometrial sampling (pipelle biopsy). Do not reassure or delay investigation. Cervical screening alone is insufficient."
+  },
+  {
+    "q": "A 19-year-old woman presents with lower abdominal pain, fever (38.4°C), and mucopurulent cervical discharge. Cervical motion tenderness is present on bimanual examination. What is the most likely diagnosis and treatment?",
+    "options": [
+      "Pelvic inflammatory disease (PID) — treat empirically with ceftriaxone 500mg IM + doxycycline 100mg BD + metronidazole 400mg BD for 14 days per Australian STI guidelines",
+      "Appendicitis — refer for surgical review immediately",
+      "Ovarian torsion — refer for emergency surgery",
+      "Primary dysmenorrhoea — prescribe NSAIDs and review in 2 weeks"
+    ],
+    "correct": 0,
+    "explanation": "Pelvic inflammatory disease (PID) is a clinical diagnosis based on the triad of lower abdominal pain, cervical motion tenderness (or uterine/adnexal tenderness), and usually mucopurulent cervical discharge or fever. It is caused by ascending infection — most commonly Chlamydia trachomatis, Neisseria gonorrhoeae, or polymicrobial. Treatment should be empirical and not delayed pending STI results. Current Australian STI Management Guidelines recommend: ceftriaxone 500mg IM stat + doxycycline 100mg BD + metronidazole 400mg BD for 14 days. Sexual partners should be tested and treated. Hospitalisation is required if the patient is pregnant, severely unwell, has an adnexal mass (TOA), or fails outpatient treatment."
+  },
+  {
+    "q": "What is the recommended approach to breast triple assessment for a 38-year-old woman presenting with a 2 cm discrete right breast lump?",
+    "options": [
+      "Triple assessment: clinical examination + breast ultrasound (first-line imaging under 35, but at 38 ultrasound ± mammogram) + tissue sampling (FNA or core biopsy if imaging suspicious)",
+      "Reassure her that discrete breast lumps are benign in women under 40 and review in 6 months",
+      "MRI breast only — more sensitive than ultrasound or mammogram",
+      "Mammogram only — routine BreastScreen mammogram is sufficient for assessment"
+    ],
+    "correct": 0,
+    "explanation": "Any discrete breast lump requires triple assessment regardless of age: (1) clinical examination — document size, borders, mobility, skin changes, nipple, lymph nodes; (2) imaging — ultrasound is first-line for women under 35; for women 35 and over (including this 38-year-old), combined ultrasound AND mammogram is recommended; (3) tissue sampling — FNA (fine needle aspiration) or core biopsy if the lump or imaging is suspicious. All three components of triple assessment must be concordant and benign before a lump can be safely observed. A single negative investigation does not exclude malignancy. Reassurance without investigation of a discrete lump is inappropriate at any age."
+  },
+  {
+    "q": "Which of the following is the correct WHO Medical Eligibility Criteria (MEC) classification for the COCP in a 36-year-old woman who smokes 15 cigarettes per day?",
+    "options": [
+      "MEC 3 (risks generally outweigh benefits) — women aged 35 and over who smoke should not use the COCP due to increased arterial thrombosis and cardiovascular risk",
+      "MEC 1 (no restriction) — smoking is only a contraindication in women over 50",
+      "MEC 2 (benefits generally outweigh risks) — light smoking is acceptable",
+      "MEC 4 (absolute contraindication) — smoking always absolutely contraindicates the COCP regardless of age"
+    ],
+    "correct": 0,
+    "explanation": "According to WHO Medical Eligibility Criteria (MEC), smoking in women aged ≥35 is classified as MEC 3 for combined oral contraceptive use — meaning the theoretical or proven risks generally outweigh the benefits, and the method is generally not recommended unless no safer alternative is acceptable. Heavy smoking (≥15 cigarettes/day) in women ≥35 may be classified as MEC 4. Smoking combined with oestrogen significantly increases the risk of myocardial infarction and stroke through arterial thrombosis (different mechanism from VTE). Women who smoke and are ≥35 should be offered progestogen-only methods (POP, implant, LNG-IUD) or non-hormonal alternatives."
+  },
+  {
+    "q": "A 23-year-old woman presents with thin, grey, offensive vaginal discharge with a fishy odour, particularly after intercourse. Vaginal pH is 5.5. No cervical inflammation. She is not sexually active with a new partner. What is the most likely diagnosis and treatment?",
+    "options": [
+      "Bacterial vaginosis (BV) — replace normal Lactobacillus flora disruption; treat with metronidazole 400mg BD for 7 days (or metronidazole 2g stat, or topical metronidazole gel)",
+      "Trichomonas vaginalis — treat with metronidazole and trace all partners",
+      "Candida (thrush) — thick white cottage cheese discharge with itch; treat with fluconazole",
+      "Chlamydia — treat with azithromycin 1g stat"
+    ],
+    "correct": 0,
+    "explanation": "Bacterial vaginosis (BV) is the most common cause of abnormal vaginal discharge in women of reproductive age. It results from overgrowth of anaerobic bacteria replacing normal Lactobacillus flora. Classic features: thin, grey-white, homogeneous discharge with a strong fishy odour (especially post-intercourse when semen raises pH), raised vaginal pH (>4.5, typically 5.0–6.0), and clue cells on microscopy. It is NOT a sexually transmitted infection — partner treatment is not required. Treatment per Australian STI guidelines: metronidazole 400mg BD for 7 days, or metronidazole 2g single dose, or topical metronidazole 0.75% gel BD for 5 days. BV in pregnancy requires treatment due to risk of preterm labour."
+  },
+  {
+    "q": "A 34-year-old woman with PCOS is requesting advice on contraception and menstrual regulation. She has irregular periods (cycles every 45–90 days), hirsutism, and acne. She is not planning pregnancy. Which contraceptive offers the most non-contraceptive benefits for her condition?",
+    "options": [
+      "Combined oral contraceptive pill — reduces androgen production (both ovarian and adrenal), improves hirsutism and acne, regularises cycles, and prevents endometrial hyperplasia from chronic anovulation",
+      "Copper IUD — best choice for all women with PCOS",
+      "Progestogen-only pill — best for reducing androgens in PCOS",
+      "Barrier methods only — hormonal methods are contraindicated in PCOS"
+    ],
+    "correct": 0,
+    "explanation": "The combined oral contraceptive pill (COCP) is the preferred contraceptive for women with PCOS who do not have contraindications, because it addresses multiple features of the condition: (1) suppresses LH-driven ovarian androgen production, improving hirsutism and acne; (2) increases sex hormone-binding globulin (SHBG), reducing free androgen levels; (3) provides regular withdrawal bleeds, preventing endometrial hyperplasia (which occurs with chronic anovulation); (4) provides reliable contraception. Pills containing anti-androgenic progestogens (e.g. cyproterone acetate/Diane-35, drospirenone) may provide additional benefit for acne and hirsutism. Metformin is also used in PCOS for insulin resistance and may improve cycle regularity."
+  },
+  {
+    "q": "A woman presents 6 weeks postpartum and is exclusively breastfeeding. She wants to commence contraception. Which contraceptive is CONTRAINDICATED in this situation?",
+    "options": [
+      "Combined oral contraceptive pill — oestrogen reduces breast milk supply and is WHO MEC 4 in the first 6 weeks postpartum for breastfeeding women",
+      "Progestogen-only pill — safe from 3 weeks postpartum in breastfeeding women",
+      "Etonogestrel implant (Implanon) — safe immediately postpartum",
+      "Levonorgestrel IUD (Mirena) — safe from 4 weeks postpartum"
+    ],
+    "correct": 0,
+    "explanation": "The combined oral contraceptive pill (COCP) is WHO MEC 4 (absolute contraindication) in breastfeeding women in the first 6 weeks postpartum — oestrogen significantly reduces breast milk production and volume, undermining exclusive breastfeeding. After 6 months postpartum, COCP use in breastfeeding women becomes MEC 2. Progestogen-only methods are safe for breastfeeding women and do not affect milk supply: the progestogen-only pill can be started from 3 weeks postpartum; the etonogestrel implant and LNG-IUD can be inserted immediately postpartum (within 48 hours) or from 4 weeks postpartum. Lactational amenorrhoea method (LAM) is effective (&gt;98%) if exclusively breastfeeding, baby &lt;6 months, and amenorrhoeic — but reliability decreases with any supplementary feeding."
+  },
+  {
+    "q": "Which of the following is the most appropriate investigation for a 48-year-old woman with irregular periods, hot flushes, and night sweats to confirm perimenopause?",
+    "options": [
+      "In women over 45 with typical symptoms, perimenopause is a clinical diagnosis — FSH levels are not required and are often misleading due to hormone fluctuation; TFTs should be checked to exclude hypothyroidism",
+      "A single FSH measurement — FSH >30 IU/L confirms menopause",
+      "Serum oestradiol level — low oestradiol confirms ovarian failure",
+      "Pelvic ultrasound — antral follicle count confirms perimenopause"
+    ],
+    "correct": 0,
+    "explanation": "In women over 45 with typical menopausal symptoms (irregular periods, vasomotor symptoms), perimenopause is a clinical diagnosis — biochemical testing (FSH) is generally not required and can be misleading because FSH fluctuates significantly during the perimenopausal transition (a normal FSH does not exclude perimenopause). TFTs should be checked to exclude hypothyroidism, which can cause similar symptoms (fatigue, menstrual irregularity, mood changes). FSH measurement may be useful in women under 45 with suspected perimenopause or premature ovarian insufficiency (POI), where two FSH measurements >30 IU/L, ≥4 weeks apart, in an amenorrhoeic woman support the diagnosis."
+  },
+  {
+    "q": "What is the recommended frequency of mammographic screening for an average-risk Australian woman aged 55?",
+    "options": [
+      "Every 2 years through BreastScreen Australia — free mammographic screening for women 50–74",
+      "Annual mammogram — required for all women over 50",
+      "Every 5 years — same interval as cervical screening",
+      "No screening — mammography only indicated if symptomatic"
+    ],
+    "correct": 0,
+    "explanation": "BreastScreen Australia provides free 2-yearly mammographic screening for average-risk women aged 50–74. Women aged 40–49 and 75 and over can self-refer but are not part of the target group. The programme uses digital mammography (two views per breast). Women with a personal history of breast cancer, strong family history (including BRCA carriers), or other high-risk features are managed with enhanced surveillance (annual MRI ± mammogram from a younger age) through specialist services, not BreastScreen. NPs should actively promote BreastScreen participation in consultations with eligible women — participation rates in Australia remain suboptimal."
+  },
+  {
+    "q": "A 22-year-old woman has a cervical screening test result of 'HPV detected (not 16/18), LBC: negative.' What is the correct next step per the NCSP?",
+    "options": [
+      "Repeat co-test in 12 months — other high-risk HPV types with a normal LBC require a 12-month safety net repeat",
+      "Immediate referral for colposcopy",
+      "Routine 5-year recall — HPV not 16/18 with a normal LBC is treated the same as HPV not detected",
+      "No action required — HPV in a young woman will clear spontaneously, no follow-up needed"
+    ],
+    "correct": 0,
+    "explanation": "Under the NCSP pathway: detection of high-risk HPV types other than 16/18 with a negative LBC (no cytological abnormality) is managed with a 12-month repeat co-test (HPV + LBC). This acts as a safety net to identify women whose HPV persists and may develop cytological change. If the repeat co-test is HPV negative, the woman returns to 5-year recall. If the HPV persists or LBC becomes abnormal at the 12-month repeat, further management (including colposcopy) is guided by the specific result. Only HPV 16 or 18 detection triggers immediate colposcopy referral regardless of LBC result — these high-risk subtypes have the greatest oncogenic potential."
+  },
+  {
+    "q": "A 43-year-old woman with no significant history presents with 3 months of daily cyclical vulvovaginal itch and a thick white cottage cheese discharge without odour. Vaginal pH is 4.2. What is the diagnosis and treatment?",
+    "options": [
+      "Vulvovaginal candidiasis — treat with a single dose of oral fluconazole 150mg or intravaginal clotrimazole pessary; investigate for diabetes or immunosuppression if recurrent (≥4 episodes per year)",
+      "Bacterial vaginosis — treat with metronidazole 400mg BD for 7 days",
+      "Trichomonas vaginalis — treat with metronidazole 2g stat and trace sexual partners",
+      "Lichen sclerosus — refer for vulval biopsy and topical clobetasol"
+    ],
+    "correct": 0,
+    "explanation": "Vulvovaginal candidiasis (thrush) is caused by overgrowth of Candida albicans (90% of cases). Classic features: thick white cottage cheese-like discharge without odour, intense vulvovaginal itch and irritation, vulval erythema, normal or slightly low vaginal pH (typically 4.0–4.5). It is not sexually transmitted. Treatment: single-dose oral fluconazole 150mg or topical azole (clotrimazole 500mg pessary or cream). Recurrent vulvovaginal candidiasis (RVVC — ≥4 symptomatic episodes per year) warrants investigation for predisposing factors (diabetes, immunosuppression, HIV, prolonged antibiotic use) and extended suppressive therapy (fluconazole 150mg weekly for 6 months after induction)."
+  },
+  {
+    "q": "A 16-year-old girl presents requesting the HPV vaccine (Gardasil 9). She has already been sexually active for 1 year. Should she be vaccinated, and if so, what schedule should be used?",
+    "options": [
+      "Yes — vaccinate with 2-dose schedule (0 and 6 months) for those aged 15 and under at first dose, or 3-dose schedule (0, 2, and 6 months) for those aged 16 and over; vaccination still provides benefit even if already sexually active",
+      "No — vaccination is only effective if given before sexual debut",
+      "Yes, but only a single dose is required regardless of age",
+      "No — Gardasil 9 is not available on the NIP for individuals over 15"
+    ],
+    "correct": 0,
+    "explanation": "HPV vaccination provides benefit even in people who are already sexually active, as they are unlikely to have been exposed to all 9 strains covered by Gardasil 9. The schedule depends on age at first dose: 2-dose schedule (0 and 6 months) for those who receive their first dose at ≤14 years; 3-dose schedule (0, 2, and 6 months) for those aged ≥15 years at first dose. Since this patient is 16, the 3-dose schedule applies. In Australia, Gardasil 9 is funded on the National Immunisation Programme (NIP) for individuals up to 26 years under the catch-up programme. Older individuals can be vaccinated off-programme (self-funded). Vaccination does not replace cervical screening — screened from age 25 regardless."
+  }
+]

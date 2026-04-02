@@ -1,0 +1,222 @@
+[
+  {
+    "q": "An 80-year-old woman with baseline mild dementia becomes acutely confused overnight at the residential aged care facility — she is agitated, pulling at her clothing, and does not recognise her daughter. Her 4AT score is 6. What is the most appropriate immediate management?",
+    "options": [
+      "Identify and treat the underlying medical cause — delirium is always secondary to an underlying condition; investigate for infection, metabolic disturbance, medications, and constipation",
+      "Commence haloperidol 5mg immediately to control agitation",
+      "Reassure the family that this is an expected progression of her dementia",
+      "Transfer to hospital for CT brain urgently"
+    ],
+    "correct": 0,
+    "explanation": "A 4AT score ≥4 is highly sensitive for delirium. Delirium is ALWAYS caused by an underlying medical condition — it is never 'just dementia worsening.' The most important step is identifying and treating the precipitant. Common causes include UTI, pneumonia, constipation, dehydration, electrolyte disturbance (hyponatraemia), medications (new or overused), pain, and urinary retention. Non-pharmacological measures (reorientation, sensory aids, familiar environment, mobilisation, hydration) are first-line. Pharmacological sedation (low-dose haloperidol, NOT benzodiazepines) is reserved for severe agitation with safety risk. Hospital transfer should align with advance care planning — not automatic."
+  },
+  {
+    "q": "Which of the following medications is MOST likely to be inappropriate for an 83-year-old woman who is at high risk of falls?",
+    "options": [
+      "Temazepam 10mg nocte — benzodiazepines significantly increase falls risk in older adults and are a STOPP criterion",
+      "Paracetamol 1g QID — safe first-line analgesia in elderly",
+      "Donepezil 10mg nocte — cholinesterase inhibitor, appropriate for Alzheimer's dementia",
+      "Colecalciferol 1000 IU daily — vitamin D supplementation, reduces falls risk"
+    ],
+    "correct": 0,
+    "explanation": "Benzodiazepines are among the most potent falls risk medications in older adults, causing sedation, impaired psychomotor function, ataxia, and delayed reaction time. They are explicitly listed as inappropriate in the STOPP criteria and Beers Criteria for older adults, especially those at falls risk. Temazepam is particularly problematic due to its residual sedating effects the following morning. Deprescribing with gradual taper is recommended. Paracetamol and vitamin D are appropriate. Donepezil is appropriate for Alzheimer's dementia, though GI side effects should be monitored."
+  },
+  {
+    "q": "An 85-year-old man has a Timed Up and Go (TUG) test result of 18 seconds. How should this be interpreted and what is the recommended action?",
+    "options": [
+      "TUG >12 seconds indicates high fall risk — a multifactorial falls prevention assessment and intervention should be initiated",
+      "TUG of 18 seconds is normal for his age — no further action required",
+      "TUG >30 seconds is required before intervention is indicated",
+      "TUG is only relevant for patients in acute hospital settings, not aged care"
+    ],
+    "correct": 0,
+    "explanation": "The Timed Up and Go (TUG) test measures functional mobility — the patient rises from a chair, walks 3 metres, turns, walks back, and sits. A time >12 seconds indicates significantly elevated fall risk in older adults. This patient's 18-second result warrants a comprehensive multifactorial falls assessment covering medications (fall-risk medicines), orthostatic hypotension, visual impairment, cognitive status, foot health, environment, and referral to physiotherapy for a balance and strength programme (e.g., Otago Exercise Programme)."
+  },
+  {
+    "q": "You are reviewing a 78-year-old man's medications and identify he is taking diphenhydramine (an antihistamine) regularly for sleep. Why is this particularly concerning in an older adult?",
+    "options": [
+      "Diphenhydramine has high anticholinergic burden — in older adults this causes cognitive impairment, confusion, urinary retention, constipation, and significantly increases delirium and falls risk",
+      "Diphenhydramine causes hypertension in older adults",
+      "Diphenhydramine is only contraindicated if the patient also takes a statin",
+      "Diphenhydramine has no significant adverse effects in older adults"
+    ],
+    "correct": 0,
+    "explanation": "First-generation antihistamines (including diphenhydramine, promethazine) have potent anticholinergic properties. In older adults, anticholinergic burden is associated with: acute delirium, worsening cognitive function (mimics or accelerates dementia), urinary retention, constipation, dry mouth, blurred vision, tachycardia, and falls. The Anticholinergic Risk Scale (ARS) and Beers Criteria specifically flag diphenhydramine as potentially inappropriate in older adults. Non-pharmacological sleep hygiene interventions should be offered instead. If pharmacotherapy is required, consider melatonin (lower anticholinergic burden)."
+  },
+  {
+    "q": "Which features would help distinguish Lewy body dementia from Alzheimer's disease?",
+    "options": [
+      "Fluctuating cognition, visual hallucinations, parkinsonism, and REM sleep behaviour disorder — the core clinical features of Lewy body dementia",
+      "Gradual progressive memory loss with preserved behaviour and personality until late stages",
+      "Stepwise decline with cardiovascular risk factors and focal neurological signs",
+      "Early personality change and behavioural disinhibition with relative preservation of memory"
+    ],
+    "correct": 0,
+    "explanation": "Lewy body dementia (LBD) has four core clinical features: (1) fluctuating cognition with pronounced variation in attention and alertness; (2) recurrent visual hallucinations that are well formed and detailed (often of people or animals); (3) parkinsonism (spontaneous — not drug-induced); (4) REM sleep behaviour disorder (acting out dreams — often precedes cognitive symptoms by years). Option B describes Alzheimer's disease. Option C describes vascular dementia. Option D describes frontotemporal dementia. Correct classification matters because antipsychotics are particularly dangerous in LBD — they can cause severe neuroleptic sensitivity reactions."
+  },
+  {
+    "q": "What is the recommended approach to antipsychotic use for BPSD (Behavioural and Psychological Symptoms of Dementia)?",
+    "options": [
+      "Non-pharmacological approaches first; antipsychotics only if severe distress or safety risk, at lowest effective dose, with regular review and documented risk-benefit discussion",
+      "Antipsychotics are first-line for all BPSD and should be commenced immediately",
+      "Antipsychotics are absolutely contraindicated in all patients with dementia",
+      "Benzodiazepines are preferred over antipsychotics for BPSD management"
+    ],
+    "correct": 0,
+    "explanation": "Non-pharmacological approaches (person-centred care, environmental modification, structured activity, music therapy, identifying and addressing unmet needs) must be trialled first for BPSD. Antipsychotics are associated with increased risk of stroke and mortality in elderly patients with dementia (regulatory black box warning in Australia and internationally). They may be used when: behaviour causes severe distress to the patient, or there is a risk of harm to the patient or others, and non-pharmacological measures have failed. Document the risk-benefit discussion, use the lowest effective dose, and review regularly for ongoing need. Benzodiazepines are generally worse — they increase delirium and falls risk."
+  },
+  {
+    "q": "An 82-year-old woman with hypertension, heart failure, and dementia is found to have a serum sodium of 126 mmol/L. Her current medications include furosemide, ramipril, and sertraline. What is the most likely cause of her hyponatraemia?",
+    "options": [
+      "SIADH secondary to sertraline — SSRIs are a common cause of SIADH, particularly in older women",
+      "Hyperaldosteronism causing sodium retention",
+      "Dietary excess of sodium",
+      "Hypernatraemia is more common than hyponatraemia in this population"
+    ],
+    "correct": 0,
+    "explanation": "Hyponatraemia is extremely common in older adults. SSRIs (including sertraline, escitalopram, citalopram) are a well-recognised cause of SIADH (syndrome of inappropriate antidiuretic hormone secretion), particularly in older women, and should be considered in any older patient on an SSRI with hyponatraemia. Other causes include diuretics (furosemide), heart failure, ACE inhibitors, and acute illness. Management involves identifying and treating the cause, fluid restriction, and careful correction (no faster than 8–10 mmol/L per 24 hours — rapid correction risks osmotic demyelination syndrome). Hypernatraemia (dehydration) is also common in frail older adults but is a separate condition."
+  },
+  {
+    "q": "What is the recommended vitamin D supplementation target for older adults residing in aged care facilities, and why is this important?",
+    "options": [
+      "Target serum 25(OH)D ≥50 nmol/L — deficiency is extremely common in RACF residents due to minimal sun exposure and is associated with increased falls and fracture risk",
+      "Vitamin D supplementation is contraindicated in older adults due to toxicity risk",
+      "Target 25(OH)D ≥200 nmol/L for maximum benefit",
+      "Vitamin D has no role in falls prevention — it only affects bone density"
+    ],
+    "correct": 0,
+    "explanation": "Vitamin D deficiency is prevalent in residential aged care facility residents — minimal outdoor sun exposure, reduced skin synthesis capacity with age, and dietary insufficiency all contribute. Target serum 25(OH)D is ≥50 nmol/L (some guidelines recommend ≥75 nmol/L for maximum neuromuscular benefit). Vitamin D deficiency is associated with muscle weakness, increased fall risk, and fracture risk. Supplementation with colecalciferol (cholecalciferol) 1000–2000 IU daily is routinely recommended for RACF residents. Toxicity (25(OH)D >220 nmol/L) is rare with standard supplementation doses."
+  },
+  {
+    "q": "A 79-year-old man with a history of prostate cancer presents with acute inability to void, suprapubic distension, and acute confusion. What is the most likely diagnosis and immediate management?",
+    "options": [
+      "Acute urinary retention — insert urinary catheter immediately; may be precipitating or contributing to delirium",
+      "Acute myocardial infarction — obtain ECG",
+      "Faecal impaction — administer phosphate enema",
+      "Hyponatraemia — check serum sodium urgently"
+    ],
+    "correct": 0,
+    "explanation": "Acute urinary retention (AUR) is a urological emergency characterised by sudden inability to void, suprapubic distension and tenderness, and significant discomfort. In older men it is commonly caused by benign prostatic hyperplasia (BPH), prostate cancer, constipation/faecal impaction, anticholinergic medications, or alpha-agonists (e.g. pseudoephedrine in decongestants). AUR is a recognised precipitant of delirium in older adults. Immediate management is urethral catheterisation to relieve obstruction and drain the bladder. Subsequent investigation and management of the underlying cause is essential."
+  },
+  {
+    "q": "An 86-year-old man with moderate dementia is brought in by his family who are concerned about unexplained bruising on his arms and back, and who report he appears fearful when his paid carer arrives. What is the most important consideration?",
+    "options": [
+      "Elder abuse — unexplained injuries, fearfulness, and carer conflict are significant warning signs that must be assessed and reported appropriately",
+      "Spontaneous bruising secondary to anticoagulant therapy — check INR",
+      "This is expected in late-stage dementia — reassure the family",
+      "Fall-related bruising — document and monitor"
+    ],
+    "correct": 0,
+    "explanation": "Elder abuse is a significant public health problem affecting approximately 1 in 6 older Australians. It includes physical, emotional, financial, sexual abuse, and neglect. Risk factors include dementia, social isolation, carer stress, and financial dependency. Unexplained injuries, patterns of bruising inconsistent with falls (e.g., back, buttocks, multiple stages of healing), fearfulness in the presence of carers, and family conflict about finances are red flags. NPs are mandatory reporters in some Australian jurisdictions. All cases of suspected elder abuse require careful assessment, documentation, referral to the Aged Care Quality and Safety Commission (residential care), or relevant state adult safeguarding authority (community)."
+  },
+  {
+    "q": "Which of the following is the MOST appropriate definition of orthostatic hypotension, and why is it clinically significant in older adults?",
+    "options": [
+      "A systolic BP drop of ≥20 mmHg or diastolic drop of ≥10 mmHg within 3 minutes of standing — a major modifiable falls and syncope risk factor in older adults",
+      "Any BP reading below 120/80 mmHg",
+      "A systolic drop of ≥40 mmHg only — minor drops are not clinically relevant",
+      "Orthostatic hypotension is not clinically significant unless the patient loses consciousness"
+    ],
+    "correct": 0,
+    "explanation": "Orthostatic (postural) hypotension is defined as a sustained reduction in systolic BP of ≥20 mmHg or diastolic BP of ≥10 mmHg within 3 minutes of moving from lying to standing. It is present in up to 30% of community-dwelling older adults and is more common in RACF residents. Causes include dehydration, medications (antihypertensives, diuretics, antidepressants, antipsychotics), autonomic neuropathy (diabetes, Parkinson's disease), and prolonged bed rest. It is a major, modifiable risk factor for falls, syncope, and cardiovascular events. Measurement requires lying-to-standing BP at 1 and 3 minutes."
+  },
+  {
+    "q": "A family requests that their 90-year-old mother, who has severe dementia and is comfort-care focused per her Advance Care Directive, be transferred to hospital for IV antibiotics for aspiration pneumonia. What is the most appropriate NP response?",
+    "options": [
+      "Facilitate a family meeting to review the ACD, explain the clinical context, discuss goals of care, and explore whether the request aligns with the patient's documented wishes — the ACD should guide decision-making",
+      "Override the ACD and arrange hospital transfer immediately as the family is the decision-maker",
+      "Refuse all treatment and provide no antibiotics",
+      "Transfer to hospital regardless of the ACD — families always have the final say"
+    ],
+    "correct": 0,
+    "explanation": "An Advance Care Directive (ACD) is a legally binding document in Australia (where capacity existed at time of completion). A comfort-focused ACD typically precludes hospital transfer for curative treatment. When family requests conflict with the ACD, the NP's role is to: (1) acknowledge the family's distress and desire to help; (2) review the ACD with the family, clarifying what the patient expressed while she had capacity; (3) explain the clinical reality (aspiration pneumonia in severe dementia carries a high mortality regardless of treatment intensity); (4) explore comfort-focused management in the facility (oral or subcutaneous antibiotics, symptom management). The ACD represents the patient's voice and should guide care. The Enduring Power of Attorney/substitute decision-maker must make decisions consistent with the patient's known wishes."
+  },
+  {
+    "q": "What are the Aged Care Quality Standards that all approved aged care providers in Australia must comply with?",
+    "options": [
+      "Eight standards covering consumer dignity and choice, ongoing assessment, personal care, services and supports, organisation's service environment, feedback and complaints, human resources, and organisational governance",
+      "Three standards covering clinical care, staffing, and accommodation",
+      "A single national standard focusing on medication management only",
+      "The standards vary entirely by state and there is no national framework"
+    ],
+    "correct": 0,
+    "explanation": "The Aged Care Quality Standards (effective 1 July 2019, administered by the Aged Care Quality and Safety Commission) consist of eight standards: (1) Consumer dignity and choice; (2) Ongoing assessment and planning with consumers; (3) Personal care and clinical care; (4) Services and supports for daily living; (5) Organisation's service environment; (6) Feedback and complaints; (7) Human resources; (8) Organisational governance. NPs working in aged care must be familiar with these standards — particularly Standard 3 (clinical care), which governs assessment, care planning, and safe medication management. The Commission conducts accreditation and can issue sanctions for non-compliance."
+  },
+  {
+    "q": "What is the correct approach to treating asymptomatic bacteriuria in a 78-year-old female RACF resident with longstanding urge incontinence?",
+    "options": [
+      "Do not treat — asymptomatic bacteriuria in older women does not require antibiotics and treatment increases the risk of antibiotic resistance and Clostridioides difficile infection",
+      "Treat immediately with a broad-spectrum antibiotic for 7 days",
+      "Perform urine MCS and treat with the most targeted antibiotic available",
+      "Insert an indwelling urinary catheter to prevent recurrent bacteriuria"
+    ],
+    "correct": 0,
+    "explanation": "Asymptomatic bacteriuria (ASB) — bacteria present in urine without symptoms of urinary tract infection — is extremely common in older women (up to 50% of RACF residents). Evidence consistently demonstrates no benefit from antibiotic treatment of ASB in older adults (excluding pregnancy and pre-urological procedure), and treatment causes harm through antibiotic resistance and Clostridioides difficile colitis. Urine dipstick and MCS results must be interpreted in clinical context — positive results in the absence of new urinary symptoms (dysuria, frequency, urgency, haematuria) or systemic illness do not warrant antibiotics. Urge incontinence alone is not an indication for urine culture or treatment."
+  },
+  {
+    "q": "An 84-year-old man on warfarin falls and sustains a head injury. He is conscious and GCS 15, with no visible scalp laceration. What is the most appropriate immediate action?",
+    "options": [
+      "Urgent CT brain — anticoagulated patients are at significantly increased risk of intracranial haemorrhage after head injury, even with minor trauma and no external signs",
+      "Observe for 30 minutes and discharge if neurologically intact",
+      "Check INR only — if therapeutic, no further action required",
+      "Apply ice and arrange review in 1 week"
+    ],
+    "correct": 0,
+    "explanation": "In anticoagulated patients, head injury — even apparently minor trauma — carries a significantly elevated risk of intracranial haemorrhage (subdural or extradural haematoma). Neurological examination and GCS can be normal immediately after injury and subsequently deteriorate. The standard of care is urgent CT brain in any anticoagulated patient with head trauma. This applies regardless of GCS, INR, or absence of external signs of head injury. Even patients on DOACs (direct oral anticoagulants) require urgent CT. This patient must be transferred to an emergency department unless the advance care directive precludes this."
+  },
+  {
+    "q": "A frail 81-year-old woman with type 2 diabetes and moderate dementia has an HbA1c of 53 mmol/mol (7%) on gliclazide 60mg daily. She has had two hypoglycaemic episodes in the past month. What is the most appropriate management?",
+    "options": [
+      "Relax glycaemic targets — HbA1c of 64–75 mmol/mol (8–9%) is appropriate in frail elderly patients with dementia; reduce or cease gliclazide to prevent hypoglycaemia",
+      "Tighten glycaemic control to HbA1c <48 mmol/mol to prevent complications",
+      "Increase gliclazide to 120mg daily — the HbA1c is not low enough",
+      "Commence insulin therapy for more precise glucose control"
+    ],
+    "correct": 0,
+    "explanation": "Glycaemic targets must be individualised in older adults, particularly those with dementia, frailty, and limited life expectancy. For frail older patients with dementia, an HbA1c of 64–75 mmol/mol (8–9%) is appropriate — tight control provides minimal benefit in this population (complications develop over 10+ years) and causes significant harm through hypoglycaemia (falls, fractures, delirium, cardiovascular events). Sulfonylureas (gliclazide) carry significant hypoglycaemia risk in the elderly, particularly with inconsistent oral intake. Reducing or ceasing gliclazide, and considering safer alternatives (SGLT2 inhibitors, DPP-4 inhibitors) if pharmacotherapy is still required, is the recommended approach per Therapeutic Guidelines."
+  },
+  {
+    "q": "What is the PAINAD scale used for, and when is it indicated?",
+    "options": [
+      "Assessment of pain in patients with advanced dementia who cannot self-report — it observes breathing, vocalisation, facial expression, body language, and consolability",
+      "Assessment of pain in cognitively intact patients in the emergency department",
+      "Screening for peripheral neuropathic pain in diabetic patients",
+      "Assessment of delirium severity in residential aged care"
+    ],
+    "correct": 0,
+    "explanation": "The PAINAD (Pain Assessment in Advanced Dementia) scale is a validated observational pain assessment tool designed for patients with moderate-to-severe dementia who cannot reliably self-report pain intensity. It observes and scores five domains: breathing (normal to laboured/Cheyne-Stokes), negative vocalisation (none to cries/groans), facial expression (smiling to grimacing), body language (relaxed to rigid/striking out), and consolability (not needed to unable to console). Each domain is scored 0–2, giving a total of 0–10. A score ≥3 suggests significant pain requiring management. It is particularly useful in RACF settings where many residents have advanced dementia."
+  },
+  {
+    "q": "Which of the following is a recognised risk factor for pressure injury development in older adults, and what is the validated tool used to assess pressure injury risk?",
+    "options": [
+      "Reduced mobility, incontinence, malnutrition, and altered sensory perception are key risk factors — the Braden Scale is the validated risk assessment tool",
+      "Obesity is the only significant risk factor — the Norton Scale is no longer recommended",
+      "Pressure injuries only develop in acute hospital settings, not in residential aged care",
+      "Regular position change alone is sufficient to prevent all pressure injuries"
+    ],
+    "correct": 0,
+    "explanation": "Pressure injuries (formerly called pressure ulcers or bedsores) result from prolonged pressure, shear, and friction on skin and underlying tissue, typically over bony prominences. Major risk factors include: immobility/reduced activity, incontinence (moisture damage), malnutrition (poor tissue healing), altered sensory perception (inability to feel and respond to pressure), and reduced perfusion. The Braden Scale is the most widely used validated pressure injury risk assessment tool — it scores six domains (sensory perception, moisture, activity, mobility, nutrition, friction and shear) with lower scores indicating higher risk. Regular repositioning, pressure-relieving mattresses, nutrition support, and skin care are evidence-based prevention strategies."
+  },
+  {
+    "q": "A 77-year-old woman with osteoporosis (T-score -3.0 at the femoral neck) and a previous fragility fracture of the wrist has been recommended zoledronic acid infusion. She asks why an infusion rather than a tablet. What is the best explanation?",
+    "options": [
+      "Annual IV zoledronic acid has equivalent or superior fracture prevention efficacy to daily oral bisphosphonates, and eliminates adherence issues and GI side effects — particularly important for frail older adults with dysphagia, OGI disease, or cognitive impairment",
+      "Oral bisphosphonates are not available in Australia",
+      "IV zoledronic acid is only for patients who cannot afford tablets",
+      "Oral bisphosphonates are more effective than IV zoledronic acid"
+    ],
+    "correct": 0,
+    "explanation": "Zoledronic acid (5mg IV annually) is a highly effective bisphosphonate for osteoporosis that reduces vertebral, hip, and non-vertebral fractures. The advantages over oral bisphosphonates (alendronate, risedronate — taken weekly or monthly on an empty stomach, sitting upright for 30 minutes after) in older adults are: (1) removes adherence burden (annual dosing); (2) eliminates oesophageal side effects and the complex administration requirements; (3) suitable for patients with dysphagia, cognitive impairment, or GI disease; (4) PBS-listed in Australia for patients meeting criteria. A flu-like reaction for 24–72 hours after first infusion is common — pre-hydration and paracetamol reduce this."
+  },
+  {
+    "q": "What does RACF stand for, and which Australian government body regulates the quality and safety of residential aged care services?",
+    "options": [
+      "Residential Aged Care Facility — regulated by the Aged Care Quality and Safety Commission (ACQSC)",
+      "Regional Acute Care Facility — regulated by the Australian Health Practitioner Regulation Agency (AHPRA)",
+      "Rehabilitation and Convalescence Facility — regulated by each state health department independently",
+      "Residential Acute Care Facility — regulated by the Therapeutic Goods Administration (TGA)"
+    ],
+    "correct": 0,
+    "explanation": "RACF stands for Residential Aged Care Facility — the Australian term for nursing homes or residential care homes. The Aged Care Quality and Safety Commission (ACQSC) is the independent national regulator of aged care services. It assesses providers against the eight Aged Care Quality Standards, investigates complaints, and can issue sanctions including revocation of aged care approval. The ACQSC also administers the Serious Incident Response Scheme (SIRS) — mandatory reporting of serious incidents in residential aged care including falls with injury, unexplained injuries, and suspected elder abuse. NPs working in aged care must be familiar with SIRS reporting obligations."
+  }
+]
