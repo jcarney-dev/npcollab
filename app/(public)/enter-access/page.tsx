@@ -12,8 +12,13 @@ interface Props {
 
 export default async function EnterAccessPage({ searchParams }: Props) {
   const { from } = await searchParams;
-  // Only use the `from` value if it's a safe internal path
-  const redirectTo = from && from.startsWith('/') && !from.startsWith('//') ? from : '/';
+
+  // Use the stored return URL only if it's a safe internal path,
+  // otherwise default to /modules/cardiac
+  const redirectTo =
+    from && from.startsWith('/') && !from.startsWith('//')
+      ? from
+      : '/modules/cardiac';
 
   return (
     <div className="public-page">
@@ -25,7 +30,10 @@ export default async function EnterAccessPage({ searchParams }: Props) {
         <h1 className="public-heading">Enter Access Code</h1>
         <p className="public-subheading">
           Enter the access code you received by email to access NPCollab resources.
-          Don&apos;t have a code? <a href="/request-access" className="public-link">Request access here</a>.
+          Don&apos;t have a code?{' '}
+          <a href="/request-access" className="public-link">
+            Request access here
+          </a>.
         </p>
         <EnterAccessForm redirectTo={redirectTo} />
       </div>
