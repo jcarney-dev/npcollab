@@ -28,7 +28,7 @@ function isAdmin(pathname: string): boolean {
   return pathname.startsWith(ADMIN_PREFIX);
 }
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Admin routes
