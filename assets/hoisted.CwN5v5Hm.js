@@ -1,1 +1,0 @@
-import"./hoisted.xhh8R6F6.js";function t(e){var i=e.classList.contains("open");e.classList.toggle("open",!i),e.setAttribute("aria-expanded",String(!i));var o=e.nextElementSibling;o&&o.classList.toggle("open",!i)}window.toggleSoap=t;
