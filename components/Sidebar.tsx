@@ -1,0 +1,155 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const navGroups = [
+  {
+    label: 'Getting Started',
+    items: [
+      { label: 'Home',               href: '/',                  icon: '🏠' },
+      { label: 'Introduction',       href: '/intro',             icon: '👋' },
+      { label: 'Metaspecialties',    href: '/metaspecialties',   icon: '🗺️' },
+      { label: 'Starting Your Role', href: '/starting-role',     icon: '🚀' },
+      { label: 'Scope of Practice',  href: '/scope',             icon: '🛡️' },
+      { label: 'Patient Assessment', href: '/assessment',        icon: '📋' },
+    ]
+  },
+  {
+    label: 'Clinical Modules',
+    items: [
+      { label: 'Aged Care',             href: '/modules/aged-care',           icon: '🧓', disabled: true, coming: true },
+      { label: 'Cardiac',               href: '/modules/cardiac',             icon: '❤️' },
+      { label: 'Cardiovascular',        href: '/modules/cardiovascular',      icon: '🫀', disabled: true, coming: true },
+      { label: 'Drugs & Alcohol',       href: '/modules/drugs-alcohol',       icon: '🧪', disabled: true, coming: true },
+      { label: 'Endocrine',             href: '/modules/endocrine',           icon: '🔬', disabled: true, coming: true },
+      { label: 'ENT',                   href: '/modules/ent',                 icon: '👂' },
+      { label: 'General Medical',       href: '/modules/general-medical',     icon: '🩺', disabled: true, coming: true },
+      { label: 'GI & Hepatobiliary',    href: '/modules/gi-hepatobiliary',    icon: '🫃', disabled: true, coming: true },
+      { label: 'GU & Nephrology',       href: '/modules/gu-nephrology',       icon: '🫘', disabled: true, coming: true },
+      { label: 'Integumentary',         href: '/modules/integumentary',       icon: '🩹', disabled: true, coming: true },
+      { label: 'Maxillofacial/Dental',  href: '/modules/maxillofacial-dental',icon: '🦷', disabled: true, coming: true },
+      { label: "Men's Health",          href: '/modules/mens-health',         icon: '👨', disabled: true, coming: true },
+      { label: 'Mental Health',         href: '/modules/mental-health',       icon: '🧠', disabled: true, coming: true },
+      { label: 'Musculoskeletal',       href: '/modules/musculoskeletal',     icon: '🦴', disabled: true, coming: true },
+      { label: 'Neurology',             href: '/modules/neurology',           icon: '🧬', disabled: true, coming: true },
+      { label: 'Onco-Haematology',      href: '/modules/onco-haematology',   icon: '🩸', disabled: true, coming: true },
+      { label: 'Ophthalmology',         href: '/modules/eyes',               icon: '👁️' },
+      { label: 'Paediatrics',           href: '/modules/paediatrics',         icon: '👶', disabled: true, coming: true },
+      { label: 'Palliative Care',       href: '/modules/palliative-care',     icon: '🕊️', disabled: true, coming: true },
+      { label: 'Respiratory',           href: '/modules/respiratory',         icon: '🫁' },
+      { label: 'Surgical',              href: '/modules/surgical',            icon: '🔪', disabled: true, coming: true },
+      { label: 'Toxicology',            href: '/modules/toxicology',          icon: '⚗️', disabled: true, coming: true },
+      { label: "Women's Health",        href: '/modules/womens-health',       icon: '👩', disabled: true, coming: true },
+    ]
+  },
+  {
+    label: 'Clinical Practice Essentials',
+    items: [
+      { label: 'Billing Medicare',      href: '/clinical-essentials/billing-medicare',    icon: '💳' },
+      { label: 'Prescribing & the PBS', href: '/clinical-essentials/prescribing-pbs',     icon: '💊' },
+      { label: 'Radiology & Pathology', href: '/clinical-essentials/radiology-pathology', icon: '🔬' },
+    ]
+  },
+  {
+    label: 'Health Tech & Tools',
+    items: [
+      { label: 'AI Clinical Tools', href: '/health-tech/ai-clinical-tools', icon: '🤖' },
+      { label: 'Digital Scribes',   href: '/health-tech/digital-scribes',   icon: '🎙️' },
+      { label: 'Medical Software',  href: '/health-tech/medical-software',  icon: '💻' },
+    ]
+  },
+  {
+    label: 'Research',
+    items: [
+      { label: 'Getting Started', href: '/research/getting-started', icon: '🔭' },
+      { label: 'Funding',         href: '/research/funding',         icon: '💰' },
+      { label: 'Networks',        href: '/research/networks',        icon: '🌐' },
+    ]
+  },
+  {
+    label: 'Business',
+    items: [
+      { label: 'Starting Your Own Practice', href: '/business', icon: '🏢', disabled: true, coming: true },
+    ]
+  },
+  {
+    label: 'Site',
+    items: [
+      { label: 'About & Contributors', href: '/about',     icon: '👥' },
+      { label: 'Support NPCollab',     href: '/support',   icon: '❤️' },
+      { label: 'Analytics',            href: '/analytics', icon: '📊' },
+    ]
+  }
+];
+
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const pathname = usePathname();
+
+  function isActive(href: string) {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  }
+
+  return (
+    <>
+      <aside className={`sidebar${isOpen ? ' open' : ''}`} id="sidebar">
+        <div className="sidebar-logo">
+          <Link href="/" className="wordmark" onClick={onClose}>NP<span>Collab</span></Link>
+          <span className="tagline">Australian Nurse Practitioner Resources</span>
+        </div>
+
+        <nav className="sidebar-nav">
+          {navGroups.map(group => (
+            <div key={group.label}>
+              <span className="nav-section-label">{group.label}</span>
+              {group.items.map(item => (
+                item.disabled ? (
+                  <span
+                    key={item.label}
+                    className="nav-item disabled"
+                  >
+                    <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+                    {item.label}
+                    {item.coming && (
+                      <span style={{marginLeft:'auto',fontSize:'0.6rem',background:'rgba(255,255,255,0.1)',padding:'2px 6px',borderRadius:'3px',color:'rgba(255,255,255,0.4)'}}>SOON</span>
+                    )}
+                  </span>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`nav-item${isActive(item.href) ? ' active' : ''}`}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                    onClick={onClose}
+                  >
+                    <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                )
+              ))}
+            </div>
+          ))}
+        </nav>
+
+        <div className="sidebar-footer">
+          <div className="support-badge">
+            <p>Free forever for Australian NPs. Help cover hosting costs.</p>
+            <Link href="/support" className="btn-support" onClick={onClose}>☕ Support NPCollab</Link>
+          </div>
+        </div>
+      </aside>
+
+      <div
+        className={`overlay${isOpen ? ' show' : ''}`}
+        onClick={onClose}
+        id="overlay"
+      />
+    </>
+  );
+}

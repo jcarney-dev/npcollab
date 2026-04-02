@@ -1,0 +1,144 @@
+import type { Metadata } from 'next';
+import ModuleTabs from '@/components/ModuleTabs';
+
+export const metadata: Metadata = {
+  title: 'Respiratory - Assessment',
+};
+
+export default function RespiratoryAssessmentPage() {
+  return (
+      <>
+        <div className="page-header">
+          <div className="label">Clinical Module</div>
+          <h1>🫁 Respiratory - Assessment</h1>
+          <p>Asthma, COPD, pneumonia, pulmonary embolism, and spirometry interpretation</p>
+        </div>
+        <ModuleTabs moduleId="respiratory" />
+
+      <div className="content-prose">
+        <h2>Respiratory History</h2>
+        <div className="assessment-grid">
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">❓</div><h4>Dyspnoea — Key Questions</h4></div>
+            <ul>
+              <li>Onset — sudden (PE, pneumothorax) or gradual (COPD, malignancy)?</li>
+              <li>Duration — seconds, hours, days, or weeks?</li>
+              <li>Severity — at rest, on exertion, or both? MRC dyspnoea scale?</li>
+              <li>Character — tight, heavy, cannot get enough air?</li>
+              <li>Positional — worse lying flat (orthopnoea = cardiac)?</li>
+              <li>Triggering factors — allergens, cold air, exercise, viral URTI?</li>
+              <li>Associated wheeze — expiratory or inspiratory?</li>
+              <li>Associated cough — productive or dry? Sputum colour and volume?</li>
+              <li>Haemoptysis — volume, frequency, clots?</li>
+              <li>Chest pain — pleuritic (PE, pleuritis) or pressure (cardiac)?</li>
+              <li>Fever and systemic symptoms — infection?</li>
+              <li>Night sweats and weight loss — malignancy or TB?</li>
+            </ul>
+          </div>
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">📋</div><h4>Respiratory Background History</h4></div>
+            <ul>
+              <li>Previous respiratory diagnoses — asthma, COPD, bronchiectasis</li>
+              <li>Previous spirometry results and trend</li>
+              <li>Current inhalers — names, doses, technique, adherence</li>
+              <li>Smoking history — pack years, current status, cessation attempts</li>
+              <li>Occupational exposures — dust, fumes, asbestos, silica, birds</li>
+              <li>Childhood respiratory illness — recurrent croup, bronchiolitis</li>
+              <li>Atopy — eczema, allergic rhinitis, food allergy</li>
+              <li>Family history of asthma, COPD, alpha-1 antitrypsin deficiency</li>
+              <li>Vaccinations — influenza, pneumococcal, COVID</li>
+              <li>Travel history — TB risk, melioidosis (tropical Australia)</li>
+              <li>VTE risk factors — immobility, surgery, malignancy, OCP, pregnancy</li>
+            </ul>
+          </div>
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">📊</div><h4>Asthma Control Assessment</h4></div>
+            <ul>
+              <li>Daytime symptoms — frequency per week?</li>
+              <li>Reliever use — how many times per week?</li>
+              <li>Nocturnal symptoms or waking?</li>
+              <li>Activity limitation due to asthma?</li>
+              <li>Any oral corticosteroid courses in past 12 months?</li>
+              <li>Any ED presentations or hospitalisations?</li>
+              <li>Written asthma action plan — do they have and understand one?</li>
+              <li>Inhaler technique — observe and correct</li>
+              <li>Trigger identification and avoidance</li>
+            </ul>
+          </div>
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">💨</div><h4>COPD Assessment Tools</h4></div>
+            <ul>
+              <li>mMRC Dyspnoea Scale (0–4) — functional limitation</li>
+              <li>CAT Score — 8 questions, guides treatment escalation</li>
+              <li>Exacerbation frequency — how many in last 12 months?</li>
+              <li>Previous hospitalisations for COPD?</li>
+              <li>Home oxygen — current prescription and hours of use?</li>
+              <li>Pulmonary rehabilitation — completed or referred?</li>
+              <li>Nutritional status — weight loss, muscle wasting in severe COPD</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>Respiratory Examination</h2>
+        <div className="assessment-grid">
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">🔍</div><h4>General and Vital Signs</h4></div>
+            <ul>
+              <li>SpO2 — on air first, then on oxygen if applicable</li>
+              <li>RR — count for a full 60 seconds</li>
+              <li>HR and BP — tachycardia in PE, sepsis, severe asthma</li>
+              <li>Temperature — fever suggests infection</li>
+              <li>General — respiratory distress, accessory muscle use, position</li>
+              <li>Speech — sentences, phrases, or words?</li>
+              <li>Cyanosis — peripheral (nails) or central (lips, tongue)</li>
+              <li>Pursed-lip breathing — classic in COPD</li>
+              <li>PEFR — peak expiratory flow rate if asthma suspected</li>
+            </ul>
+          </div>
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">👁️</div><h4>Inspection and Palpation</h4></div>
+            <ul>
+              <li>Chest shape — barrel chest (hyperinflation in COPD), kyphoscoliosis</li>
+              <li>Chest wall movement — symmetrical? Paradoxical?</li>
+              <li>Trachea — central or deviated (tension pneumothorax, effusion)?</li>
+              <li>Intercostal recession — sign of increased work of breathing</li>
+              <li>Expansion — assess anteriorly and posteriorly, compare sides</li>
+              <li>Tactile fremitus — increased (consolidation), decreased (effusion)</li>
+              <li>Peripheral signs — clubbing (malignancy, bronchiectasis), oedema</li>
+              <li>Lymphadenopathy — cervical, axillary, supraclavicular</li>
+            </ul>
+          </div>
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">🔊</div><h4>Percussion and Auscultation</h4></div>
+            <ul>
+              <li>Percussion — resonant (normal), dull (consolidation, effusion), hyper-resonant (pneumothorax)</li>
+              <li>Breath sounds — vesicular, bronchial (consolidation), absent (effusion, pneumothorax)</li>
+              <li>Wheeze — expiratory (obstructive), inspiratory and expiratory (severe obstruction)</li>
+              <li>Crackles — fine late inspiratory (fibrosis, early pulmonary oedema), coarse (consolidation, bronchiectasis)</li>
+              <li>Pleural rub — pleuritis or PE</li>
+              <li>Vocal resonance — increased (consolidation), decreased (effusion)</li>
+              <li>Cardiac auscultation — exclude cardiac cause of dyspnoea</li>
+            </ul>
+          </div>
+          <div className="assessment-card">
+            <div className="card-header"><div className="icon-circle">📊</div><h4>Investigations to Order</h4></div>
+            <ul>
+              <li>SpO2 and arterial blood gas if SpO2 &lt;94% or severe distress</li>
+              <li>CXR — all new dyspnoea, suspected pneumonia, effusion, malignancy</li>
+              <li>Spirometry — diagnosis and monitoring of asthma and COPD</li>
+              <li>PEFR — acute asthma assessment and monitoring</li>
+              <li>FBE — anaemia, eosinophilia (asthma), infection</li>
+              <li>CRP and procalcitonin — infection vs non-infective</li>
+              <li>D-dimer — low probability PE (Wells ≤4)</li>
+              <li>CTPA — if high probability PE or elevated D-dimer</li>
+              <li>Sputum MC&S — pneumonia, COPD exacerbation</li>
+              <li>Respiratory viral panel — if viral aetiology suspected</li>
+              <li>FeNO — eosinophilic airway inflammation in asthma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+          </>
+
+  );
+}

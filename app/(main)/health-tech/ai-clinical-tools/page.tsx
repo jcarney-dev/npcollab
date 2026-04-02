@@ -1,0 +1,129 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'AI Clinical Tools',
+};
+
+export default function AIClinicalToolsPage() {
+  return (
+      <>
+
+    <div className="page-header">
+      <div className="label">Health Tech & Tools</div>
+      <h1>AI Clinical Tools</h1>
+      <p>A practical guide to AI tools available for Australian NPs — what they do, what they are good for, and how to use them safely.</p>
+    </div>
+
+    <div className="content-prose">
+
+      <div className="highlight-box">
+        <h4>⚠️ AI in Clinical Practice — Important Caveats</h4>
+        <p>AI tools in healthcare are evolving rapidly. No AI tool replaces your clinical judgement, your professional accountability, or your duty of care to your patient. Always verify AI-generated clinical suggestions against authoritative sources. You remain responsible for every clinical decision you make.</p>
+      </div>
+
+      <h2>How AI is Being Used in NP Practice</h2>
+      <p>AI tools are increasingly being integrated into clinical workflows — from documentation and coding support to clinical decision support and patient communication. For time-pressured NPs, these tools can meaningfully reduce administrative burden when used thoughtfully.</p>
+
+      <div className="assessment-grid">
+        <div className="assessment-card">
+          <div className="card-header"><div className="icon-circle">📝</div><h4>Documentation Support</h4></div>
+          <ul>
+            <li>Ambient AI scribes — listen to consultations, generate notes (see Digital Scribes page)</li>
+            <li>Drafting clinical letters and referrals from dot points</li>
+            <li>Summarising complex medical histories</li>
+            <li>Generating patient education handouts from clinical notes</li>
+            <li>Coding assistance — ICD-10, MBS item number suggestions</li>
+          </ul>
+        </div>
+        <div className="assessment-card">
+          <div className="card-header"><div className="icon-circle">🧠</div><h4>Clinical Decision Support</h4></div>
+          <ul>
+            <li>Differential diagnosis generation from symptom lists</li>
+            <li>Drug interaction checking</li>
+            <li>Literature synthesis — finding and summarising evidence</li>
+            <li>Guideline lookup and summarisation</li>
+            <li>Clinical scoring tools embedded in EMR</li>
+            <li>Image analysis — dermatology, ECG interpretation aids</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>General Purpose AI Tools Useful for NPs</h2>
+
+      <div className="assessment-card" style={{ marginBottom: '20px' }}>
+        <div className="card-header"><div className="icon-circle">🤖</div><h4>Large Language Models (LLMs)</h4></div>
+        <p>General AI assistants like Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google) can be genuinely useful for clinical tasks — particularly drafting, summarising, and explaining concepts. They are not clinical decision support tools and should not be used as a substitute for clinical guidelines.</p>
+        <h4 style={{ marginTop: '16px', color: 'var(--navy)' }}>Appropriate Uses</h4>
+        <ul>
+          <li>Drafting referral letters from your clinical notes</li>
+          <li>Generating patient education material in plain language</li>
+          <li>Summarising a complex medical record you have been handed</li>
+          <li>Explaining a clinical concept you are studying</li>
+          <li>Drafting CPD reflection entries from your notes</li>
+          <li>Proofreading and improving written communications</li>
+        </ul>
+        <h4 style={{ marginTop: '16px', color: 'var(--navy)' }}>Use with Caution</h4>
+        <ul>
+          <li>Do not enter identifiable patient information into general AI tools unless your organisation has approved data handling</li>
+          <li>LLMs can confidently produce incorrect clinical information ("hallucination") — always verify</li>
+          <li>Prescribing advice from LLMs should always be confirmed against TG, MIMS, or PBS</li>
+          <li>AI-generated differential lists are starting points, not conclusions</li>
+        </ul>
+      </div>
+
+      <div className="assessment-card" style={{ marginBottom: '20px' }}>
+        <div className="card-header"><div className="icon-circle">🔍</div><h4>Clinical-Specific AI Tools</h4></div>
+        <ul>
+          <li><strong>Isabel DDx</strong> — differential diagnosis generator used in some ED and hospital settings</li>
+          <li><strong>Pathway.md</strong> — AI-curated clinical pathways and guidelines</li>
+          <li><strong>Glass Health</strong> — clinical reasoning and SOAP note assistant (US-based, use with care)</li>
+          <li><strong>Ada Health</strong> — symptom checker (more patient-facing)</li>
+          <li><strong>Elsevier ClinicalKey AI</strong> — evidence-based clinical answers</li>
+          <li><strong>UpToDate</strong> — not AI per se but has AI-enhanced search features; widely used in Australian hospitals</li>
+        </ul>
+      </div>
+
+      <div className="assessment-card" style={{ marginBottom: '20px' }}>
+        <div className="card-header"><div className="icon-circle">💊</div><h4>Drug and Medicines AI Tools</h4></div>
+        <ul>
+          <li><strong>NPS MedicineWise</strong> — evidence-based prescribing with AI-enhanced search</li>
+          <li><strong>MIMS</strong> — comprehensive drug information, interaction checker</li>
+          <li><strong>Micromedex</strong> — drug interaction and toxicology database (hospital-focused)</li>
+          <li><strong>Merative (formerly IBM Watson Health)</strong> — drug interaction alerts in EMR systems</li>
+          <li>Your practice management software (Best Practice, MedicalDirector) will have embedded drug interaction checking</li>
+        </ul>
+      </div>
+
+      <h2>AI Safety and Professional Responsibility</h2>
+      <div className="assessment-grid">
+        <div className="assessment-card">
+          <div className="card-header"><div className="icon-circle">⚖️</div><h4>Your Professional Obligations</h4></div>
+          <ul>
+            <li>You remain professionally and legally responsible for all clinical decisions — AI does not share this accountability</li>
+            <li>Document that AI was used as a tool and that you verified the clinical content independently</li>
+            <li>Patient consent for AI-assisted care is an evolving area — check your employer's policy</li>
+            <li>AHPRA guidance on AI in practice is developing — monitor for updates</li>
+            <li>Your indemnity insurer should be aware of how you are using AI tools</li>
+          </ul>
+        </div>
+        <div className="assessment-card">
+          <div className="card-header"><div className="icon-circle">🔒</div><h4>Data Privacy</h4></div>
+          <ul>
+            <li>Never enter identifiable patient data into non-approved AI platforms</li>
+            <li>Check your organisation's AI usage policy before using any AI tools for clinical work</li>
+            <li>Australian Privacy Act 1988 applies to health information</li>
+            <li>De-identify information before using general AI tools where possible</li>
+            <li>Cloud-based AI tools may store and use your inputs — read the terms of service</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="info-box">
+        <p>🚀 <strong>This space is moving fast.</strong> The AI tools available to clinicians in 2025 look very different to those available in 2023. Staying informed about new tools, their evidence base, and regulatory developments is increasingly part of professional practice for Australian NPs.</p>
+      </div>
+
+    </div>
+      </>
+    
+  );
+}
