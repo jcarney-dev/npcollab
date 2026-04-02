@@ -2,6 +2,7 @@ import { db } from '@/lib/db';
 import { accessRequests, users } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import { NextRequest } from 'next/server';
+import { sendApprovalEmail } from '@/lib/email';
 
 function generateAccessCode(): string {
   const year = new Date().getFullYear();
@@ -75,6 +76,13 @@ export async function POST(req: NextRequest) {
     .update(accessRequests)
     .set({ status: 'approved' })
     .where(eq(accessRequests.id, id));
+
+  // Send approval email to user — fire and forget
+  sendApprovalEmail({
+    name:       newUser.name,
+    email:      newUser.email,
+    accessCode: newUser.accessCode,
+  }).catch(err => console.error('[email] Failed to send approval email:', err));
 
   return Response.json({ ok: true, user: newUser });
 }

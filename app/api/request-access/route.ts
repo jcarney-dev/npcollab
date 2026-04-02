@@ -1,5 +1,6 @@
 import { db } from '@/lib/db';
 import { accessRequests } from '@/lib/schema';
+import { sendRequestNotification } from '@/lib/email';
 import { NextRequest } from 'next/server';
 
 const VALID_ROLES = ['Endorsed NP', 'TNP', 'NP Student', 'RN considering NP', 'Other'];
@@ -30,6 +31,14 @@ export async function POST(req: NextRequest) {
       reason: reason.trim(),
       status: 'pending',
     });
+
+    // Notify admin — fire and forget, don't block response
+    sendRequestNotification({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      role,
+      reason: reason.trim(),
+    }).catch(err => console.error('[email] Failed to send request notification:', err));
 
     return Response.json({ ok: true });
   } catch (err) {
