@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 2-year-old presents with a 1-day history of barky cough, hoarse voice, and inspiratory stridor audible at rest. SpO2 is 94% on room air. What is the most appropriate immediate management?",
+    "options": [
+      "Oral dexamethasone 0.15mg/kg and discharge home with safety netting",
+      "Nebulised adrenaline (epinephrine) 0.5mL/kg of 1:1000 (max 5mL) and observe for at least 2 hours",
+      "IV antibiotics — this presentation suggests bacterial tracheitis",
+      "Chest X-ray and blood cultures before any treatment"
+    ],
+    "correct": 1,
+    "explanation": "Stridor at rest indicates moderate-to-severe croup (Westley score ≥3). Nebulised adrenaline (epinephrine 1:1000) provides rapid short-term relief of airway oedema and is the immediate treatment for moderate-severe croup. It must be followed by observation for at least 2 hours post-administration due to rebound effect. Dexamethasone 0.15mg/kg is given concurrently. SpO2 94% suggests hypoxia requiring urgent intervention. Hospital admission is appropriate for moderate-severe croup."
+  },
+  {
+    "q": "A 6-week-old infant presents with 3 days of profuse watery diarrhoea and vomiting. The fontanelle is sunken, eyes appear sunken, and skin turgor is reduced with slow recoil. Weight is 5% below last documented weight. What is the most appropriate fluid management?",
+    "options": [
+      "Oral rehydration solution (ORS) at 10mL/kg every 5 minutes for 4 hours",
+      "IV 0.9% sodium chloride 20mL/kg bolus — this infant has signs of severe dehydration",
+      "Continue breastfeeding only — diarrhoea in infants is always self-limiting",
+      "Diluted apple juice via nasogastric tube"
+    ],
+    "correct": 1,
+    "explanation": "A 6-week-old with signs of moderate-to-severe dehydration (sunken fontanelle, sunken eyes, reduced skin turgor) and 5% weight loss requires IV fluid resuscitation. IV 0.9% sodium chloride 20mL/kg bolus is the correct initial treatment. Neonates and young infants cannot tolerate dehydration as safely as older children and have higher risk of metabolic derangement. ORS is appropriate for mild dehydration in older infants. Breastfeeding should be maintained alongside rehydration but is insufficient here. Hospital admission is required."
+  },
+  {
+    "q": "An 18-month-old presents with a barky cough and inspiratory stridor only on crying or agitation. No stridor at rest. SpO2 99%. He is well-appearing and feeding normally. Westley croup score is 1. What is the most appropriate management?",
+    "options": [
+      "Admit to hospital for nebulised adrenaline and observation",
+      "Oral dexamethasone 0.15mg/kg — single dose. Discharge with safety netting and written instructions",
+      "No treatment required — croup is always self-limiting",
+      "Oral prednisolone 1mg/kg for 3 days"
+    ],
+    "correct": 1,
+    "explanation": "Mild croup (Westley score 1–2, stridor only on agitation, no respiratory distress) is treated with oral dexamethasone 0.15mg/kg as a single dose. Dexamethasone reduces oedema, shortens illness duration, and decreases return visits. Discharge is appropriate with safety netting: return immediately if stridor develops at rest, work of breathing increases, SpO2 drops, child becomes drowsy, or cyanosis develops. Prednisolone is less effective than dexamethasone for croup. Nebulised adrenaline is reserved for moderate-severe croup."
+  },
+  {
+    "q": "A 9-month-old presents with 2 days of wheeze, tachypnoea (RR 58), and subcostal recession. SpO2 is 90% on room air. She is not feeding well. RSV rapid antigen test is positive. What is the most appropriate management?",
+    "options": [
+      "Oral prednisolone 1mg/kg for 3 days — corticosteroids reduce inflammation",
+      "Salbutamol 2.5mg nebulised every 20 minutes — bronchospasm is the primary mechanism",
+      "Supportive care: supplemental oxygen to maintain SpO2 ≥94%, nasogastric feeding if not tolerating oral, hospital admission",
+      "Oral amoxicillin — secondary bacterial infection must be treated"
+    ],
+    "correct": 2,
+    "explanation": "Bronchiolitis management is supportive only. SpO2 90% indicates hypoxia — supplemental oxygen to maintain ≥94% is the primary intervention. Nasogastric feeding is used when oral intake is inadequate. Hospital admission is required. Bronchodilators (salbutamol) are NOT recommended — bronchiolitis is caused by mucus plugging and mucosal oedema, not bronchospasm, and bronchodilators have no proven benefit. Corticosteroids are also not recommended. Antibiotics are only used if a secondary bacterial infection is confirmed."
+  },
+  {
+    "q": "A 4-year-old presents with sudden onset fever 39.2°C and a non-blanching purpuric rash on the lower limbs. He appears unwell and is difficult to rouse. What is the most appropriate immediate action?",
+    "options": [
+      "Arrange urgent GP review within 2 hours",
+      "Call 000 immediately — this presentation is consistent with meningococcal septicaemia",
+      "Reassure parents — purpura in children is usually viral and benign",
+      "Check FBE and CRP, then reassess"
+    ],
+    "correct": 1,
+    "explanation": "Non-blanching purpuric rash with fever is meningococcal disease until proven otherwise. This is a life-threatening emergency — call 000 immediately. If IV access is available and transfer will take >30 minutes, give IV/IM benzylpenicillin (300mg for <1 year, 600mg for 1–9 years, 1.2g for ≥10 years). Do not delay transfer for investigations. The rash does not blanch with pressure (glass test). Petechiae with fever are also concerning. Meningococcal disease can progress from well to death within hours."
+  },
+  {
+    "q": "A 3-year-old has a generalised tonic-clonic seizure lasting 3 minutes. Temperature is 38.8°C. He regains consciousness and is back to his normal self within 15 minutes. No history of epilepsy. Developmental history is normal. This is his first febrile seizure. How is this classified and what is the recommended management?",
+    "options": [
+      "Complex febrile seizure — refer urgently for EEG and paediatric neurology",
+      "Simple febrile seizure — reassure parents, identify and treat the source of fever, safety netting for recurrence",
+      "Status epilepticus — arrange MRI brain urgently",
+      "Epilepsy — commence levetiracetam and refer to neurology"
+    ],
+    "correct": 1,
+    "explanation": "Simple febrile seizure is defined as: generalised (not focal), duration <15 minutes, no recurrence within 24 hours, normal neurological exam. The recurrence risk is 30% but the risk of epilepsy is not significantly increased. Management: identify and treat the fever source (this child needs examination for URTl/otitis media/UTI), reassure parents about benign prognosis, and provide safety netting: if seizure recurs in same illness or lasts >5 minutes, place child on side and call 000. Routine EEG and neuroimaging are not indicated for simple febrile seizure."
+  },
+  {
+    "q": "Which of the following correctly describes the assessment of dehydration in a 2-year-old using clinical signs?",
+    "options": [
+      "Skin turgor is the single most reliable sign of dehydration in children",
+      "Mild dehydration (<5%): dry mucous membranes, normal skin turgor, slightly reduced urine output. Severe dehydration (>10%): sunken eyes and fontanelle, markedly reduced skin turgor, altered consciousness, no urine output",
+      "Capillary refill time >4 seconds indicates mild dehydration",
+      "Blood pressure is the most sensitive indicator of early dehydration in toddlers"
+    ],
+    "correct": 1,
+    "explanation": "Clinical assessment of dehydration: Mild (<5%) — slightly dry mucous membranes, normal or mild reduction in skin turgor, slightly reduced urine output. Moderate (5–10%) — dry mucous membranes, reduced skin turgor (slow recoil), sunken eyes, reduced urine output, normal or mildly elevated HR. Severe (>10%) — markedly sunken eyes and fontanelle, very reduced skin turgor, prolonged CRT (>3 seconds), tachycardia, hypotension (late sign), altered consciousness, minimal or no urine. BP drops late in paediatric dehydration as children compensate well until decompensation occurs."
+  },
+  {
+    "q": "A 5-year-old presents with 2 days of vomiting and diarrhoea (watery, no blood). He is alert, has moist mucous membranes, and is passing urine. He is estimated to have 3% dehydration. What is the most appropriate rehydration strategy?",
+    "options": [
+      "IV fluid — 10mL/kg 0.9% saline bolus",
+      "Withhold all fluids for 4 hours to stop vomiting",
+      "Oral rehydration solution (ORS) 10mL every 5 minutes initially, increasing as tolerated, with continued normal diet",
+      "Clear fluids only — water and diluted cordial"
+    ],
+    "correct": 2,
+    "explanation": "Mild dehydration (<5%) in a child who is alert and able to tolerate oral intake is managed with oral rehydration solution (ORS) — 10mL every 5 minutes initially, advancing as tolerated. ORS is superior to water or diluted cordial as it contains appropriate sodium, potassium, and glucose for intestinal co-transport of water. Continue normal diet (including breastfeeding/formula in infants) alongside ORS — fasting is harmful and delays recovery. IV fluids are reserved for moderate-severe dehydration or inability to tolerate oral intake. Anti-emetics may be used to facilitate ORS tolerability in some cases."
+  },
+  {
+    "q": "A 10-year-old presents with a 1-week history of worsening sore throat, fever 38.9°C, and marked tonsillar exudate. Cervical lymphadenopathy is present. Centor score is 4. What is the most appropriate management?",
+    "options": [
+      "Reassure — most sore throats are viral, no treatment needed",
+      "Throat swab for culture and start amoxicillin while awaiting results",
+      "Centor score ≥4 indicates high probability of Group A Streptococcus — treat with phenoxymethylpenicillin (penicillin V) 500mg BD for 10 days, or consider amoxicillin",
+      "Refer to ENT for tonsillectomy immediately"
+    ],
+    "correct": 2,
+    "explanation": "Centor score ≥4 (exudate, lymphadenopathy, fever, absence of cough) indicates high probability of Group A Streptococcal (GAS) pharyngitis. Treatment is phenoxymethylpenicillin (penicillin V) 500mg BD for 10 days (or amoxicillin 500mg BD for 10 days — better palatability in children). Amoxicillin should be avoided until EBV (glandular fever) is excluded due to risk of maculopapular rash. GAS pharyngitis treatment reduces risk of rheumatic fever, peritonsillar abscess, and shortens illness. Always check for penicillin allergy."
+  },
+  {
+    "q": "An 8-week-old infant presents for their first scheduled immunisation visit. Which vaccines are due at this visit under the Australian National Immunisation Program?",
+    "options": [
+      "MMR, varicella, hepatitis A",
+      "Hexavalent (diphtheria, tetanus, pertussis, hepatitis B, polio, Hib), 13-valent pneumococcal, and rotavirus (oral)",
+      "Influenza vaccine and meningococcal B only",
+      "BCG and hepatitis B only"
+    ],
+    "correct": 1,
+    "explanation": "At 6–8 weeks under the Australian NIP: Infanrix Hexa (hexavalent — diphtheria, tetanus, pertussis, hepatitis B, inactivated polio, Hib), Prevenar 13 (13-valent pneumococcal conjugate), and Rotarix (rotavirus oral vaccine — must be given before 24 weeks). Hepatitis B is also given at birth (within 24 hours). Record all vaccines in the Australian Immunisation Register (AIR). Check for contraindications — rotavirus is contraindicated if previous intussusception or history of congenital gut abnormality."
+  },
+  {
+    "q": "A 3-year-old has not received any immunisations. Parents are now wanting to catch up. According to the Australian Immunisation Handbook, what is the recommended approach?",
+    "options": [
+      "Start the entire schedule from birth and administer all vaccines in the original timeline",
+      "Only give vaccines that are age-appropriate — missed vaccines cannot be given later",
+      "Follow the catch-up schedule in the Australian Immunisation Handbook — most vaccines can be administered to unvaccinated older children with adjusted doses and intervals",
+      "Send a referral to a specialist immunologist"
+    ],
+    "correct": 2,
+    "explanation": "The Australian Immunisation Handbook provides detailed catch-up schedules for unvaccinated or incompletely vaccinated children. Most vaccines can be given to older children with modified schedules. Key principles: minimum intervals between doses must be observed, some vaccines have age restrictions (rotavirus must be started before 15 weeks, completed before 24 weeks — not applicable in this case), and some are not required if the child is past the relevant age. NPs play an important role in identifying and catching up unvaccinated children. Use the Handbook catch-up tool or consult your local public health unit."
+  },
+  {
+    "q": "Which of the following is a RED FLAG feature in a febrile child requiring urgent assessment or immediate transfer?",
+    "options": [
+      "Temperature 38.2°C in a 3-year-old with runny nose and mild cough",
+      "Non-blanching purpuric rash, inconsolable crying in a 6-month-old, or fever in any child under 3 months",
+      "Mild otitis media in a 2-year-old with temperature 37.9°C",
+      "Febrile convulsion lasting 2 minutes in a 4-year-old"
+    ],
+    "correct": 1,
+    "explanation": "Red flags in febrile children requiring urgent assessment: fever in any child <3 months (potentially serious bacterial infection risk is high — full septic workup required), non-blanching purpuric rash (meningococcal), inconsolable or high-pitched cry (meningitis), bulging fontanelle, neck stiffness, photophobia, respiratory distress, signs of circulatory shock, bilious vomiting, altered consciousness. A simple febrile convulsion lasting 2 minutes in a 4-year-old is not a red flag once the child recovers fully, though requires assessment."
+  },
+  {
+    "q": "A parent asks about the 'two-week sleep schedule' for their 3-month-old infant. Aside from this, what is the most important safe sleep advice to provide to reduce SIDS risk?",
+    "options": [
+      "Side sleeping is acceptable once the infant can roll",
+      "Place the infant on their back to sleep on a firm, flat surface in their own safe sleep space, in the parents room for the first 6–12 months, with no loose bedding, pillows or toys",
+      "Babies should sleep in their own room from birth to establish independence",
+      "Co-sleeping in a parental bed is safe if parents are non-smokers and not intoxicated"
+    ],
+    "correct": 1,
+    "explanation": "Red Nose Australia safe sleep recommendations to reduce SIDS: always place baby on their back (not side or front) — back is safest, use a firm, flat, well-fitting mattress, baby's head and face uncovered (no loose bedding, pillows, bumpers, soft toys), maintain a safe sleep environment, share a room (not a bed) for at least 6 months, avoid tobacco smoke exposure during pregnancy and after birth, breastfeeding is protective. Room-sharing without bed-sharing significantly reduces SIDS risk."
+  },
+  {
+    "q": "A 7-year-old male presents with 3 months of difficulty sustaining attention in class, impulsivity, and hyperactivity reported by his teacher and parents. Symptoms are present at home and school. ADHD assessment tools are completed. What is the appropriate NP role in initial management?",
+    "options": [
+      "Commence methylphenidate immediately — diagnosis is clear from the history",
+      "Refer to paediatrician or child psychiatrist for formal ADHD assessment and diagnosis; provide behavioural strategies to school and family while awaiting review",
+      "Reassure — ADHD is commonly over-diagnosed, these are normal childhood behaviours",
+      "Order MRI brain to exclude structural cause"
+    ],
+    "correct": 1,
+    "explanation": "ADHD diagnosis in children requires comprehensive assessment by a paediatrician or child psychiatrist — including multi-informant reports (parents, teachers), standardised rating scales (Conners, NICHQ Vanderbilt), and exclusion of differential diagnoses. NPs can screen, gather collateral, and refer, but should not diagnose or initiate stimulant medication independently without specialist assessment. In the interim, provide school with behavioural strategies, educate family, and support the referral process. Stimulant prescribing for ADHD in children requires specialist authority under Schedule 8 in most states."
+  },
+  {
+    "q": "A 4-year-old presents with a barky cough and stridor. The Westley Croup Score is calculated. Which features are included in the Westley Croup Score?",
+    "options": [
+      "Temperature, respiratory rate, heart rate, and SpO2",
+      "Stridor, retractions, air entry, cyanosis, and level of consciousness",
+      "Cough severity, oxygen requirements, and ability to feed",
+      "Chest X-ray findings and white cell count"
+    ],
+    "correct": 1,
+    "explanation": "The Westley Croup Score assesses five clinical parameters: (1) Stridor (0=none, 1=with agitation, 2=at rest), (2) Retractions (0=none, 1=mild, 2=moderate, 3=severe), (3) Air entry (0=normal, 1=decreased, 2=markedly decreased), (4) Cyanosis (0=none, 4=with agitation, 5=at rest), (5) Level of consciousness (0=normal, 5=altered). Score 0–2 = mild, 3–7 = moderate, ≥8 = severe. This clinical score guides management decisions including whether to administer nebulised adrenaline and whether hospital admission is required."
+  },
+  {
+    "q": "An 18-month-old weighing 11.2kg presents with mild croup (Westley score 1, stridor only on crying, no distress). What is the correct dexamethasone dose?",
+    "options": [
+      "Dexamethasone 1mg/kg oral — same dosing as prednisolone",
+      "Dexamethasone 0.15mg/kg oral = 1.68mg, rounded to 2mg oral",
+      "Dexamethasone 0.6mg/kg IM only — oral is not effective",
+      "Dexamethasone is not indicated for mild croup — reserve for moderate-severe only"
+    ],
+    "correct": 1,
+    "explanation": "Dexamethasone 0.15mg/kg is the recommended dose for croup (mild, moderate, and severe). For an 11.2kg child: 11.2 × 0.15 = 1.68mg, rounded to 2mg oral. Dexamethasone is available as 2mg/5mL oral solution. Oral dexamethasone is as effective as IM or nebulised budesonide. Single dose is sufficient — repeat is rarely needed. Dexamethasone is now recommended even for mild croup as it reduces return presentations and illness duration. Prednisolone is sometimes used but dexamethasone has longer duration of action and superior evidence."
+  },
+  {
+    "q": "A 12-year-old female presents with 6 months of secondary amenorrhoea, BMI 15.8, bradycardia (HR 46), and cold intolerance. She reports restricting her food intake significantly. What is the priority in initial management?",
+    "options": [
+      "Reassure — amenorrhoea is common in adolescents and self-limiting",
+      "Order bone density scan and thyroid function tests — the primary concern is osteoporosis",
+      "Immediate medical assessment for haemodynamic instability — bradycardia with low BMI suggests medical risk requiring urgent evaluation for hospital admission",
+      "Commence the oral contraceptive pill to restore menstruation"
+    ],
+    "correct": 2,
+    "explanation": "Bradycardia (HR 46) with low BMI (15.8) and restrictive eating represents a medical emergency — anorexia nervosa with cardiovascular compromise. The priority is urgent medical assessment and likely hospital admission. Medical instability criteria: HR <50, BP <90/60, orthostatic vital sign changes, temperature <36°C, QTc prolongation, electrolyte abnormalities, rapid weight loss. Admission for medical stabilisation and nutritional rehabilitation takes precedence. Early specialist eating disorder team involvement. OCP does not treat bone loss from malnutrition — weight restoration is required."
+  },
+  {
+    "q": "A 6-month-old infant is brought in by parents concerned about developmental milestones. The child is not sitting unsupported, not bearing weight on legs, and not babbling. Parents report they have not noticed any social smiling or following with eyes since birth. What is the appropriate response?",
+    "options": [
+      "Reassure parents — development varies widely, review at 12 months",
+      "Urgent referral to paediatrics — global developmental delay with possible failure to thrive or neurodevelopmental disorder requires immediate assessment",
+      "Organise a hearing test only — language delay is likely the primary issue",
+      "Wait for the 12-month immunisation visit to reassess"
+    ],
+    "correct": 1,
+    "explanation": "Failure to social smile or make eye contact since birth at 6 months, combined with motor and language delays, is a significant red flag for global developmental delay, autism spectrum disorder, or an underlying genetic/neurodevelopmental condition. Referral to paediatrics is urgent. Age-appropriate milestones at 6 months: social smile (present by 6 weeks), follows with eyes, vocalisations/babbling, holds head steady, rolls, begins to sit with support, bears some weight on legs. Absence of social smile by 6 weeks is an absolute red flag requiring immediate assessment."
+  },
+  {
+    "q": "Parents of a 4-year-old ask about fever management. The child has a temperature of 38.6°C and is miserable but alert. What is the correct advice?",
+    "options": [
+      "Give both paracetamol and ibuprofen simultaneously for maximum effect",
+      "Treat the child not the thermometer — paracetamol or ibuprofen for comfort, ensuring adequate fluid intake, with return criteria if the child deteriorates",
+      "Fever should not be treated — it is a protective immune response and must be allowed to run its course",
+      "Apply ice packs and a cold bath to rapidly reduce temperature"
+    ],
+    "correct": 1,
+    "explanation": "Fever management principles: treat the child for comfort, not the number. Paracetamol 15mg/kg 4-hourly or ibuprofen 10mg/kg 8-hourly (ibuprofen preferred in children ≥3 months without contraindications — better and longer-lasting antipyretic). Alternating is not routinely recommended. Ensure adequate fluid intake. Tepid sponging and cold baths are not recommended — uncomfortable and ineffective. Red flag advice: return if rash develops, child deteriorates, not improving after 48–72 hours, or meets any red flag criteria (infant <3 months with any fever, non-blanching rash, etc.)."
+  },
+  {
+    "q": "Which of the following best describes the correct interpretation and action for a 5-year-old child presenting with a complex febrile seizure?",
+    "options": [
+      "Complex febrile seizure is defined as: focal onset OR duration >15 minutes OR recurrence within 24 hours — requires urgent paediatric assessment including EEG",
+      "Complex febrile seizures are managed the same as simple febrile seizures — reassure and discharge",
+      "Any seizure with fever in a child over 5 is complex and requires CT brain",
+      "Commence prophylactic valproate after any febrile seizure to prevent recurrence"
+    ],
+    "correct": 0,
+    "explanation": "Complex febrile seizure is defined by any of: focal onset or focal post-ictal deficit (Todd's paresis), duration ≥15 minutes, or recurrence within 24 hours. Complex febrile seizures require urgent paediatric assessment. EEG is recommended. Neuroimaging may be indicated if focal features or post-ictal deficit. Risk of epilepsy is higher than simple febrile seizure (~5–10%). Prophylactic anticonvulsants are generally not recommended for either simple or complex febrile seizures due to adverse effects. Referral to paediatric neurology is appropriate."
+  }
+]
