@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A palliative patient with cancer pain is taking morphine immediate release 10mg every 4 hours regularly (total 60mg/24h). What is the correct breakthrough dose?",
+    "options": [
+      "5mg — one twelfth of the total daily dose",
+      "10mg — one sixth of the total daily dose",
+      "20mg — one third of the total daily dose",
+      "60mg — the full daily dose as needed"
+    ],
+    "correct": 1,
+    "explanation": "The breakthrough (PRN) dose should be 1/6 of the total 24-hour opioid dose. For a patient on morphine 60mg/24h, the breakthrough dose is 60 ÷ 6 = 10mg. This dose should be available every 1–4 hours as needed. If the patient is using more than 3–4 breakthrough doses per day, increase the background dose by 30–50% and recalculate the breakthrough dose accordingly."
+  },
+  {
+    "q": "Which of the following is the correct approach to managing constipation in a patient commencing regular opioid analgesia?",
+    "options": [
+      "Wait until the patient reports constipation before starting laxatives",
+      "Prescribe a laxative prophylactically when opioids are commenced — do not wait for symptoms",
+      "High fibre diet alone is sufficient to prevent opioid-induced constipation",
+      "Constipation is rarely a problem with modern opioids and does not need routine prevention"
+    ],
+    "correct": 1,
+    "explanation": "Opioid-induced constipation (OIC) is almost universal — tolerance does not develop to this side effect unlike nausea and sedation. Always prescribe a laxative when starting regular opioids. Coloxyl with Senna (stimulant + softener combination) is first-line in Australia. Titrate up as opioid dose increases. High fibre diet may worsen symptoms in opioid constipation. Methylnaltrexone subcutaneous is available for refractory OIC."
+  },
+  {
+    "q": "A patient with advanced cancer is distressed and breathless with SpO₂ 97% on air. Which intervention has the best evidence for relieving the sensation of dyspnoea?",
+    "options": [
+      "High-flow oxygen via non-rebreather mask",
+      "Low-dose oral or subcutaneous morphine",
+      "Nebulised saline",
+      "Anxiolytic alone (midazolam) without opioid"
+    ],
+    "correct": 1,
+    "explanation": "Low-dose opioids (morphine 2–4mg oral or 1–2mg SC) are the most evidence-based pharmacological intervention for dyspnoea in palliative patients. They reduce the subjective sensation of breathlessness. Supplemental oxygen is only beneficial if the patient is hypoxic (SpO₂ <90%) — in normoxic patients it provides no more relief than room air and may restrict mobility. A fan directed at the face also has evidence. Midazolam addresses the anxiety component but opioids target the breathlessness itself."
+  },
+  {
+    "q": "What is the most appropriate antiemetic for a palliative patient experiencing nausea and vomiting due to bowel obstruction?",
+    "options": [
+      "Metoclopramide — prokinetic to stimulate gut motility",
+      "Ondansetron — serotonin antagonist for chemotherapy-induced nausea",
+      "Haloperidol or cyclizine — centrally acting antiemetics; avoid prokinetics in obstruction",
+      "Domperidone — peripheral dopamine antagonist"
+    ],
+    "correct": 2,
+    "explanation": "In bowel obstruction, prokinetic antiemetics (metoclopramide, domperidone) are contraindicated — they increase gut motility against an obstruction and worsen colic and vomiting. Use centrally-acting antiemetics: haloperidol (0.5–1.5mg SC/24h via CSCI) or cyclizine. Octreotide reduces GI secretions and is highly effective for malignant bowel obstruction. Ondansetron has limited evidence in this context and is primarily for chemotherapy-induced nausea."
+  },
+  {
+    "q": "A patient is transitioning from oral opioids to a subcutaneous continuous infusion (CSCI) via syringe driver due to inability to swallow. They are on oral morphine 90mg/24h. What is the correct subcutaneous morphine dose for the CSCI over 24 hours?",
+    "options": [
+      "90mg SC/24h — same dose as oral",
+      "180mg SC/24h — double the oral dose",
+      "30mg SC/24h — one third of the oral dose",
+      "60mg SC/24h — two thirds of the oral dose"
+    ],
+    "correct": 2,
+    "explanation": "The oral to subcutaneous morphine conversion ratio is 3:1 (oral morphine is approximately 3 times less potent than subcutaneous morphine due to first-pass metabolism). Oral morphine 90mg ÷ 3 = 30mg SC/24h. Always recalculate the breakthrough dose after conversion: 30mg ÷ 6 = 5mg SC PRN. Round to practical doses. Review within 24 hours and titrate based on breakthrough use. Different opioids have different conversion ratios — always check a reliable reference (e.g. Therapeutic Guidelines Palliative Care)."
+  },
+  {
+    "q": "Which of the following best describes the legal status of Voluntary Assisted Dying in Australia?",
+    "options": [
+      "Legal only in Victoria and Western Australia",
+      "Legal in all Australian states and territories",
+      "Legal federally but states can opt out",
+      "Not legal anywhere in Australia"
+    ],
+    "correct": 1,
+    "explanation": "VAD legislation has been passed in all Australian states and territories. Victoria was first (2019), followed by Western Australia, Tasmania, South Australia, Queensland, New South Wales, and the ACT and NT more recently. Eligibility criteria vary slightly between jurisdictions but generally require: adult, Australian resident, decision-making capacity, advanced progressive disease causing intolerable suffering, and death expected within 12 months (6 months for non-neurodegenerative conditions). NPs should be familiar with their jurisdiction's legislation."
+  },
+  {
+    "q": "A dying patient becomes increasingly agitated, confused, and distressed despite comfort measures. They are unable to communicate. This is most consistent with which diagnosis?",
+    "options": [
+      "Opioid overdose — reduce the morphine immediately",
+      "Terminal (refractory) agitated delirium — treat with haloperidol and consider midazolam",
+      "Depression — start an antidepressant",
+      "Pain — increase opioid dose significantly"
+    ],
+    "correct": 1,
+    "explanation": "Agitated delirium is common in the last days of life and is extremely distressing for patients, families, and staff. First-line: haloperidol 0.5–1mg SC PRN or via CSCI. If refractory: midazolam 2.5–5mg SC PRN added to the CSCI. Assess for treatable causes where appropriate to goals of care (urinary retention, pain, medication toxicity). Family education and emotional support are essential. Palliative sedation may be required for truly refractory suffering — this is a specialist decision made with the patient/family."
+  },
+  {
+    "q": "What is the recommended approach to opioid prescribing for background pain in palliative care?",
+    "options": [
+      "Prescribe only PRN — regular dosing risks addiction",
+      "Regular (around the clock) dosing with a PRN breakthrough dose available",
+      "PRN only initially, converting to regular if the patient uses more than 10 doses per day",
+      "Single daily modified release opioid only — no breakthrough prescribed"
+    ],
+    "correct": 1,
+    "explanation": "Background pain requires regular (around the clock) opioid dosing to maintain steady analgesic blood levels and prevent pain from returning. PRN-only prescribing results in oscillating pain levels and inadequate control. Modified-release formulations provide background control; immediate-release formulations provide breakthrough dosing. Addiction is not a clinical concern in the context of cancer pain management — dependence is expected and appropriate, and fear of addiction should not limit adequate analgesia."
+  },
+  {
+    "q": "A palliative patient with known bone metastases reports new onset severe back pain radiating to both legs with bilateral leg weakness developing over 48 hours. What is the most urgent concern and action?",
+    "options": [
+      "Increase opioid dose and review in 1 week",
+      "Suspected metastatic spinal cord compression — dexamethasone 16mg immediately, emergency transfer for urgent MRI and oncology review",
+      "Likely muscle spasm — prescribe diazepam",
+      "Referred pain from existing metastases — reassure and optimise analgesia"
+    ],
+    "correct": 1,
+    "explanation": "New back pain with bilateral neurological symptoms (leg weakness, sensory changes, bladder/bowel dysfunction) in a patient with known malignancy is metastatic spinal cord compression (MSCC) until proven otherwise. This is an oncological emergency — irreversible paralysis can occur within hours if untreated. Immediate dexamethasone 16mg IV or oral (reduces cord oedema) and emergency transfer for urgent MRI and oncology/neurosurgical review. Do not delay for further assessment — act immediately."
+  },
+  {
+    "q": "Which of the following medications is MOST appropriate to include in an anticipatory prescribing kit for a dying patient at home?",
+    "options": [
+      "Oral paracetamol, oral metoclopramide, oral diazepam",
+      "Subcutaneous morphine, subcutaneous midazolam, subcutaneous haloperidol, subcutaneous hyoscine butylbromide",
+      "IV morphine, IV ondansetron, IV lorazepam",
+      "Oral oxycodone, oral promethazine, oral clonazepam"
+    ],
+    "correct": 1,
+    "explanation": "Anticipatory prescribing for dying patients at home should include subcutaneous medications that can be administered if the patient can no longer swallow or in urgent situations. Standard kit includes: morphine SC (pain, dyspnoea), midazolam SC (agitation, anxiety, dyspnoea), haloperidol SC (nausea, delirium), hyoscine butylbromide SC (respiratory secretions). These should be prescribed, dispensed, and stored at home before they are needed — waiting until a crisis to prescribe causes unnecessary suffering and distress."
+  },
+  {
+    "q": "A patient asks about the difference between palliative sedation and euthanasia. Which statement is correct?",
+    "options": [
+      "They are the same thing — both intentionally end life",
+      "Palliative sedation uses medications to reduce consciousness to relieve refractory suffering — the intention is comfort, not to hasten death; it is legal and ethical in Australian palliative care",
+      "Palliative sedation is illegal in Australia",
+      "Palliative sedation always causes death within hours"
+    ],
+    "correct": 1,
+    "explanation": "Palliative sedation (also called terminal sedation or proportionate sedation) reduces the level of consciousness to relieve otherwise intractable suffering at end of life. The intention is relief of suffering — not hastening death. It is legal, ethical, and in accordance with Australian palliative care standards. The doctrine of double effect applies: the primary intention is symptom relief; any impact on dying trajectory is unintended. It is distinct from VAD where the intention is to end life. This is an important communication point for patients and families."
+  },
+  {
+    "q": "A palliative patient on regular opioids develops new confusion, myoclonus (muscle twitching), and hyperalgesia (increased pain sensitivity). What is the most likely cause?",
+    "options": [
+      "Opioid under-dosing — increase the dose",
+      "Opioid neurotoxicity — opioid rotation to a different opioid is required",
+      "Hepatic encephalopathy — stop all opioids immediately",
+      "Anxiety — add benzodiazepine"
+    ],
+    "correct": 1,
+    "explanation": "Opioid-induced neurotoxicity (OIN) presents with confusion, myoclonus, hyperalgesia, and sometimes hallucinations or seizures. It occurs due to accumulation of opioid metabolites, commonly in the context of renal impairment or high doses. Management: opioid rotation (switching to a different opioid at a reduced equianalgesic dose — neurotoxicity does not cross completely between opioids), hydration, dose reduction. Morphine is particularly prone to neurotoxicity — switch to oxycodone or hydromorphone. Refer to palliative medicine specialist."
+  },
+  {
+    "q": "What is the recommended approach when a patient lacks decision-making capacity and has no Advance Care Directive and no appointed substitute decision maker?",
+    "options": [
+      "The treating team makes all decisions unilaterally",
+      "Apply the jurisdictional hierarchy of substitute decision makers — typically spouse/partner, then adult children, then parents, then siblings — and make decisions consistent with the patient's best interests and known values",
+      "Aggressive treatment must continue until a legal guardian is appointed",
+      "Palliative care cannot be provided without explicit patient consent"
+    ],
+    "correct": 1,
+    "explanation": "Each Australian state and territory has legislation defining the hierarchy of substitute decision makers when a patient lacks capacity and has not appointed an Enduring Power of Attorney. Typically: spouse or partner, then adult children, then parents, then siblings, then close friends. The substitute decision maker must make decisions based on the patient's known wishes and values, or in their best interests. If no substitute decision maker is available, the Public Guardian or equivalent statutory body can be appointed. NPs must be familiar with their jurisdiction's guardianship legislation."
+  },
+  {
+    "q": "A patient on a CSCI (syringe driver) with morphine 30mg and midazolam 10mg over 24 hours is still having breakthrough pain requiring 4 PRN doses in the past 12 hours. What is the appropriate action?",
+    "options": [
+      "Wait 24 hours before making any changes",
+      "Increase the CSCI morphine dose by 30–50% and recalculate the breakthrough dose",
+      "Add more midazolam to the syringe driver",
+      "Discontinue the CSCI and return to oral opioids"
+    ],
+    "correct": 1,
+    "explanation": "If a patient requires more than 2–3 breakthrough doses in a 12-hour period, the background CSCI dose should be increased. Increase the opioid component (morphine) by 30–50%. For morphine 30mg/24h using 4 breakthroughs of 5mg = 20mg extra, total 50mg — increase to morphine 40–50mg/24h CSCI. Recalculate breakthrough dose (1/6 of new total). Midazolam addresses agitation/anxiety — increasing it does not address uncontrolled pain. Review within 12–24 hours of any dose change."
+  },
+  {
+    "q": "Which of the following is a validated tool for assessing pain in a palliative patient with advanced dementia who cannot self-report?",
+    "options": [
+      "NRS (Numeric Rating Scale 0–10)",
+      "Abbey Pain Scale or PAINAD (Pain Assessment in Advanced Dementia)",
+      "ESAS-r (Edmonton Symptom Assessment System)",
+      "McGill Pain Questionnaire"
+    ],
+    "correct": 1,
+    "explanation": "Self-report pain scales (NRS, VAS, ESAS-r) require the patient to understand and respond to a numerical or verbal rating — not possible in advanced dementia. The Abbey Pain Scale and PAINAD assess observable behavioural indicators of pain: vocalisation, facial expression, body language, behavioural changes, and physiological changes. These are validated for use in cognitively impaired palliative patients. Regular assessment using these tools prevents undertreatment of pain in this vulnerable population."
+  },
+  {
+    "q": "A family member asks if giving morphine will hasten their dying relative's death. How should you respond?",
+    "options": [
+      "Yes — morphine always hastens death in dying patients",
+      "Refuse to discuss — this is a medical decision only",
+      "When used at appropriate doses to manage pain and dyspnoea, morphine does not hasten death — there is strong evidence that appropriate palliative opioid use does not shorten life and may improve comfort and quality of remaining life",
+      "Morphine should be avoided in dying patients for this reason"
+    ],
+    "correct": 2,
+    "explanation": "This is one of the most common and important misconceptions in palliative care. Extensive evidence shows that appropriate opioid use at palliative doses does not hasten death. In fact, poor symptom control causes distress that may be more harmful. The doctrine of double effect (intention is comfort, not death) provides ethical and legal grounding. NPs have a vital role in educating families about this to prevent inadequate pain management due to unfounded fear. Clear, compassionate communication reduces family anxiety and improves patient comfort."
+  },
+  {
+    "q": "Which of the following symptoms is MOST specific for recognising that a patient has entered the dying phase (last 24–48 hours)?",
+    "options": [
+      "Fatigue and reduced appetite",
+      "Mottling of the knees and feet, Cheyne-Stokes breathing, and peripheral cooling with reduced consciousness",
+      "Mild confusion and increased sleep",
+      "Nausea and reduced oral intake"
+    ],
+    "correct": 1,
+    "explanation": "While fatigue, reduced appetite, nausea, and increased sleep can occur weeks before death, mottling of the extremities (beginning at the knees and feet), Cheyne-Stokes breathing (periodic breathing with apnoeic pauses), peripheral cooling, and progressive loss of consciousness are the most specific indicators of the dying phase (hours to 1–2 days). Recognising this transition is critical for initiating the comfort care pathway, anticipatory prescribing, family notification, and discontinuing non-essential interventions."
+  },
+  {
+    "q": "A palliative patient with cancer develops acute confusion, nausea, vomiting, polyuria, and constipation. Corrected calcium returns at 3.4 mmol/L. What is the diagnosis and management?",
+    "options": [
+      "Opioid toxicity — reduce opioids immediately",
+      "Hypercalcaemia of malignancy — IV normal saline hydration and IV zoledronic acid; admit to hospital",
+      "Hepatic encephalopathy — lactulose and dietary protein restriction",
+      "Brain metastases — dexamethasone and urgent CT brain"
+    ],
+    "correct": 1,
+    "explanation": "Hypercalcaemia of malignancy (corrected calcium >2.6 mmol/L) presents with the classic 'bones, groans, moans, and psychic overtones' — bone pain, nausea/constipation, polyuria/polydipsia, and neuropsychiatric symptoms (confusion, depression). It is treatable and causes significant reversible suffering. Management: aggressive IV hydration (normal saline 2–3L/day) and IV bisphosphonate (zoledronic acid 4mg over 15 minutes — most potent). Requires hospital admission. Response takes 48–72 hours. If consistent with goals of care, treatment significantly improves quality of life."
+  },
+  {
+    "q": "What is the role of dexamethasone in palliative care symptom management?",
+    "options": [
+      "It has no role in palliative care — steroids cause too many side effects",
+      "It is used exclusively for brain metastases",
+      "It has multiple roles — reduces oedema around tumours (pain, neurological symptoms), improves appetite, reduces nausea, treats hypercalcaemia, and provides general wellbeing improvement",
+      "It replaces opioids for pain management"
+    ],
+    "correct": 2,
+    "explanation": "Dexamethasone is one of the most versatile and useful drugs in palliative care. Indications include: cerebral oedema from brain metastases (8–16mg/day), spinal cord compression (16mg immediately), nerve compression pain (8mg/day), superior vena cava obstruction, anorexia improvement (4mg morning), nausea, bowel obstruction (to reduce inflammation), and general wellbeing. Use the lowest effective dose. For end-of-life symptom control, benefits often outweigh risks. Taper if stopping after prolonged use. Morning dosing minimises insomnia."
+  },
+  {
+    "q": "A patient with a life-limiting illness asks to discuss where they would like to die. They express a wish to die at home. What is the NP's role in facilitating this?",
+    "options": [
+      "Advise the patient that dying at home is not safe and hospital is preferable",
+      "Document the wish, develop a coordinated home dying plan including anticipatory prescribing, equipment, carer support, out-of-hours contact numbers, and clear communication with all involved services",
+      "Refer to the GP only — NPs cannot facilitate home dying plans",
+      "Agree verbally but take no further action"
+    ],
+    "correct": 1,
+    "explanation": "Most Australians express a preference to die at home, yet the majority die in hospital. NPs play a vital role in facilitating home deaths. A home dying plan includes: documenting goals of care and NFR status, anticipatory prescribing (SC medications dispensed and stored at home), equipment (hospital bed, pressure mattress, commode), carer education and support, after-hours palliative care phone line number, clear communication with community nurses, GP, and palliative care team, and a plan if the carer cannot cope. Good coordination prevents unnecessary hospital admissions at end of life."
+  }
+]

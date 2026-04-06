@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 6-year-old presents with a honey-crusted lesion on the face around the nose and mouth. It started as a small blister that ruptured. No fever. What is the diagnosis and treatment?",
+    "options": [
+      "Herpes simplex — aciclovir cream topically",
+      "Impetigo — mupirocin 2% ointment topically for localised lesions; oral cefalexin for extensive disease",
+      "Eczema — topical corticosteroid",
+      "Tinea faciei — topical clotrimazole"
+    ],
+    "correct": 1,
+    "explanation": "Honey-coloured crusting around the nose and mouth in a child is classic impetigo (school sores). Caused by Staphylococcus aureus and/or Group A Streptococcus. Localised impetigo: topical mupirocin 2% ointment TDS for 5 days. Extensive or spreading impetigo: oral cefalexin 25mg/kg (max 500mg) QID for 5 days. Exclude from school until lesions are crusted and treatment has been started for 24 hours. Hygiene education — own towels, handwashing."
+  },
+  {
+    "q": "Using the ABCDE criteria for melanoma assessment, which feature is MOST concerning in a pigmented lesion?",
+    "options": [
+      "A round, symmetric, uniformly brown lesion 4mm in diameter that has been stable for 10 years",
+      "An asymmetric lesion with irregular borders, multiple colours (brown, black, and pink), 8mm diameter, that has grown and changed over 3 months",
+      "A uniformly black lesion 5mm diameter that has been present since childhood",
+      "A flat brown macule 3mm in diameter with a regular border on the back"
+    ],
+    "correct": 1,
+    "explanation": "Multiple ABCDE features in option B are concerning: Asymmetry, irregular Border, multiple Colours, Diameter >6mm, and Evolution (growing and changing). Evolution is actually the most important criterion — any change in a lesion warrants urgent assessment. This lesion requires urgent excision biopsy or dermatology referral. Do not perform shave biopsy on suspected melanoma — full excision with 2mm margins is required for histological staging."
+  },
+  {
+    "q": "A patient with known psoriasis presents asking about treatment options for moderate-severe plaque psoriasis affecting 30% of their body surface area that has not responded to topical therapy. What is the appropriate next step?",
+    "options": [
+      "Increase topical corticosteroid strength and continue for another 6 months",
+      "Refer to dermatology for consideration of phototherapy (UVB) or systemic therapy (methotrexate, biologics)",
+      "Start oral prednisolone — steroids are the most effective treatment for psoriasis",
+      "Advise the patient that psoriasis cannot be treated beyond topical therapy in primary care"
+    ],
+    "correct": 1,
+    "explanation": "Moderate-severe psoriasis (>10% BSA, or affecting significant functional areas, or significantly impacting quality of life) requires escalation beyond topical therapy. Referral to dermatology for phototherapy (narrowband UVB) or systemic therapy (methotrexate, acitretin, cyclosporin) or biologics (adalimumab, secukinumab, ixekizumab). Oral corticosteroids are avoided in psoriasis — they can trigger severe rebound (pustular psoriasis) on cessation."
+  },
+  {
+    "q": "A patient presents with an annular erythematous scaly plaque with central clearing on the trunk. No systemic symptoms. What is the diagnosis and treatment?",
+    "options": [
+      "Psoriasis — topical calcipotriol and corticosteroid",
+      "Tinea corporis — topical clotrimazole or terbinafine for 2–4 weeks beyond resolution",
+      "Eczema — emollients and topical hydrocortisone",
+      "Pityriasis rosea — reassurance only"
+    ],
+    "correct": 1,
+    "explanation": "Annular erythematous scaly plaque with central clearing is classic tinea corporis (ringworm). Caused by dermatophyte fungi. Topical antifungals are first-line: clotrimazole 1% or terbinafine 1% cream BD. Continue for 2 weeks after clinical resolution to prevent recurrence. Oral terbinafine for extensive or refractory cases. Skin scraping with KOH preparation confirms diagnosis if uncertain. Avoid topical corticosteroids alone — worsens tinea (tinea incognito)."
+  },
+  {
+    "q": "Which potency of topical corticosteroid is appropriate for treating mild eczema flare on the face of an adult?",
+    "options": [
+      "Very potent — betamethasone dipropionate 0.05% (Diprosone)",
+      "Potent — betamethasone valerate 0.1% (Betnovate)",
+      "Mild — hydrocortisone 1% cream",
+      "Moderate — triamcinolone acetonide 0.02%"
+    ],
+    "correct": 2,
+    "explanation": "The face, flexures, and genitalia require only mild potency topical corticosteroids due to thin skin and high absorption — risk of skin atrophy, striae, and systemic absorption with potent steroids. Hydrocortisone 1% is appropriate for facial eczema. Potent and very potent steroids are reserved for thick-skinned areas (palms, soles) or severe flares on body — and only short-term. The ladder: mild (hydrocortisone 1%) → moderate (triamcinolone, clobetasone) → potent (betamethasone valerate) → very potent (betamethasone dipropionate, clobetasol)."
+  },
+  {
+    "q": "A patient presents with intensely pruritic burrows between the fingers, on the wrists, and around the waistband, worse at night. Their partner has similar symptoms. What is the diagnosis and treatment?",
+    "options": [
+      "Eczema — topical corticosteroids for both",
+      "Scabies — permethrin 5% cream applied to entire body from neck down, left for 8–14 hours, repeated in 7 days; treat all close contacts simultaneously",
+      "Tinea manuum — oral terbinafine",
+      "Contact dermatitis — identify and remove allergen"
+    ],
+    "correct": 1,
+    "explanation": "Intensely pruritic burrows in typical distribution (finger webs, wrists, waistband, genitalia, axillae) with a close contact having similar symptoms is scabies until proven otherwise. Treatment: permethrin 5% cream to entire body from neck down (include face and scalp in elderly and immunocompromised), leave 8–14 hours, wash off, repeat in 7 days. Treat ALL household and close contacts simultaneously regardless of symptoms. Wash clothing and bedding in hot water. Pruritus may persist for 2–4 weeks after successful treatment — not treatment failure."
+  },
+  {
+    "q": "A 72-year-old presents with a painful, unilateral vesicular rash in a dermatomal distribution over the right thorax. What is the diagnosis and what treatment should be commenced?",
+    "options": [
+      "Herpes simplex — aciclovir cream topically",
+      "Herpes zoster (shingles) — valaciclovir 1g TDS for 7 days, commence within 72 hours of rash onset; analgesia",
+      "Contact dermatitis — topical corticosteroid",
+      "Impetigo — cefalexin oral"
+    ],
+    "correct": 1,
+    "explanation": "Unilateral dermatomal vesicular rash is herpes zoster (shingles) — reactivation of varicella zoster virus from dorsal root ganglia. Commence antiviral within 72 hours of rash onset (valaciclovir 1g TDS or aciclovir 800mg 5 times daily for 7 days). Antivirals reduce severity, duration, and risk of post-herpetic neuralgia. Analgesia — paracetamol, NSAIDs, gabapentin for neuropathic pain. Shingrix vaccine is recommended for adults ≥50 years — discuss prevention. Refer urgently if ophthalmic distribution (herpes zoster ophthalmicus)."
+  },
+  {
+    "q": "What is the most appropriate initial management of a venous leg ulcer in a patient with no contraindications to compression?",
+    "options": [
+      "Topical antibiotics and a non-adherent dressing only",
+      "Graduated compression therapy (40mmHg at ankle) as the cornerstone of treatment, combined with appropriate wound dressing",
+      "Oral antibiotics for 4 weeks regardless of infection signs",
+      "Bed rest without compression until healed"
+    ],
+    "correct": 1,
+    "explanation": "Compression therapy is the cornerstone of venous leg ulcer management — it reduces venous hypertension, promotes healing, and prevents recurrence. Four-layer bandaging or high-compression stockings (40mmHg at ankle) are first-line. Always confirm ABPI (ankle-brachial pressure index) ≥0.8 before applying compression — compression is contraindicated in significant arterial disease (ABPI <0.8). Wound dressing selection is based on wound bed characteristics (moisture, exudate, infection). Topical antibiotics are not routinely indicated."
+  },
+  {
+    "q": "A 65-year-old farmer presents with a pearly, translucent nodule with a rolled border and telangiectasia on the nose. He reports it has been slowly growing over 2 years. What is the most likely diagnosis?",
+    "options": [
+      "Seborrhoeic keratosis — reassure, no treatment needed",
+      "Basal cell carcinoma — refer for excision",
+      "Melanoma — urgent excision biopsy",
+      "Dermatofibroma — reassure"
+    ],
+    "correct": 1,
+    "explanation": "A pearly nodule with rolled border and telangiectasia on the nose of an elderly patient with sun exposure history is classic nodular BCC. BCCs are locally invasive and rarely metastasise but can cause significant local tissue destruction if untreated. Treatment: surgical excision with clear margins, or curettage/electrodesiccation for superficial BCC. Mohs micrographic surgery for high-risk sites (nose, ears, periorbital). Refer to dermatology or GP skin cancer clinic. Annual skin checks are recommended for high-risk patients."
+  },
+  {
+    "q": "A patient is commenced on a high-potency topical corticosteroid for plaque psoriasis on the elbows. After 6 weeks they have good response. What is the correct approach?",
+    "options": [
+      "Continue indefinitely at the same dose — psoriasis requires ongoing potent steroid application",
+      "Step down to a lower potency steroid or intermittent use (weekend therapy) to maintain remission and minimise side effects",
+      "Stop abruptly — topical steroids do not cause withdrawal",
+      "Switch to topical antifungal — psoriasis is caused by a fungal infection"
+    ],
+    "correct": 1,
+    "explanation": "After achieving control with potent topical corticosteroids, step down to maintenance therapy to minimise side effects — skin atrophy, striae, telangiectasia, and HPA axis suppression with prolonged use. Options: switch to lower potency steroid, switch to non-steroidal topical (calcipotriol, tacrolimus), or use potent steroid intermittently (weekend therapy — apply 2 days per week). Calcipotriol (vitamin D analogue) can be used in combination or as maintenance. Abrupt cessation of topical steroids after prolonged use can cause withdrawal dermatitis in some patients."
+  },
+  {
+    "q": "Which of the following correctly describes the management of tinea unguium (onychomycosis)?",
+    "options": [
+      "Topical clotrimazole cream applied around the nail for 4 weeks",
+      "Oral terbinafine 250mg daily for 6 weeks (fingernails) or 12 weeks (toenails) — confirm diagnosis with nail clipping before treating",
+      "No treatment required — nail fungal infections are cosmetic only",
+      "Surgical nail removal is always required before antifungal therapy"
+    ],
+    "correct": 1,
+    "explanation": "Tinea unguium requires oral antifungal therapy — topical antifungals do not penetrate the nail plate adequately. Confirm diagnosis with nail clipping sent for microscopy and culture before committing to prolonged oral therapy (false positive clinical diagnosis is common). Oral terbinafine is first-line: 250mg daily for 6 weeks (fingernails) or 12 weeks (toenails). Check LFTs before starting and if symptomatic during treatment. Amorolfine nail lacquer is an alternative for mild superficial involvement. Cure rates with oral terbinafine are approximately 70–80%."
+  },
+  {
+    "q": "A patient presents with an urticarial rash — multiple wheals, intensely itchy, appearing and resolving within 24 hours, present for 3 weeks. No angioedema. No identifiable trigger. Vital signs normal. What is the diagnosis and management?",
+    "options": [
+      "Allergic contact dermatitis — patch testing required urgently",
+      "Chronic spontaneous urticaria — non-sedating antihistamine (cetirizine or loratadine) regularly, investigate for underlying cause",
+      "Scabies — permethrin treatment",
+      "Viral exanthem — observe only"
+    ],
+    "correct": 1,
+    "explanation": "Urticaria present for >6 weeks is chronic (>6 weeks is the threshold). Wheals resolving within 24 hours (individual lesion) distinguishes urticaria from other conditions. Chronic spontaneous urticaria has no identifiable trigger in most cases. Management: regular non-sedating antihistamine (cetirizine 10mg or loratadine 10mg daily — can double dose if inadequate response). Investigate: FBE, thyroid function, ANA — yield is low but rules out treatable underlying causes. Omalizumab (biologic) for antihistamine-refractory cases — specialist initiated. Most chronic urticaria resolves within 1–5 years."
+  },
+  {
+    "q": "A 45-year-old woman presents with facial flushing, persistent central facial erythema, papules and pustules on cheeks and nose, and no comedones. What is the diagnosis and management?",
+    "options": [
+      "Acne vulgaris — topical retinoid and benzoyl peroxide",
+      "Rosacea — avoid triggers, topical metronidazole or azelaic acid, oral doxycycline for papulopustular rosacea",
+      "Seborrhoeic dermatitis — ketoconazole shampoo and cream",
+      "Lupus erythematosus — ANA testing urgently"
+    ],
+    "correct": 1,
+    "explanation": "Facial flushing, central facial erythema, papules and pustules without comedones in a middle-aged woman is classic rosacea. Triggers: alcohol, spicy food, heat, sun, and stress. Management: trigger avoidance, sun protection, gentle skincare. Topical: metronidazole 0.75–1% or azelaic acid 15% for papulopustular rosacea. Oral doxycycline 50–100mg daily for moderate-severe papulopustular rosacea. Laser or IPL for persistent erythema and telangiectasia. Note: rosacea has no comedones — helps distinguish from acne."
+  },
+  {
+    "q": "What is the TIME framework used for in wound management?",
+    "options": [
+      "Timing of dressing changes only",
+      "A structured approach to wound bed preparation: Tissue, Infection/Inflammation, Moisture balance, Edge of wound",
+      "A tool for measuring wound pain",
+      "Criteria for antibiotic prescription in wounds"
+    ],
+    "correct": 1,
+    "explanation": "TIME is a validated framework for wound bed preparation — the foundation of modern wound management. T = Tissue (identify and debride non-viable tissue — slough, necrosis, eschar). I = Infection/Inflammation (identify and treat infection, consider biofilm). M = Moisture balance (select dressing to optimise moisture — absorb excess exudate or add moisture if dry). E = Edge (wound edge should be advancing — if not, consider underlying causes: pressure, vascular, nutritional). Applying the TIME framework guides dressing selection and treatment decisions."
+  },
+  {
+    "q": "A patient with diabetic foot ulcer has a wound with surrounding erythema >2cm, warmth, and purulent discharge. Blood glucose is poorly controlled. What is the appropriate management?",
+    "options": [
+      "Topical antiseptic and review in 2 weeks",
+      "Wound swab, oral cefalexin, strict offloading, urgent podiatry and vascular surgery referral, optimise glucose control",
+      "Debridement only — antibiotics are not indicated for diabetic foot ulcers",
+      "IV antibiotics must be started before any other management"
+    ],
+    "correct": 1,
+    "explanation": "A diabetic foot ulcer with signs of infection (erythema >2cm, warmth, purulent discharge) requires prompt treatment. Swab for MCS to guide therapy. Empirical oral antibiotics covering Staph and Strep: cefalexin or amoxicillin-clavulanate for mild-moderate infection. Strict offloading is essential — the wound cannot heal with pressure. Urgent podiatry referral. Vascular surgery referral if any concern about ischaemia (assess ABPI). Optimise glycaemic control. Hospital admission for severe infection (systemic toxicity, deep tissue involvement, osteomyelitis suspected). Diabetic foot ulcers are a leading cause of lower limb amputation."
+  },
+  {
+    "q": "Which skin finding is a pre-malignant lesion requiring treatment or monitoring?",
+    "options": [
+      "Seborrhoeic keratosis — stuck-on warty plaque",
+      "Dermatofibroma — firm dermal nodule on lower limbs",
+      "Actinic keratosis — rough, scaly, erythematous patch on sun-damaged skin",
+      "Epidermoid cyst — dome-shaped nodule with punctum"
+    ],
+    "correct": 2,
+    "explanation": "Actinic keratosis (solar keratosis) is a pre-malignant keratinocyte dysplasia caused by cumulative UV damage. Presents as rough, scaly, erythematous patches on sun-exposed areas. Risk of progression to SCC: approximately 0.1–10% per lesion per year. Treatment: cryotherapy (liquid nitrogen), topical 5-fluorouracil (Efudix), imiquimod, photodynamic therapy, or diclofenac gel. Seborrhoeic keratoses, dermatofibromas, and epidermoid cysts are benign with no malignant potential — reassurance appropriate."
+  },
+  {
+    "q": "A patient on long-term oral corticosteroids presents with skin that tears easily, multiple ecchymoses, and skin atrophy on the arms. What is the most likely cause?",
+    "options": [
+      "Scurvy — vitamin C deficiency",
+      "Corticosteroid-induced skin atrophy and fragility — a recognised side effect of long-term systemic steroids",
+      "Elder abuse — refer to social work",
+      "Ehlers-Danlos syndrome"
+    ],
+    "correct": 1,
+    "explanation": "Long-term systemic corticosteroids cause skin atrophy — thinning of dermis, loss of collagen, and impaired wound healing. Clinically: paper-thin skin, easy bruising and tearing, purpura, poor wound healing, and striae. Topical steroids can cause local atrophy particularly with prolonged use of potent preparations on thin skin. Management: use lowest effective steroid dose, consider steroid-sparing agents, protect fragile skin, and optimise nutrition. This is iatrogenic and expected — not a reason to withhold steroids when clinically indicated, but a reason to minimise dose and duration."
+  },
+  {
+    "q": "A 25-year-old presents with moderate acne vulgaris — multiple papules, pustules, and some nodules on the face and back. Previous topical treatment with benzoyl peroxide was partially effective. What is the next appropriate step?",
+    "options": [
+      "Start oral isotretinoin immediately",
+      "Oral doxycycline 100mg daily for 3 months combined with topical benzoyl peroxide or retinoid; review response",
+      "Topical corticosteroid to reduce inflammation",
+      "Dietary changes only — acne is caused by poor diet"
+    ],
+    "correct": 1,
+    "explanation": "Moderate acne with nodules that has partially responded to topical treatment warrants systemic antibiotics. Oral doxycycline 100mg daily (or minocycline) for 3 months combined with topical benzoyl peroxide (prevents antibiotic resistance) or topical retinoid. Review at 3 months — if inadequate response, refer to dermatology for consideration of oral isotretinoin. Isotretinoin (Roaccutane) is highly effective for severe or refractory acne but requires specialist prescription due to teratogenicity and monitoring requirements. Topical steroids are not indicated for acne — they can worsen comedonal acne."
+  },
+  {
+    "q": "A patient presents with a new pigmented lesion on the back that has multiple colours (brown, black, red, and white areas), irregular borders, and has changed over the past 2 months. What is the most appropriate action?",
+    "options": [
+      "Photograph and review in 6 months",
+      "Reassure — benign seborrhoeic keratosis is common and can have multiple colours",
+      "Urgent excision biopsy or same-week dermatology referral — this lesion has multiple high-risk features for melanoma",
+      "Apply liquid nitrogen cryotherapy"
+    ],
+    "correct": 2,
+    "explanation": "Multiple colours (particularly red, white, and blue/black areas), irregular borders, and evolution over 2 months are high-risk features for melanoma. This requires urgent assessment — same week dermatology referral or excision biopsy. Do not use cryotherapy on an undiagnosed pigmented lesion — it destroys tissue needed for histological diagnosis. Do not perform shave biopsy — complete excision with 2mm margins is required. Melanoma is curable if caught early (5-year survival >98% for thin melanoma) — delays in diagnosis significantly worsen prognosis."
+  },
+  {
+    "q": "What sun protection measures should NPs recommend to all Australian patients as part of routine preventive care?",
+    "options": [
+      "Sunscreen SPF 30+ only — other measures are unnecessary",
+      "A comprehensive SunSmart approach: Slip (protective clothing), Slop (SPF 50+ sunscreen), Slap (hat), Seek (shade), Slide (sunglasses) — when UV index is 3 or above",
+      "Sun avoidance only — all sun exposure is harmful",
+      "Sun protection is only necessary for fair-skinned patients"
+    ],
+    "correct": 1,
+    "explanation": "The SunSmart five-step approach is the Australian Cancer Council's evidence-based sun protection message: Slip on sun-protective clothing, Slop on SPF 50+ broad-spectrum water-resistant sunscreen (apply 20 minutes before and reapply every 2 hours), Slap on a broad-brimmed hat, Seek shade, and Slide on wraparound sunglasses. Sun protection is recommended when the UV index is 3 or above — check the SunSmart app or Bureau of Meteorology. All Australians regardless of skin tone benefit from sun protection — skin cancer affects all skin types, though risk is highest in those with fair skin."
+  }
+]

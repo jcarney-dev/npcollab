@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A non-pregnant 28-year-old woman presents with 2 days of dysuria and frequency. No fever, no loin pain. Urine dipstick shows leucocytes ++ and nitrites +. What is the most appropriate management?",
+    "options": [
+      "Send urine MCS and await results before treating",
+      "Empirical trimethoprim 300mg nocte for 3 days — send urine MCS for confirmation",
+      "Ciprofloxacin for 7 days — first-line for all UTI",
+      "Admit for IV antibiotics — all UTI requires hospital management"
+    ],
+    "correct": 1,
+    "explanation": "Uncomplicated lower UTI in a non-pregnant woman can be treated empirically without waiting for MCS results. Australian Therapeutic Guidelines recommend trimethoprim 300mg nocte for 3 days as first-line (or cefalexin 500mg BD-QID for 3 days if trimethoprim resistance concern). Send urine MCS to confirm organism and sensitivities — review results and change antibiotic if resistant. Ciprofloxacin is reserved for complicated UTI or resistant organisms — not first-line, to preserve fluoroquinolone efficacy."
+  },
+  {
+    "q": "Which of the following patients with asymptomatic bacteriuria SHOULD be treated with antibiotics?",
+    "options": [
+      "An 80-year-old nursing home resident with bacteriuria on routine screening",
+      "A 35-year-old male with bacteriuria found incidentally on routine urine testing",
+      "A pregnant woman at 16 weeks gestation with asymptomatic bacteriuria",
+      "A patient with a long-term urinary catheter with bacteriuria but no symptoms"
+    ],
+    "correct": 2,
+    "explanation": "Asymptomatic bacteriuria should only be treated in: pregnant women (risk of pyelonephritis and preterm birth) and patients about to undergo urological procedures. Treatment in all other groups (elderly, catheterised, diabetic, non-pregnant adults) is not recommended — it does not reduce UTI episodes or improve outcomes and increases antibiotic resistance. Screen pregnant women for asymptomatic bacteriuria at first antenatal visit with urine MCS."
+  },
+  {
+    "q": "A 68-year-old male has CKD stage 3b (eGFR 38 mL/min/1.73m²) with diabetic nephropathy. His BP is 148/92 and urine ACR is 65 mg/mmol. Which medication class should be first-line for BP management in this patient?",
+    "options": [
+      "Calcium channel blocker (amlodipine)",
+      "Beta-blocker (metoprolol)",
+      "ACE inhibitor or ARB — first-line for proteinuric CKD due to nephroprotective effect",
+      "Thiazide diuretic (hydrochlorothiazide)"
+    ],
+    "correct": 2,
+    "explanation": "ACE inhibitors (e.g. perindopril, ramipril) or ARBs (e.g. irbesartan, candesartan) are first-line for CKD with proteinuria — they reduce intraglomerular pressure, decrease proteinuria, and slow CKD progression independent of blood pressure lowering. Target BP <130/80 in CKD. Monitor renal function and potassium 1–2 weeks after starting or dose-increasing — an increase in creatinine up to 30% is acceptable and expected. Do not use ACEi and ARB together (dual RAAS blockade increases AKI and hyperkalaemia risk)."
+  },
+  {
+    "q": "What eGFR threshold should prompt referral to nephrology for a patient with CKD?",
+    "options": [
+      "eGFR <60 mL/min — all CKD stage 3 patients require nephrology review",
+      "eGFR <30 mL/min, rapidly declining eGFR (>5 mL/min/year), ACR >300, or uncertain diagnosis",
+      "eGFR <15 mL/min only — wait until close to dialysis",
+      "All CKD patients should be managed in primary care without nephrology involvement"
+    ],
+    "correct": 1,
+    "explanation": "CARI and Kidney Health Australia guidelines recommend nephrology referral for: eGFR <30 mL/min/1.73m² (CKD stage 4–5), rapidly declining eGFR (>5 mL/min/year or >25% decline over 12 months), ACR >300 mg/mmol (severely increased proteinuria), suspected glomerulonephritis or uncertain CKD cause, resistant hypertension in CKD, or preparation for renal replacement therapy. CKD stage 3 (eGFR 30–59) can be managed in primary care with regular monitoring — not all stage 3 requires nephrology."
+  },
+  {
+    "q": "A 45-year-old male presents with sudden onset severe right flank pain radiating to the right groin, nausea, and haematuria. He is afebrile. What is the most likely diagnosis and appropriate investigation?",
+    "options": [
+      "Pyelonephritis — urine MCS and start antibiotics",
+      "Renal colic from urinary calculus — CTUA (non-contrast CT) is the gold standard investigation",
+      "Appendicitis — surgical review urgently",
+      "Musculoskeletal back pain — analgesia and physiotherapy"
+    ],
+    "correct": 1,
+    "explanation": "Sudden severe colicky flank pain radiating to the groin with haematuria is classic renal colic from urinary calculus. CTUA (non-contrast CT of the KUB) is the most sensitive and specific investigation — detects >99% of stones and provides information on stone size and location to guide management. Ultrasound can be used in pregnancy (radiation-free) but misses smaller stones. Analgesia first: NSAIDs (diclofenac 75mg IM or 50mg oral) are most effective for renal colic. IV morphine if NSAIDs insufficient. Alpha-blocker (tamsulosin) facilitates passage of stones ≤10mm."
+  },
+  {
+    "q": "A 19-year-old male presents with sudden onset severe left testicular pain for 2 hours, with nausea and vomiting. The left testis is elevated and horizontal. Cremasteric reflex is absent. What is the most urgent action?",
+    "options": [
+      "Send urine MCS — likely epididymo-orchitis, start antibiotics",
+      "Emergency transfer immediately — this is testicular torsion until proven otherwise, time to detorsion is critical",
+      "Scrotal ultrasound to confirm diagnosis before any treatment",
+      "Analgesia and review in 24 hours"
+    ],
+    "correct": 1,
+    "explanation": "Sudden severe testicular pain with absent cremasteric reflex is testicular torsion until proven otherwise — a urological emergency. Testicular viability: >90% if detorsion within 6 hours, 50% at 12 hours, <10% at 24 hours. Do NOT delay for ultrasound — call 000 and transfer immediately. Surgical exploration and orchidopexy (or orchidectomy if non-viable) must occur within 4–6 hours. Epididymo-orchitis is the main differential — fever, gradual onset, positive cremasteric reflex, STI risk factors — but in doubt, treat as torsion."
+  },
+  {
+    "q": "A 55-year-old male with BPH scores 18 on the IPSS (moderate symptoms). He is bothered by his symptoms. Prostate appears smooth and enlarged on DRE, PSA 1.8 ng/mL. What is the appropriate management?",
+    "options": [
+      "Watchful waiting only — BPH symptoms always improve spontaneously",
+      "Alpha-blocker (tamsulosin 400mcg daily) for symptom relief — consider adding 5-alpha reductase inhibitor (finasteride) for long-term management of enlarged prostate",
+      "Urgent urology referral for prostatectomy",
+      "Start antibiotics — prostatitis is the cause"
+    ],
+    "correct": 1,
+    "explanation": "Moderate BPH symptoms (IPSS 8–19) that are bothersome warrant treatment. Alpha-blockers (tamsulosin, prazosin, alfuzosin) relax smooth muscle in the prostate and bladder neck — fast onset of action (days to weeks), improve flow and reduce obstructive symptoms. 5-alpha reductase inhibitors (finasteride, dutasteride) reduce prostate volume — slow onset (3–6 months) but provide long-term benefit in men with enlarged prostate (>30–40g). Combination therapy for moderate-severe symptoms. Urology referral for urinary retention, haematuria, renal impairment, or failed medical therapy."
+  },
+  {
+    "q": "Which of the following best describes the correct classification and action for a patient with eGFR 52 and urine ACR 8 mg/mmol, stable for 12 months?",
+    "options": [
+      "CKD stage G3aA2 — monitor annually, manage cardiovascular risk factors",
+      "Acute kidney injury — urgent hospital referral",
+      "Normal renal function — no monitoring required",
+      "CKD stage G3aA3 — immediate nephrology referral"
+    ],
+    "correct": 0,
+    "explanation": "KDIGO CKD classification uses G (GFR category) and A (albuminuria category). eGFR 52 = G3a (45–59 mL/min). ACR 8 mg/mmol = A2 (mildly to moderately increased, 3–30 mg/mmol). G3aA2 with stable eGFR for >3 months = CKD. Management: monitor eGFR and ACR every 6–12 months, BP target <130/80, ACEi/ARB if proteinuric, cardiovascular risk management, avoid nephrotoxins, review medications for dose adjustment. Annual monitoring is appropriate for low-risk stable CKD stage 3a."
+  },
+  {
+    "q": "A postmenopausal 68-year-old woman has her fourth UTI in 12 months. She is not on hormone therapy. Which intervention has evidence for reducing recurrent UTI in postmenopausal women?",
+    "options": [
+      "Long-term oral ciprofloxacin prophylaxis",
+      "Vaginal oestrogen (topical) — restores vaginal flora and reduces UTI frequency",
+      "Cranberry juice in large quantities — replaces antibiotic prophylaxis",
+      "Indwelling urinary catheter to keep the bladder empty"
+    ],
+    "correct": 1,
+    "explanation": "Topical vaginal oestrogen (cream, pessary, or ring) significantly reduces recurrent UTI in postmenopausal women — it restores vaginal epithelium and lactobacillus flora, lowering vaginal pH and reducing bacterial colonisation. Evidence is strong — number needed to treat approximately 3–4. Systemic HRT does not have the same evidence. It is safe and well-tolerated. Antibiotic prophylaxis (trimethoprim, cefalexin) is also evidence-based but antibiotic stewardship concerns make non-antibiotic options preferable first-line. Cranberry has modest evidence as an adjunct but does not replace proven therapies."
+  },
+  {
+    "q": "A 40-year-old male presents with 3 days of perineal pain, dysuria, frequency, and fever 38.9°C. DRE reveals a tender, boggy prostate. What is the diagnosis and management?",
+    "options": [
+      "BPH — start tamsulosin",
+      "Acute bacterial prostatitis — ciprofloxacin 500mg BD for 4 weeks (fluoroquinolone penetrates prostate tissue); avoid urethral catheterisation",
+      "Epididymo-orchitis — doxycycline and ceftriaxone",
+      "Urinary retention — catheterise immediately"
+    ],
+    "correct": 1,
+    "explanation": "Fever, perineal pain, dysuria, and tender boggy prostate is acute bacterial prostatitis. Causative organisms: E. coli and other Gram-negatives. Treatment requires an antibiotic with good prostate tissue penetration — fluoroquinolones (ciprofloxacin) or trimethoprim for 4 weeks. Avoid urethral catheterisation — can worsen infection and cause bacteraemia. Use suprapubic catheter if urinary retention occurs. Admit if systemically unwell. Send urine MCS before antibiotics. If abscess suspected (not improving after 48h) — ultrasound or CT."
+  },
+  {
+    "q": "A patient's eGFR has dropped from 58 to 42 over 6 weeks following the addition of an NSAID for back pain. They are also on ramipril for hypertension. What is the most likely cause and management?",
+    "options": [
+      "Natural CKD progression — continue current management",
+      "NSAID-induced AKI (haemodynamically mediated) — stop NSAID immediately, temporary ACEi dose reduction, rehydrate, recheck eGFR in 1–2 weeks",
+      "Ramipril is causing AKI — stop ramipril permanently",
+      "Pyelonephritis — urine MCS and antibiotics"
+    ],
+    "correct": 1,
+    "explanation": "NSAIDs inhibit prostaglandin-mediated afferent arteriolar dilation — in patients dependent on prostaglandins for renal perfusion (e.g. those on ACEi/ARB, elderly, volume depleted, or pre-existing CKD), NSAIDs cause haemodynamically mediated AKI. The combination of NSAID + ACEi/ARB is particularly high risk (double hit on renal autoregulation). Stop the NSAID immediately. Ensure adequate hydration. Temporarily reduce or withhold ACEi. Recheck EUC in 1–2 weeks — eGFR usually recovers. Avoid NSAIDs in future — use paracetamol or other analgesics."
+  },
+  {
+    "q": "Visible haematuria in a 55-year-old male smoker without UTI symptoms requires which investigation pathway?",
+    "options": [
+      "Treat empirically as UTI and review in 4 weeks",
+      "Urine MCS, renal and bladder ultrasound, and urgent urology referral for cystoscopy — bladder cancer must be excluded",
+      "Reassure — haematuria is common in older men and usually benign",
+      "PSA only — prostate cancer is the most likely cause"
+    ],
+    "correct": 1,
+    "explanation": "Visible haematuria in any adult over 40 requires investigation to exclude urological malignancy — particularly bladder cancer. Bladder cancer is strongly associated with smoking. Investigations: urine MCS and cytology, renal and bladder ultrasound, and cystoscopy (gold standard for bladder cancer detection). Refer to urology within 2 weeks for visible haematuria without an obvious benign cause. Do not dismiss haematuria in a smoker of any age — this is a red flag finding requiring prompt investigation."
+  },
+  {
+    "q": "Which SGLT2 inhibitor has a PBS-listed indication for nephroprotection in CKD with albuminuria regardless of diabetes status?",
+    "options": [
+      "Metformin",
+      "Dapagliflozin (Forxiga) — PBS listed for CKD with ACR ≥22.6 mg/mmol",
+      "Empagliflozin — only for type 2 diabetes",
+      "Sitagliptin"
+    ],
+    "correct": 1,
+    "explanation": "Dapagliflozin (Forxiga) has a PBS listing for CKD in patients with or without type 2 diabetes when ACR ≥22.6 mg/mmol (200 mg/g) and eGFR 25–75 mL/min, based on the DAPA-CKD trial which showed significant reduction in CKD progression and cardiovascular events. SGLT2 inhibitors reduce intraglomerular pressure through tubuloglomerular feedback and have cardioprotective and nephroprotective effects. They should not be started when eGFR <20 (dapagliflozin) and can be continued down to lower eGFR thresholds for cardioprotection. Always check current PBS schedule for criteria."
+  },
+  {
+    "q": "A patient with eGFR 28 is found to have potassium 6.2 mmol/L on routine monitoring. They are on ramipril 10mg and spironolactone 25mg. They are asymptomatic, and ECG shows no changes. What is the most appropriate management?",
+    "options": [
+      "Emergency transfer — all hyperkalaemia is life-threatening",
+      "Withhold or reduce potassium-retaining medications (ramipril, spironolactone), dietary potassium restriction, recheck EUC in 48–72 hours, and consider sodium zirconium cyclosilicate (Lokelma) if persistent",
+      "Start calcium gluconate IV immediately",
+      "Ignore — mild hyperkalaemia does not require treatment"
+    ],
+    "correct": 1,
+    "explanation": "Hyperkalaemia in CKD with ACEi and MRA (spironolactone) is common — both medications raise potassium, and reduced eGFR impairs potassium excretion. Management depends on severity and ECG. For K+ 6.0–6.5 without ECG changes: withhold or reduce spironolactone (higher potassium-raising risk) and/or reduce ramipril dose, dietary potassium restriction (avoid bananas, oranges, potatoes, tomatoes), ensure adequate hydration, recheck in 48–72h. Sodium zirconium cyclosilicate (Lokelma) is a potassium binder for recurrent or persistent hyperkalaemia. Emergency management (calcium gluconate, salbutamol, insulin-glucose) for K+ >6.5 or ECG changes."
+  },
+  {
+    "q": "A 25-year-old sexually active male presents with urethral discharge and dysuria. No fever. Urine PCR for chlamydia and gonorrhoea is sent. What is the empirical treatment while awaiting results?",
+    "options": [
+      "Oral ciprofloxacin for 7 days — covers all urethritis",
+      "Ceftriaxone 500mg IM single dose PLUS azithromycin 1g oral single dose — covers gonorrhoea and chlamydia empirically",
+      "Doxycycline 100mg BD for 7 days only — sufficient for all STI-related urethritis",
+      "Await PCR results before treating — do not treat empirically"
+    ],
+    "correct": 1,
+    "explanation": "Australian STI guidelines recommend empirical dual therapy for urethritis covering both gonorrhoea and chlamydia while awaiting PCR results. Ceftriaxone 500mg IM covers gonorrhoea (increasing resistance to other antibiotics) plus azithromycin 1g oral single dose covers chlamydia. If PCR confirms chlamydia only — doxycycline 100mg BD for 7 days is preferred over azithromycin for chlamydia (better efficacy). Partner notification and treatment is mandatory. Gonorrhoea is a notifiable disease — notify to state health department."
+  },
+  {
+    "q": "A 72-year-old male presents unable to void for 8 hours with suprapubic pain and a palpable bladder to the umbilicus. What is the immediate management?",
+    "options": [
+      "Encourage oral fluids and reassess in 2 hours",
+      "Urgent urethral catheterisation to relieve acute urinary retention — measure and document residual volume",
+      "Ultrasound first, then catheterise",
+      "Call urology for surgical intervention immediately"
+    ],
+    "correct": 1,
+    "explanation": "Acute urinary retention (AUR) requires immediate urethral catheterisation — this is a medical emergency causing significant pain and risk of bladder/renal damage. Insert a Foley catheter (size 14–16F), measure and document the residual volume (typically >400–500mL in AUR). Drain slowly if very large volume (>1L) — some advocate intermittent drainage to prevent haematuria from rapid decompression. Investigate cause: BPH, prostate cancer, urethral stricture, neurological. After initial acute management, start alpha-blocker (tamsulosin) and arrange trial without catheter (TWOC) after 48–72 hours."
+  },
+  {
+    "q": "Which of the following is the correct screening recommendation for CKD in people with type 2 diabetes?",
+    "options": [
+      "No screening required unless symptoms develop",
+      "Annual urine ACR and eGFR from diagnosis of type 2 diabetes",
+      "Renal biopsy every 5 years",
+      "Urine dipstick only — ACR is not needed"
+    ],
+    "correct": 1,
+    "explanation": "People with type 2 diabetes should have annual CKD screening from the time of diagnosis (compared to type 1 diabetes where screening begins 5 years after diagnosis). Annual monitoring includes: eGFR (serum creatinine), urine ACR (spot urine — first morning void preferred), and blood pressure. Early detection enables intervention before significant CKD develops. ACEi or ARB should be commenced when ACR rises above normal (>3 mg/mmol), even before hypertension develops, to slow diabetic nephropathy progression. SGLT2 inhibitors add further nephroprotection."
+  },
+  {
+    "q": "A 55-year-old woman presents with urinary leakage when coughing, sneezing, and exercising. No urgency or frequency. She has had 3 vaginal deliveries. What is the most likely diagnosis and first-line management?",
+    "options": [
+      "Urge incontinence — bladder retraining and antimuscarinic medication",
+      "Stress urinary incontinence — pelvic floor muscle training (PFMT) with physiotherapy for minimum 3 months",
+      "Overflow incontinence — urinary catheterisation",
+      "Functional incontinence — occupational therapy assessment"
+    ],
+    "correct": 1,
+    "explanation": "Leakage with increased intra-abdominal pressure (cough, sneeze, exercise) without urgency is stress urinary incontinence (SUI) — caused by urethral sphincter weakness, commonly following childbirth or with pelvic floor dysfunction. First-line: supervised pelvic floor muscle training (PFMT) with a physiotherapist for ≥3 months. PFMT has strong evidence and is more effective than unsupervised exercises. If PFMT fails: duloxetine (caution — side effects), continence pessary, or surgical referral (mid-urethral sling). Refer to continence physiotherapist or continence nurse specialist."
+  },
+  {
+    "q": "A patient with CKD stage 4 (eGFR 22) is found to have haemoglobin 88 g/L. Ferritin 180, TSAT 22%. Reticulocyte count low. B12 and folate normal. What is the most likely cause and management?",
+    "options": [
+      "Iron deficiency anaemia — oral iron supplementation",
+      "Anaemia of CKD (erythropoietin deficiency) — refer to nephrology for erythropoiesis-stimulating agent (ESA) consideration; ensure iron replete first",
+      "Haemolytic anaemia — haematology referral",
+      "Vitamin B12 deficiency — parenteral B12"
+    ],
+    "correct": 1,
+    "explanation": "Normocytic anaemia in CKD stage 4–5 with normal iron stores, normal B12/folate, and low reticulocyte count is most likely anaemia of CKD — caused by reduced erythropoietin production by the failing kidneys. Management: ensure adequate iron (TSAT >20%, ferritin >100 — IV iron if oral iron insufficient or not tolerated), then consider erythropoiesis-stimulating agents (ESA — darbepoetin, epoetin) targeting Hb 100–115 g/L. ESA prescribing is typically nephrology-led. Avoid blood transfusion if possible — sensitisation complicates future transplant."
+  },
+  {
+    "q": "Which of the following medications requires dose adjustment or avoidance in a patient with eGFR 25?",
+    "options": [
+      "Paracetamol 1g QID — safe in CKD",
+      "Metformin — should be withheld when eGFR <30 due to lactic acidosis risk",
+      "Amlodipine 10mg — no dose adjustment required in CKD",
+      "Prednisolone — dose unchanged in CKD"
+    ],
+    "correct": 1,
+    "explanation": "Metformin should be withheld when eGFR <30 mL/min/1.73m² due to risk of metformin accumulation and lactic acidosis (rare but serious). At eGFR 30–45, metformin can be continued with caution at reduced dose — review risk-benefit. Hold metformin before contrast administration and during acute illness causing dehydration. Other medications requiring dose adjustment in CKD: NSAIDs (avoid), many antibiotics (trimethoprim, nitrofurantoin — avoid when eGFR <30), gabapentin, digoxin, some opioids, and DOAC anticoagulants. Always check renal dosing for every medication in CKD patients."
+  }
+]
