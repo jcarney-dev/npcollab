@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 45-year-old man presents with sudden onset low back pain after lifting. He has no leg pain, weakness, or bowel/bladder symptoms. What is the most appropriate first-line management?",
+    "options": [
+      "A. Immediate MRI lumbar spine",
+      "B. Reassurance, stay active, analgesia — imaging not required",
+      "C. Prescribe opioids for the first week of pain",
+      "D. Refer to neurosurgery"
+    ],
+    "correct": 1,
+    "explanation": "Non-specific low back pain (NSLBP) without red flags does not require immediate imaging. First-line management is reassurance, staying active, analgesia (NSAIDs, paracetamol), and physiotherapy if needed. Bed rest is harmful. Opioids are not first-line and should be avoided where possible. MRI is not indicated without red flags or neurological deficit."
+  },
+  {
+    "q": "Which of the following is a red flag for low back pain requiring urgent investigation?",
+    "options": [
+      "A. Bilateral lower limb aching after prolonged standing",
+      "B. Saddle area numbness with urinary incontinence",
+      "C. Low back pain that is worse with activity and better with rest",
+      "D. Back pain radiating to the posterior thigh only"
+    ],
+    "correct": 1,
+    "explanation": "Saddle anaesthesia (perineal/perianal numbness) with bladder or bowel dysfunction indicates cauda equina syndrome — a surgical emergency. Emergency MRI and neurosurgical referral are required immediately. The other options describe common mechanical back pain patterns without red flag features."
+  },
+  {
+    "q": "A 38-year-old woman presents with right leg pain radiating below the knee, paraesthesia in the foot, and a positive straight leg raise (SLR) at 45°. What does this clinical picture suggest?",
+    "options": [
+      "A. Lumbar spinal stenosis with neurogenic claudication",
+      "B. Lumbar disc herniation with L4-L5 or L5-S1 radiculopathy",
+      "C. Non-specific low back pain with referred pain",
+      "D. Piriformis syndrome"
+    ],
+    "correct": 1,
+    "explanation": "Radicular pain below the knee, lower limb paraesthesia, and a positive SLR (pain radiating below the knee at less than 70°) are characteristic of lumbar disc herniation with nerve root compression, most commonly L4-L5 or L5-S1. These levels account for the majority of lumbar disc herniations. The SLR is the most sensitive test for L4-L5 and L5-S1 disc herniation."
+  },
+  {
+    "q": "A patient with lumbar radiculopathy has weakness of ankle dorsiflexion (foot drop) and reduced sensation over the dorsum of the foot. Which nerve root is most likely involved?",
+    "options": [
+      "A. L3-L4",
+      "B. L4-L5",
+      "C. L5-S1",
+      "D. S1-S2"
+    ],
+    "correct": 1,
+    "explanation": "L4-L5 radiculopathy causes ankle dorsiflexion weakness (foot drop), reduced sensation over the dorsum of the foot and first web space, and there is no associated reflex loss (L4-L5 has no reliable reflex). L3-L4 affects knee extension and the knee jerk. L5-S1 affects plantar flexion and the ankle jerk. Foot drop from L4-L5 herniation is a significant neurological deficit warranting urgent imaging."
+  },
+  {
+    "q": "An elderly woman presents with midline thoracolumbar back pain after a minor fall. She has significant osteoporosis. What is the most likely diagnosis?",
+    "options": [
+      "A. Lumbar muscle strain",
+      "B. Osteoporotic vertebral compression fracture",
+      "C. Lumbar disc herniation",
+      "D. Ankylosing spondylitis"
+    ],
+    "correct": 1,
+    "explanation": "Osteoporotic vertebral compression fractures typically present with acute midline spinal tenderness following minimal or no trauma in older patients, particularly postmenopausal women. Plain X-ray may show vertebral height loss. MRI can confirm acute fracture and exclude cord compromise. Management includes adequate analgesia, osteoporosis treatment (bisphosphonates, denosumab), calcium and vitamin D, and fall prevention."
+  },
+  {
+    "q": "A 28-year-old man presents with insidious onset low back pain and morning stiffness lasting over 1 hour, improving with exercise and worsening with rest. He has a family history of inflammatory bowel disease. What investigation should be prioritised?",
+    "options": [
+      "A. CT lumbar spine",
+      "B. MRI sacroiliac joints and HLA-B27",
+      "C. Plain X-ray lumbar spine only",
+      "D. Bone density scan"
+    ],
+    "correct": 1,
+    "explanation": "This presentation is characteristic of axial spondyloarthritis (ankylosing spondylitis or non-radiographic axial SpA) — young patient, inflammatory back pain pattern (worse with rest, better with movement, morning stiffness >1 hour), and association with inflammatory bowel disease. MRI of the sacroiliac joints is the most sensitive early investigation and HLA-B27 is positive in ~90% of ankylosing spondylitis cases. NSAIDs are highly effective and biologics (TNF inhibitors, IL-17 inhibitors) are available for refractory cases."
+  },
+  {
+    "q": "Which feature best distinguishes neurogenic claudication (lumbar spinal stenosis) from vascular claudication?",
+    "options": [
+      "A. Pain in the calves triggered by walking",
+      "B. Relief of symptoms by forward flexion (e.g., leaning on a shopping trolley)",
+      "C. Absence of peripheral pulses",
+      "D. Bilateral leg pain with exertion"
+    ],
+    "correct": 1,
+    "explanation": "Neurogenic claudication from lumbar spinal stenosis is relieved by lumbar flexion (bending forward, sitting, leaning on a trolley) because flexion increases spinal canal diameter. Vascular claudication is relieved by rest alone, regardless of posture. Neurogenic claudication often produces a dermatomal distribution. Ankle-brachial index (ABI) is normal in neurogenic claudication. Both can cause bilateral leg pain with walking."
+  },
+  {
+    "q": "A 55-year-old woman presents with worsening back pain, fever, and elevated CRP. She had a urinary tract infection 3 weeks ago. What diagnosis must be excluded?",
+    "options": [
+      "A. Lumbar muscle spasm",
+      "B. Vertebral discitis or osteomyelitis",
+      "C. Osteoporotic fracture",
+      "D. Lumbar spinal stenosis"
+    ],
+    "correct": 1,
+    "explanation": "Back pain with fever and elevated inflammatory markers following a recent infection should raise strong suspicion for vertebral discitis or osteomyelitis (infective spondylitis). Haematogenous spread from a urinary source is a common mechanism. MRI spine with contrast is the investigation of choice. Blood cultures should be taken before antibiotics. This requires urgent investigation and inpatient management with prolonged intravenous antibiotics and orthopaedic/spinal surgery involvement."
+  },
+  {
+    "q": "What percentage of patients with lumbar disc herniation and radiculopathy will improve with conservative management within 6–12 weeks?",
+    "options": [
+      "A. Approximately 50%",
+      "B. Approximately 90%",
+      "C. Approximately 20%",
+      "D. Approximately 70%"
+    ],
+    "correct": 1,
+    "explanation": "Approximately 90% of patients with lumbar disc herniation and radiculopathy will improve significantly with conservative management (analgesia, physiotherapy, activity modification) within 6–12 weeks. This provides strong reassurance for the majority of patients. Surgical intervention (discectomy) is reserved for those with persistent disabling symptoms, progressive neurological deficit, or cauda equina syndrome."
+  },
+  {
+    "q": "A warehouse worker develops low back pain with right L5 radiculopathy. He has a PHQ-9 score of 12 and is concerned about workers compensation. What psychosocial factors (yellow flags) are present?",
+    "options": [
+      "A. None — these are purely physical findings",
+      "B. Depression, fear of movement, and occupational/compensation factors",
+      "C. Fear of malignancy and sleep disturbance only",
+      "D. Social isolation and substance use"
+    ],
+    "correct": 1,
+    "explanation": "Yellow flags are psychosocial risk factors for chronicity and disability in low back pain. This patient has: depression (PHQ-9 12), occupational context (manual labour), and compensation issues — all established yellow flags. A biopsychosocial approach is essential. Address psychological factors alongside physical treatment — consider pain psychology referral, graded exposure to activity, and careful communication about prognosis to avoid catastrophising."
+  },
+  {
+    "q": "Which special test for low back pain is positive when the examiner elevates the contralateral leg and the patient experiences ipsilateral radicular pain?",
+    "options": [
+      "A. FABER test",
+      "B. Crossed straight leg raise (crossed SLR)",
+      "C. Stork test",
+      "D. Prone instability test"
+    ],
+    "correct": 1,
+    "explanation": "The crossed straight leg raise (crossed SLR) is performed by raising the non-affected leg. A positive result is ipsilateral radicular pain below the knee on the symptomatic side. It has lower sensitivity but higher specificity than the standard SLR for disc herniation — a positive crossed SLR strongly supports the diagnosis of significant disc herniation causing nerve root compression."
+  },
+  {
+    "q": "A 35-year-old with acute back pain after lifting shows no red flags and no neurological deficit. When should imaging be ordered?",
+    "options": [
+      "A. Immediately to reassure the patient",
+      "B. Only if there are red flags, neurological deficit, or failure to improve after 4–6 weeks of conservative treatment",
+      "C. After 1 week if pain persists",
+      "D. MRI should always be ordered for workplace injury claims"
+    ],
+    "correct": 1,
+    "explanation": "Routine imaging for acute non-specific low back pain without red flags or neurological deficit is not recommended. Early imaging does not improve outcomes, may lead to unnecessary interventions, and can medicalise normal degenerative changes. Imaging is indicated for: red flags (fracture, malignancy, infection, cauda equina), neurological deficit, or failure to improve after 4–6 weeks of conservative management. This is consistent with ACSQHC Low Back Pain Clinical Care Standards."
+  },
+  {
+    "q": "Which L-level radiculopathy causes reduced knee jerk reflex?",
+    "options": [
+      "A. L5-S1",
+      "B. L3-L4",
+      "C. L4-L5",
+      "D. L1-L2"
+    ],
+    "correct": 1,
+    "explanation": "L3-L4 radiculopathy affects the femoral nerve territory — causing weakness of knee extension (quadriceps), reduced sensation over the inner calf/medial lower leg, and loss of the knee jerk reflex (patellar tendon reflex, L3-L4). L5-S1 causes reduced ankle jerk. L4-L5 has no reliable associated reflex. Understanding dermatomal and myotomal patterns is essential for localising the level of disc herniation clinically."
+  },
+  {
+    "q": "A 60-year-old man is diagnosed with lumbar spinal stenosis causing neurogenic claudication. Which management approach is most appropriate first-line?",
+    "options": [
+      "A. Immediate surgical decompression",
+      "B. Physiotherapy, analgesia, and education — with surgery if conservative management fails",
+      "C. Long-term opioid therapy",
+      "D. Epidural steroid injection as first-line"
+    ],
+    "correct": 1,
+    "explanation": "Conservative management is appropriate first-line for lumbar spinal stenosis without severe neurological compromise. This includes physiotherapy (flexion-based exercises, aquatic physiotherapy), analgesia (NSAIDs, paracetamol), activity modification, and patient education. Surgery (decompressive laminectomy ± fusion) is considered when conservative management fails and quality of life is significantly impaired. Epidural steroids may provide short-term relief but are not first-line. Opioids carry significant risk in this age group."
+  },
+  {
+    "q": "The FABER test (Flexion, Abduction, External Rotation) is positive in a patient with low back pain. Which condition does this suggest?",
+    "options": [
+      "A. Lumbar disc herniation at L4-L5",
+      "B. Sacroiliac joint pathology or hip joint pathology",
+      "C. Cauda equina syndrome",
+      "D. Piriformis syndrome exclusively"
+    ],
+    "correct": 1,
+    "explanation": "The FABER test (also called the Patrick test) stresses the sacroiliac joint and hip joint. A positive result (pain in the groin or posterior pelvis) suggests sacroiliac joint pathology (including sacroiliitis from axial spondyloarthritis), hip joint pathology (osteoarthritis, labral tear), or occasionally iliopsoas pathology. It is not specific for disc herniation. Combined with other clinical features, it helps differentiate the source of low back and buttock pain."
+  },
+  {
+    "q": "Which statement about opioid prescribing for low back pain is correct according to Australian guidelines?",
+    "options": [
+      "A. Opioids are recommended as first-line for severe acute back pain",
+      "B. Short-term opioids may be considered for severe acute pain when other analgesics are inadequate, but prolonged therapy (&gt;4 weeks) is not recommended for NSLBP",
+      "C. Prolonged opioid therapy (&gt;4 weeks) is recommended for non-specific low back pain",
+      "D. Opioids should be prescribed at the first presentation regardless of severity"
+    ],
+    "correct": 2,
+    "explanation": "Australian guidelines (ACSQHC, Therapeutic Guidelines) recommend against opioids as first-line therapy for low back pain. Short-term use may be considered for severe acute pain unresponsive to non-opioid analgesia, but prolonged therapy (>4 weeks) is not recommended for non-specific low back pain due to lack of evidence for long-term benefit and significant harms (dependence, opioid-induced hyperalgesia, overdose risk). Non-pharmacological approaches and non-opioid analgesia (NSAIDs, paracetamol) should be prioritised."
+  },
+  {
+    "q": "A 40-year-old man with known ankylosing spondylitis presents with a significant increase in low back pain and neck stiffness after a minor motor vehicle accident. What is the key concern?",
+    "options": [
+      "A. Lumbar muscle strain from the impact",
+      "B. Cervical or thoracolumbar fracture — ankylosing spondylitis significantly increases fracture risk from minor trauma",
+      "C. Exacerbation of his ankylosing spondylitis only",
+      "D. Whiplash-associated disorder"
+    ],
+    "correct": 1,
+    "explanation": "Patients with ankylosing spondylitis are at significantly increased risk of spinal fractures from minor trauma due to the brittle, fused spine (chalk stick fracture pattern). Even minor trauma can cause unstable fractures with spinal cord injury risk. Any patient with ankylosing spondylitis presenting after trauma with new or worsening neck or back pain requires urgent CT of the entire spine (cervical, thoracic, lumbar). Do not assume it is a simple exacerbation."
+  },
+  {
+    "q": "A 48-year-old woman with a history of breast cancer presents with progressive upper back pain worse at night and new onset leg weakness. What is the priority diagnosis to exclude?",
+    "options": [
+      "A. Lumbar disc herniation",
+      "B. Metastatic spinal cord compression",
+      "C. Fibromyalgia",
+      "D. Osteoporotic vertebral fracture"
+    ],
+    "correct": 1,
+    "explanation": "Metastatic spinal cord compression (MSCC) is a oncological emergency. Back pain in a patient with known malignancy — especially night pain, progressive pain, and new neurological symptoms — must be urgently investigated. Breast, lung, prostate, kidney, and thyroid cancers are the most common primaries. MRI whole spine is the investigation of choice. Urgent oncology and neurosurgery referral is required. Dexamethasone should be commenced promptly while awaiting specialist review. Do not delay."
+  },
+  {
+    "q": "Which of the following best describes the biopsychosocial model approach to low back pain management?",
+    "options": [
+      "A. Focus exclusively on biological factors — imaging and physical examination findings",
+      "B. Address biological, psychological, and social factors together — active self-management, psychological support, occupational rehabilitation, and analgesia",
+      "C. Refer all patients with persistent low back pain for surgery",
+      "D. Prescribe long-term opioids and rest until pain resolves"
+    ],
+    "correct": 1,
+    "explanation": "The biopsychosocial model is the evidence-based framework for managing persistent low back pain. Biological factors (tissue pathology, inflammation) are addressed alongside psychological factors (depression, anxiety, catastrophising, fear-avoidance) and social factors (work, compensation, relationships, socioeconomic). Key interventions include: active self-management, physiotherapy, pain psychology, graded return to work, analgesia (preferring non-opioid), and education. Passive treatments and bed rest perpetuate disability."
+  },
+  {
+    "q": "A patient with acute low back pain and right-sided L5 radiculopathy asks about the role of physiotherapy. What is accurate advice?",
+    "options": [
+      "A. Physiotherapy should be avoided in the acute phase — rest is required",
+      "B. Physiotherapy (exercise, manual therapy, education) is beneficial and should be commenced early for both pain reduction and function",
+      "C. Physiotherapy is only appropriate after surgery",
+      "D. Physiotherapy has no evidence base for lumbar radiculopathy"
+    ],
+    "correct": 1,
+    "explanation": "Physiotherapy is a core component of low back pain management including radiculopathy. It includes: exercise therapy (McKenzie, stabilisation), manual therapy, neural mobilisation, education, and activity modification. Early physiotherapy referral is recommended. Bed rest is associated with worse outcomes and should be actively discouraged. Physiotherapy has strong evidence for reducing pain, improving function, and preventing chronicity. It is complementary to appropriate analgesia."
+  }
+]

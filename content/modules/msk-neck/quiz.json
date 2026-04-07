@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 50-year-old woman presents with right arm pain radiating to the thumb and index finger, weakness of wrist extension, and reduced brachioradialis reflex. Which nerve root is most likely involved?",
+    "options": [
+      "A. C5",
+      "B. C6",
+      "C. C7",
+      "D. C8"
+    ],
+    "correct": 1,
+    "explanation": "C6 radiculopathy causes: weakness of wrist extension and forearm supination, reduced sensation over the thumb and index finger (C6 dermatome), and reduced brachioradialis reflex. This is the second most common cervical radiculopathy level after C7. C5 affects shoulder abduction and the biceps reflex. C7 affects elbow extension and the triceps reflex. C8 affects finger flexion with no reliable reflex."
+  },
+  {
+    "q": "Which of the following features suggests cervical myelopathy rather than cervical radiculopathy?",
+    "options": [
+      "A. Unilateral arm pain radiating in a dermatomal distribution",
+      "B. Bilateral hand clumsiness, gait disturbance, and hyperreflexia in the lower limbs",
+      "C. Positive Spurling's test with arm pain",
+      "D. Neck pain with restricted cervical range of motion"
+    ],
+    "correct": 1,
+    "explanation": "Cervical myelopathy is spinal cord compression causing upper motor neurone (UMN) signs: hyperreflexia, Babinski's sign, Hoffman's sign, bilateral hand clumsiness (dropping objects, difficulty with buttons), and gait disturbance (wide-based, spastic gait). Lhermitte's sign (electric shock sensation down the spine with neck flexion) is characteristic. Radiculopathy causes unilateral, dermatomal arm pain with lower motor neurone signs (weakness, reduced reflexes) in a single root distribution. Myelopathy requires urgent MRI and neurosurgical referral."
+  },
+  {
+    "q": "A patient presents with acute neck pain and arm pain after a rear-end motor vehicle accident. Neurological examination is normal. What is the most appropriate initial management?",
+    "options": [
+      "A. Apply a rigid cervical collar for 6 weeks and restrict movement",
+      "B. Early active mobilisation, analgesia, reassurance, and physiotherapy — avoid prolonged collar use",
+      "C. Immediate CT cervical spine",
+      "D. Bed rest and strong opioids for the first 2 weeks"
+    ],
+    "correct": 1,
+    "explanation": "Whiplash-associated disorder (WAD) Grade I-II is managed with early active mobilisation, not immobilisation. Prolonged collar use is associated with worse outcomes. Analgesia (NSAIDs, paracetamol), reassurance about good prognosis, and early physiotherapy are recommended. CT is indicated for suspected fracture using Canadian C-Spine Rule or NEXUS criteria. Most Grade I-II WAD resolves within 3 months with appropriate management."
+  },
+  {
+    "q": "The Spurling's test is performed by applying axial compression with extension and ipsilateral lateral flexion/rotation. When is it positive?",
+    "options": [
+      "A. Central neck pain — indicates cervical myelopathy",
+      "B. Reproduction of arm pain in the symptomatic dermatomal distribution — indicates cervical radiculopathy",
+      "C. Bilateral arm pain — indicates bilateral disc herniation",
+      "D. Neck stiffness — indicates cervical spondylosis"
+    ],
+    "correct": 1,
+    "explanation": "The Spurling's test (cervical compression test) is positive when ipsilateral arm pain is reproduced in the symptomatic dermatomal distribution. This manoeuvre narrows the intervertebral foramen on the ipsilateral side, compressing an already compromised nerve root. It has high specificity (approximately 90%) but moderate sensitivity for cervical radiculopathy. A positive Spurling's test supports the diagnosis of cervical disc herniation or foraminal stenosis causing nerve root compression."
+  },
+  {
+    "q": "Which red flag in a patient presenting with neck pain requires immediate referral to hospital?",
+    "options": [
+      "A. Neck pain with morning stiffness",
+      "B. Neck pain with fever, dysphagia, and drooling — suspected retropharyngeal abscess",
+      "C. Neck pain worse with prolonged sitting",
+      "D. Neck pain with restricted range of motion"
+    ],
+    "correct": 1,
+    "explanation": "Neck pain with fever, odynophagia/dysphagia, drooling, and muffled voice suggests a deep neck space infection such as retropharyngeal abscess — an airway emergency. This requires immediate hospital referral, CT neck with contrast, IV antibiotics, and likely surgical drainage. Other red flags include: neck stiffness + fever + photophobia (meningitis), thunderclap headache (SAH), neck pain + trauma + neurological deficit (cervical spinal cord injury), and progressive myelopathy."
+  },
+  {
+    "q": "A 60-year-old man presents with neck pain, bilateral hand tingling, and difficulty buttoning his shirt. He notices his walking has become unsteady. Biceps reflex is brisk bilaterally. What is the most likely diagnosis?",
+    "options": [
+      "A. Bilateral carpal tunnel syndrome",
+      "B. Cervical spondylotic myelopathy",
+      "C. Peripheral polyneuropathy",
+      "D. Bilateral C6 radiculopathy"
+    ],
+    "correct": 1,
+    "explanation": "Cervical spondylotic myelopathy presents with: bilateral hand clumsiness (difficulty with fine motor tasks — buttons, keys), gait disturbance (wide-based, unsteady), and UMN signs on examination (hyperreflexia, Hoffman's sign, Babinski's). It is the most common cause of spinal cord dysfunction in adults over 55. Bilateral symptoms distinguish it from radiculopathy. Carpal tunnel causes bilateral hand symptoms but without gait disturbance or brisk reflexes. Urgent MRI and neurosurgical referral are required."
+  },
+  {
+    "q": "What does the Hoffman's sign indicate when positive in a patient with cervical spine pathology?",
+    "options": [
+      "A. Peripheral nerve entrapment at the wrist",
+      "B. Upper motor neurone pathology — cervical myelopathy should be suspected",
+      "C. C7 nerve root compression",
+      "D. Carpal tunnel syndrome"
+    ],
+    "correct": 1,
+    "explanation": "The Hoffman's sign is an UMN sign performed by flicking the nail of the middle finger downward — positive when the thumb flexes and adducts reflexively. It indicates corticospinal tract dysfunction and suggests cervical myelopathy or other UMN pathology. A positive Hoffman's sign in the context of neck pain and upper limb symptoms warrants MRI cervical spine and neurosurgical referral. It is analogous to Babinski's sign in the lower limbs."
+  },
+  {
+    "q": "A 35-year-old woman develops acute onset left-sided neck pain with head tilted to the left on waking. She is neurologically intact. What is the most likely diagnosis?",
+    "options": [
+      "A. Cervical disc herniation with C6 radiculopathy",
+      "B. Acute wry neck (torticollis)",
+      "C. Cervical myelopathy",
+      "D. Meningitis"
+    ],
+    "correct": 1,
+    "explanation": "Acute wry neck (acute torticollis) presents with sudden onset unilateral neck pain and muscle spasm causing head tilting toward the affected side, often on waking. It is commonly caused by a sudden movement, sleeping in an awkward position, or minor trauma. Neurological examination is normal. Management is analgesia, muscle relaxants if appropriate, heat application, and gentle physiotherapy and mobilisation. It typically resolves within 1–2 weeks. No imaging required unless red flags are present."
+  },
+  {
+    "q": "The Canadian C-Spine Rule is used in neck trauma. Which of the following is a low-risk factor that allows clinical clearance without imaging?",
+    "options": [
+      "A. Age over 65 years",
+      "B. Rear-end MVA not meeting high-risk criteria, able to sit in the ED, ambulatory since injury, no midline tenderness, and able to actively rotate neck 45° bilaterally",
+      "C. Paraesthesia in the extremities",
+      "D. Dangerous mechanism (diving, axial loading)"
+    ],
+    "correct": 1,
+    "explanation": "The Canadian C-Spine Rule allows safe clinical clearance without imaging if: no high-risk factors present (age ≥65, dangerous mechanism, paraesthesia in extremities) AND one low-risk factor present (simple rear-end MVA, sitting position in ED, ambulatory at any time, delayed onset of neck pain, absence of midline tenderness) AND patient can actively rotate neck 45° in both directions. If these criteria are met, imaging is not required. Dangerous mechanisms and paraesthesia are high-risk features requiring imaging."
+  },
+  {
+    "q": "First-line management of cervical radiculopathy in a neurologically intact patient includes which of the following?",
+    "options": [
+      "A. Immediate surgery",
+      "B. Physiotherapy, analgesia (NSAIDs + paracetamol), and MRI if neurological deficit present or no improvement at 6 weeks",
+      "C. Prolonged collar immobilisation for 12 weeks",
+      "D. Long-term opioid therapy"
+    ],
+    "correct": 1,
+    "explanation": "Conservative management is appropriate first-line for cervical radiculopathy without significant neurological deficit. This includes: physiotherapy (cervical traction, neural mobilisation, exercise), analgesia (NSAIDs, paracetamol, short-term neuropathic agents if needed), and education. MRI is indicated if: neurological deficit is present, symptoms are progressive, or there is no improvement after 6 weeks of conservative management. Surgery (ACDF or posterior foraminotomy) is reserved for refractory cases or significant neurological compromise. Most radiculopathy resolves within 6–12 weeks conservatively."
+  },
+  {
+    "q": "Which cervical nerve root causes weakness of elbow extension and reduced triceps reflex?",
+    "options": [
+      "A. C5",
+      "B. C7",
+      "C. C6",
+      "D. C8"
+    ],
+    "correct": 1,
+    "explanation": "C7 radiculopathy causes: weakness of elbow extension (triceps), reduced sensation over the middle finger (C7 dermatome), and reduced triceps reflex. C7 is the most commonly affected nerve root in cervical disc herniation. C5 affects shoulder abduction and biceps reflex. C6 affects wrist extension and brachioradialis reflex. C8 affects finger flexion with no reliable reflex. Understanding the C5-T1 neurological levels is essential for localising the level of cervical disc herniation clinically."
+  },
+  {
+    "q": "Lhermitte's sign is an electric shock-like sensation radiating down the spine and limbs on neck flexion. In what condition is it characteristically seen?",
+    "options": [
+      "A. Cervical radiculopathy from disc herniation",
+      "B. Cervical myelopathy or demyelinating disease (multiple sclerosis)",
+      "C. Tension-type headache",
+      "D. Cervicogenic dizziness"
+    ],
+    "correct": 1,
+    "explanation": "Lhermitte's sign is produced by mechanical stimulation of the posterior columns of the spinal cord, typically when the cord is compressed or demyelinated. It is seen in cervical myelopathy (from spondylosis or disc herniation causing cord compression) and multiple sclerosis. A positive Lhermitte's sign is an upper motor neurone sign and warrants urgent MRI cervical spine. It should not be dismissed as a musculoskeletal symptom."
+  },
+  {
+    "q": "A patient with rheumatoid arthritis presents with neck pain, occipital headache, and new-onset hand weakness. What urgent condition must be excluded?",
+    "options": [
+      "A. C6 radiculopathy from spondylosis",
+      "B. Atlanto-axial subluxation causing cervical myelopathy",
+      "C. Tension headache",
+      "D. Carpal tunnel syndrome from synovitis"
+    ],
+    "correct": 1,
+    "explanation": "Rheumatoid arthritis causes erosion of the transverse ligament and odontoid peg, leading to atlanto-axial instability and subluxation. This can compress the cervical spinal cord, causing cervical myelopathy with UMN signs and bilateral limb weakness. Occipital headache from C1-C2 involvement is characteristic. Urgent MRI (and dynamic X-rays in selected cases) is required. This is a potentially life-threatening complication — any RA patient with new neck symptoms and neurological signs requires urgent investigation and neurosurgical referral."
+  },
+  {
+    "q": "Which investigation is most appropriate for a patient with suspected cervical radiculopathy and progressive arm weakness?",
+    "options": [
+      "A. Plain X-ray cervical spine only",
+      "B. MRI cervical spine",
+      "C. CT cervical spine only",
+      "D. Nerve conduction studies as the first investigation"
+    ],
+    "correct": 1,
+    "explanation": "MRI cervical spine is the investigation of choice for cervical radiculopathy with neurological deficit. It provides excellent soft tissue resolution, visualises disc herniation, nerve root compression, and cord signal changes (myelopathy). It is non-ionising. CT is better for bony anatomy (fracture, foraminal stenosis assessment for surgical planning) and is used when MRI is contraindicated. Nerve conduction studies can help differentiate radiculopathy from peripheral nerve entrapment but are not first-line. Plain X-ray alone is inadequate for soft tissue assessment."
+  },
+  {
+    "q": "What is the recommended management of whiplash-associated disorder (WAD) Grade II in the acute phase?",
+    "options": [
+      "A. Rigid cervical collar for 6 weeks, complete rest, and strong analgesics",
+      "B. Early active mobilisation, physiotherapy, NSAIDs, reassurance, and avoidance of prolonged collar use",
+      "C. Immediate MRI and neurosurgical consultation",
+      "D. Surgical stabilisation of the cervical spine"
+    ],
+    "correct": 1,
+    "explanation": "WAD Grade II (neck pain with musculoskeletal signs, normal neurology) is managed with early active mobilisation. Evidence consistently shows early mobilisation leads to better outcomes than immobilisation. Physiotherapy, NSAIDs, paracetamol, reassurance about prognosis, and graded return to activity are recommended. Collar use should be minimal and short-term if used at all. Most WAD Grade I-II resolves within 3 months. Persistent symptoms warrant further assessment including psychology and pain management referral."
+  },
+  {
+    "q": "A 55-year-old man presents with bilateral leg spasticity, hand clumsiness, and urinary urgency. MRI shows cord compression at C5-C6. What is the next most appropriate step?",
+    "options": [
+      "A. Commence physiotherapy and review in 3 months",
+      "B. Urgent referral to neurosurgery for consideration of decompression",
+      "C. Prescribe long-term NSAIDs and monitor",
+      "D. Refer to pain management clinic"
+    ],
+    "correct": 1,
+    "explanation": "Cervical myelopathy with significant functional impairment (bilateral leg spasticity, hand clumsiness, bladder dysfunction) and MRI-confirmed cord compression requires urgent neurosurgical referral. Without surgical decompression, myelopathy tends to progress — the natural history is stepwise deterioration. Anterior cervical discectomy and fusion (ACDF) or laminoplasty can halt progression and may improve function. The earlier surgery is performed, the better the neurological outcome. This is not a condition to manage conservatively and monitor long-term."
+  },
+  {
+    "q": "Which of the following describes Cervicogenic headache?",
+    "options": [
+      "A. Bilateral throbbing headache with photophobia and nausea",
+      "B. Unilateral headache referred from the upper cervical spine (C1-C3), often associated with neck pain and triggered by neck movement or posture",
+      "C. Thunderclap headache worse at onset",
+      "D. Frontal headache with nasal discharge"
+    ],
+    "correct": 1,
+    "explanation": "Cervicogenic headache originates from structures in the upper cervical spine (C1-C3 levels) and is referred to the head. It is characteristically unilateral, non-throbbing, associated with neck pain and stiffness, and triggered by neck postures or movement. It can mimic migraine. Diagnostic features include: reduced cervical range of motion, reproduction of headache by palpation of upper cervical joints, and response to cervical anaesthetic blocks. Management includes physiotherapy (manual therapy, exercise), addressing postural factors, and analgesia. Distinguish from thunderclap headache (SAH emergency)."
+  },
+  {
+    "q": "The distraction test for cervical radiculopathy is performed by manually distracting (lifting) the head. When is it positive?",
+    "options": [
+      "A. Central neck pain increases with distraction",
+      "B. Arm pain or paraesthesia is relieved by distraction — suggests foraminal compression",
+      "C. Neck stiffness improves with distraction",
+      "D. Headache is provoked by distraction"
+    ],
+    "correct": 1,
+    "explanation": "The cervical distraction test is the opposite of the Spurling's test. Manually distracting (gently lifting) the patient's head enlarges the intervertebral foramina and reduces nerve root compression. A positive result is relief of arm pain or paraesthesia with distraction — this supports the diagnosis of foraminal stenosis or disc herniation causing radiculopathy. It is complementary to the Spurling's test. Together, a positive Spurling's and a positive distraction test have high clinical relevance for cervical radiculopathy."
+  },
+  {
+    "q": "A patient with cervical spondylosis asks how long conservative management should be trialled before considering surgery for radiculopathy. What is the appropriate advice?",
+    "options": [
+      "A. Surgery should be offered immediately for any arm pain",
+      "B. Conservative management should be trialled for 6–12 weeks before surgical referral if no significant neurological deficit",
+      "C. Surgery should never be considered for cervical radiculopathy",
+      "D. Conservative management should be trialled for 2 years before referral"
+    ],
+    "correct": 1,
+    "explanation": "Conservative management (physiotherapy, analgesia, activity modification) is appropriate first-line for cervical radiculopathy without significant neurological deficit. A 6–12 week trial is recommended before surgical referral, as the majority of patients improve significantly in this timeframe. However, surgical referral should not be delayed if: there is progressive neurological deficit, severe or disabling symptoms not responding to conservative management, or significant cord compression on imaging. The 6-12 week timeline is a guide, not a rigid rule — clinical judgement is essential."
+  },
+  {
+    "q": "A 42-year-old woman with cervical radiculopathy asks about neuropathic pain medication options. Which of the following is most appropriate?",
+    "options": [
+      "A. Opioids are the first-line treatment for neuropathic pain in radiculopathy",
+      "B. Pregabalin or gabapentin can be considered as adjuncts for neuropathic pain when NSAIDs and paracetamol are insufficient",
+      "C. Neuropathic agents have no role in cervical radiculopathy",
+      "D. Tricyclic antidepressants should be first-line in all patients"
+    ],
+    "correct": 1,
+    "explanation": "Pregabalin and gabapentin are evidence-based options for neuropathic pain including radiculopathy when first-line analgesia (NSAIDs, paracetamol) is insufficient. They act on voltage-gated calcium channels to reduce neuropathic pain. Common side effects include sedation, dizziness, and weight gain — start low and titrate. Tricyclic antidepressants (amitriptyline) are an alternative, particularly in patients with comorbid sleep disturbance. Opioids are generally not first-line for neuropathic pain and have significant limitations. NPs can prescribe these agents within their scope under appropriate PBS indications."
+  }
+]

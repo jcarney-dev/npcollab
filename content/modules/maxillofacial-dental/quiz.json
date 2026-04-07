@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 28-year-old presents with severe throbbing toothache that has been present for 3 days. The pain is spontaneous, worsens at night, and lingers for 10 minutes after cold stimulus. There is no swelling. Percussion of the lower left first molar is severely tender. What is the most likely diagnosis?",
+    "options": [
+      "Reversible pulpitis — brief pain with cold, resolves quickly",
+      "Irreversible pulpitis — lingering pain with stimulus and spontaneous throbbing indicates the pulp is irreversibly inflamed; requires root canal treatment or extraction",
+      "Dental sensitivity only — fluoride treatment",
+      "Periodontal abscess — scaling and root planing"
+    ],
+    "correct": 1,
+    "explanation": "Distinguishing reversible from irreversible pulpitis is clinically important: Reversible pulpitis — pain is brief (seconds) in response to cold or sweet stimuli, no spontaneous pain, resolves when stimulus removed; treated with filling and removal of caries. Irreversible pulpitis — pain lingers (minutes) after stimulus, spontaneous throbbing, worse at night lying down, may be exquisitely tender to percussion; requires root canal treatment (endodontics) or extraction. Management in primary care: analgesia (NSAIDs + paracetamol), urgent dental referral. Antibiotics are NOT indicated for pulpitis without infection or swelling."
+  },
+  {
+    "q": "A 42-year-old presents with bilateral submandibular swelling, floor of mouth elevation, difficulty swallowing, and a 'hot potato' muffled voice. Temperature is 39.4°C and HR 118. He has a recent history of lower molar dental abscess. What is the most urgent diagnosis?",
+    "options": [
+      "Pericoronitis — amoxicillin and urgent dental referral",
+      "Ludwig's angina — call 000 immediately; airway management is the priority; IV antibiotics",
+      "Parotid gland abscess — incision and drainage in clinic",
+      "Submandibular salivary stone — ultrasound and massage"
+    ],
+    "correct": 1,
+    "explanation": "Bilateral submandibular swelling with floor of mouth elevation, dysphagia, and muffled voice is Ludwig's angina — a rapidly progressive, potentially fatal deep neck space infection. The airway can be lost within hours. Call 000 immediately. Airway management is the primary concern — anaesthetics/ENT involvement for early intubation or surgical airway (tracheostomy) before severe trismus makes intubation impossible. IV antibiotics: benzylpenicillin + metronidazole or amoxicillin-clavulanate. Surgical drainage in theatre. Mortality without treatment: up to 50%. Do not attempt incision and drainage in clinic."
+  },
+  {
+    "q": "A patient on IV bisphosphonates for breast cancer bone metastases requires extraction of a painful, non-restorable upper molar. How should this be managed?",
+    "options": [
+      "Extract immediately — the tooth pain takes priority",
+      "Do NOT extract without specialist dental/maxillofacial review — risk of medication-related osteonecrosis of the jaw (MRONJ); refer to oral and maxillofacial surgeon for pre-extraction planning and drug holiday consideration",
+      "Stop the bisphosphonate permanently before any dental treatment",
+      "Extract and prescribe prolonged antibiotics to prevent MRONJ"
+    ],
+    "correct": 1,
+    "explanation": "Medication-Related Osteonecrosis of the Jaw (MRONJ) is a serious complication of bisphosphonates (particularly IV zoledronic acid in cancer patients) and other antiresorptive/antiangiogenic agents. Risk is significantly higher with IV vs oral bisphosphonates. MRONJ: exposed necrotic bone in the jaw that fails to heal over 8 weeks, in the absence of head/neck radiation. Jaw extraction is the most common precipitant. Any dental procedure requiring extraction or bone surgery in patients on IV bisphosphonates or antiangiogenic agents must be discussed with oral maxillofacial surgery first. The drug holiday concept (stopping bisphosphonate before procedures) is controversial — oncologist involvement required."
+  },
+  {
+    "q": "A 65-year-old male smoker presents with a non-healing ulcer on the lateral border of the tongue that has been present for 6 weeks. It is painless, has indurated edges, and is associated with a firm right cervical lymph node. What is the most likely diagnosis and management?",
+    "options": [
+      "Aphthous ulcer — topical triamcinolone and review in 2 weeks",
+      "Oral squamous cell carcinoma — urgent referral to oral and maxillofacial surgery or ENT for biopsy within 2 weeks",
+      "Traumatic ulcer from a sharp tooth — smooth the tooth and review",
+      "Herpes simplex — aciclovir cream"
+    ],
+    "correct": 1,
+    "explanation": "Non-healing oral ulcer >2–3 weeks, indurated edges, painless, with associated cervical lymphadenopathy in a smoker is oral squamous cell carcinoma until proven otherwise. The lateral border of the tongue is the most common site. Risk factors: tobacco, alcohol, HPV-16. Any suspicious oral lesion must be biopsied — do not reassure without biopsy referral. Urgent 2-week referral pathway to oral maxillofacial surgery or ENT. 5-year survival: early stage (I/II) approximately 70–80%; late stage (III/IV) approximately 30–40%. Early detection is crucial — NPs should inspect the entire oral cavity in at-risk patients."
+  },
+  {
+    "q": "What is the correct management of a dental avulsion (tooth completely knocked out) in a 12-year-old child 20 minutes after the injury?",
+    "options": [
+      "Discard the tooth — reimplantation is not possible after 20 minutes",
+      "Reimplant immediately if clean, or store in milk/saliva/saline and arrange emergency dental review within 30 minutes — time out of socket is the critical factor",
+      "Rinse tooth with water, scrub the root, and reimplant",
+      "Store in dry tissue and seek dental review within 48 hours"
+    ],
+    "correct": 1,
+    "explanation": "Dental avulsion management: Time is critical — best outcomes within 5 minutes of reimplantation. If tooth is clean (fell on clean surface) — reimplant immediately. If dirty — rinse briefly with saline (NOT tap water, NOT scrub), reimplant, bite on gauze. If reimplantation not possible — store in: milk (best — isotonic, maintains periodontal ligament cells), saliva, or saline. DO NOT store in water (hypotonic — kills PDL cells). DO NOT scrub the root (destroys PDL cells). DO NOT handle the root. Arrange emergency dental review immediately. Primary teeth (baby teeth) are NOT reimplanted — risk of damaging underlying permanent tooth. Successful reimplantation requires appropriate splinting by a dentist."
+  },
+  {
+    "q": "A 25-year-old female on the oral contraceptive pill presents with painful swollen gums that bleed on brushing. She started amoxicillin 5 days ago for a chest infection. What is the most likely cause and management?",
+    "options": [
+      "Acute necrotising ulcerative gingivitis — urgent dental referral",
+      "Antibiotic-associated gingival changes are not possible — investigate for blood disorder",
+      "Oral candidiasis — nystatin oral suspension; antibiotics predispose to candida overgrowth; also consider drug-induced gingival changes from the OCP contributing to gingival hyperaemia",
+      "Normal gingival response to hormonal changes — reassure only"
+    ],
+    "correct": 2,
+    "explanation": "Several factors are present: Broad-spectrum antibiotics disrupt oral microbiome, predisposing to candida overgrowth. The OCP is associated with gingival hyperaemia and increased gingival inflammation — pregnant women and those on OCP often have exaggerated gingival response to plaque. Gingival bleeding on brushing suggests gingivitis. Management: careful oral examination for candida (white plaques — pseudomembranous candidiasis; erythematous form may not have visible plaques). If candida suspected — nystatin oral suspension. Reinforce oral hygiene. Dental referral for professional cleaning. Consider drug-induced gingival overgrowth (other drugs: phenytoin, amlodipine, cyclosporin) — review medication list."
+  },
+  {
+    "q": "A 5-year-old child is brought in with significant dental caries affecting multiple teeth. The parent reports the child has a bottle of juice or milk at bedtime every night. This pattern is known as what and what is the primary management?",
+    "options": [
+      "Childhood gingivitis — fluoride varnish only",
+      "Early childhood caries (ECC) — also known as baby bottle tooth decay; primary prevention: eliminate nighttime bottle use, water only after teeth brushing, fluoride supplements if low-fluoride water area; urgent dental referral for treatment",
+      "Normal childhood tooth development — no treatment needed",
+      "Fluorosis — reduce fluoride intake"
+    ],
+    "correct": 1,
+    "explanation": "Early childhood caries (ECC) — formerly 'baby bottle tooth decay' — results from prolonged exposure to fermentable carbohydrates (juice, formula, breast milk, fruit) particularly during sleep. The upper front teeth are most commonly affected first (bathed in the liquid pooling around them during sleep). ECC is the most common chronic childhood disease in Australia. Prevention: no bottles/sippy cups with sugary liquids at bedtime or naptime, clean teeth twice daily from first tooth eruption, fluoride varnish from 12–18 months in high-risk children, water fluoridation. Management: urgent dental referral — extensive caries in young children often requires general anaesthesia for treatment. Address dietary habits with family."
+  },
+  {
+    "q": "According to Australian Therapeutic Guidelines, which antibiotic is recommended for a dental abscess in an adult with no penicillin allergy?",
+    "options": [
+      "Ciprofloxacin 500mg BD for 5 days",
+      "Amoxicillin 500mg TDS for 5 days (or amoxicillin-clavulanate for spreading cellulitis)",
+      "Erythromycin 500mg QID for 7 days",
+      "Clindamycin 300mg QID for 7 days — first-line for all dental infections"
+    ],
+    "correct": 1,
+    "explanation": "Australian Therapeutic Guidelines recommend amoxicillin 500mg TDS for 5 days for dental abscess without spreading cellulitis. For spreading cellulitis: amoxicillin-clavulanate (Augmentin) 875/125mg BD provides broader coverage including beta-lactamase-producing organisms and anaerobes. If penicillin allergy (non-anaphylactic): doxycycline or clindamycin. Anaphylactic penicillin allergy: clindamycin or metronidazole + cefalexin (confirm cross-reactivity history). Antibiotics in dental infection are an adjunct to — NOT a substitute for — dental treatment (drainage, root canal, extraction). Antibiotic stewardship: avoid fluoroquinolones for dental infections."
+  },
+  {
+    "q": "A patient with a known history of infective endocarditis (previous prosthetic valve endocarditis) is attending for routine dental scaling. Does antibiotic prophylaxis apply?",
+    "options": [
+      "No — antibiotic prophylaxis for endocarditis is no longer recommended",
+      "Yes — patients with high-risk cardiac conditions (prosthetic valves, previous IE, specific congenital heart disease) should receive antibiotic prophylaxis before invasive dental procedures that involve manipulation of gingival tissue, periapical region, or breach of oral mucosa",
+      "Only if the patient is currently unwell",
+      "Prophylaxis is needed for all dental procedures including examination"
+    ],
+    "correct": 1,
+    "explanation": "Australian (and international) guidelines recommend antibiotic prophylaxis for infective endocarditis (IE) in HIGH-RISK cardiac conditions only: prosthetic heart valves or prosthetic material used for cardiac valve repair, previous IE, congenital heart disease (unrepaired cyanotic CHD, repaired CHD with residual defects, completely repaired CHD with prosthetic material for first 6 months). Prophylaxis is NOT recommended for most other cardiac conditions including MVP, acquired valve disease, or previous CABG. Procedure threshold: invasive dental procedures (scaling, extractions, root canal) — not routine examination or X-ray. Regimen: amoxicillin 2g oral 30–60 minutes before procedure (or azithromycin 500mg if penicillin allergic)."
+  },
+  {
+    "q": "A 22-year-old presents with multiple painful small ulcers on the tongue, gingiva, and buccal mucosa along with fever, submandibular lymphadenopathy, and halitosis. Examination shows greyish ulcers with surrounding erythema on the gingiva with interproximal papilla necrosis. What is the diagnosis?",
+    "options": [
+      "Aphthous ulcers — topical triamcinolone",
+      "Acute necrotising ulcerative gingivitis (ANUG) — urgent dental referral, metronidazole 400mg TDS, chlorhexidine mouthwash, pain management",
+      "Oral candidiasis — nystatin",
+      "Primary herpetic gingivostomatitis — aciclovir"
+    ],
+    "correct": 1,
+    "explanation": "ANUG (trench mouth) — the classic triad: painful ulcerative gingivitis, bleeding, fetid breath. Characterised by punched-out necrotic craters of the interdental papillae with greyish pseudomembrane. Fever and lymphadenopathy distinguish it from localised gingival disease. Predisposing factors: stress, smoking, immunosuppression, poor oral hygiene. Caused by fusiform bacteria and spirochetes (Fusobacterium, Treponema). Treatment: metronidazole 400mg TDS for 5 days (most effective — covers anaerobes), chlorhexidine 0.2% mouthwash, gentle debridement, pain management, smoking cessation, stress management. Urgent dental referral for professional debridement. Distinguish from herpetic gingivostomatitis (vesicles then ulcers, young children predominantly, aciclovir effective)."
+  },
+  {
+    "q": "A 55-year-old female on long-term prednisolone and recent broad-spectrum antibiotics presents with white, creamy plaques on her buccal mucosa and tongue that wipe off leaving a red erythematous base. What is the diagnosis and treatment?",
+    "options": [
+      "Leukoplakia — urgent biopsy referral",
+      "Oral candidiasis (pseudomembranous type/thrush) — nystatin oral suspension 1mL QID for 14 days; address predisposing factors",
+      "Lichen planus — topical corticosteroids",
+      "Geographic tongue — reassure, no treatment needed"
+    ],
+    "correct": 1,
+    "explanation": "White plaques that rub off leaving an erythematous base are pathognomonic of pseudomembranous candidiasis (oral thrush). Predisposing factors: corticosteroids (inhaled and systemic), antibiotics, immunosuppression, dentures, dry mouth, diabetes, extremes of age. Treatment: nystatin oral suspension 1mL (100,000 units) QID for 14 days — swish around mouth for 2 minutes then swallow. Fluconazole 150mg single dose (or 50mg daily for 7 days) for refractory or severe cases. Address predisposing factors: rinse mouth after inhaled corticosteroids, denture hygiene, glycaemic control. Leukoplakia does NOT wipe off and requires biopsy referral."
+  },
+  {
+    "q": "A 30-year-old patient presents 3 days after wisdom tooth extraction with worsening pain at the extraction socket. The socket appears empty with no blood clot visible, and there is an exposed bony socket wall. What is the diagnosis and management?",
+    "options": [
+      "Normal healing — reassure and observe",
+      "Dry socket (alveolar osteitis) — gentle irrigation of the socket with saline, placement of medicated dressing (alvogyl or similar) by the dentist, analgesia; refer back to the dentist who performed the extraction",
+      "Wound infection — antibiotics and drainage",
+      "Osteomyelitis — CT jaw and IV antibiotics"
+    ],
+    "correct": 1,
+    "explanation": "Dry socket (alveolar osteitis) is the most common complication of tooth extraction — occurs when the blood clot dissolves prematurely, exposing the bony socket wall. Typically presents day 2–4 post-extraction with severe, throbbing pain (often radiating to the ear), empty socket, exposed bone, and halitosis. Risk factors: mandibular molars (lower wisdom teeth highest risk), smoking, oral contraceptive pill, trauma during extraction, poor oral hygiene. Management: gentle saline irrigation, medicated dressing placement (zinc oxide eugenol-based or alvogyl) by the dentist — significantly relieves pain. Oral analgesia. Antibiotics are NOT routinely indicated (not an infected socket). Refer back to the original treating dentist."
+  },
+  {
+    "q": "Which finding in the oral cavity requires URGENT referral (within 2 weeks) for biopsy?",
+    "options": [
+      "Geographic tongue — irregular depapillated areas that change pattern",
+      "Any red (erythroplakia) or mixed red-white lesion (erythroleukoplakia) persisting >2 weeks, or non-healing ulcer >2 weeks — high malignant transformation risk",
+      "Fordyce spots — sebaceous glands visible as yellow-white spots on buccal mucosa",
+      "Linea alba — horizontal white line along the occlusal plane bilaterally"
+    ],
+    "correct": 1,
+    "explanation": "Oral potentially malignant disorders (OPMDs) requiring urgent biopsy referral: Erythroplakia (red velvety patch) — highest risk, up to 51% already show severe dysplasia or carcinoma at biopsy; Erythroleukoplakia (mixed red and white) — high risk; Leukoplakia (white patch that cannot be wiped off) — risk varies (4–17%); Non-healing ulcer >2–3 weeks. Geographic tongue, Fordyce spots, and linea alba are benign variants requiring no referral. Any oral mucosal change persisting beyond 2–3 weeks despite removal of possible irritants (sharp tooth, denture) should be referred. The '2-week wait' urgent referral pathway applies to suspected oral cancer in Australia."
+  },
+  {
+    "q": "A patient presents with facial pain focused over the right temple and jaw, worsening on chewing, and morning headaches. Her partner reports she grinds her teeth during sleep. Examination reveals tenderness of the temporalis and masseter muscles with limited mouth opening. What is the diagnosis and management?",
+    "options": [
+      "Giant cell arteritis — urgent corticosteroids",
+      "Temporomandibular joint dysfunction (TMD) with bruxism — occlusal splint (night guard), analgesia (NSAIDs + paracetamol), jaw exercises, heat packs, stress management, physiotherapy",
+      "Trigeminal neuralgia — carbamazepine",
+      "Parotid gland tumour — urgent CT face"
+    ],
+    "correct": 1,
+    "explanation": "Temporomandibular dysfunction (TMD) presents with: facial pain (preauricular, temple, masseter), limited or painful jaw opening, joint sounds (clicking, crepitus), and muscle tenderness. Bruxism (nocturnal teeth grinding) is a major contributor. Management: occlusal splint (custom-made by dentist) — prevents grinding and reduces muscle loading; analgesia (NSAIDs regularly); heat or cold packs; jaw exercises (physiotherapy-guided); stress management (CBT); avoid hard foods and wide yawning. Most cases resolve with conservative management. Distinguish from GCA: GCA is in patients >50, ESR elevated, jaw claudication (pain with prolonged chewing not opening), no muscle tenderness, other GCA features."
+  },
+  {
+    "q": "What is the correct management of a dental avulsion in a primary (baby) tooth in a 4-year-old?",
+    "options": [
+      "Reimplant immediately — same as permanent teeth",
+      "Do NOT reimplant primary teeth — risk of damage to the underlying permanent tooth bud; clean the wound, control bleeding, ensure no tooth fragments aspirated, refer to dentist",
+      "Store in milk and take to dentist for reimplantation",
+      "Reimplant if the child requests it"
+    ],
+    "correct": 1,
+    "explanation": "Primary (deciduous/baby) teeth avulsions should NOT be reimplanted — the developing permanent tooth germ lies immediately below the primary tooth root. Reimplanting a primary tooth risks: damage to the permanent successor, ankylosis, and infection. Management: clean the area with gauze, apply pressure to control bleeding, confirm no tooth fragments were inhaled (check breathing, arrange CXR if concerned), refer to dentist within 24 hours for clinical and radiographic assessment, reassurance that the permanent tooth is not affected. Permanent teeth avulsions should be reimplanted as soon as possible (within 30 minutes ideally)."
+  },
+  {
+    "q": "A patient on warfarin (INR 2.8) requires a single tooth extraction. How should this be managed?",
+    "options": [
+      "Stop warfarin 5 days before extraction — must have normal INR for dental procedures",
+      "In most cases, continue warfarin at therapeutic INR for routine single-tooth extraction — local haemostatic measures (suturing, haemostatic pack, tranexamic acid mouthwash) are effective; stopping warfarin increases thrombosis risk",
+      "Emergency dental extraction only — elective procedures contraindicated on warfarin",
+      "Warfarin must be replaced with heparin bridging for all dental procedures"
+    ],
+    "correct": 1,
+    "explanation": "Current guidelines (ADA, British Society of Haematology) recommend continuing warfarin at therapeutic INR (up to 3.5) for routine dental extractions (1–3 teeth) with local haemostatic measures. Stopping warfarin increases thromboembolic risk (AF, prosthetic valves) without significantly reducing post-extraction bleeding risk when local measures are used effectively. Local haemostatic measures: suturing, oxidised cellulose (Surgicel), tranexamic acid mouthwash (5%, 10mL 4x daily for 2 days post-extraction), pressure gauze. Check INR within 72 hours of procedure. For extensive oral surgery — haematologist involvement. NPs managing anticoagulated patients should provide appropriate advice pre-dental procedure."
+  },
+  {
+    "q": "A remote area NP has a patient with a severe dental abscess and no access to dental services for at least 3 days. The patient has facial swelling, fever, and trismus. What is the appropriate management?",
+    "options": [
+      "Provide antibiotics only and advise to wait for dental access",
+      "Provide appropriate analgesia and antibiotics (amoxicillin-clavulanate), assess for need for emergency evacuation if signs of spreading cellulitis or airway compromise, arrange urgent dental review within 24–48 hours, implement telehealth consultation with dental or oral maxillofacial service if available",
+      "Attempt incision and drainage in the community — simple procedure",
+      "No treatment — wait for dental access"
+    ],
+    "correct": 1,
+    "explanation": "Remote area NPs face unique challenges with dental emergencies. Management in resource-limited settings: 1) Analgesia — NSAIDs + paracetamol ± opioids for severe pain; 2) Antibiotics — amoxicillin-clavulanate (Augmentin) for spreading cellulitis or systemically unwell patient; 3) Telehealth consultation — call the closest oral maxillofacial or dental service for advice; 4) Emergency evacuation if: spreading to floor of mouth/neck, trismus worsening, dysphagia, respiratory compromise (Ludwig&apos;s — emergency). Intraoral incision and drainage of a fluctuant abscess can be performed by trained NPs with appropriate equipment (avoid if near vital structures). Document clinical decision-making clearly. Do not attempt extractions without appropriate training, equipment, and anaesthesia."
+  },
+  {
+    "q": "A patient presents with dry mouth (xerostomia). Her medications include: amitriptyline, furosemide, amlodipine, and loratadine. Which medication is most likely contributing?",
+    "options": [
+      "Amlodipine — calcium channel blockers cause dry mouth",
+      "Amitriptyline — tricyclic antidepressants have strong anticholinergic effects causing xerostomia",
+      "Furosemide — diuretics cause dehydration but not direct salivary gland effects",
+      "Loratadine — non-sedating antihistamines rarely cause dry mouth"
+    ],
+    "correct": 1,
+    "explanation": "Amitriptyline (tricyclic antidepressant) has significant anticholinergic activity — dry mouth is one of the most common side effects. Other strong anticholinergic drugs: older antihistamines (promethazine, diphenhydramine), antipsychotics, oxybutynin, hyoscine, bladder antimuscarinics. Xerostomia management: adequate hydration, sugarless gum (stimulates saliva), artificial saliva substitutes (Biotene), avoid caffeinated and alcoholic beverages, excellent oral hygiene (dry mouth dramatically increases dental caries risk — high-strength fluoride recommended). Consider medication review — can the amitriptyline be switched to a less anticholinergic alternative (SNRI, SSRI)? Furosemide can contribute through dehydration but is not a direct cause of xerostomia."
+  },
+  {
+    "q": "An 8-year-old child is brought in with a dental abscess and facial swelling. The parent refuses antibiotic treatment, preferring 'natural remedies.' The child is febrile (38.6°C) and has spreading submandibular cellulitis. What is the appropriate response?",
+    "options": [
+      "Respect parental wishes — do not prescribe antibiotics",
+      "Explain the risk of untreated dental abscess spreading to cause life-threatening deep neck space infection; antibiotic treatment is medically necessary in this case; if parents refuse, consider child protection reporting under duty of care obligations",
+      "Prescribe a milder antibiotic to compromise with the parent",
+      "Discharge and let the family manage at home"
+    ],
+    "correct": 1,
+    "explanation": "Spreading dental cellulitis in a child is potentially life-threatening — Ludwig&apos;s angina and deep neck space infections can progress to airway compromise and death. Antibiotics are medically necessary. Management of parental refusal: clearly explain the medical emergency, document the conversation, involve a senior clinician, contact child protection services if a child is at significant risk of harm from parental refusal of clearly necessary medical treatment. In Australia, healthcare practitioners have a duty of care — parental autonomy does not override a child&apos;s right to life-saving treatment when the risk of death or serious harm is imminent. Ensure communication is clear, non-judgmental, and that the family understands the risks of non-treatment before escalating."
+  },
+  {
+    "q": "What oral health advice should NPs routinely provide to patients using inhaled corticosteroids (e.g. budesonide, fluticasone)?",
+    "options": [
+      "No specific advice needed — inhaled steroids do not affect oral health",
+      "Rinse mouth with water and spit after each inhaled corticosteroid dose to reduce local deposition; use a spacer device; regular dental check-ups; monitor for oral candidiasis",
+      "Switch to oral corticosteroids — safer for oral health",
+      "Brush teeth immediately after inhaler use"
+    ],
+    "correct": 1,
+    "explanation": "Inhaled corticosteroids (ICS) deposit in the oropharynx causing local immunosuppression, leading to oral candidiasis (thrush) and, with prolonged use, potential dental caries (reduced salivary flow) and oral mucosal changes. Prevention: rinse mouth with water and spit after every ICS use — reduces oropharyngeal deposition by approximately 80%; use a spacer device (MDI) — reduces oropharyngeal deposition; regular dental reviews; prompt treatment of candidiasis (nystatin). Oral hygiene education is important. This is a high-yield NP health education point — many patients are unaware of this simple preventive measure. Similar advice applies to steroid inhalers used for COPD."
+  }
+]
