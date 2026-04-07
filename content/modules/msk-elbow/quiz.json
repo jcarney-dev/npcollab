@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 45-year-old tennis player presents with 6 months of lateral elbow pain. A randomised controlled trial by Coombes et al (2013) compared physiotherapy, corticosteroid injection, and placebo for lateral epicondylalgia. What was the key finding regarding corticosteroid injection at 1 year?",
+    "options": [
+      "Corticosteroid injection had significantly better outcomes than physiotherapy at 1 year",
+      "Corticosteroid injection had worse outcomes than placebo at 1 year, with higher recurrence rates",
+      "Corticosteroid injection and physiotherapy had equivalent outcomes at 1 year",
+      "Corticosteroid injection combined with physiotherapy was the most effective treatment at 1 year"
+    ],
+    "correct": 1,
+    "explanation": "Coombes et al (2013, Lancet) found that corticosteroid injection had significantly worse outcomes than placebo at 1 year, with higher recurrence rates despite early symptom relief at 4–8 weeks. This landmark trial shifted practice away from routine corticosteroid injections for lateral epicondylalgia and towards progressive tendon loading programmes."
+  },
+  {
+    "q": "A 52-year-old office worker presents with right ring and little finger tingling and weakness when using a keyboard. Symptoms worsen when talking on the phone with the elbow flexed. Which nerve and anatomical site are most likely affected?",
+    "options": [
+      "Median nerve at the carpal tunnel",
+      "Ulnar nerve at the cubital tunnel",
+      "Radial nerve at the radial tunnel",
+      "Anterior interosseous nerve in the forearm"
+    ],
+    "correct": 1,
+    "explanation": "The cubital tunnel is the most common site of ulnar nerve entrapment. Symptoms include ring and little finger tingling/numbness and intrinsic hand weakness. Prolonged elbow flexion (typing, phone use) compresses the ulnar nerve at the medial epicondyle. The elbow flexion test (maximal elbow flexion for 1 minute reproducing symptoms) and Tinel's sign at the cubital tunnel confirm the diagnosis."
+  },
+  {
+    "q": "During examination of a patient with lateral elbow pain, the clinician asks the patient to extend the wrist against resistance with the elbow extended and forearm pronated. Pain is reproduced at the lateral epicondyle. Which test has been performed?",
+    "options": [
+      "Mill's test",
+      "Cozen's test",
+      "Chair test",
+      "Maudsley's test"
+    ],
+    "correct": 1,
+    "explanation": "Cozen's test (resisted wrist extension with elbow extended and forearm pronated) reproduces pain at the lateral epicondyle in lateral epicondylalgia by loading the extensor carpi radialis brevis (ECRB) origin. It has high sensitivity for lateral epicondylalgia. Mill's test involves passive wrist flexion with the elbow extended, stretching the extensor origin rather than loading it."
+  },
+  {
+    "q": "A 38-year-old male presents with a swollen, fluctuant posterior elbow. There is no fever, the overlying skin is not erythematous, and he reports no history of trauma or systemic illness. Which is the most appropriate initial management?",
+    "options": [
+      "Urgent aspiration and IV antibiotics for likely septic bursitis",
+      "Conservative management with padding, NSAIDs, and activity modification for likely aseptic olecranon bursitis",
+      "Immediate surgical drainage",
+      "Corticosteroid injection into the bursa"
+    ],
+    "correct": 1,
+    "explanation": "In the absence of fever, erythema, warmth, or systemic illness, this presentation is consistent with aseptic (traumatic or idiopathic) olecranon bursitis. Initial management is conservative: elbow padding to reduce pressure, NSAIDs, and activity modification. Aspiration should be reserved for cases with features of septic bursitis (erythema, fever, systemic symptoms) or for diagnostic uncertainty. Corticosteroid injection is not recommended as first-line."
+  },
+  {
+    "q": "A 30-year-old male presents 3 days after a FOOSH injury with a painful, bruised antecubital fossa. He is unable to flex his elbow against resistance and has a visible deformity at the anterior arm. The hook test is performed — no cord is palpable. What is the most likely diagnosis and what is the recommended management timeframe?",
+    "options": [
+      "Partial distal biceps tear — conservative management with physiotherapy",
+      "Complete distal biceps tendon rupture — surgical repair ideally within 2–3 weeks",
+      "Distal biceps tendinopathy — progressive loading exercises",
+      "Radial head fracture — Mason classification and orthopaedic review"
+    ],
+    "correct": 1,
+    "explanation": "A complete distal biceps tendon rupture presents with sudden anterior elbow pain after forced eccentric load, bruising in the antecubital fossa, weakness in elbow flexion and forearm supination, and a positive hook test (inability to hook a finger under the biceps tendon cord). Surgical repair within 2–3 weeks achieves the best functional outcomes; delayed repair leads to tendon retraction and poorer results. The hook test has high sensitivity and specificity for complete rupture."
+  },
+  {
+    "q": "A 48-year-old golfer presents with medial elbow pain and forearm pain. On examination, there is tenderness at the medial epicondyle and Tinel's sign is positive at the cubital tunnel. What is the clinical significance of concurrent Tinel's positivity?",
+    "options": [
+      "This is a normal finding and does not change management",
+      "Concurrent cubital tunnel syndrome (ulnar nerve entrapment) should be assessed and managed alongside medial epicondylalgia",
+      "Tinel's positivity confirms medial epicondylalgia and excludes cubital tunnel syndrome",
+      "Surgical decompression is immediately indicated"
+    ],
+    "correct": 1,
+    "explanation": "Medial epicondylalgia and cubital tunnel syndrome (ulnar nerve entrapment at the medial epicondyle) frequently coexist due to their anatomical proximity. Positive Tinel's at the cubital tunnel indicates ulnar nerve irritation and should prompt assessment for ring/little finger paraesthesia, intrinsic hand weakness, and elbow flexion test positivity. Both conditions require concurrent management. Failing to identify cubital tunnel syndrome alongside medial epicondylalgia leads to incomplete treatment."
+  },
+  {
+    "q": "A 72-year-old male fell onto his outstretched hand 2 days ago. His elbow X-ray shows a posterior fat pad sign but no fracture line is visible. What is the correct interpretation?",
+    "options": [
+      "The X-ray is normal — fat pad signs are a normal variant in older patients",
+      "A posterior fat pad sign indicates a haemarthrosis and should be treated as an occult fracture until proven otherwise",
+      "A posterior fat pad sign confirms a radial head fracture requiring surgery",
+      "The finding is only significant if accompanied by an anterior fat pad sign"
+    ],
+    "correct": 1,
+    "explanation": "A posterior fat pad sign on a lateral elbow X-ray indicates displacement of the posterior fat pad by a joint effusion (haemarthrosis), even when no fracture line is visible. This should be treated as an occult fracture (most commonly radial head) until proven otherwise. An anterior fat pad sign alone can be normal, but posterior fat pad elevation is always abnormal. Management typically involves a collar-and-cuff sling and orthopaedic review, with repeat imaging or CT if clinical concern persists."
+  },
+  {
+    "q": "A 10-year-old child falls onto an outstretched hand and presents with medial elbow pain and inability to extend the ring and little fingers. X-ray shows a displaced medial epicondyle fragment. What is the most important complication to exclude?",
+    "options": [
+      "Lateral condyle AVN",
+      "Incarcerated medial epicondyle fragment within the joint and ulnar nerve injury",
+      "Olecranon stress fracture",
+      "Supracondylar fracture with anterior interosseous nerve injury"
+    ],
+    "correct": 1,
+    "explanation": "Medial epicondyle avulsion in children can result in an incarcerated fragment within the elbow joint (most commonly after elbow dislocation) and ulnar nerve injury due to the nerve's proximity to the medial epicondyle. The CRITOE mnemonic helps identify the order of elbow ossification centres. If the fragment is incarcerated within the joint, surgical extraction is required. Ulnar nerve injury (ring and little finger weakness/paraesthesia) must be specifically assessed and documented."
+  },
+  {
+    "q": "A patient presents with lateral elbow pain, but tenderness is located 3–4 cm distal to the lateral epicondyle rather than at the epicondyle itself. Deep palpation worsens the pain and the patient reports forearm fatigue. Which diagnosis is most likely?",
+    "options": [
+      "Lateral epicondylalgia (ECRB tendinopathy)",
+      "Radial tunnel syndrome (posterior interosseous nerve entrapment)",
+      "Posterior interosseous nerve palsy",
+      "Lateral collateral ligament sprain"
+    ],
+    "correct": 1,
+    "explanation": "Radial tunnel syndrome (posterior interosseous nerve entrapment) classically presents with pain 3–4 cm distal to the lateral epicondyle, at the radial tunnel/arcade of Frohse, rather than at the epicondyle itself. This distinguishes it from lateral epicondylalgia. Resisted supination or middle finger extension may provoke pain. Differentiation from lateral epicondylalgia is important as management differs — radial tunnel syndrome is treated conservatively and, if refractory, with surgical decompression of the posterior interosseous nerve."
+  },
+  {
+    "q": "A 28-year-old baseball pitcher undergoes ulnar collateral ligament (UCL) reconstruction ('Tommy John surgery'). What is the typical return-to-sport timeline for overhead athletes following this procedure?",
+    "options": [
+      "3–4 months with intensive physiotherapy",
+      "12–18 months with structured rehabilitation",
+      "6–8 months with early mobilisation protocol",
+      "Return to sport is rarely achievable after UCL reconstruction"
+    ],
+    "correct": 1,
+    "explanation": "UCL reconstruction (Tommy John surgery) involves harvesting a tendon graft (typically palmaris longus or gracilis) to reconstruct the anterior band of the UCL. Return to overhead throwing sport typically takes 12–18 months due to the lengthy graft maturation and progressive loading programme required. Elite athletes such as baseball pitchers often achieve return to competitive sport, though the timeline is substantially longer than for most other ligament reconstructions."
+  },
+  {
+    "q": "A patient asks about platelet-rich plasma (PRP) injection for lateral epicondylalgia after failed conservative management. What does current evidence indicate?",
+    "options": [
+      "PRP is strongly recommended as second-line treatment with level 1 evidence",
+      "Evidence for PRP in lateral epicondylalgia is inconsistent and it is not routinely recommended over physiotherapy",
+      "PRP is contraindicated in lateral epicondylalgia due to adverse effects",
+      "PRP is only indicated after surgical debridement has failed"
+    ],
+    "correct": 1,
+    "explanation": "Current evidence for PRP in lateral epicondylalgia is inconsistent. Multiple systematic reviews and RCTs have not demonstrated clinically meaningful superiority over placebo or physiotherapy, and results vary across trials. Australian guidelines (TG Rheumatology, RACGP) do not routinely recommend PRP for lateral epicondylalgia. Progressive tendon loading (high-load strength training/HSR exercises) remains the best-evidenced non-surgical treatment. PRP may be considered in refractory cases in specialist settings."
+  },
+  {
+    "q": "A 9-year-old child sustains a lateral condyle fracture of the elbow that is inadequately managed. Years later, they develop progressive ulnar nerve symptoms and cubitus valgus deformity. What is this delayed complication called?",
+    "options": [
+      "Cubitus varus (gunstock deformity)",
+      "Tardy ulnar nerve palsy secondary to lateral condyle malunion",
+      "Volkmann's ischaemic contracture",
+      "Posterolateral rotatory instability"
+    ],
+    "correct": 1,
+    "explanation": "Lateral condyle fractures in children that heal with malunion can lead to progressive cubitus valgus deformity. As the carrying angle increases, the ulnar nerve is stretched at the cubital tunnel — a complication known as tardy ulnar nerve palsy. 'Tardy' refers to the delayed onset of neurological symptoms, often years after the original injury. AVN of the lateral condyle can also occur with inadequate management. Early accurate reduction and fixation of displaced lateral condyle fractures is essential to prevent these long-term complications."
+  },
+  {
+    "q": "Nerve conduction studies (NCS) are performed for a patient with suspected cubital tunnel syndrome. Which finding is most consistent with ulnar nerve entrapment at the cubital tunnel?",
+    "options": [
+      "Reduced conduction velocity across the wrist segment of the ulnar nerve",
+      "Reduced conduction velocity across the elbow segment with normal distal conduction",
+      "Normal NCS with abnormal sensory nerve action potentials at the wrist",
+      "Median nerve slowing at the carpal tunnel"
+    ],
+    "correct": 1,
+    "explanation": "In cubital tunnel syndrome, nerve conduction studies demonstrate slowing of ulnar nerve conduction velocity across the elbow segment (the cubital tunnel), with normal or near-normal conduction velocity distal to the entrapment site. The reduction in conduction velocity across the elbow is the hallmark electrodiagnostic finding. NCS also assesses for concurrent median neuropathy (carpal tunnel syndrome), which may coexist. EMG of ulnar-innervated intrinsic hand muscles may demonstrate denervation changes in more severe cases."
+  },
+  {
+    "q": "A patient presents with acute monoarthritis of the elbow — hot, swollen, erythematous joint with restricted range of motion and fever. Both gout and septic arthritis are being considered. What is the most important immediate diagnostic step?",
+    "options": [
+      "Serum uric acid level — elevated level confirms gout",
+      "Joint aspiration for microscopy, culture, and crystal analysis",
+      "X-ray to identify tophi or erosions",
+      "Empirical antibiotics before any investigation to avoid joint destruction"
+    ],
+    "correct": 1,
+    "explanation": "In acute monoarthritis, joint aspiration is essential to differentiate septic arthritis from crystal arthropathy (gout, pseudogout). Serum uric acid is neither sensitive nor specific during acute gout attacks. Septic arthritis is a surgical emergency that can destroy the joint within 24–48 hours; initiating antibiotics without aspiration risks masking culture results. Synovial fluid should be sent for Gram stain, culture, and crystal microscopy (negatively birefringent urate crystals = gout; positively birefringent calcium pyrophosphate = pseudogout) before antibiotics are commenced where possible."
+  },
+  {
+    "q": "The hook test is used to assess for distal biceps tendon integrity. How is the test performed and what constitutes a positive result?",
+    "options": [
+      "The examiner resists elbow flexion and looks for a Popeye deformity proximally; positive if deformity is present",
+      "With the elbow at 90° and forearm supinated, the examiner hooks a finger under the biceps tendon from the lateral side; absence of a palpable cord is a positive test indicating complete rupture",
+      "The examiner passively extends the elbow from 90°; pain in the antecubital fossa is a positive result",
+      "Ultrasound-guided palpation of the distal biceps insertion; positive if there is a hypoechoic gap"
+    ],
+    "correct": 1,
+    "explanation": "The hook test is performed with the elbow at 90° of flexion and the forearm supinated. The examiner hooks their index finger under the biceps tendon from the lateral side. A normal test feels a firm cord; inability to hook the tendon (no palpable cord) is a positive test indicating complete distal biceps tendon rupture. The hook test has sensitivity of approximately 100% and specificity of 100% for complete rupture in studies. A Popeye deformity may be visible in the upper arm (proximal long head retraction) not distally."
+  },
+  {
+    "q": "A 60-year-old patient develops a stiff elbow with flexion limited to 80° after prolonged immobilisation following a complex elbow fracture-dislocation. Conservative management with physiotherapy has plateaued. What is the next most appropriate intervention for elbow contracture?",
+    "options": [
+      "Immediate total elbow arthroplasty (TEA)",
+      "Serial static progressive splinting or dynamic splinting, with surgical release (arthroscopic or open capsulectomy) if refractory",
+      "Continuous passive motion machine only",
+      "Corticosteroid injection into the joint to reduce fibrosis"
+    ],
+    "correct": 1,
+    "explanation": "Elbow stiffness following fracture or prolonged immobilisation is managed with serial static progressive or dynamic splinting as the primary non-surgical intervention after physiotherapy plateau. If splinting fails to achieve functional range of motion (approximately 30–130° for most ADLs), surgical release — arthroscopic or open capsulectomy — can achieve significant improvement. Total elbow arthroplasty (TEA) is reserved for end-stage arthritis with bone destruction. Corticosteroid injection does not address established capsular contracture."
+  },
+  {
+    "q": "What does the mnemonic CRITOE represent in paediatric elbow radiology, and why is it clinically important?",
+    "options": [
+      "It describes the classification of radial head fractures in adults",
+      "It is the order of appearance of elbow ossification centres in children (Capitellum, Radial head, Internal/medial epicondyle, Trochlea, Olecranon, External/lateral epicondyle), helping identify displaced or missing fragments",
+      "It is a scoring system for elbow instability in children",
+      "It describes the sequence of elbow ligament injuries in valgus stress"
+    ],
+    "correct": 1,
+    "explanation": "CRITOE represents the order of ossification centre appearance in the paediatric elbow: Capitellum (1 year), Radial head (3 years), Internal (medial) epicondyle (5 years), Trochlea (7 years), Olecranon (9 years), External (lateral) epicondyle (11 years). Ages vary but the sequence is consistent. If an ossification centre appears out of sequence or is missing (particularly the medial epicondyle), it suggests a displaced avulsion fracture — the fragment may be incarcerated within the joint. This mnemonic is essential for interpreting paediatric elbow X-rays."
+  },
+  {
+    "q": "A Cochrane review examined high-load strength training (heavy slow resistance, HSR) for tendinopathy. What does current evidence indicate about HSR exercises for lateral epicondylalgia compared to standard physiotherapy?",
+    "options": [
+      "HSR exercises are inferior to stretching and massage for lateral epicondylalgia",
+      "HSR exercises (progressive wrist extensor loading) are effective for lateral epicondylalgia and are recommended as a primary treatment modality",
+      "HSR exercises are only appropriate after surgical debridement",
+      "HSR exercises are contraindicated in the acute phase of lateral epicondylalgia"
+    ],
+    "correct": 1,
+    "explanation": "High-load strength training (heavy slow resistance/HSR) involves progressive eccentric and concentric loading of the affected tendon. For lateral epicondylalgia, HSR wrist extensor exercises (e.g., wrist extensor curls against resistance, gradually increased load over weeks) are supported by evidence as an effective primary treatment. Progressive tendon loading stimulates tendon remodelling and is now preferred over passive modalities. The Coombes et al (2013) trial and subsequent evidence supports physiotherapy incorporating progressive loading over corticosteroid injection."
+  },
+  {
+    "q": "What is the reported success rate of surgical debridement for lateral epicondylalgia in appropriately selected patients who have failed 6–12 months of conservative management?",
+    "options": [
+      "20–30% — surgery is rarely effective for this condition",
+      "80–90% — surgical debridement of the ECRB origin achieves good to excellent outcomes in appropriately selected patients",
+      "100% — surgery is always curative",
+      "50% — equivalent to continued conservative management"
+    ],
+    "correct": 1,
+    "explanation": "Surgical debridement of the extensor carpi radialis brevis (ECRB) origin, either open or arthroscopic, achieves good to excellent outcomes in 80–90% of carefully selected patients who have failed 6–12 months of conservative management including progressive tendon loading. Surgery is rarely indicated and is reserved for refractory cases. Appropriate patient selection (confirmed diagnosis, adequate trial of conservative management, no major psychosocial factors) is critical to achieving these outcomes."
+  },
+  {
+    "q": "A 35-year-old male presents with anterior elbow pain after attempting to lift a heavy box. MRI confirms a partial distal biceps tendon tear with less than 50% cross-sectional area involvement and no retraction. What is the recommended initial management?",
+    "options": [
+      "Immediate surgical repair to prevent complete rupture",
+      "Conservative management with rest, activity modification, physiotherapy, and progressive rehabilitation; surgical review if no improvement",
+      "Corticosteroid injection into the tear site",
+      "Immediate return to full activity as partial tears do not progress"
+    ],
+    "correct": 1,
+    "explanation": "Partial distal biceps tendon tears with less than 50% involvement and no retraction are initially managed conservatively with rest, activity modification, NSAIDs, and progressive physiotherapy rehabilitation. Many partial tears heal or become asymptomatic with conservative care. Surgical repair is considered for tears greater than 50% cross-sectional area, persistent symptoms despite adequate conservative management, or for high-demand patients. Routine early surgery for minor partial tears is not supported by current evidence and carries surgical risks."
+  }
+]
