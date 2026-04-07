@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 28-year-old male presents with 12 hours of periumbilical pain that has migrated to the right iliac fossa. He has an Alvarado score of 8. Temperature is 38.2°C and there is rebound tenderness at McBurney's point. What is the most appropriate next step?",
+    "options": [
+      "Oral antibiotics and discharge with review in 24 hours",
+      "CT abdomen/pelvis (sensitivity >95%) to confirm appendicitis, then urgent surgical review for appendicectomy",
+      "Ultrasound only — CT is contraindicated in young patients",
+      "Watchful waiting — Alvarado score of 8 does not require imaging"
+    ],
+    "correct": 1,
+    "explanation": "An Alvarado score ≥7 indicates high likelihood of appendicitis. CT abdomen/pelvis has >95% sensitivity and specificity for appendicitis and is the investigation of choice in adults when clinical diagnosis is uncertain or to assess for perforation/complications. Urgent surgical review is required — appendicectomy (laparoscopic preferred) is the definitive treatment. Delay risks perforation, peritonitis, and abscess formation. Ultrasound is used in children and pregnant patients to avoid radiation; in adults it is operator-dependent and less sensitive. Oral antibiotics alone are not appropriate with an Alvarado score of 8 and rebound tenderness. Classic history: periumbilical pain migrating to RIF, nausea, fever, rebound at McBurney's point (1/3 distance from ASIS to umbilicus)."
+  },
+  {
+    "q": "A 65-year-old male presents with a painful lump in his right groin that appeared 4 hours ago. It was previously reducible but is now firm, tender, and irreducible with overlying skin redness. He has nausea and vomiting. What is this and what is the management?",
+    "options": [
+      "Reducible inguinal hernia — truss and elective surgical referral",
+      "Strangulated inguinal hernia — this is a surgical emergency; urgent surgical review, IV access, NBM, analgesia, IV fluids, and emergency repair to prevent bowel necrosis",
+      "Lymph node — observe for 4 weeks",
+      "Femoral hernia — reducible with manual pressure"
+    ],
+    "correct": 1,
+    "explanation": "A previously reducible hernia that is now irreducible, tender, and associated with systemic symptoms (nausea, vomiting) is strangulated — the blood supply to the herniated bowel is compromised. This is a surgical emergency. Without urgent repair, bowel ischaemia and necrosis will occur. Management: IV access, NBM, IV analgesia and antiemetics, IV fluids, IV antibiotics (broad-spectrum), urgent surgical consultation for emergency repair. Do NOT attempt manual reduction of a strangulated hernia — risk of reducing necrotic bowel into peritoneal cavity. Inguinal hernia classification: Reducible (goes back spontaneously or with pressure) → Irreducible/Incarcerated (cannot reduce, but blood supply intact) → Strangulated (blood supply compromised — emergency)."
+  },
+  {
+    "q": "A 72-year-old female presents with acute onset severe abdominal pain, absolute constipation (no flatus or bowel motion for 3 days), and abdominal distension. AXR shows dilated loops of small bowel with air-fluid levels and no gas in the rectum. What is the most likely diagnosis?",
+    "options": [
+      "Constipation — laxatives and dietary advice",
+      "Bowel obstruction — requires urgent assessment including CT abdomen, IV fluids, NBM, NG tube for decompression, and surgical review",
+      "Ileus — conservative management only",
+      "Diverticulitis — IV antibiotics"
+    ],
+    "correct": 1,
+    "explanation": "Absolute constipation (no flatus or stool), severe pain, distension, nausea/vomiting, and AXR showing dilated small bowel loops with air-fluid levels and no rectal gas = mechanical small bowel obstruction until proven otherwise. Common causes in elderly: adhesions (prior surgery), hernia (examine for irreducible hernia), malignancy. Management: NBM, IV fluid resuscitation, NGT for decompression (reduces vomiting risk and bowel distension), IV analgesia, IV antibiotics if fever/perforation suspected, CT abdomen/pelvis for diagnosis and cause, urgent surgical review. Closed loop obstruction or perforation requires emergency surgery. AXR finding: 'step-ladder' dilated small bowel loops with air-fluid levels."
+  },
+  {
+    "q": "A 58-year-old male presents with sudden onset severe central abdominal pain radiating to the back, haemodynamic instability (BP 80/40), and a pulsatile abdominal mass. What is the immediate management?",
+    "options": [
+      "CT abdomen for diagnosis before any treatment",
+      "Ruptured abdominal aortic aneurysm (AAA) — call for emergency surgical support immediately, large-bore IV access × 2, O-negative blood, permissive hypotension, definitive repair (EVAR or open) as soon as possible",
+      "Aortic dissection — IV labetalol to lower BP",
+      "Renal colic — IV analgesia and urology referral"
+    ],
+    "correct": 1,
+    "explanation": "The triad of sudden severe abdominal/back pain + haemodynamic instability + pulsatile abdominal mass = ruptured AAA until proven otherwise. Mortality is 50–80%. This is a life-threatening emergency — do not delay for imaging if the diagnosis is clinically clear and the patient is haemodynamically unstable. Management: call emergency surgical team immediately, 2 large-bore IV cannulae, type and crossmatch, O-negative blood, permissive hypotension (target systolic 70–80 mmHg until repair — prevents clot disruption). Definitive treatment: EVAR (endovascular aneurysm repair) if anatomically suitable — faster, less physiological stress. Open repair if EVAR not suitable. In haemodynamically stable patients, CT angiography confirms diagnosis and guides repair planning. AAA risk factors: male sex, smoking, hypertension, family history, age >65."
+  },
+  {
+    "q": "Which of the following correctly describes the Revised Cardiac Risk Index (RCRI) in pre-operative assessment?",
+    "options": [
+      "The RCRI is used to assess bleeding risk before surgery",
+      "The RCRI identifies patients at increased risk of major adverse cardiac events (MACE) perioperatively — risk factors include: high-risk surgery, ischaemic heart disease, congestive heart failure, cerebrovascular disease, insulin-dependent diabetes, and creatinine >177 µmol/L",
+      "RCRI score >1 requires cardiac surgery consultation before any elective procedure",
+      "RCRI is only applicable for cardiac surgery, not general surgery"
+    ],
+    "correct": 1,
+    "explanation": "The Revised Cardiac Risk Index (RCRI) estimates perioperative cardiac risk. Six risk factors: 1) High-risk surgery (intraperitoneal, intrathoracic, suprainguinal vascular); 2) Ischaemic heart disease (history of MI, angina, positive stress test, nitrate use); 3) Congestive heart failure; 4) Cerebrovascular disease (TIA or stroke); 5) Insulin-dependent diabetes; 6) Creatinine >177 µmol/L. RCRI score interpretation: 0 = 0.4% MACE risk; 1 = 1%; 2 = 2.4%; ≥3 = 5.4%. Pre-operative cardiac optimisation, consideration of cardiology review, and perioperative beta-blockade (in selected patients already on beta-blockers) are guided by RCRI. Functional capacity assessment (METs) also informs risk — <4 METs (unable to climb one flight of stairs) indicates poor functional reserve."
+  },
+  {
+    "q": "A 45-year-old patient undergoing elective colorectal surgery has a Caprini VTE risk score of 7. What is the appropriate VTE prophylaxis?",
+    "options": [
+      "Mechanical prophylaxis only — compression stockings",
+      "Pharmacological prophylaxis with enoxaparin 40mg SC daily starting 12 hours preoperatively, plus mechanical compression — high Caprini score requires combined prophylaxis; extended prophylaxis to 28 days post-op for colorectal cancer surgery",
+      "No prophylaxis required — colorectal surgery has low VTE risk",
+      "Aspirin 100mg daily — adequate for moderate-risk surgical patients"
+    ],
+    "correct": 1,
+    "explanation": "The Caprini VTE risk score stratifies surgical patients: Low (<2), Moderate (2–4), High (5–8), Highest (>8). A score of 7 = High risk. Combined pharmacological (LMWH) + mechanical (graduated compression stockings, pneumatic compression devices) prophylaxis is indicated for high-risk patients. Enoxaparin 40mg SC daily is standard for most surgical patients. Timing: commence 12 hours pre-operatively or 6–12 hours post-operatively depending on surgical risk of bleeding. Extended prophylaxis (28 days) is recommended for oncological colorectal surgery (ASA, RACS guidelines). Contraindications to pharmacological prophylaxis: active bleeding, thrombocytopenia <50, high bleeding-risk surgery (neurosurgery, ophthalmology). Unfractionated heparin 5000 units SC BD/TDS is an alternative."
+  },
+  {
+    "q": "A 55-year-old male presents with acute left lower quadrant pain, fever (38.6°C), and localised tenderness. CT shows pericolonic fat stranding and a 12cm segment of sigmoid colon thickening consistent with uncomplicated diverticulitis (no free air, no abscess). What is the appropriate management?",
+    "options": [
+      "Emergency surgical review for sigmoid colectomy",
+      "Oral antibiotics — amoxicillin-clavulanate 875/125mg BD for 5–7 days or cefalexin 500mg QID + metronidazole 400mg TID — low-fibre diet, adequate hydration, outpatient management if tolerated orally and systemically well; follow-up colonoscopy in 6–8 weeks",
+      "No antibiotics — uncomplicated diverticulitis is self-limiting",
+      "IV antibiotics only — hospital admission required for all diverticulitis"
+    ],
+    "correct": 1,
+    "explanation": "Uncomplicated acute diverticulitis (no perforation, abscess, fistula, or obstruction) can be managed with oral antibiotics in systemically well patients who can tolerate oral intake. Australian guidelines (Therapeutic Guidelines): amoxicillin-clavulanate 875/125mg BD for 5–7 days, OR cefalexin 500mg QID + metronidazole 400mg TID. Low-fibre diet during acute episode, progress to high-fibre when resolved. Colonoscopy in 6–8 weeks to exclude underlying colorectal malignancy. Hospital admission indications: unable to tolerate oral intake, immunocompromised, high fever, peritonitis signs, or failure to improve after 72 hours. Complicated diverticulitis (Hinchey classification I–IV) requires IV antibiotics ± drainage ± surgery."
+  },
+  {
+    "q": "What is the 'Five Ws' mnemonic for post-operative complications and their approximate timing?",
+    "options": [
+      "Warning signs are identical for all post-operative complications regardless of timing",
+      "Wind (Days 1–2: atelectasis, pneumonia), Water (Days 3–5: UTI from catheter), Wound (Days 5–7: SSI), Walking (Days 5+: DVT/PE), Wonder drugs (Any time: drug reactions, Clostridium difficile colitis from antibiotics)",
+      "All post-operative complications present within the first 24 hours",
+      "The Five Ws refers only to wound complications — the others are unrelated to surgery"
+    ],
+    "correct": 1,
+    "explanation": "The 'Five Ws' mnemonic helps identify post-operative fever causes by timing: Wind (Days 1–2): atelectasis or early pneumonia — incentive spirometry, early mobilisation, physiotherapy; Water (Days 3–5): urinary tract infection from indwelling catheter — early catheter removal, urinalysis; Wound (Days 5–7): surgical site infection — wound inspection, swab, antibiotics; Walking (Days 5–7+): DVT or PE — calf pain, leg swelling, tachycardia, hypoxia — duplex ultrasound, CTPA, therapeutic anticoagulation; Wonder drugs (Any time): drug fever (including antibiotics, heparin), Clostridium difficile colitis from antibiotics — stool MCS, cease offending drug. This framework guides systematic post-operative fever assessment."
+  },
+  {
+    "q": "A patient is post-operative day 2 following an open sigmoid colectomy. Nursing reports the wound is dehiscing and there is pink 'salmon-coloured' fluid soaking the dressing. What does this indicate?",
+    "options": [
+      "Normal surgical drain output — reassure and observe",
+      "Fascial dehiscence — the serosanguinous 'salmon-coloured' fluid is pathognomonic; urgent surgical review as evisceration (bowel coming through wound) may follow; patient requires return to theatre",
+      "Superficial SSI — treat with oral antibiotics",
+      "Haematoma — apply pressure dressing"
+    ],
+    "correct": 1,
+    "explanation": "Pink or salmon-coloured 'dishwater' fluid soaking a surgical wound post-operatively is the classic warning sign of fascial dehiscence (wound breakdown at the fascial layer). This is a serious complication requiring urgent surgical review — evisceration (abdominal contents protruding through the wound) may follow rapidly and is a surgical emergency. If evisceration occurs: cover bowel with warm saline-soaked gauze, do not attempt to push it back, call for immediate surgical help, keep patient supine. Risk factors for wound dehiscence: obesity, malnutrition, corticosteroids, abdominal distension, post-operative coughing, poor surgical technique, infection. CDC Surgical Site Infection classification: Superficial (skin/subcutaneous), Deep (fascial/muscle), Organ space (within body cavity)."
+  },
+  {
+    "q": "When performing pre-operative respiratory risk assessment, what does a STOP-BANG score ≥5 indicate?",
+    "options": [
+      "The patient is low risk for pulmonary complications — proceed with general anaesthesia without modification",
+      "High risk for obstructive sleep apnoea (OSA) — refer for formal sleep study if elective surgery, ensure anaesthetist aware, consider CPAP, post-operative monitoring for respiratory depression especially with opioids, minimise sedation",
+      "STOP-BANG only applies to anaesthetic risk, not pre-operative NP assessment",
+      "STOP-BANG score ≥5 requires cancellation of all elective surgery"
+    ],
+    "correct": 1,
+    "explanation": "STOP-BANG is an 8-item screening tool for obstructive sleep apnoea (OSA): Snoring, Tired, Observed apnoea, blood Pressure, BMI >35, Age >50, Neck >40cm, Gender male. Score ≥3 = intermediate risk; ≥5 = high risk for OSA. Undiagnosed or poorly controlled OSA significantly increases perioperative risk: upper airway obstruction, respiratory depression with opioids and sedatives, post-extubation complications, hypoxaemia. Management: for elective surgery, refer for sleep study and consider CPAP if diagnosed. Inform anaesthetist — may modify anaesthetic technique (TIVA, regional, short-acting agents). Post-operatively: supplemental O2, continuous SpO2 monitoring, minimise opioids (multimodal analgesia), early mobilisation. CPAP device: ensure patient brings their own to hospital."
+  },
+  {
+    "q": "A patient has a laparoscopic repair of an inguinal hernia under general anaesthesia. On post-operative day 1, she has a temperature of 38.8°C, HR 106, and is confused. What immediate actions should the NP take?",
+    "options": [
+      "Reassure — low-grade fever is normal after surgery",
+      "Assess for sepsis using the Five Ws framework — examine the wound, check urine (catheter?), assess the chest (post-op Day 1 most likely atelectasis/pneumonia), check vital signs trend, blood cultures × 2, FBE, CRP, EUC, LFTs; activate sepsis pathway if SIRS criteria met",
+      "Give paracetamol and observe for 12 hours before escalating",
+      "Assume anastomotic leak — proceed directly to emergency surgical review"
+    ],
+    "correct": 1,
+    "explanation": "Fever + tachycardia + confusion post-operatively = potential sepsis. Systematic assessment using the Five Ws: Day 1 most likely causes are Wind (atelectasis, pneumonia — chest examination, CXR, incentive spirometry) or early wound complications. Sepsis criteria (SIRS): temp >38 or <36, HR >90, RR >20 or pCO2 <32, WCC >12 or <4 — meet 2 or more = SIRS. Treatment: blood cultures × 2 (before antibiotics), IV antibiotics, IV fluids, O2, repeat observations, escalate to MET or surgical team. Anastomotic leak on Day 1 is rare (usually Day 3–7). Confusion is a red flag — may indicate hypoxia, septic encephalopathy, or medication effect. Urinary catheter (if present) is a risk for UTI. Apply local sepsis pathway/protocol."
+  },
+  {
+    "q": "What is the CDC classification of a surgical site infection (SSI) and how does it guide management?",
+    "options": [
+      "SSIs are classified by organism type — management depends on antibiogram",
+      "CDC classification: Superficial incisional (skin/subcutaneous above fascia — wound care, oral antibiotics), Deep incisional (fascial/muscle layer — IV antibiotics, consider surgical debridement), Organ/Space SSI (within body cavity or organ — IV antibiotics, surgical drainage or reoperation usually required)",
+      "All SSIs require IV antibiotics and surgical debridement",
+      "CDC SSI classification only applies to orthopaedic surgery"
+    ],
+    "correct": 1,
+    "explanation": "CDC Surgical Site Infection classification guides management: 1) Superficial Incisional SSI — involves only skin and subcutaneous tissue above fascia. Within 30 days of surgery. Presents: erythema, warmth, swelling, purulent drainage. Management: wound care (open wound, dressing), oral antibiotics (cephalexin or dicloxacillin for skin organisms), usually outpatient. 2) Deep Incisional SSI — involves fascial and muscle layers. Up to 30–90 days post-surgery (with implants). Presents: deep pain, fever, fascial dehiscence. Management: IV antibiotics, wound exploration, may need surgical debridement. 3) Organ/Space SSI — involves any part of anatomy opened or manipulated, e.g., intraperitoneal abscess after colectomy. Management: IV antibiotics + surgical/radiological drainage, often reoperation. Wound surveillance for 30 days post-op (90 days if prosthetic implant)."
+  },
+  {
+    "q": "A 50-year-old patient returns to your clinic after anterior resection for rectal cancer. She has a temperature of 38.8°C, HR 110, and diffuse abdominal pain with tenderness and guarding on day 7 post-op. CT shows free air and peri-anastomotic fluid. What is the most likely diagnosis and management?",
+    "options": [
+      "Normal post-operative changes — review in 48 hours",
+      "Anastomotic leak — urgent surgical emergency requiring immediate surgical review, IV broad-spectrum antibiotics, NBM, IV fluids, emergency laparotomy or CT-guided drainage depending on severity",
+      "Superficial SSI — oral antibiotics and wound care",
+      "Post-operative ileus — NG tube and observation"
+    ],
+    "correct": 1,
+    "explanation": "Anastomotic leak is the most feared complication after colorectal surgery — peak incidence Day 5–7, mortality 6–22%. Signs: fever, tachycardia, abdominal pain/peritonitis, faeculent wound discharge or drain output. CT confirmation: peri-anastomotic fluid, free air, leak of contrast. Management: immediate surgical review, IV broad-spectrum antibiotics (e.g., piperacillin-tazobactam), NBM, IV fluids. Definitive management depends on severity: Minor leak (contained, systemically well) — CT-guided drainage, defunctioning stoma; Major leak (peritonitis, haemodynamic instability) — emergency laparotomy, Hartmann's procedure (or takedown and stoma). Risk factors: male sex, obesity, smoking, poor nutrition, low rectal anastomosis, lack of defunctioning stoma, intraoperative complications. NP role: early recognition and escalation."
+  },
+  {
+    "q": "A patient presents with a 3-day history of severe acute left leg pain, swelling, and redness. Doppler ultrasound confirms proximal DVT (femoral and popliteal veins). She has no malignancy, no recent surgery, and no previous VTE. What is the management?",
+    "options": [
+      "Aspirin only — adequate for DVT in healthy young adults",
+      "Therapeutic anticoagulation — rivaroxaban 15mg BD for 21 days then 20mg daily for minimum 3 months (or enoxaparin bridging to warfarin INR 2–3); ambulation encouraged; consider investigation for underlying cause if unprovoked",
+      "Immediate vascular surgery referral for thrombectomy",
+      "Compression stockings only — pharmacological anticoagulation is not required for provoked DVT"
+    ],
+    "correct": 1,
+    "explanation": "Proximal DVT (involving popliteal or more proximal veins) carries significant PE risk and requires therapeutic anticoagulation. Current Australian guidelines: Direct oral anticoagulants (DOACs) are first-line — rivaroxaban 15mg BD × 21 days then 20mg daily, or apixaban 10mg BD × 7 days then 5mg BD. Duration: 3 months for provoked DVT (surgery, immobility, trauma); ≥3 months for unprovoked (consider extended therapy). LMWH (enoxaparin 1mg/kg SC BD) if DOAC contraindicated, renal impairment, or in malignancy (LMWH preferred for cancer-associated VTE). Encourage ambulation — bed rest does not reduce PE risk and worsens DVT. Investigate for underlying cause: FBE, EUC, LFTs, cancer screening if unprovoked (CXR, PSA, CA125, colonoscopy if age appropriate)."
+  },
+  {
+    "q": "What are the clinical features of necrotising fasciitis that differentiate it from a simple cellulitis?",
+    "options": [
+      "Necrotising fasciitis only occurs in immunocompromised patients — healthy patients always have simple cellulitis",
+      "Necrotising fasciitis: disproportionate pain out of keeping with appearance, skin necrosis, bullae, crepitus (gas-producing organisms), systemic toxicity (septic shock, confusion), rapid progression despite antibiotics — surgical emergency requiring emergency debridement",
+      "Cellulitis and necrotising fasciitis are treated identically — antibiotics cover both",
+      "Necrotising fasciitis always begins with skin crepitus — absence of crepitus excludes the diagnosis"
+    ],
+    "correct": 1,
+    "explanation": "Necrotising fasciitis (NF) is a life-threatening deep soft tissue infection — mortality 25–35% even with treatment, near 100% without. Distinguishing features from cellulitis: 1) Pain disproportionate to appearance (or paradoxically decreased pain — nerve destruction); 2) Rapid progression over hours; 3) Skin changes: dusky/purple discolouration, bullae, frank necrosis; 4) Crepitus (gas-forming organisms — Group A Strep, Clostridium); 5) Systemic toxicity (hypotension, confusion, organ failure); 6) Failure to improve with IV antibiotics. CT: gas tracking along fascial planes. Laboratory: elevated WCC, CRP, CK, metabolic acidosis. LRINEC score can assist but clinical judgement is critical. Treatment: emergency surgical debridement (wide margins), IV antibiotics (piperacillin/tazobactam + clindamycin + vancomycin), ICU. Every hour's delay worsens mortality."
+  },
+  {
+    "q": "A patient with a known 5.5cm abdominal aortic aneurysm (AAA) presents with sudden onset of severe abdominal and back pain. Vital signs are BP 100/60, HR 108. What is the immediate management?",
+    "options": [
+      "Urgent CT angiography to assess the aneurysm before any treatment",
+      "This is a likely AAA rupture or symptomatic expansion — immediate vascular surgical team activation, large-bore IV × 2, type and crossmatch, O-negative blood on standby, permissive hypotension (systolic 70–80 mmHg), do not delay — mortality doubles with each 30 minutes of delay",
+      "Give IV fluid bolus 2L to restore normal BP first",
+      "This pain is likely musculoskeletal — analgesia and CT in the morning"
+    ],
+    "correct": 1,
+    "explanation": "A known AAA with sudden severe pain (abdominal and back) + haemodynamic compromise = ruptured AAA until proven otherwise. This is a life-threatening emergency with 50–90% mortality (50% die before reaching hospital). Do not delay for imaging in an unstable patient — proceed to theatre. Permissive hypotension (systolic 70–90 mmHg): avoid aggressive fluid resuscitation that increases BP and disrupts the tamponade of the retroperitoneum — this is counterintuitive but evidence-based. Large-bore IV × 2, O-negative or type-specific blood, activate massive transfusion protocol. Vascular surgical team on standby for EVAR or open repair. In haemodynamically stable patients, CT angiography can confirm diagnosis and guide repair approach. AAA >5.5cm in males or >5cm in females = threshold for elective repair to prevent rupture."
+  },
+  {
+    "q": "Post-operative day 1 following laparoscopic cholecystectomy, a patient complains of right shoulder tip pain. What is the likely cause?",
+    "options": [
+      "Rotator cuff injury during positioning — physiotherapy referral",
+      "Referred diaphragmatic irritation from residual CO2 gas used during laparoscopy — reassure patient, analgesia, and encourage deep breathing; resolves spontaneously within 24–48 hours",
+      "Right shoulder SSI — wound swab and antibiotics",
+      "PE — urgent CTPA required"
+    ],
+    "correct": 1,
+    "explanation": "Right shoulder tip pain after laparoscopic surgery is a classic and common complaint — caused by residual CO2 gas insufflated into the peritoneal cavity during laparoscopy. The CO2 irritates the diaphragm (which shares phrenic nerve innervation C3/4/5 — same as the shoulder tip), causing referred shoulder pain. It is not harmful and resolves spontaneously as the CO2 is absorbed (usually within 24–48 hours). Management: reassurance, simple analgesia (paracetamol, NSAIDs), positioning (left lateral can help gas move away from diaphragm). Right-sided pain is more common as the diaphragm is more irritated on that side. Distinguish from other post-cholecystectomy complications: bile leak (generalised peritonism, fever), port-site hernia (palpable defect), or post-cholecystectomy syndrome (ongoing biliary pain)."
+  },
+  {
+    "q": "Which post-operative patient has the highest VTE risk according to the Caprini score?",
+    "options": [
+      "A 30-year-old female undergoing laparoscopic appendicectomy with no other risk factors",
+      "A 70-year-old obese male (BMI 38) undergoing elective right hemicolectomy for colon cancer who has a prior DVT history, is on HRT, and is expected to have operative time >3 hours",
+      "A 45-year-old fit male undergoing inguinal hernia repair under local anaesthesia with immediate mobilisation",
+      "A 25-year-old female undergoing diagnostic laparoscopy for endometriosis, otherwise healthy"
+    ],
+    "correct": 1,
+    "explanation": "The Caprini VTE Risk Assessment Model assigns points for each risk factor. The 70-year-old male accumulates: age 61–74 (+2), BMI >25 (+1), major surgery >45 min (+2), cancer (+2), prior DVT (+3), HRT (+1), male sex (0), obesity (+1) — approximate total ≈12 = Highest risk category. This patient requires combined pharmacological (enoxaparin) + mechanical (compression stockings/pneumatic compression) prophylaxis AND extended post-discharge prophylaxis (28 days for colorectal cancer surgery). Caprini scoring: Low 0–2 (early ambulation), Moderate 2–4 (LMWH or mechanical), High 5–8 (LMWH + mechanical), Highest >8 (LMWH + mechanical + extended post-discharge). Extended prophylaxis evidence: ENOXACAN II and FAME trials demonstrated significant reduction in VTE with 28-day post-discharge LMWH for abdominal/pelvic cancer surgery."
+  },
+  {
+    "q": "A 40-year-old presents with suspected perforated peptic ulcer (sudden onset severe epigastric pain, rigidity, absent bowel sounds, free air on erect CXR). What is the definitive management?",
+    "options": [
+      "IV proton pump inhibitor infusion and observation — most perforations seal spontaneously",
+      "Emergency surgery — laparoscopic or open repair (Graham patch orogastric repair), IV antibiotics, NBM, IV fluids, analgesia, Foley catheter, NG tube; H. pylori testing and eradication post-operatively",
+      "Endoscopy to confirm perforation and clip it endoscopically",
+      "Conservative management for 48 hours before surgical decision"
+    ],
+    "correct": 1,
+    "explanation": "Perforated peptic ulcer is a surgical emergency — free air on CXR (erect: gas under diaphragm) with peritonism requires emergency surgery. Pre-operative resuscitation: NBM, IV fluid resuscitation, IV analgesia (morphine — does NOT mask peritonism), IV broad-spectrum antibiotics (piperacillin/tazobactam), NG tube (decompress stomach, reduce ongoing contamination), Foley catheter (monitor urine output), IV PPI. Surgical repair: laparoscopic Graham patch orogastric repair (plug of omentum sutured over the perforation) — gold standard. Convert to open if laparoscopic difficult. Peritoneal lavage. Post-operative: H. pylori testing (CLO test or serology) and eradication with triple therapy if positive (reduces recurrence from 70% to <5%). PPI ongoing. NSAID cessation. Conservative management (Boey criteria) considered in very selected, haemodynamically stable patients with contained perforation — not standard."
+  },
+  {
+    "q": "What is the NP role in identifying and escalating a patient with early post-operative sepsis following bowel surgery?",
+    "options": [
+      "NPs in surgical settings do not manage sepsis — this is exclusively a physician role",
+      "The NP should recognise SIRS criteria (temp >38 or <36, HR >90, RR >20, WCC >12), apply the Five Ws framework to identify the source, obtain blood cultures × 2, initiate IV antibiotics within 1 hour per the Surviving Sepsis Campaign, IV fluid resuscitation, O2, escalate to surgical team and MET if needed",
+      "Administer oral antibiotics and reassess in 24 hours",
+      "NPs should wait for medical officer review before initiating any treatment for post-operative fever"
+    ],
+    "correct": 1,
+    "explanation": "The NP role in surgical settings includes early recognition and management of post-operative sepsis. SIRS criteria: 2 or more of — temperature >38°C or <36°C, HR >90, RR >20 or PaCO2 <32mmHg, WCC >12 or <4 × 10⁹/L, or immature (band) neutrophils >10%. Sepsis = SIRS + confirmed/suspected infection + organ dysfunction. Surviving Sepsis Campaign bundle (Hour-1): blood cultures × 2 before antibiotics, IV broad-spectrum antibiotics within 1 hour of recognition, IV fluid (30ml/kg crystalloid for hypotension/lactate ≥4mmol/L), vasopressors if refractory hypotension, lactate measurement. Five Ws framework guides source identification in post-operative context. NMBA standards support NP-initiated treatment protocols in acute settings. Document clinical assessment, escalation, and response to treatment clearly."
+  }
+]

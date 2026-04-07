@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 25-year-old is brought in unconscious with pinpoint pupils, RR 6 breaths/min, and cyanosis. His friend says he 'used something' before collapsing. What toxidrome is this and what is the immediate treatment?",
+    "options": [
+      "Anticholinergic toxidrome — physostigmine",
+      "Opioid toxidrome — naloxone 0.4–2mg IV/IM/intranasal immediately, call 000, rescue breathing",
+      "Serotonin syndrome — cyproheptadine",
+      "Sedative-hypnotic toxidrome — flumazenil"
+    ],
+    "correct": 1,
+    "explanation": "Pinpoint pupils (miosis), respiratory depression, and unconsciousness = opioid toxidrome. Immediate treatment: naloxone 0.4–2mg IV/IM or 2mg intranasal. Repeat every 2–3 minutes up to 3 doses if no response. Perform rescue breathing if apnoeic. Call 000. Titrate naloxone to respiratory rate — avoid full reversal in opioid-dependent patients (precipitates acute withdrawal and agitation). Duration of naloxone (60–90 min) is shorter than most opioids — patient may re-sedate. Monitor until naloxone effect wears off or repeat doses given. All clinical settings should stock naloxone."
+  },
+  {
+    "q": "An 18-year-old presents 6 hours after reportedly taking 30 paracetamol tablets (500mg each = 15g). She is alert, has mild nausea, and her paracetamol level is 180 mg/L. What is the critical next step?",
+    "options": [
+      "Reassure — level is below 200 mg/L, no treatment needed",
+      "Plot the paracetamol level on the Rumack-Matthew nomogram at 6 hours post-ingestion — if above the treatment line, commence NAC immediately",
+      "Activated charcoal at 6 hours — still effective",
+      "Induce vomiting — reduces absorption"
+    ],
+    "correct": 1,
+    "explanation": "Paracetamol level must be plotted on the Rumack-Matthew nomogram at the documented time post-ingestion. The treatment line decreases with time — what is 'safe' at 2 hours may require NAC at 6 hours. At 6 hours, the treatment line on the nomogram is approximately 150 mg/L — a level of 180 mg/L at 6 hours is ABOVE the treatment line and requires NAC. The Rumack-Matthew nomogram is the gold standard for paracetamol overdose risk stratification. NAC is most effective within 8 hours — do not delay. Call Poisons Information Centre (13 11 26) if uncertain. Activated charcoal is only effective within 1–2 hours of ingestion."
+  },
+  {
+    "q": "What is the specific treatment for tricyclic antidepressant (TCA) overdose with QRS prolongation >100ms and hypotension?",
+    "options": [
+      "Flumazenil — reverses benzodiazepine-like effects of TCAs",
+      "Sodium bicarbonate IV — alkalinises blood, reduces TCA binding to cardiac sodium channels, narrows QRS and improves haemodynamics",
+      "Naloxone — opioid reversal",
+      "Activated charcoal only — no specific antidote"
+    ],
+    "correct": 1,
+    "explanation": "TCA toxicity causes sodium channel blockade — QRS widening (>100ms = serious, >160ms = high risk of ventricular arrhythmia), hypotension, and seizures. Specific treatment: sodium bicarbonate 1–2 mmol/kg IV bolus — alkalinises blood (target pH 7.45–7.55) reducing TCA binding to sodium channels. Repeat as needed. Maintain alkalosis with bicarbonate infusion. Intubation for seizures or severe toxicity. Avoid physostigmine (may worsen cardiac toxicity). Emergency transfer — ICU monitoring required. TCAs also have anticholinergic effects — sedation, tachycardia, mydriasis, urinary retention, reduced GI motility."
+  },
+  {
+    "q": "A patient is brought in by ambulance from a house fire. He is confused, has a headache, and his skin appears slightly pink. SpO2 reads 98% on pulse oximetry. What is the most likely diagnosis and why is the SpO2 misleading?",
+    "options": [
+      "Smoke inhalation — normal SpO2 confirms no significant injury",
+      "Carbon monoxide poisoning — pulse oximetry cannot distinguish carboxyhaemoglobin from oxyhaemoglobin and will give falsely normal readings; co-oximetry blood gas is required",
+      "Cyanide poisoning — hydroxocobalamin antidote",
+      "Methane inhalation — normal supportive care"
+    ],
+    "correct": 1,
+    "explanation": "Carbon monoxide (CO) binds haemoglobin with 200x greater affinity than oxygen, displacing oxygen and causing tissue hypoxia. Standard pulse oximetry reads carboxyhaemoglobin as oxyhaemoglobin — giving falsely normal SpO2 readings. The only accurate way to detect CO poisoning is co-oximetry (blood gas analyser measuring carboxyhaemoglobin directly). Treatment: high-flow oxygen 100% via tight-fitting non-rebreather mask (accelerates CO elimination from 5 hours to 60–90 minutes). Severe: hyperbaric oxygen. Symptoms: headache (most common), confusion, nausea, syncope, cherry-red skin (late/unreliable sign). Evacuate from source, call 000."
+  },
+  {
+    "q": "A patient on multiple serotonergic medications (sertraline + tramadol + triptans) presents with agitation, diaphoresis, tachycardia (HR 138), hyperthermia (38.8°C), and clonus on examination. What is the diagnosis and management?",
+    "options": [
+      "Neuroleptic malignant syndrome — bromocriptine",
+      "Serotonin syndrome — cease all serotonergic medications, benzodiazepines for agitation and clonus, cyproheptadine, cooling; emergency transfer",
+      "Anticholinergic toxidrome — physostigmine",
+      "Alcohol withdrawal — diazepam"
+    ],
+    "correct": 1,
+    "explanation": "Serotonin syndrome triad: altered mental status + autonomic instability (tachycardia, diaphoresis, hyperthermia) + neuromuscular abnormalities (clonus, hyperreflexia, myoclonus). Hunter Criteria: clonus + one other feature = high sensitivity and specificity. Distinguish from NMS: onset rapid (hours vs days), clonus is the key differentiator (not seen in NMS), temperature usually lower than NMS. Management: cease ALL serotonergic drugs, benzodiazepines for agitation and myoclonus, cyproheptadine (5-HT2A antagonist — 12mg initially then 2mg every 2 hours), active cooling for hyperthermia. Severe cases: intubation and paralysis. Emergency transfer."
+  },
+  {
+    "q": "Which of the following patients requires activated charcoal administration?",
+    "options": [
+      "A patient who ingested 20 paracetamol tablets 4 hours ago",
+      "A patient who ingested a potentially toxic amount of medication within the last 1–2 hours who is alert, able to swallow, and has no contraindications",
+      "Any unconscious patient — charcoal should be given via NGT",
+      "A patient who ingested iron tablets — charcoal is the primary treatment"
+    ],
+    "correct": 1,
+    "explanation": "Activated charcoal (AC) is effective within 1–2 hours of ingestion when the patient is alert and able to protect their airway. Dose: 50g adult, 1g/kg child. Contraindications: altered consciousness (aspiration risk), unprotected airway, caustic ingestion (charcoal ineffective for caustics and obscures endoscopy), hydrocarbons (aspiration risk), or substances not adsorbed by charcoal (iron, lithium, alcohols, cyanide). After 2 hours, absorption of most substances is largely complete — AC unlikely to benefit. AC is not a substitute for specific antidotes. Always contact Poisons Information Centre before administering."
+  },
+  {
+    "q": "A patient has ingested an unknown substance and presents with: salivation, lacrimation, urination, diarrhoea, vomiting, bronchospasm, miosis, bradycardia, and muscle fasciculations. What toxidrome is this and what is the antidote?",
+    "options": [
+      "Anticholinergic toxidrome — physostigmine",
+      "Cholinergic toxidrome (organophosphate/nerve agent) — atropine (titrated to dry secretions) + pralidoxime",
+      "Opioid toxidrome — naloxone",
+      "Sympathomimetic toxidrome — benzodiazepines"
+    ],
+    "correct": 1,
+    "explanation": "SLUDGE + bronchospasm + miosis + bradycardia + fasciculations = cholinergic toxidrome. Caused by acetylcholinesterase inhibition (organophosphates, carbamates, nerve agents). Treatment: Atropine — titrated to dry secretions (NOT to HR), initial dose 1–2mg IV, repeat every 5 minutes, very large doses may be needed (tens to hundreds of milligrams for severe organophosphate poisoning). Pralidoxime (2-PAM) — reactivates cholinesterase before irreversible 'ageing' — must be given early (within 24–48 hours). Emergency transfer. Decontaminate (remove clothing, wash skin) to protect rescuers. PPE for clinicians."
+  },
+  {
+    "q": "A 35-year-old male on lithium 600mg BD for bipolar disorder (level previously 0.8 mmol/L) presents with coarse tremor, nausea, diarrhoea, and confusion. He has been dehydrated from a gastroenteritis for 3 days. Lithium level returns at 2.4 mmol/L. What is the management?",
+    "options": [
+      "Reduce lithium dose by half and recheck in 1 week",
+      "Hold lithium immediately, IV fluid resuscitation (lithium is renally cleared — dehydration reduces excretion), urgent nephrology review, consider haemodialysis for level >2.5 or severe symptoms",
+      "Give activated charcoal — effective for lithium overdose",
+      "Flumazenil — reversal of sedative effects"
+    ],
+    "correct": 1,
+    "explanation": "Lithium toxicity at level 2.4 mmol/L with neurological symptoms (confusion, coarse tremor) requires urgent management. Lithium has a narrow therapeutic index (0.6–1.2 mmol/L). Dehydration and gastroenteritis are classic precipitants — reduced renal perfusion decreases lithium excretion. Management: stop lithium, IV normal saline (promotes renal lithium excretion), nephrology review. Haemodialysis indications: level >2.5 (or >4.0 regardless of symptoms), severe neurotoxicity (seizures, renal failure, coma), or failure to improve with hydration. Activated charcoal does NOT bind lithium. Other precipitants: NSAIDs, thiazides, ACEi/ARBs — review medications."
+  },
+  {
+    "q": "A 28-year-old female presents with agitation, hyperthermia (40.2°C), rigidity, and elevated CK. She is on haloperidol for schizophrenia. This presentation began 3 days after a dose increase. What is the diagnosis and how does it differ from serotonin syndrome?",
+    "options": [
+      "Serotonin syndrome — cyproheptadine treatment",
+      "Neuroleptic malignant syndrome (NMS) — cease antipsychotic, aggressive cooling, IV fluids, bromocriptine or dantrolene; onset over days (unlike serotonin syndrome — hours); rigidity > clonus; no serotonergic medications involved",
+      "Anticholinergic toxidrome — supportive care",
+      "Malignant hyperthermia — dantrolene only in operating theatre"
+    ],
+    "correct": 1,
+    "explanation": "NMS vs serotonin syndrome: NMS — caused by antipsychotics/dopamine antagonists, onset over days to weeks after dose change, 'lead pipe' rigidity (severe), hyperthermia, elevated CK (rhabdomyolysis), autonomic instability, decreased consciousness; Serotonin syndrome — caused by serotonergic drugs, onset within hours, clonus/hyperreflexia > rigidity, tremor, agitation. NMS management: cease antipsychotic, aggressive cooling (hyperthermia causes brain damage), IV fluids (rhabdomyolysis prevention — AKI risk), bromocriptine (dopamine agonist) or dantrolene (muscle relaxant) for severe cases. Intensive care required. Mortality 10–20% without treatment."
+  },
+  {
+    "q": "A patient on warfarin presents after accidentally ingesting 5 additional warfarin tablets (total dose approximately 30mg). INR is currently 3.8. She has no bleeding. What is the management?",
+    "options": [
+      "Fresh frozen plasma immediately — life-threatening anticoagulant toxicity",
+      "Withhold warfarin, give oral vitamin K 5–10mg, recheck INR in 12–24 hours, close monitoring; FFP or PCC only if major bleeding develops",
+      "Activated charcoal — effective for warfarin up to 6 hours post-ingestion",
+      "Discharge home — warfarin overdose is never serious"
+    ],
+    "correct": 1,
+    "explanation": "Warfarin overdose without active bleeding: oral vitamin K 5–10mg (onset 6–12 hours), withhold warfarin, recheck INR in 12–24 hours. INR will continue to rise for several hours (warfarin has already been absorbed). Activated charcoal may be considered if presentation within 1–2 hours and large dose ingested. Contact Poisons Information Centre for guidance. FFP or 4-factor PCC (Prothrombinex) is reserved for life-threatening bleeding (intracranial, GI) or emergency surgery — not for asymptomatic elevated INR. Rodenticide warfarins (brodifacoum) require very prolonged vitamin K — weeks to months."
+  },
+  {
+    "q": "Which of the following substances is NOT effectively bound by activated charcoal?",
+    "options": [
+      "Paracetamol",
+      "Tricyclic antidepressants",
+      "Lithium",
+      "Benzodiazepines"
+    ],
+    "correct": 2,
+    "explanation": "Activated charcoal does NOT effectively bind: Lithium, Iron, Alcohols (ethanol, methanol, ethylene glycol), Potassium, Cyanide, Caustics (acids and alkalis), Hydrocarbons. The mnemonic 'LIAR KCC': Lithium, Iron, Alcohols, potassium (K), Cyanide, Caustics. Paracetamol, TCAs, and benzodiazepines are all well-adsorbed by activated charcoal within the appropriate time window. For substances not adsorbed by charcoal, other specific treatments or antidotes are required."
+  },
+  {
+    "q": "A patient presents with a massive intentional overdose of metformin. She is confused, her blood gas shows pH 7.18, lactate 12 mmol/L, and her glucose is normal. What is the diagnosis and treatment?",
+    "options": [
+      "Diabetic ketoacidosis — insulin infusion",
+      "Metformin-associated lactic acidosis (MALA) — emergency transfer, IV sodium bicarbonate for severe acidosis, haemodialysis is the definitive treatment",
+      "Alcohol ketoacidosis — dextrose and thiamine",
+      "Aspirin toxicity — urinary alkalinisation"
+    ],
+    "correct": 1,
+    "explanation": "Metformin-associated lactic acidosis (MALA) is a rare but serious complication — mortality up to 50% without treatment. Mechanism: metformin inhibits mitochondrial complex I, reducing oxidative phosphorylation and increasing lactate production. Presentation: severe high anion gap metabolic acidosis, elevated lactate (>5–10 mmol/L), normal or low glucose. Treatment: emergency transfer, IV bicarbonate for severe acidosis (pH <7.1), haemodialysis is the definitive treatment (removes metformin AND corrects acidosis). Contact Poisons Information Centre. Vasopressors for haemodynamic instability. Risk factors for MALA: renal impairment, liver disease, cardiac failure, dehydration, and contrast administration — hence sick-day rules."
+  },
+  {
+    "q": "A teenager is brought in by parents after inhaling from a can of deodorant ('chroming'). She is confused and has a new onset cardiac arrhythmia. What is the most dangerous acute complication of volatile substance abuse?",
+    "options": [
+      "Liver failure — inhalants are hepatotoxic",
+      "Sudden sniffing death — ventricular fibrillation/sudden cardiac death due to cardiac sensitisation to catecholamines; adrenaline is relatively contraindicated",
+      "Renal failure — nephrotoxicity",
+      "Respiratory depression — treat with naloxone"
+    ],
+    "correct": 1,
+    "explanation": "'Sudden sniffing death' is the most dangerous acute complication of volatile substance abuse — occurs due to cardiac sensitisation to catecholamines. Hydrocarbons (aerosols, solvents, glue) sensitise the myocardium to adrenaline and other catecholamines, causing VF with any sympathetic stimulation (fright, sudden exertion). This can occur even on first use. Adrenaline is relatively contraindicated — may precipitate VF. Manage arrhythmias with beta-blockers or lidocaine. Other complications: suffocation (hypoxia), aspiration, trauma (impaired judgement), freeze injury (aerosols). Long-term: peripheral neuropathy, cerebellar ataxia (toluene), renal tubular acidosis."
+  },
+  {
+    "q": "What is the first-line antidote for benzodiazepine overdose causing respiratory depression?",
+    "options": [
+      "Naloxone — opioid antagonist with cross-reactivity for benzodiazepines",
+      "Flumazenil — but use with extreme caution; contraindicated in: chronic benzodiazepine users (precipitates withdrawal seizures), mixed overdose with TCAs, unknown ingestion history; supportive care is often preferred",
+      "N-acetylcysteine — hepatoprotective",
+      "Activated charcoal — primary treatment for all overdoses"
+    ],
+    "correct": 1,
+    "explanation": "Flumazenil is the benzodiazepine antagonist — competitive antagonist at GABA-A receptors. It can reverse sedation and respiratory depression from benzodiazepine overdose. However, it has dangerous contraindications: 1) Chronic benzodiazepine use — precipitates acute withdrawal including seizures; 2) Mixed overdose including TCAs — seizures may unmask underlying TCA cardiotoxicity; 3) Unknown ingestion. Duration of flumazenil (1–2 hours) shorter than most benzodiazepines — resedation can occur. For most benzodiazepine overdoses, supportive care (airway management, supplemental oxygen) is preferred over flumazenil. Call Poisons Information Centre (13 11 26) before use."
+  },
+  {
+    "q": "A 22-year-old male presents after ingesting 'GHB' at a party. He was unresponsive for 30 minutes but is now awake and combative with GCS 14. Pupils are normal size. Vitals are stable. What is the expected clinical course?",
+    "options": [
+      "Progressive deterioration over the next 12 hours — admit for intensive monitoring",
+      "Rapid recovery is typical for GHB — most patients recover within 1–6 hours; supportive care with airway monitoring is sufficient; however, watch for re-emergence of sedation (half-life variable)",
+      "Naloxone reversal — GHB is an opioid derivative",
+      "Flumazenil — GHB acts on GABA receptors like benzodiazepines"
+    ],
+    "correct": 1,
+    "explanation": "GHB (gamma-hydroxybutyrate) causes rapid onset CNS depression — can go from walking to deeply unconscious within minutes. Key features: rapid recovery (within 1–6 hours in most cases), combativeness on emergence (classic), normal pupils. No antidote. Management: supportive care, airway management if unconscious, monitor for re-sedation (GHB has variable half-life and may be taken in repeated doses). Naloxone and flumazenil are NOT effective. GHB is sometimes used as a 'date rape drug' — consider history carefully and offer sexual assault assessment if indicated. Combined with alcohol significantly increases CNS depression risk. Withdrawal from chronic GHB use can cause severe life-threatening syndrome similar to alcohol withdrawal."
+  },
+  {
+    "q": "A 40-year-old gardener presents with nausea, vomiting, and confusion after working with pesticides without protective equipment. His clothing is soaked. What must be done first before examining and treating him?",
+    "options": [
+      "IV access and bloods — standard approach",
+      "Decontamination — remove all clothing and wash skin and hair thoroughly with soap and water; healthcare workers must wear PPE (gloves, gown, eye protection) before contact to prevent secondary contamination",
+      "Activated charcoal — absorbed pesticide through skin",
+      "Atropine immediately — start treatment before decontamination"
+    ],
+    "correct": 1,
+    "explanation": "Decontamination is the FIRST priority for organophosphate poisoning with skin exposure — before examination, antidote administration, or other treatment. Healthcare workers have become poisoned by contaminated patients without adequate PPE. Remove ALL clothing (cuts dermal exposure by 80%), wash skin with soap and water, flush eyes with water if exposed. Wear PPE: gloves (nitrile), gown, eye protection. Place contaminated clothing in sealed bags. Contaminated washwater should be contained if possible. Only after decontamination proceed with clinical assessment, antidotes (atropine, pralidoxime), and supportive care. Emergency transfer after decontamination."
+  },
+  {
+    "q": "A patient is admitted with suspected salicylate (aspirin) overdose. Blood gas shows: pH 7.48, HCO3 28, pCO2 28, suggesting respiratory alkalosis. What specific complication of salicylate toxicity does this pattern suggest and what is the danger?",
+    "options": [
+      "Normal finding — respiratory alkalosis is harmless",
+      "Early salicylate toxicity causes respiratory alkalosis (direct stimulation of respiratory centre); as toxicity progresses it causes metabolic acidosis; the coexistence or transition to mixed picture with metabolic acidosis indicates severe toxicity requiring urgent treatment",
+      "This patient has a benzodiazepine overdose — not salicylate",
+      "Hyperventilation from anxiety — reassure and discharge"
+    ],
+    "correct": 1,
+    "explanation": "Salicylate toxicity has characteristic acid-base disturbance: Early: respiratory alkalosis (salicylates directly stimulate the respiratory centre causing hyperventilation — compensatory metabolic acidosis). Late/severe: high anion gap metabolic acidosis (uncoupling oxidative phosphorylation, lactic acidosis). The classic presentation is a mixed respiratory alkalosis and metabolic acidosis. Severe toxicity: metabolic acidosis predominates, tissue hypoxia, hyperthermia, CNS toxicity. Treatment: urinary alkalinisation (IV bicarbonate — alkaline urine traps ionised salicylate in the urine, promotes excretion), haemodialysis for severe cases (salicylate level >700 mg/L, renal failure, severe CNS toxicity). Emergency transfer."
+  },
+  {
+    "q": "A 3-year-old child is brought in after potentially ingesting iron tablets from a grandmother's prescription. The child is vomiting and has abdominal pain 2 hours post-ingestion. What is the key investigation and specific antidote for iron toxicity?",
+    "options": [
+      "Urine drug screen — confirms iron ingestion; no antidote available",
+      "Serum iron level at 4–6 hours post-ingestion (peak absorption); deferoxamine (desferrioxamine) is the specific chelating antidote for systemic iron toxicity",
+      "Activated charcoal — effective for iron",
+      "N-acetylcysteine — treats oxidative damage from iron"
+    ],
+    "correct": 1,
+    "explanation": "Iron toxicity: check serum iron level at 4–6 hours post-ingestion (before this may be falsely low). Level >54 µmol/L = potentially toxic, >90 µmol/L = significant toxicity likely. Activated charcoal does NOT bind iron. Specific antidote: deferoxamine (chelating agent) — IV infusion for significant toxicity (level >90 µmol/L, clinical toxicity). Phases of iron toxicity: Phase 1 (0–6h): GI symptoms (vomiting, diarrhoea, haematemesis); Phase 2 (6–24h): apparent improvement; Phase 3 (12–48h): hepatotoxicity, shock, metabolic acidosis; Phase 4: GI scarring. Abdominal X-ray may show radio-opaque tablets — guides dose estimation. Contact Poisons Information Centre (13 11 26)."
+  },
+  {
+    "q": "A patient presents after intentional overdose. Psychiatric assessment shows ongoing suicidal ideation, a specific plan, and no protective factors. What is the most appropriate disposition?",
+    "options": [
+      "Discharge with GP follow-up tomorrow — the physical overdose has been treated",
+      "Involuntary admission under the Mental Health Act if the patient refuses voluntary admission — ongoing suicidal ideation with plan and no protective factors meets criteria for involuntary assessment and treatment",
+      "Discharge with Lifeline number — patient has autonomy to make their own decisions",
+      "Call police — all overdose patients are criminals"
+    ],
+    "correct": 1,
+    "explanation": "All intentional overdose patients require psychiatric assessment before discharge. If ongoing suicidal ideation with plan, intent, and means access — and the patient lacks capacity to make safe decisions or refuses voluntary care — involuntary admission under state Mental Health Act is appropriate and legally required to protect the patient. In Australia, each state/territory has Mental Health Act provisions for involuntary detention and treatment. Thresholds: the person has a mental illness AND needs immediate treatment AND poses a serious risk to themselves or others AND voluntary treatment is not possible. Document risk assessment thoroughly. Safety planning, means restriction counselling (remove access to medications, firearms), and crisis support are part of discharge planning for lower-risk presentations."
+  },
+  {
+    "q": "The Australian Poisons Information Centre number is essential knowledge for all NPs. What is the number and when should it be called?",
+    "options": [
+      "000 — call only for life-threatening poisoning",
+      "13 11 26 — call for ANY poisoning query, 24 hours a day, 7 days a week, including uncertain cases, unusual presentations, industrial exposures, and management advice",
+      "1800 011 511 — after-hours only",
+      "Local hospital switch — route all toxicology queries through ED"
+    ],
+    "correct": 1,
+    "explanation": "The Australian Poisons Information Centre is 13 11 26 — available 24/7 across Australia. Staffed by clinical toxicologists and specialist pharmacists. Call for: any suspected poisoning or overdose, advice on management and antidotes, industrial chemical exposures, plant and animal envenomation, medication errors, and uncertain presentations. Do NOT hesitate to call — even experienced clinicians call the Poisons Information Centre regularly. The service is free. For life-threatening presentations, call 000 first then 13 11 26. The Centre can also provide advice during resuscitation. Every NP should have this number saved."
+  }
+]

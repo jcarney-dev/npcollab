@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 62-year-old male on R-CHOP chemotherapy for DLBCL presents with a temperature of 38.4°C. His most recent FBE shows neutrophils of 0.4 × 10⁹/L. He is clinically well with no obvious infection source. What is the immediate management priority?",
+    "options": [
+      "Oral antibiotics and review in 24 hours — well-appearing patients can be managed outpatient",
+      "Febrile neutropenia protocol — blood cultures × 2 (peripheral and central line if present), empirical IV broad-spectrum antibiotics within 60 minutes of presentation (piperacillin-tazobactam or ceftazidime), urgent FBE, EUC, LFTs, CRP",
+      "Wait for blood culture results before starting antibiotics",
+      "IV fluids only — antibiotics can be deferred until the neutrophil count is below 0.1"
+    ],
+    "correct": 1,
+    "explanation": "Febrile neutropenia (FN) is defined as fever ≥38°C (or ≥37.5°C on two occasions 1 hour apart) AND neutrophils <0.5 × 10⁹/L (or <1.0 × 10⁹/L and predicted to fall below 0.5). It is a life-threatening oncological emergency — sepsis-related mortality is high. Antibiotics must be given within 60 minutes of FN diagnosis. MASCC risk score determines low (≥21) vs high risk (<21) — but even low-risk patients generally receive at least initial IV therapy in Australia. Empirical treatment: piperacillin-tazobactam 4.5g IV 8-hourly (or ceftazidime 2g IV 8-hourly if penicillin allergic — check allergy type). Add vancomycin if CVAD infection suspected, known MRSA, or haemodynamically unstable. eviQ Cancer Treatments Online (eviq.org.au) provides current Australian FN protocols."
+  },
+  {
+    "q": "A patient with known metastatic lung cancer presents with new onset back pain, lower limb weakness, and urinary retention. What is the most urgent intervention?",
+    "options": [
+      "Dexamethasone 16mg IV immediately to reduce spinal cord oedema, urgent MRI whole spine, emergency oncology/neurosurgery review — malignant spinal cord compression is a neurological emergency",
+      "Oral analgesia and physiotherapy referral — back pain is common in cancer patients",
+      "CT lumbar spine — adequate to exclude cord compression",
+      "Referral to pain clinic — cancer-related pain management"
+    ],
+    "correct": 0,
+    "explanation": "Malignant spinal cord compression (MSCC) is an oncological emergency. The triad of new back pain + leg weakness + bladder/bowel dysfunction in a cancer patient = MSCC until proven otherwise. Immediate dexamethasone (16mg IV or oral loading dose) reduces oedema and preserves neurological function — do not wait for imaging. Urgent MRI whole spine (preferred over CT — better soft tissue resolution). Emergency oncology and neurosurgery/radiation oncology review. Treatment: radiotherapy (most common), surgery (for structural instability, unknown primary, radioresistant tumour), or both. Time is critical — neurological deficit at presentation is the strongest predictor of outcome. Ambulatory patients at presentation have much better outcomes than those who are paraplegic. Any delay worsens prognosis."
+  },
+  {
+    "q": "A 45-year-old female receiving highly emetogenic chemotherapy (cisplatin-based) for ovarian cancer asks about anti-nausea medication. Which regimen is recommended for highly emetogenic chemotherapy-induced nausea and vomiting (CINV)?",
+    "options": [
+      "Metoclopramide 10mg TDS only — adequate for all chemotherapy regimens",
+      "Triple therapy: ondansetron (5-HT3 antagonist) + dexamethasone + aprepitant (NK1 antagonist) — this three-drug combination is the gold standard for highly emetogenic regimens",
+      "Domperidone only — preferred as it does not cross the blood-brain barrier",
+      "Lorazepam only — benzodiazepines are sufficient for CINV prevention"
+    ],
+    "correct": 1,
+    "explanation": "CINV prophylaxis is stratified by emetogenic risk. Highly emetogenic chemotherapy (HEC — cisplatin, AC regimens for breast cancer): triple or quadruple therapy — ondansetron (or granisetron/palonosetron) + dexamethasone + aprepitant (or fosaprepitant/netupitant) ± olanzapine. Moderately emetogenic chemotherapy (MEC): ondansetron + dexamethasone ± aprepitant. Low emetogenic: single antiemetic (dexamethasone or ondansetron). CINV has three phases: Acute (0–24 hours), Delayed (24–120 hours — often undertreated), Anticipatory (conditioned response — treat with lorazepam and behavioural therapy). eviQ antiemetic protocols are the Australian standard — always check the specific regimen. Adequate CINV prevention is critical for quality of life and treatment adherence."
+  },
+  {
+    "q": "A 68-year-old male presents with bone pain, anaemia (Hb 94), hypercalcaemia (corrected calcium 3.2 mmol/L), and renal impairment (creatinine 165 µmol/L). SPEP shows a monoclonal spike. What is the likely diagnosis and key diagnostic criteria?",
+    "options": [
+      "Metastatic prostate cancer — PSA level required",
+      "Multiple myeloma — CRAB criteria: hyperCalcaemia, Renal impairment, Anaemia, Bone lesions; diagnosis confirmed with bone marrow biopsy and serum protein electrophoresis",
+      "Waldenstrom macroglobulinaemia — hyperviscosity syndrome",
+      "Lymphoma with bone marrow involvement — CT/PET staging required"
+    ],
+    "correct": 1,
+    "explanation": "Multiple myeloma (MM) is a plasma cell malignancy. Diagnostic criteria include presence of clonal plasma cells in bone marrow ≥10% AND one or more myeloma-defining events (CRAB criteria or biomarkers): hyperCalcaemia (corrected calcium >2.75 mmol/L), Renal impairment (creatinine >177 µmol/L), Anaemia (Hb <100 g/L), Bone lesions (lytic lesions on CT/PET). Investigations: SPEP (monoclonal protein), serum immunoglobulins, serum free light chains (kappa/lambda ratio), Bence Jones protein (urine), bone marrow biopsy (FISH cytogenetics). Skeletal survey (low-dose whole body CT preferred over plain X-rays). Treatment: bortezomib + lenalidomide + dexamethasone (VRd triplet) is standard first-line in Australia. Autologous stem cell transplant for eligible patients. Bisphosphonates (zoledronate) for bone disease."
+  },
+  {
+    "q": "A patient with acute leukaemia and platelet count of 8 × 10⁹/L is asymptomatic with no active bleeding. What is the standard threshold for prophylactic platelet transfusion?",
+    "options": [
+      "Platelets <20 × 10⁹/L — transfuse prophylactically at this level",
+      "Platelets <10 × 10⁹/L in stable, non-bleeding patients — prophylactic transfusion threshold; higher thresholds (20–50) for procedures, active bleeding, or fever",
+      "Only transfuse when active bleeding occurs — prophylactic transfusion has no evidence",
+      "Platelets <50 × 10⁹/L — standard threshold for haematological malignancy"
+    ],
+    "correct": 1,
+    "explanation": "The Australian and international standard for prophylactic platelet transfusion in stable, non-bleeding haematological malignancy patients is <10 × 10⁹/L. Evidence base: randomised trials (TOPPS, PLADO) demonstrating safety of this threshold compared to higher levels. Higher thresholds apply in: active bleeding (maintain >30–50 × 10⁹/L), invasive procedures (lumbar puncture >50, surgery >100 for CNS/ophthalmological), fever or sepsis (some institutions use >20), alloimmunised patients (use HLA-matched or crossmatched platelets). One unit of platelets should raise count by approximately 20–30 × 10⁹/L. Check count 1-hour post-transfusion. Platelet refractoriness: failure to increment by 10 × 10⁹/L on two consecutive transfusions — investigate for HLA antibodies, DIC, splenomegaly, fever."
+  },
+  {
+    "q": "A 28-year-old female is due for cervical cancer screening. She has never been screened before. What is the current Australian cervical screening recommendation?",
+    "options": [
+      "Annual Pap smear from age 18 or first sexual contact",
+      "5-yearly HPV test from age 25–74 (cervical screening test); self-collection is now available for eligible women who are uncomfortable with a clinician-collected sample",
+      "Annual HPV test from age 21",
+      "Cervical screening only for women with symptoms — no routine screening needed"
+    ],
+    "correct": 1,
+    "explanation": "Australia replaced the 2-yearly Pap smear with the Cervical Screening Test (CST) in 2017. Current recommendations: HPV test every 5 years from age 25 to 74. Self-collection: eligible women (Indigenous Australians, women who have never screened, women who are overdue) can self-collect a vaginal swab for HPV testing — reducing barriers to access. HPV types: primary testing for high-risk HPV (HPV16, HPV18 with immediate colposcopy referral; other high-risk types proceed to LBC cytology). Vaccinated women still require screening — current vaccines do not cover all oncogenic HPV types. Post-hysterectomy: screen until 74 if cervix present; if total hysterectomy for benign reasons and previously normal screens, exit screening. NBCSP (National Cervical Screening Program): health.gov.au."
+  },
+  {
+    "q": "A 26-year-old male with Hodgkin Lymphoma (HL) in remission following ABVD chemotherapy presents for long-term follow-up. Which late effect requires specific monitoring?",
+    "options": [
+      "Renal impairment — ABVD is primarily nephrotoxic",
+      "Bleomycin-induced pulmonary toxicity (lung fibrosis), anthracycline-induced cardiomyopathy (doxorubicin), secondary malignancies (especially breast cancer in females treated with chest radiotherapy), and hypothyroidism if neck irradiation received",
+      "No late effects — ABVD is a low-toxicity regimen",
+      "Peripheral neuropathy only — the primary long-term effect of ABVD"
+    ],
+    "correct": 1,
+    "explanation": "ABVD (Adriamycin/doxorubicin, Bleomycin, Vinblastine, Dacarbazine) is standard first-line treatment for Hodgkin Lymphoma. Late effects requiring monitoring: Pulmonary: bleomycin-induced pulmonary toxicity (BPT) — lung fibrosis, restrictive pattern on PFTs; avoid high-flow oxygen (exacerbates fibrosis). Cardiac: doxorubicin (anthracycline) — dilated cardiomyopathy years after treatment; baseline and serial echocardiograms. Secondary malignancies: breast cancer (females with chest/mediastinal radiotherapy — annual MRI breast from age 40 or 8 years post-treatment, whichever first), lung cancer (mediastinal RT + smoking), myeloid leukaemia. Hypothyroidism: neck radiotherapy — annual TFTs. Infertility: sperm/egg banking discussed pre-treatment. B symptoms in HL: fever, drenching night sweats, unexplained weight loss >10% — associated with worse prognosis."
+  },
+  {
+    "q": "A 72-year-old female is newly diagnosed with CLL (chronic lymphocytic leukaemia) — stage A (Binet), lymphocytes 32 × 10⁹/L, no constitutional symptoms, no cytopenias. What is the recommended initial management?",
+    "options": [
+      "Commence fludarabine-based chemotherapy immediately",
+      "Watch and wait — early-stage CLL without symptoms or rapid progression does not require immediate treatment; regular monitoring with FBE and clinical review",
+      "Allogeneic stem cell transplant — only curative option",
+      "Corticosteroids to reduce lymphocytosis"
+    ],
+    "correct": 1,
+    "explanation": "Early-stage CLL (Binet A or B without symptoms, Rai 0–II) is managed with watch and wait (active surveillance). Multiple randomised trials (including the French CLL01 trial) have shown no survival benefit from early chemotherapy in asymptomatic CLL — early treatment increases toxicity without improving outcomes. Monitoring: FBE every 3–6 months, clinical review, watch for Rai or Binet stage progression. Treatment indications: progressive marrow failure (worsening anaemia or thrombocytopenia), symptomatic or bulky splenomegaly/lymphadenopathy, constitutional B symptoms, autoimmune complications (AIHA, ITP). Modern CLL treatment when required: BTK inhibitors (ibrutinib, acalabrutinib) or venetoclax-based regimens — largely replacing chemotherapy. Prognosis varies with genetic markers (del17p, TP53 mutation = poor prognosis; IgHV mutated = better prognosis)."
+  },
+  {
+    "q": "A patient on trastuzumab (Herceptin) for HER2-positive breast cancer presents for routine review. Which cardiac monitoring is required during treatment?",
+    "options": [
+      "Annual ECG — trastuzumab causes arrhythmias",
+      "LVEF assessment by echocardiogram or MUGA scan at baseline, then every 3 months during treatment — trastuzumab causes cardiotoxicity (dilated cardiomyopathy) and must be withheld if LVEF drops >10% to below 50%",
+      "No cardiac monitoring required — trastuzumab has minimal cardiac effects",
+      "Troponin levels only — LVEF monitoring is not evidence-based"
+    ],
+    "correct": 1,
+    "explanation": "Trastuzumab (and pertuzumab) causes cardiotoxicity — type II (reversible) cardiomyopathy, distinct from anthracycline type I (irreversible). Risk is increased when combined with anthracyclines. Monitoring requirements: baseline LVEF (echo or MUGA), then every 3 months during treatment. Withhold trastuzumab if: LVEF falls >10 percentage points from baseline AND to below 50%, OR symptomatic heart failure develops. Resume when LVEF recovers — most cases are reversible. Cardiac risk factors: prior anthracycline use, hypertension, pre-existing cardiac disease, obesity. NP role: cardio-oncology monitoring, patient education, blood pressure management. CTCAE cardiac grading: Grade 1 (asymptomatic, LVEF 40–50%), Grade 2 (LVEF 20–40%), Grade 3 (<20% or symptomatic HF requiring treatment)."
+  },
+  {
+    "q": "A patient on paclitaxel for ovarian cancer complains of numbness, tingling, and burning pain in the hands and feet, with difficulty buttoning clothes. What is this complication and how is it managed?",
+    "options": [
+      "Cellulitis from IV cannula — wound care and antibiotics",
+      "Chemotherapy-induced peripheral neuropathy (CIPN) — dose reduction or cessation of paclitaxel may be needed; duloxetine is the only agent with evidence for CIPN treatment; preventive strategies have limited evidence",
+      "Raynaud&apos;s phenomenon — calcium channel blockers",
+      "DVT in upper limb — duplex ultrasound and anticoagulation"
+    ],
+    "correct": 1,
+    "explanation": "Chemotherapy-induced peripheral neuropathy (CIPN) is a common dose-limiting toxicity of taxanes (paclitaxel, docetaxel), platinum agents (oxaliplatin, cisplatin — primarily cold-induced paraesthesia for oxaliplatin), vinca alkaloids, and bortezomib. Presentation: length-dependent sensory neuropathy — numbness, tingling, burning pain in a 'glove and stocking' distribution, loss of fine motor function (buttoning clothes, opening jars). CTCAE grading: Grade 1 (asymptomatic), Grade 2 (moderate symptoms, ADL limited), Grade 3 (severe, limiting self-care). Management: dose reduction or cessation for Grade 3. Treatment: duloxetine (60mg daily) has Level 1 evidence for CIPN pain — other agents (gabapentin, TCAs) have weaker evidence. Prevention: compression gloves/socks during oxaliplatin infusion; other approaches unproven. Recovery can take months to years; some neuropathy is permanent."
+  },
+  {
+    "q": "During a skin check, an NP notices a lesion on a patient's back. Which features trigger urgent referral? (ABCDE criteria)",
+    "options": [
+      "All pigmented lesions require urgent referral regardless of features",
+      "Asymmetry, irregular Border, multiple Colours, Diameter >6mm, Evolution (change in size, shape, or colour over time) — any of these features warrants urgent referral to dermatology or skin cancer medicine",
+      "Only lesions that are painful require urgent referral",
+      "Lesions on the back are low risk — only facial lesions require referral"
+    ],
+    "correct": 1,
+    "explanation": "ABCDE criteria for melanoma detection: Asymmetry — one half does not match the other; Border — irregular, ragged, notched, or blurred; Colour — variation within the lesion (tan, brown, black, red, white, blue); Diameter — >6mm (though melanomas can be smaller); Evolution — any change in size, shape, colour, or new symptoms (bleeding, itching). Australia has the highest melanoma incidence in the world — NPs in any setting should perform opportunistic skin checks, especially in high-risk patients (fair skin, significant UV exposure, family history, large number of naevi, immunosuppression). Any suspicious lesion: excisional biopsy (preferred — full Breslow thickness assessment) or urgent dermatology referral. Dermoscopy improves diagnostic accuracy. Sun protection counselling for all patients."
+  },
+  {
+    "q": "A patient with colorectal cancer has completed primary treatment. What is the recommended surveillance schedule post-treatment?",
+    "options": [
+      "No surveillance required after curative treatment — annual GP visits only",
+      "Colonoscopy at 1 year post-surgery (or 3–6 months if incomplete pre-operative colonoscopy), then every 3–5 years if normal; CEA every 3 months for 3 years; CT chest/abdomen/pelvis every 6–12 months for 3 years",
+      "Annual CEA only — colonoscopy is not required post-treatment",
+      "PET scan annually — most sensitive for recurrence detection"
+    ],
+    "correct": 1,
+    "explanation": "Post-treatment colorectal cancer (CRC) surveillance (RACS/CSSANZ/NHMRC guidelines): Colonoscopy: at 1 year post-surgery (or at 3–6 months if pre-operative colonoscopy was incomplete); then every 3–5 years if no polyps found. Purpose: detect anastomotic recurrence and synchronous/metachronous polyps. CEA (carcinoembryonic antigen): every 3 months for first 3 years, then 6-monthly for 2 years. CEA rising on serial measurements triggers CT staging. CT chest/abdomen/pelvis: every 6 months for first 2 years, then annually for 3 years (high-risk Stage II and all Stage III/IV resected disease — evidence for CT surveillance from FACS and COLOFOL trials). Liver MRI for liver-only metastases. Stage I CRC: less intensive surveillance — colonoscopy at 1 year, then every 5 years. NP role: surveillance coordination, patient education, and referral for concerning results."
+  },
+  {
+    "q": "A patient with Non-Hodgkin Lymphoma (NHL) is commencing rituximab (anti-CD20) therapy. Pre-treatment hepatitis B serology shows HBsAg negative, anti-HBc positive, anti-HBs negative. What does this mean and what action is required?",
+    "options": [
+      "No action required — HBsAg negative means no hepatitis B",
+      "Resolved hepatitis B infection with occult reactivation risk — commence prophylactic antiviral therapy (lamivudine or entecavir) before rituximab to prevent HBV reactivation, which can cause fulminant hepatitis",
+      "Immune to hepatitis B — no prophylaxis required",
+      "Active hepatitis B — delay rituximab until hepatitis B treated"
+    ],
+    "correct": 1,
+    "explanation": "Anti-HBc positive + HBsAg negative = past hepatitis B infection (resolved). However, HBV DNA may remain in hepatocytes (occult HBV). Rituximab causes profound B-cell depletion — impairs HBV-specific immune response, leading to HBV reactivation. Reactivation risk with rituximab: 20–50% in anti-HBc positive patients without prophylaxis. Reactivation can cause acute hepatitis, liver failure, and death. Australian guidelines (GESA/ASH): test ALL patients for HBsAg, anti-HBs, and anti-HBc before rituximab. If HBsAg positive OR anti-HBc positive: antiviral prophylaxis with entecavir (preferred, higher barrier to resistance) or tenofovir for the duration of rituximab treatment and 12–18 months after cessation. Monitor HBV DNA during treatment. Check HBV DNA baseline — if detectable, requires hepatology review."
+  },
+  {
+    "q": "A patient with CML (chronic myeloid leukaemia) is on imatinib (a tyrosine kinase inhibitor). Which monitoring test is used to assess treatment response?",
+    "options": [
+      "FBE only — normalisation of white cell count indicates response",
+      "BCR-ABL PCR (quantitative polymerase chain reaction) — measures the level of the BCR-ABL1 fusion transcript as a percentage of the international scale; milestones include early molecular response (BCR-ABL1 ≤10% at 3 months) and major molecular response (≤0.1% at 12–18 months)",
+      "Bone marrow biopsy every 3 months — gold standard for CML monitoring",
+      "Cytogenetic testing only — Philadelphia chromosome presence/absence"
+    ],
+    "correct": 1,
+    "explanation": "CML monitoring uses quantitative BCR-ABL1 PCR (RQ-PCR) on peripheral blood — the standard of care. CML arises from the Philadelphia chromosome t(9;22), creating the BCR-ABL1 fusion oncogene (constitutively active tyrosine kinase). Response milestones (ELN/Australian guidelines): Complete haematological response (CHR) — FBE normal, no symptoms (by 3 months); Early Molecular Response (EMR) — BCR-ABL1 ≤10% IS at 3 months (key predictor of long-term outcome); Major Molecular Response (MMR) — BCR-ABL1 ≤0.1% IS; Deep Molecular Response (DMR/MR4.5) — BCR-ABL1 ≤0.0032%. Failure to reach milestones or loss of response — assess for TKI resistance mutations (T315I gatekeeper mutation — requires ponatinib). Treatment-free remission (TFR) is possible in patients achieving sustained deep molecular response — trial of TKI cessation with close monitoring."
+  },
+  {
+    "q": "A patient on bortezomib (a proteasome inhibitor) for multiple myeloma develops new numbness and weakness in both feet. What is this complication and how should it be managed?",
+    "options": [
+      "Normal side effect — continue treatment unchanged",
+      "Bortezomib-induced peripheral neuropathy — dose reduction or schedule change (from twice-weekly to once-weekly) significantly reduces severity; subcutaneous administration also reduces neuropathy risk compared to IV; consider cessation if Grade 3 or functional impairment",
+      "DVT — anticoagulation required",
+      "Metastatic spinal cord compression — urgent MRI spine"
+    ],
+    "correct": 1,
+    "explanation": "Bortezomib-induced peripheral neuropathy (BIPN) is a major dose-limiting toxicity — incidence 30–40%, severe (Grade 3+) in ~15%. Predominantly sensory neuropathy (pain, burning, tingling) but can have motor component. CTCAE grading guides management: Grade 1 (no pain/functional limitation) — monitor; Grade 2 (pain, moderate functional limitation) — dose reduction; Grade 3 (severe pain, ADL limitation) — hold or discontinue; Grade 4 (life-threatening) — discontinue. Strategies to reduce BIPN: subcutaneous (SC) administration significantly reduces neuropathy vs IV (no reduction in efficacy); once-weekly dosing vs twice-weekly reduces neuropathy with comparable efficacy. Ixazomib (oral proteasome inhibitor) and carfilzomib have lower neuropathy rates. Recovery after discontinuation is variable — often incomplete. Pre-existing neuropathy (diabetes, alcohol) increases risk."
+  },
+  {
+    "q": "A patient on chemotherapy with haemoglobin of 72 g/L (symptoms: breathlessness on minimal exertion, palpitations at rest). When is red blood cell transfusion indicated?",
+    "options": [
+      "Transfuse whenever Hb <100 g/L in oncology patients",
+      "Symptomatic anaemia — transfuse when Hb <80 g/L with symptoms, or Hb <70 g/L even if asymptomatic; 2 units packed cells standard; post-transfusion Hb check; consider erythropoiesis-stimulating agents (ESAs) for chemotherapy-related anaemia in selected patients",
+      "No transfusion — iron infusion only for chemotherapy anaemia",
+      "Transfuse only for Hb <50 g/L — patients tolerate low haemoglobin during chemotherapy"
+    ],
+    "correct": 1,
+    "explanation": "RBC transfusion thresholds in haematology/oncology: Symptomatic anaemia (breathlessness, palpitations, dizziness at rest) with Hb <80 g/L: transfuse. Asymptomatic: generally transfuse at Hb <70 g/L (or <80 g/L in patients with cardiac disease). Standard: 2 units packed red blood cells; check post-transfusion Hb. Each unit should raise Hb by approximately 10 g/L. Irradiated and CMV-negative blood products: required for immunocompromised patients (stem cell transplant, Hodgkin Lymphoma — risk of transfusion-associated graft-versus-host disease and CMV reactivation). Erythropoiesis-stimulating agents (ESAs — darbepoetin, epoetin): reduce transfusion requirement in chemotherapy-related anaemia but carry thrombotic risk — only use during active chemotherapy per TGA/PBS criteria. Iron supplementation (IV iron) for iron-deficiency component. Check ferritin, reticulocytes, and B12/folate before attributing anaemia solely to chemotherapy."
+  },
+  {
+    "q": "A patient with haematological malignancy develops acute hyperuricaemia, hyperphosphataemia, hyperkalaemia, and acute renal failure within 24 hours of commencing chemotherapy. What is this syndrome and how is it prevented?",
+    "options": [
+      "Stevens-Johnson Syndrome — cease all medications immediately",
+      "Tumour lysis syndrome (TLS) — prevented with allopurinol (or rasburicase for high-risk cases), aggressive IV hydration, electrolyte monitoring, and avoidance of drugs that exacerbate renal impairment; high-risk: Burkitt lymphoma, ALL, AML with high WCC",
+      "Haemolytic uraemic syndrome — plasma exchange",
+      "Drug-induced nephritis — steroids and dose reduction"
+    ],
+    "correct": 1,
+    "explanation": "Tumour lysis syndrome (TLS) occurs when massive tumour cell death releases intracellular contents — nucleic acids → uric acid, phosphate, potassium → hyperuricaemia, hyperphosphataemia, hyperkalaemia, hypocalcaemia (calcium precipitates with phosphate), and acute kidney injury. Cairo-Bishop criteria: any 2 of: urate ≥476 µmol/L, potassium ≥6.0 mmol/L, phosphate ≥1.45 mmol/L, calcium ≤1.75 mmol/L. High-risk malignancies: Burkitt lymphoma, ALL (especially WCC >100), AML, large-cell lymphoma with bulky disease, chronic leukaemias with high tumour burden. Prevention: allopurinol 300mg daily 24–48 hours before chemotherapy, aggressive IV hydration (2–3L/m²/day), urine output ≥100mL/hr, electrolyte monitoring 6–8 hourly. Rasburicase (recombinant urate oxidase): high-risk patients or established TLS — rapidly reduces uric acid. Contraindicated in G6PD deficiency (haemolytic anaemia). Avoid in pregnancy."
+  },
+  {
+    "q": "A 45-year-old female with oestrogen receptor (ER)-positive, HER2-negative early breast cancer has completed primary treatment and is commencing adjuvant endocrine therapy. She is pre-menopausal. What is the recommended treatment?",
+    "options": [
+      "Aromatase inhibitor (letrozole) alone — first-line for all breast cancer patients",
+      "Tamoxifen for 5–10 years (with consideration of ovarian function suppression + aromatase inhibitor for high-risk premenopausal patients) — tamoxifen is the standard for premenopausal ER-positive breast cancer",
+      "No adjuvant treatment — chemotherapy was sufficient",
+      "Fulvestrant (oestrogen receptor degrader) — appropriate for premenopausal patients"
+    ],
+    "correct": 1,
+    "explanation": "Adjuvant endocrine therapy for ER-positive early breast cancer: Premenopausal: tamoxifen 20mg daily for 5–10 years (ATLAS/aTTom trials: 10 years reduces recurrence and mortality vs 5 years). For high-risk premenopausal patients (Stage III, young age, high-grade): consider ovarian function suppression (OFS — GnRH agonist e.g. goserelin) + aromatase inhibitor (AI) or tamoxifen (SOFT/TEXT trials). Postmenopausal: aromatase inhibitors (letrozole, anastrozole, exemestane) — superior to tamoxifen in postmenopausal patients. Extended AI therapy for 10 years in high-risk patients. CDK4/6 inhibitors (abemaciclib, palbociclib): add to AI for node-positive, high-risk ER+/HER2- early breast cancer. Tamoxifen side effects: hot flushes, endometrial thickening (annual pelvic exam), VTE risk, cataracts. AI side effects: arthralgias, bone loss (DEXA and bisphosphonates)."
+  },
+  {
+    "q": "An NP is reviewing a patient with prostate cancer who is considering PSA testing. What should the NP discuss regarding PSA screening?",
+    "options": [
+      "PSA testing is mandatory for all men over 40 — it is the standard of care in Australia",
+      "PSA testing should be offered with informed consent from age 50 (or 40–45 with significant family history or African ancestry) — discuss benefits (early detection) and harms (overdiagnosis, overtreatment, biopsy risks, anxiety) to allow shared decision-making",
+      "PSA testing is not recommended in Australia — no evidence of benefit",
+      "PSA testing is only indicated for men with urinary symptoms"
+    ],
+    "correct": 1,
+    "explanation": "PSA (prostate-specific antigen) screening for prostate cancer in Australia (Cancer Council Australia, RACGP guidelines): not recommended as a population-wide screening program — decision should be based on informed consent and shared decision-making. Offer to men aged 50–70 (or 40–45 with strong family history or African ancestry) after discussion of: Benefits — may detect cancer earlier, potentially curative treatment. Harms — false positives (elevated PSA without cancer), unnecessary biopsies (bleeding, infection, pain), overdiagnosis (detection of clinically insignificant cancers that would never cause harm), overtreatment (incontinence, erectile dysfunction from unnecessary treatment). PSA interpretation: elevated PSA (>3 ng/mL) requires urology review — prostate MRI followed by targeted biopsy. Active surveillance is appropriate for low-risk disease to avoid overtreatment. Digital rectal examination (DRE) may be performed alongside PSA."
+  },
+  {
+    "q": "A patient on G-CSF (granulocyte colony-stimulating factor — filgrastim) asks what it is for and what to expect. What should the NP explain?",
+    "options": [
+      "G-CSF prevents nausea from chemotherapy",
+      "G-CSF stimulates bone marrow to produce neutrophils — used to prevent or treat febrile neutropenia, shorten the duration of chemotherapy-induced neutropenia, and enable dose-dense chemotherapy schedules; common side effect is bone pain (managed with paracetamol or antihistamines)",
+      "G-CSF is an antibiotic that prevents infection",
+      "G-CSF treats anaemia by stimulating red blood cell production"
+    ],
+    "correct": 1,
+    "explanation": "G-CSF (granulocyte colony-stimulating factor — filgrastim, lenograstim, pegfilgrastim) stimulates proliferation and differentiation of neutrophil precursors in the bone marrow. Uses: primary prophylaxis for FN (febrile neutropenia) when risk ≥20% based on chemotherapy regimen + patient factors; secondary prophylaxis after a prior FN episode; dose-dense chemotherapy scheduling (e.g., AC-T q2 weeks for breast cancer); stem cell mobilisation before autologous stem cell transplant. Timing: commence 24–72 hours after chemotherapy (not during chemotherapy — mobilises stem cells that are then killed by chemo). Duration: until post-nadir ANC ≥2.0 × 10⁹/L. Pegfilgrastim (long-acting): single dose per cycle vs daily filgrastim — preferred for compliance. Side effects: bone pain (marrow expansion — paracetamol 1g QID +/- loratadine 10mg; avoid NSAIDs in some protocols), headache, injection site reactions. Splenomegaly (rare with prolonged use)."
+  }
+]
