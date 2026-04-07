@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 58-year-old male presents with sudden onset severe left first MTP joint pain, swelling, and erythema after a celebratory dinner. He takes hydrochlorothiazide for hypertension. Serum uric acid is 0.52 mmol/L. What is the diagnosis and most appropriate acute treatment?",
+    "options": [
+      "Septic arthritis — joint aspiration and IV antibiotics urgently",
+      "Acute gout — NSAIDs (naproxen or indomethacin) first-line if no contraindications; colchicine as alternative",
+      "Pseudogout — IV corticosteroids required",
+      "Cellulitis — oral cefalexin"
+    ],
+    "correct": 1,
+    "explanation": "Classic presentation of acute gout — first MTP joint (podagra), acute onset, after dietary excess, on a thiazide diuretic (raises uric acid). Note: serum uric acid is often normal or low during an acute attack — do not use it to rule out gout. Joint aspiration is the gold standard for diagnosis (negatively birefringent crystals) but not always necessary for typical presentations. Acute treatment: NSAIDs (naproxen 500mg BD or indomethacin 50mg TDS) for 5–7 days if no contraindications. Colchicine 1mg then 0.5mg 1 hour later is equally effective. Do not start or change allopurinol during an acute attack."
+  },
+  {
+    "q": "Which of the following correctly describes the Sepsis Six bundle?",
+    "options": [
+      "Six antibiotics used in combination for broad-spectrum coverage",
+      "Give oxygen, take blood cultures, give IV antibiotics, give IV fluids, measure lactate, and monitor urine output — all within 1 hour of sepsis recognition",
+      "Six criteria for diagnosing sepsis on clinical examination",
+      "A 6-hour monitoring protocol for stable infection"
+    ],
+    "correct": 1,
+    "explanation": "The Sepsis Six is a care bundle performed within 1 hour of sepsis recognition: 1) Give high-flow oxygen (target SpO2 >94%), 2) Take blood cultures (before antibiotics — do not delay antibiotics for cultures), 3) Give IV broad-spectrum antibiotics, 4) Give IV crystalloid fluid challenge (500mL bolus), 5) Measure serum lactate (>2 mmol/L suggests tissue hypoperfusion), 6) Monitor urine output (catheterise if needed — target >0.5mL/kg/hr). Each hour of delay in antibiotics in septic shock increases mortality by approximately 7%."
+  },
+  {
+    "q": "A 65-year-old woman on long-term prednisolone for rheumatoid arthritis develops severe vomiting and diarrhoea from a gastroenteritis. She presents hypotensive (BP 88/54), confused, and with abdominal pain. She has been unable to take her prednisolone for 2 days. What is the most likely diagnosis?",
+    "options": [
+      "Gastrointestinal perforation — urgent surgical review",
+      "Acute adrenal crisis (addisonian crisis) — IV hydrocortisone 100mg immediately, IV fluids, call 000",
+      "Septic shock — IV antibiotics first-line",
+      "Dehydration only — oral rehydration sufficient"
+    ],
+    "correct": 1,
+    "explanation": "Acute adrenal crisis is a life-threatening emergency in patients on chronic corticosteroids who cannot take their medications during acute illness. Chronic corticosteroid use suppresses the HPA axis — the adrenal glands cannot produce adequate cortisol during physiological stress. Classic presentation: hypotension, vomiting, abdominal pain, confusion in a steroid-dependent patient who has missed doses. Treatment: hydrocortisone 100mg IV or IM immediately — do not wait for investigations. IV saline resuscitation. Call 000. All steroid-dependent patients should have sick day rules: double or triple prednisolone dose during illness; IV hydrocortisone if vomiting prevents oral intake."
+  },
+  {
+    "q": "A 45-year-old woman presents with fatigue, pallor, and breathlessness on exertion for 3 months. FBE shows: Hb 78 g/L, MCV 72 fL, platelets normal, WCC normal. Iron studies: ferritin 6, transferrin saturation 8%, serum iron low. What is the diagnosis and what investigation must be performed?",
+    "options": [
+      "B12 deficiency — start B12 injections immediately",
+      "Iron deficiency anaemia — treat with oral iron and investigate the source (GI malignancy must be excluded in adults)",
+      "Thalassaemia — genetic counselling",
+      "Anaemia of chronic disease — no further investigation needed"
+    ],
+    "correct": 1,
+    "explanation": "Microcytic anaemia (MCV 72) with low ferritin (6) and low transferrin saturation is iron deficiency anaemia. In an adult woman, common causes are menorrhagia and dietary deficiency — but GI malignancy (colorectal cancer) must be excluded, particularly in patients over 50 or with symptoms (weight loss, change in bowel habit, rectal bleeding). Treat with ferrous sulfate 325mg daily and investigate the source. Premenopausal women — assess menstrual blood loss. Post-menopausal women and all men — colonoscopy and upper GI endoscopy to exclude occult GI blood loss. Do not simply replace iron without finding the cause."
+  },
+  {
+    "q": "A 78-year-old woman presents with a 3-week history of new temporal headache, jaw pain on chewing, and scalp tenderness. ESR is 88 mm/hr, CRP 64. What is the diagnosis and immediate treatment?",
+    "options": [
+      "Tension headache — analgesia and review in 4 weeks",
+      "Giant cell arteritis — commence prednisolone 1mg/kg/day (up to 60mg) immediately; urgent ophthalmology referral; temporal artery biopsy within 2 weeks",
+      "Trigeminal neuralgia — carbamazepine",
+      "Migraine — sumatriptan"
+    ],
+    "correct": 1,
+    "explanation": "New temporal headache, jaw claudication, and scalp tenderness in a patient >50 with elevated ESR and CRP is giant cell arteritis (GCA) until proven otherwise. Start prednisolone 1mg/kg/day immediately — visual loss (ischaemic optic neuropathy causing irreversible blindness) can occur without warning and is prevented by prompt corticosteroid treatment. Do not wait for temporal artery biopsy. Biopsy can be performed within 2 weeks of starting steroids without significantly affecting the result. If visual symptoms are present — increase to 1g IV methylprednisolone. Urgent ophthalmology referral."
+  },
+  {
+    "q": "A patient with known type 1 diabetes presents confused, vomiting, with a blood glucose of 28 mmol/L and blood ketones of 4.2 mmol/L. BP 98/62, HR 122. What is the diagnosis and management?",
+    "options": [
+      "Hyperosmolar hyperglycaemic state — give insulin only",
+      "Diabetic ketoacidosis (DKA) — emergency transfer for IV fluids, IV insulin, electrolyte replacement, and monitoring",
+      "Hypoglycaemia — give oral glucose immediately",
+      "Alcoholic ketoacidosis — IV glucose and thiamine"
+    ],
+    "correct": 1,
+    "explanation": "DKA criteria: glucose >11 mmol/L, blood ketones ≥3.0 mmol/L or urinary ketones 2+, pH <7.3 or bicarbonate <15. This patient has DKA with haemodynamic compromise. Emergency transfer — IV fluid resuscitation (0.9% saline), IV insulin infusion (do not use subcutaneous insulin for DKA), potassium replacement (hypokalaemia worsens with insulin), close monitoring. Common precipitants: infection, missed insulin, new diagnosis T1DM. HHS (hyperosmolar hyperglycaemic state) occurs in T2DM — no significant ketones, extremely high glucose (>30), severe dehydration, no acidosis. Different management approach."
+  },
+  {
+    "q": "A 55-year-old man presents with acute monoarthritis of the right knee — hot, swollen, and exquisitely tender. He is febrile (38.6°C), WCC 18.2. He has no history of gout. What is the most important diagnosis to exclude and how?",
+    "options": [
+      "Gout — start colchicine immediately",
+      "Septic arthritis — urgent joint aspiration for culture and sensitivity; do not delay; start IV antibiotics after aspiration",
+      "Pseudogout — MRI knee",
+      "Reactive arthritis — test for STIs"
+    ],
+    "correct": 1,
+    "explanation": "Fever with acute monoarthritis is septic arthritis until proven otherwise — a joint-threatening emergency. Joint aspiration is mandatory: WCC >50,000/mm³, turbid fluid, and positive Gram stain or culture confirm septic arthritis. Do not delay joint aspiration. Start IV antibiotics (flucloxacillin covering Staph aureus, or ceftriaxone if gonococcal suspected or allergy) after aspiration — do not delay antibiotics waiting for cultures. Septic arthritis can destroy a joint within 24–48 hours. Gout, pseudogout, and reactive arthritis are diagnoses of exclusion when infection has been ruled out."
+  },
+  {
+    "q": "A 68-year-old male with no previous cardiac history presents with fever, a new cardiac murmur, and small splinter haemorrhages under his fingernails. He is a renal dialysis patient. What is the most likely diagnosis and initial investigation?",
+    "options": [
+      "Rheumatic fever — throat swab and ASO titre",
+      "Infective endocarditis — blood cultures x3 (before antibiotics), urgent echocardiography, and cardiology/infectious disease referral",
+      "Atrial fibrillation — 12-lead ECG",
+      "Drug reaction — cease all medications"
+    ],
+    "correct": 1,
+    "explanation": "Fever, new cardiac murmur, and peripheral stigmata (splinter haemorrhages, Osler's nodes, Janeway lesions, Roth spots) in a high-risk patient (dialysis patient — high bacteraemia risk from vascular access) is infective endocarditis until proven otherwise. Duke Criteria for diagnosis. Investigations: blood cultures x3 sets from different sites before antibiotics, transthoracic and/or transoesophageal echocardiography. Treatment: prolonged IV antibiotics (4–6 weeks) guided by cultures — requires cardiology and/or infectious disease consultation. Empirical: flucloxacillin + gentamicin or vancomycin if MRSA risk."
+  },
+  {
+    "q": "A 50-year-old woman presents with fatigue, weight gain, constipation, cold intolerance, and dry skin for 6 months. She has a mildly elevated TSH of 8.2 mIU/L and low free T4. What is the diagnosis and management?",
+    "options": [
+      "Normal thyroid function — TSH <10 does not require treatment",
+      "Hypothyroidism — commence levothyroxine 25–50 mcg daily, titrate to normalise TSH",
+      "Hyperthyroidism — start carbimazole",
+      "Thyroid cancer — urgent ultrasound and biopsy"
+    ],
+    "correct": 1,
+    "explanation": "Elevated TSH with low free T4 and symptoms confirms primary hypothyroidism. Commence levothyroxine 25–50 mcg daily in the morning on an empty stomach. Start low and titrate — especially in elderly or those with cardiac disease (risk of precipitating angina or arrhythmia with rapid normalisation). Recheck TSH 6–8 weeks after starting or any dose change. Target TSH 0.5–2.5 mIU/L. Common causes: Hashimoto's thyroiditis (check anti-TPO antibody), previous radioiodine or thyroid surgery, medications (amiodarone, lithium). Subclinical hypothyroidism (elevated TSH, normal T4, no symptoms) — consider treating if TSH >10 or symptomatic or pregnant."
+  },
+  {
+    "q": "A 35-year-old woman presents with fatigue, pallor, tingling in her hands and feet, and a sore tongue. FBE shows: Hb 82 g/L, MCV 108 fL, hypersegmented neutrophils on film. What investigation confirms the diagnosis?",
+    "options": [
+      "Iron studies — iron deficiency is the most common anaemia",
+      "Serum vitamin B12 and folate levels — macrocytic anaemia with neurological symptoms suggests B12 deficiency",
+      "Haemoglobin electrophoresis — thalassaemia",
+      "Bone marrow biopsy immediately"
+    ],
+    "correct": 1,
+    "explanation": "Macrocytic anaemia (MCV >100), hypersegmented neutrophils, neurological symptoms (peripheral neuropathy — tingling), and glossitis (sore tongue) is classic B12 deficiency. Serum B12 and folate levels confirm the diagnosis. B12 deficiency causes subacute combined degeneration of the spinal cord if untreated — neurological damage may be irreversible. Causes: pernicious anaemia (autoimmune — anti-intrinsic factor antibody), strict veganism, gastrectomy, ileal disease (Crohn's), metformin use. Treatment: IM hydroxocobalamin 1000mcg 3 times/week for 2 weeks, then monthly (if malabsorption). Oral B12 if dietary cause."
+  },
+  {
+    "q": "A 25-year-old woman with known SLE presents with a butterfly rash, fever, arthralgia, and new onset proteinuria (PCR 450 mg/mmol). What does the new proteinuria suggest and what is the appropriate action?",
+    "options": [
+      "Incidental finding — repeat in 12 months",
+      "Lupus nephritis — urgent rheumatology referral; renal biopsy likely required to guide treatment",
+      "UTI causing proteinuria — urine MCS and antibiotics",
+      "Pre-eclampsia — check blood pressure and pregnancy test"
+    ],
+    "correct": 1,
+    "explanation": "New significant proteinuria in a patient with SLE suggests lupus nephritis — a serious complication affecting 50% of SLE patients and a leading cause of morbidity and mortality. Urgent rheumatology referral for renal biopsy (classifies nephritis class I–VI — guides treatment intensity). Treatment: hydroxychloroquine for all SLE, mycophenolate or cyclophosphamide for Class III–V nephritis, corticosteroids. Early treatment prevents progression to end-stage renal disease. Always check ANA, anti-dsDNA (marker of disease activity), and complement (C3, C4 — low in active nephritis)."
+  },
+  {
+    "q": "Which of the following correctly describes the management of anaphylaxis in an adult?",
+    "options": [
+      "Antihistamine (promethazine) IM is first-line — adrenaline is only for severe reactions",
+      "Adrenaline (epinephrine) 0.5mg IM (1:1000 solution) into the outer mid-thigh is the ONLY first-line treatment — give immediately, call 000",
+      "IV corticosteroids first-line — adrenaline only if no response",
+      "Oxygen and IV fluids — adrenaline is contraindicated in cardiac patients"
+    ],
+    "correct": 1,
+    "explanation": "Adrenaline (epinephrine) is the ONLY first-line treatment for anaphylaxis — antihistamines and corticosteroids are adjuncts only and must NEVER delay adrenaline. Dose: 0.5mg (0.5mL of 1:1000 solution) IM into the outer mid-thigh. Repeat every 5 minutes if no improvement. Call 000. Position supine (or sitting if respiratory distress). IV access and fluids for hypotension. Oxygen. Adjuncts after adrenaline: promethazine, hydrocortisone. Biphasic reaction occurs in up to 20% — observe for minimum 4–6 hours after resolution. Prescribe adrenaline auto-injector (EpiPen) on discharge. ASCIA Action Plan."
+  },
+  {
+    "q": "A 60-year-old male on warfarin for AF presents with INR 7.8. He has no bleeding. What is the correct management?",
+    "options": [
+      "Give vitamin K 10mg IV immediately — reverse fully",
+      "Withhold 1–2 doses of warfarin; low-dose oral vitamin K 1–2mg if rapid reversal desired; recheck INR in 24–48 hours",
+      "Continue warfarin unchanged — INR will self-correct",
+      "Start heparin while reducing warfarin"
+    ],
+    "correct": 1,
+    "explanation": "Supratherapeutic INR management depends on INR level and bleeding status. INR 5–9 without bleeding: withhold 1–2 doses warfarin; consider oral vitamin K 1–2mg for faster reversal; recheck INR in 24–48 hours; identify and address precipitating factors (new drug interaction, dietary change, illness). INR >9 without bleeding: withhold warfarin; oral vitamin K 5mg; daily INR until therapeutic. Any major bleeding regardless of INR: 4-factor PCC (Prothrombinex) + vitamin K 5mg IV. Do not over-reverse — subtherapeutic INR in AF increases stroke risk."
+  },
+  {
+    "q": "A 45-year-old man with gout has had 4 attacks in 12 months. His serum urate is 0.54 mmol/L. He is not on urate-lowering therapy. When should allopurinol be started?",
+    "options": [
+      "Start immediately during the current acute attack",
+      "Start 4–6 weeks after the acute attack has completely resolved; target uric acid <0.36 mmol/L; start low and titrate slowly",
+      "Allopurinol is not indicated — dietary modification only for recurrent gout",
+      "Start only if the patient has tophi"
+    ],
+    "correct": 1,
+    "explanation": "Urate-lowering therapy (ULT) is indicated for: ≥2 attacks per year, tophi, uric acid nephrolithiasis, or chronic gouty arthropathy. Starting or stopping allopurinol during an acute attack can prolong or precipitate attacks — start 4–6 weeks after complete resolution. Start allopurinol at 50–100mg daily and titrate slowly (every 4 weeks) to target uric acid <0.36 mmol/L. Co-prescribe colchicine or NSAID prophylaxis for 3–6 months after starting allopurinol to prevent attack precipitation. Dose-reduce in renal impairment. HLA-B*5801 testing recommended in Southeast Asian patients before starting (Stevens-Johnson syndrome risk)."
+  },
+  {
+    "q": "A 55-year-old woman with no significant past history presents with bilateral proximal shoulder and hip girdle aching and stiffness, worse in the morning (lasting >1 hour) for 8 weeks. ESR 72, CRP 48. She has no joint swelling and normal strength. What is the most likely diagnosis?",
+    "options": [
+      "Fibromyalgia — no inflammatory markers",
+      "Polymyalgia rheumatica — start prednisolone 15mg daily; dramatic response expected within days",
+      "Rheumatoid arthritis — start methotrexate",
+      "Hypothyroidism — check TSH"
+    ],
+    "correct": 1,
+    "explanation": "PMR presents in patients >50 with proximal limb girdle aching and stiffness (shoulder and hip), morning stiffness >45 minutes, elevated ESR/CRP, and normal muscle strength (distinguishes from inflammatory myopathy). Dramatic response to low-dose prednisolone (15mg/day) is both diagnostic and therapeutic — if no response within 1 week, reconsider diagnosis. Taper slowly over 12–24 months — most patients require 2 years of treatment. Screen for GCA symptoms at every visit (15–20% have concurrent GCA). PMR can be the initial presentation of GCA — escalate prednisolone dose if jaw claudication or visual symptoms develop."
+  },
+  {
+    "q": "A patient presents with sodium of 122 mmol/L. They are confused and have had two generalised seizures. What is the correct approach?",
+    "options": [
+      "Rapid correction of sodium with 3% hypertonic saline to normal range as quickly as possible",
+      "Emergency transfer — symptomatic severe hyponatraemia requires urgent controlled correction; rapid overcorrection risks osmotic demyelination syndrome (central pontine myelinolysis)",
+      "Fluid restrict to 1 litre per day — will self-correct",
+      "IV normal saline at full rate to correct rapidly"
+    ],
+    "correct": 1,
+    "explanation": "Symptomatic severe hyponatraemia (seizures, coma) requires emergency management but controlled correction. Rate of correction must not exceed 8–10 mmol/L per 24 hours — rapid overcorrection causes osmotic demyelination syndrome (ODS/CPM), resulting in severe irreversible neurological damage. Emergency transfer for ICU-level management. Acute symptomatic hyponatraemia: 3% hypertonic saline given carefully with neurological monitoring. Identify cause: SIADH (most common), hypothyroidism, adrenal insufficiency, heart failure, cirrhosis, medications (SSRIs, thiazides, carbamazepine). Treatment depends on cause and osmolality."
+  },
+  {
+    "q": "Which of the following is the correct sick day management advice for a patient with type 2 diabetes on metformin and an SGLT2 inhibitor (empagliflozin)?",
+    "options": [
+      "Continue all medications as normal during illness",
+      "Withhold metformin and SGLT2 inhibitor during acute illness with vomiting, dehydration, or reduced oral intake — resume when recovered and drinking normally",
+      "Double the SGLT2 inhibitor dose to maintain glucose control during illness",
+      "SGLT2 inhibitors can never be withheld — they are cardioprotective"
+    ],
+    "correct": 1,
+    "explanation": "Sick day rules for T2DM: Withhold metformin during acute illness with vomiting/dehydration (AKI risk — lactic acidosis with metformin). Withhold SGLT2 inhibitors (empagliflozin, dapagliflozin, canagliflozin) during acute illness — risk of euglycaemic DKA (normal blood glucose but significant ketone production). SGLT2 inhibitor-associated DKA is a serious, potentially life-threatening complication that may be missed because glucose is not markedly elevated. Withhold SGLT2i if: vomiting, unable to eat, febrile illness, planned surgery, or significant dehydration. Resume when fully recovered and tolerating oral intake."
+  },
+  {
+    "q": "A 30-year-old male recently returned from Southeast Asia presents with fever 39.8°C, rigors, headache, and myalgia for 5 days. He did not take malaria prophylaxis. What is the most appropriate initial investigation?",
+    "options": [
+      "Blood cultures only — fever in returned traveller is likely bacterial",
+      "Malaria thick and thin blood films (x3, 12–24 hours apart), malaria rapid antigen test, and dengue NS1 antigen and serology (IgM/IgG)",
+      "CXR and urine MCS — pneumonia and UTI most common",
+      "Liver function tests only — tropical hepatitis likely"
+    ],
+    "correct": 1,
+    "explanation": "Fever in a returned traveller requires consideration of tropical infections. Malaria: thick and thin blood films (most sensitive — if negative and high suspicion, repeat x3 over 48–72 hours as parasitaemia may be below detection threshold), PLUS malaria rapid antigen test (fast but less sensitive). Dengue: NS1 antigen (positive days 1–5), IgM/IgG serology (positive from day 4–5). Other considerations: typhoid (Widal test, blood cultures), rickettsia, leptospirosis. Always take a detailed travel itinerary and activities history. Malaria is life-threatening if missed — have a low threshold for blood film."
+  },
+  {
+    "q": "A 62-year-old female presents with confusion, polyuria, polydipsia, constipation, and nausea. Corrected calcium is 3.1 mmol/L. Parathyroid hormone is elevated. What is the most likely diagnosis and management?",
+    "options": [
+      "Hypocalcaemia — IV calcium gluconate urgently",
+      "Primary hyperparathyroidism causing hypercalcaemia — mild cases: monitor; calcium >3.0 with symptoms: refer to endocrinology for consideration of parathyroidectomy; IV fluids for acute hypercalcaemia",
+      "Hypoparathyroidism — oral calcium and calcitriol",
+      "Malignancy-associated hypercalcaemia — zoledronic acid immediately"
+    ],
+    "correct": 1,
+    "explanation": "Elevated PTH with hypercalcaemia is primary hyperparathyroidism — the most common cause of hypercalcaemia in the outpatient setting. Symptoms: 'bones, groans, moans, and psychic overtones' — bone pain, GI symptoms (nausea, constipation), polyuria/polydipsia, neuropsychiatric symptoms (confusion, depression). Calcium 3.1 with symptoms warrants referral to endocrinology — parathyroidectomy is the only curative treatment. For acute hypercalcaemia: IV saline is the most important initial treatment. Malignancy-associated hypercalcaemia: low or suppressed PTH, high calcium — IV zoledronic acid."
+  },
+  {
+    "q": "A patient with rheumatoid arthritis on methotrexate 20mg weekly presents for routine monitoring. What blood tests are required and why?",
+    "options": [
+      "No monitoring needed — methotrexate is safe long-term",
+      "FBE, LFTs, and renal function — methotrexate causes bone marrow suppression, hepatotoxicity, and renal clearance; regular monitoring detects early toxicity",
+      "Blood glucose and lipids only — metabolic syndrome risk",
+      "CRP and ESR only — to monitor disease activity"
+    ],
+    "correct": 1,
+    "explanation": "Methotrexate monitoring is mandatory — toxicity is preventable with regular review. Monitor every 1–3 months: FBE (bone marrow suppression — cytopenias), LFTs (hepatotoxicity — cumulative dose risk, especially with alcohol use), and renal function (methotrexate is renally cleared — renal impairment increases toxicity risk). Also: folic acid 5mg weekly (reduces side effects without affecting efficacy), counsel to avoid alcohol, counsel about pregnancy (teratogenic — contraception essential). Withhold methotrexate and review urgently if: WCC <3.5, neutrophils <2.0, platelets <150, ALT >3x ULN, or creatinine rises significantly."
+  }
+]

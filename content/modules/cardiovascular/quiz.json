@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 70-year-old male smoker has a pulsatile expansile mass on abdominal palpation. Ultrasound shows an abdominal aortic aneurysm measuring 4.2cm. He is asymptomatic. What is the appropriate management?",
+    "options": [
+      "Urgent surgical repair — all AAA require immediate intervention",
+      "Surveillance ultrasound every 12 months; aggressive cardiovascular risk factor management; refer to vascular surgery when diameter reaches 5.5cm or if rapid expansion",
+      "Reassure — AAA under 5cm never rupture",
+      "CT angiography and surgical planning this week"
+    ],
+    "correct": 1,
+    "explanation": "Asymptomatic AAA 4.0–5.4cm in men is managed with surveillance ultrasound (every 12 months for 4.0–4.9cm, every 6 months for 5.0–5.4cm) and aggressive risk factor management (smoking cessation, statin, BP control). Surgical repair (EVAR or open) is indicated when diameter ≥5.5cm in men (≥5.0cm in women), rapid expansion (>1cm/year), or symptomatic. The annual rupture risk for 4–5cm AAA is approximately 1% — versus the surgical mortality risk. Refer to vascular surgery for planning as the aneurysm approaches repair threshold."
+  },
+  {
+    "q": "A patient's Wells Score for DVT is 3. What is the appropriate next investigation?",
+    "options": [
+      "D-dimer — if negative, DVT excluded",
+      "Compression duplex ultrasound directly — high pre-test probability, D-dimer not useful",
+      "CT pulmonary angiogram — suspect PE",
+      "MRI lower limb"
+    ],
+    "correct": 1,
+    "explanation": "Wells Score ≥2 = high probability DVT — proceed directly to compression duplex ultrasound. D-dimer is only useful as a rule-out test in LOW probability cases (Wells ≤1) — a negative D-dimer in low probability effectively excludes DVT. In high probability patients, D-dimer will almost certainly be positive (poor specificity) and does not change management — ultrasound is required regardless. If proximal ultrasound is negative but clinical suspicion remains high, repeat ultrasound in 1 week or proceed to MRI venography."
+  },
+  {
+    "q": "Which first-line anticoagulant is recommended for treatment of DVT in a patient with no contraindications?",
+    "options": [
+      "Warfarin with heparin bridging",
+      "Rivaroxaban or apixaban (DOACs) — no bridging required, fixed dosing, no INR monitoring",
+      "Unfractionated heparin IV infusion",
+      "Fondaparinux subcutaneous only"
+    ],
+    "correct": 1,
+    "explanation": "Direct oral anticoagulants (DOACs) — rivaroxaban (15mg BD for 3 weeks then 20mg daily) or apixaban (10mg BD for 7 days then 5mg BD) — are first-line for DVT treatment. Advantages over warfarin: no bridging required (immediate therapeutic effect), fixed dosing, no INR monitoring, fewer food and drug interactions, and similar or superior efficacy/safety. Avoid DOACs in: severe renal impairment, antiphospholipid syndrome, pregnancy, and cancer-associated VTE (specific guidelines apply)."
+  },
+  {
+    "q": "A 68-year-old woman presents with sudden onset right arm weakness and speech difficulty lasting 45 minutes, now fully resolved. ABCD2 score is 5. What is the immediate management?",
+    "options": [
+      "Arrange MRI brain as an outpatient in 2 weeks",
+      "Aspirin 300mg immediately; same-day urgent TIA assessment including carotid imaging and neurology review",
+      "Reassure — symptoms have resolved, no further action needed",
+      "Start anticoagulation with rivaroxaban immediately"
+    ],
+    "correct": 1,
+    "explanation": "TIA is a medical emergency — 10% risk of stroke within 2 days, highest in first 48 hours. ABCD2 score ≥4 = high risk — requires same-day urgent assessment. Immediate aspirin 300mg. Urgent carotid duplex and brain imaging (MRI preferred). If significant carotid stenosis (50–99%) — carotid endarterectomy within 2 weeks reduces stroke risk by 50–70%. Start dual antiplatelet therapy short-term (aspirin + clopidogrel for 21 days then clopidogrel alone). Identify and treat AF (anticoagulation if AF-related TIA). Do not delay — 'time is brain.'"
+  },
+  {
+    "q": "What is the correct interpretation of an ankle-brachial index (ABI) of 0.65?",
+    "options": [
+      "Normal — ABI >0.9 is normal, 0.65 is within range",
+      "Moderate peripheral arterial disease — ABI 0.5–0.79 indicates moderate PAD; symptoms likely present",
+      "Severe PAD — critical limb ischaemia",
+      "Falsely elevated due to arterial calcification — common in diabetes"
+    ],
+    "correct": 1,
+    "explanation": "ABI interpretation: ≥1.0 normal, 0.9–0.99 borderline, 0.7–0.89 mild PAD, 0.5–0.69 moderate PAD (claudication common), <0.5 severe PAD (rest pain/critical ischaemia risk). ABI 0.65 = moderate PAD with likely claudication symptoms. Falsely elevated ABI (>1.3) occurs in heavily calcified vessels (diabetes, renal failure) — toe-brachial index more reliable in this context. All patients with ABI <0.9 should receive antiplatelet therapy and statin regardless of symptoms."
+  },
+  {
+    "q": "A 58-year-old woman has a fasting LDL of 4.8 mmol/L on two occasions. Her CVD risk score is 8% (intermediate risk). Her mother had a MI at 55. What should be considered?",
+    "options": [
+      "Lifestyle advice only — CVD risk is intermediate, not high enough for statin",
+      "Screen for familial hypercholesterolaemia (FH) — LDL ≥4.9 mmol/L with family history of premature CVD should prompt FH assessment; statin therapy indicated",
+      "Retest in 12 months before any intervention",
+      "Commence fibrate therapy — first-line for high LDL"
+    ],
+    "correct": 1,
+    "explanation": "Familial hypercholesterolaemia (FH) should be considered when: LDL ≥4.9 mmol/L, premature CVD in a first-degree relative (<55 years male, <65 years female), or tendon xanthomas. FH patients have lifelong elevated LDL exposure and high CVD risk — statin therapy is indicated regardless of calculated CVD risk score (which underestimates risk in FH). Refer to specialist lipid clinic. Cascade screening of first-degree relatives is important — FH is autosomal dominant. High-intensity statin (rosuvastatin 20–40mg or atorvastatin 40–80mg) is required."
+  },
+  {
+    "q": "Which medication is contraindicated in acute limb ischaemia caused by cocaine use?",
+    "options": [
+      "Heparin anticoagulation",
+      "Beta-blockers — cause unopposed alpha-adrenergic vasoconstriction worsening ischaemia",
+      "Aspirin",
+      "IV morphine for pain management"
+    ],
+    "correct": 1,
+    "explanation": "Beta-blockers are contraindicated in cocaine-associated cardiovascular complications — they cause unopposed alpha-adrenergic stimulation resulting in paradoxical vasoconstriction and worsening ischaemia (and hypertension). This applies to acute limb ischaemia, cocaine-induced chest pain, and cocaine-related hypertension. Benzodiazepines are preferred for reducing sympathetic drive. Vasodilators (GTN, phentolamine) and calcium channel blockers are appropriate alternatives. Always ask about recent cocaine use in young patients presenting with acute vascular events."
+  },
+  {
+    "q": "A 55-year-old male has established coronary artery disease (previous CABG). His current LDL is 2.4 mmol/L on atorvastatin 40mg. What is the target LDL and management?",
+    "options": [
+      "LDL 2.4 mmol/L is acceptable — no change needed",
+      "Target LDL <1.8 mmol/L for secondary prevention — intensify statin (atorvastatin 80mg or rosuvastatin 40mg) or add ezetimibe",
+      "Stop statin — LDL is within normal laboratory range",
+      "Add fibrate therapy to the statin"
+    ],
+    "correct": 1,
+    "explanation": "Secondary CVD prevention target LDL is <1.8 mmol/L (or >50% reduction from baseline) per Australian Heart Foundation guidelines. Established CAD (post-CABG) is very high risk. LDL 2.4 mmol/L is above target. Options: intensify statin to maximum tolerated dose (atorvastatin 80mg or rosuvastatin 40mg), add ezetimibe 10mg if statin is already maximised, or add PCSK9 inhibitor (evolocumab, alirocumab) for patients at very high risk not achieving target. Recheck lipids 6–8 weeks after any change."
+  },
+  {
+    "q": "What are the key components of the Wells Score for DVT?",
+    "options": [
+      "Age, sex, weight, smoking history",
+      "Active cancer (+1), paralysis or recent cast (+1), bedrest >3 days or major surgery within 12 weeks (+1), tenderness along deep vein (+1), entire leg swollen (+1), calf swelling >3cm compared to other leg (+1), pitting oedema in symptomatic leg (+1), collateral superficial veins (+1), previous DVT (+1), alternative diagnosis equally or more likely (-2)",
+      "HR, BP, O2 saturation, chest pain",
+      "Temperature, WCC, CRP, D-dimer"
+    ],
+    "correct": 1,
+    "explanation": "The Wells DVT Score uses clinical findings to estimate pre-test probability. Key items include: active cancer, recent immobilisation or surgery, localised tenderness along the deep venous system, calf swelling >3cm asymmetry, pitting oedema, collateral superficial veins, and prior DVT. The alternative diagnosis criterion (-2) is important — if another diagnosis (e.g. cellulitis, muscle tear) is equally or more likely, subtract 2 points. Score ≤1 = low probability (D-dimer first); ≥2 = high probability (ultrasound directly)."
+  },
+  {
+    "q": "A 72-year-old woman presents with a painful, ulcerated wound on the medial aspect of her right ankle. She has visible varicose veins and a history of DVT 10 years ago. ABI is 0.92. What is the diagnosis and management?",
+    "options": [
+      "Arterial ulcer — urgent vascular surgery referral",
+      "Venous leg ulcer — graduated compression therapy (40mmHg) is the cornerstone of treatment",
+      "Diabetic foot ulcer — check blood glucose and refer to podiatry",
+      "Pressure ulcer — off-loading and foam dressing"
+    ],
+    "correct": 1,
+    "explanation": "Medial gaiter distribution, irregular sloping edges, surrounding haemosiderin staining and lipodermatosclerosis (woody induration), varicose veins, and DVT history are classic features of a venous leg ulcer. ABI 0.92 (≥0.8) confirms adequate arterial supply — compression therapy is safe and indicated. Four-layer bandaging or high-compression stockings (40mmHg at ankle) are the cornerstone — reduce venous hypertension and promote healing. Arterial ulcers occur on the toes/heel, have punched-out edges, are painful, and occur with low ABI — do not apply compression."
+  },
+  {
+    "q": "Which of the following is the most important modifiable risk factor for peripheral arterial disease progression?",
+    "options": [
+      "Hypertension",
+      "Smoking — the single most important risk factor; cessation slows progression and reduces amputation risk",
+      "Dyslipidaemia",
+      "Obesity"
+    ],
+    "correct": 1,
+    "explanation": "Smoking is the most important modifiable risk factor for PAD — it contributes to approximately 90% of PAD cases. Smoking cessation dramatically reduces the risk of PAD progression, critical limb ischaemia, and amputation. The risk of claudication in smokers is 4 times higher than non-smokers. NPs should provide brief smoking cessation intervention at every encounter — offer NRT, varenicline, or bupropion. All risk factors are important, but smoking cessation has the greatest single impact on PAD outcomes."
+  },
+  {
+    "q": "A 60-year-old male with no personal CVD history has a 5-year CVD risk of 16% calculated on the Australian CVD risk calculator. Which statement correctly describes his management?",
+    "options": [
+      "He is intermediate risk — lifestyle advice only, no medication needed",
+      "He is high risk (>15%) — statin therapy and BP management recommended regardless of individual risk factor levels",
+      "Recheck in 5 years — no action needed until he has a cardiac event",
+      "Aspirin is recommended for primary prevention in all high-risk patients"
+    ],
+    "correct": 1,
+    "explanation": "Australian guidelines stratify CVD risk as: low <10%, intermediate 10–15%, high >15% 5-year risk. High-risk patients should receive statin therapy regardless of baseline LDL level. BP target <130/80 with medication if lifestyle insufficient. The absolute risk approach means treatment decisions are based on overall risk, not individual risk factor thresholds. Aspirin is NO longer recommended for primary prevention in most patients — the bleeding risk equals the CVD benefit. Aspirin is reserved for established CVD (secondary prevention) or specific high-risk circumstances."
+  },
+  {
+    "q": "What is the recommended duration of anticoagulation for a first unprovoked DVT?",
+    "options": [
+      "4 weeks — short course is sufficient",
+      "3 months — then stop",
+      "Minimum 3–6 months; extended therapy (indefinite) should be considered given recurrence risk of approximately 30% at 5 years — weigh bleeding risk vs recurrence risk",
+      "Lifelong anticoagulation mandatory for all unprovoked DVT"
+    ],
+    "correct": 2,
+    "explanation": "First unprovoked DVT: minimum 3–6 months anticoagulation. After completion, recurrence risk is approximately 10% at 1 year, 30% at 5 years. Extended (indefinite) anticoagulation should be discussed with the patient, weighing recurrence risk against bleeding risk. Factors favouring extended therapy: proximal DVT, male sex, elevated D-dimer after stopping anticoagulation, no identifiable provoking factor. Low bleeding risk patients may benefit from extended treatment with reduced-dose DOACs (rivaroxaban 10mg daily or apixaban 2.5mg BD). Shared decision-making is essential."
+  },
+  {
+    "q": "A patient with known PAD is on clopidogrel 75mg daily. Six months later they present with a TIA. What medication change should be considered?",
+    "options": [
+      "Stop clopidogrel — it is causing the TIA",
+      "Add aspirin to clopidogrel for 21 days (dual antiplatelet therapy) then continue clopidogrel alone long-term; urgent TIA workup",
+      "Switch to warfarin immediately",
+      "No medication change — TIA is unrelated to PAD treatment"
+    ],
+    "correct": 1,
+    "explanation": "Following TIA, dual antiplatelet therapy (aspirin 100mg + clopidogrel 75mg) for 21 days reduces early stroke risk by approximately 30% compared to monotherapy (POINT and CHANCE trials). After 21 days, return to clopidogrel monotherapy (superior to aspirin for secondary stroke prevention in patients with established atherosclerotic vascular disease). Urgent TIA workup is essential: carotid imaging, cardiac monitoring for AF (which would indicate anticoagulation instead of antiplatelet), and brain imaging."
+  },
+  {
+    "q": "Which lipid-lowering agent has proven cardiovascular mortality benefit independent of LDL reduction?",
+    "options": [
+      "Fibrates — reduce triglycerides",
+      "Statins — reduce LDL and have pleiotropic anti-inflammatory effects; reduce CVD events and mortality in high-risk patients",
+      "Niacin — raises HDL",
+      "Cholestyramine — bile acid sequestrant"
+    ],
+    "correct": 1,
+    "explanation": "Statins have the strongest evidence base for cardiovascular mortality reduction — multiple large RCTs demonstrate reduction in MI, stroke, and cardiovascular death in both primary and secondary prevention. The benefit is related to LDL reduction but also to pleiotropic effects (anti-inflammatory, plaque stabilisation, endothelial function). Fibrates reduce triglycerides and raise HDL but have not consistently shown mortality benefit. Ezetimibe and PCSK9 inhibitors also have cardiovascular outcome data. Statins are the cornerstone of pharmacological CVD prevention."
+  },
+  {
+    "q": "A 50-year-old woman is found to have a carotid bruit on auscultation. She is asymptomatic. What is the appropriate investigation and management?",
+    "options": [
+      "No investigation needed — carotid bruits are a normal finding",
+      "Carotid duplex ultrasound to quantify stenosis degree; refer to vascular surgery if stenosis ≥70% for consideration of carotid endarterectomy",
+      "CT angiography and urgent neurology review",
+      "Start anticoagulation with warfarin immediately"
+    ],
+    "correct": 1,
+    "explanation": "An asymptomatic carotid bruit should be investigated with duplex ultrasound to quantify stenosis. For asymptomatic carotid stenosis ≥70%: vascular surgery referral — carotid endarterectomy (CEA) may reduce stroke risk, though benefit is more modest than in symptomatic stenosis. For stenosis <70%: aggressive medical management (antiplatelet, statin, BP control, smoking cessation). For symptomatic carotid stenosis ≥50% (post-TIA or stroke): CEA within 2 weeks significantly reduces recurrent stroke risk. Note: a bruit does not reliably predict stenosis severity."
+  },
+  {
+    "q": "What is the primary mechanism by which SGLT2 inhibitors reduce cardiovascular events in patients with established cardiovascular disease?",
+    "options": [
+      "LDL cholesterol reduction",
+      "Multiple mechanisms — reduce preload and afterload (osmotic diuresis), reduce sympathetic activity, improve myocardial energy metabolism, reduce inflammation — largely independent of glucose-lowering effect",
+      "Blood pressure lowering only",
+      "Antiplatelet effect"
+    ],
+    "correct": 1,
+    "explanation": "SGLT2 inhibitors (empagliflozin, dapagliflozin, canagliflozin) reduce major adverse cardiovascular events (MACE) and heart failure hospitalisations in patients with established CVD or high cardiovascular risk. The mechanism is multifactorial and largely independent of glucose-lowering: osmotic diuresis reduces preload, natriuresis reduces afterload, direct cardiac effects improve myocardial metabolism, anti-inflammatory and anti-fibrotic effects. They also have proven nephroprotective effects. PBS-listed for T2DM with established CVD or high CVD risk, heart failure with reduced ejection fraction, and CKD with proteinuria."
+  },
+  {
+    "q": "A patient develops calf swelling and pain 5 days after a 14-hour international flight. Wells Score is 3. Ultrasound confirms proximal DVT. He has no other medical history. Which statement about anticoagulation is correct?",
+    "options": [
+      "This is a provoked DVT — 3 months of anticoagulation is standard, then reassess",
+      "This is unprovoked — anticoagulate for life",
+      "No anticoagulation needed — travel DVT always resolves spontaneously",
+      "Warfarin is mandatory for all travel-related DVT"
+    ],
+    "correct": 0,
+    "explanation": "Flight-associated DVT is a provoked DVT (transient risk factor — prolonged immobility). Three months of anticoagulation is standard for provoked proximal DVT. After 3 months, recurrence risk is lower than unprovoked DVT because the provoking factor is resolved. DOAC (rivaroxaban or apixaban) is first-line. Discuss prevention of future episodes: compression stockings during long flights, mobility exercises, adequate hydration. If recurrent provoked DVT or additional risk factors — consider extended therapy."
+  },
+  {
+    "q": "A 68-year-old male diabetic has an ABI of 1.4 bilaterally. He has symptoms of claudication. What does this ABI result indicate?",
+    "options": [
+      "Normal ABI — no PAD",
+      "Falsely elevated ABI due to arterial calcification (common in diabetes and renal failure) — toe-brachial index or duplex ultrasound should be performed to assess for PAD",
+      "Severe PAD — critical limb ischaemia",
+      "The result is impossible — ABI cannot exceed 1.3"
+    ],
+    "correct": 1,
+    "explanation": "ABI >1.3 is falsely elevated — caused by arterial calcification making the vessel incompressible. This is common in diabetes mellitus, chronic renal failure, and elderly patients. A falsely high ABI can mask significant PAD. When ABI >1.3 with symptoms suggestive of PAD, use the toe-brachial index (TBI) instead — toe arteries are less affected by calcification. TBI <0.7 is diagnostic of PAD. Duplex ultrasound can also directly assess stenosis. Never reassure a diabetic patient with claudication symptoms based on a high ABI alone."
+  },
+  {
+    "q": "Which of the following patients should receive aspirin for cardiovascular prevention?",
+    "options": [
+      "A 55-year-old with no CVD history and 12% 5-year CVD risk",
+      "A 65-year-old with established coronary artery disease (post-MI 2 years ago)",
+      "A 50-year-old healthy male with no CVD risk factors wanting to 'protect his heart'",
+      "All patients over 60 years regardless of CVD history"
+    ],
+    "correct": 1,
+    "explanation": "Aspirin is recommended for SECONDARY prevention only — patients with established CVD (prior MI, stroke, PAD, coronary revascularisation). In secondary prevention, aspirin reduces recurrent events by approximately 25%. Aspirin for PRIMARY prevention (no established CVD) is no longer recommended in most patients — the bleeding risk (GI haemorrhage, intracranial haemorrhage) equals or exceeds the cardiovascular benefit in the general population. Updated Australian Heart Foundation guidelines do not recommend aspirin for primary prevention. Exceptions may include very high-risk primary prevention patients — discuss with specialist."
+  }
+]

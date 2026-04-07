@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A patient scores 18 on the AUDIT questionnaire. What does this indicate and what is the appropriate response?",
+    "options": [
+      "Normal drinking — no intervention needed",
+      "Hazardous drinking — brief advice only",
+      "Likely alcohol use disorder — comprehensive assessment, brief intervention, and discussion of treatment options including pharmacotherapy",
+      "Immediate hospital admission required"
+    ],
+    "correct": 2,
+    "explanation": "AUDIT scores: 0–7 = low risk, 8–15 = hazardous/harmful drinking (brief intervention), 16–19 = high-risk drinking (brief counselling and monitoring), 20–40 = likely dependence (referral to specialist). A score of 18 indicates high-risk drinking consistent with alcohol use disorder — requires comprehensive assessment including dependence features, withdrawal history, physical examination, and discussion of treatment options. Pharmacotherapy (naltrexone, acamprosate) significantly improves outcomes and should be discussed."
+  },
+  {
+    "q": "A patient dependent on alcohol tells you they plan to stop drinking 'cold turkey' tonight at home. They report a seizure during their last withdrawal attempt. What is the most appropriate response?",
+    "options": [
+      "Support their decision — stopping drinking is always safe and positive",
+      "Advise against unsupervised abrupt cessation given seizure history — arrange urgent supervised withdrawal (inpatient or closely monitored community detox) and prescribe thiamine",
+      "Prescribe diazepam to take at home without review",
+      "Refer to AA — no medical management needed"
+    ],
+    "correct": 1,
+    "explanation": "A history of withdrawal seizure is a significant risk factor for further seizures and delirium tremens with subsequent withdrawal attempts. Unsupervised home detoxification is dangerous in this context. Arrange inpatient or intensive community-managed withdrawal with daily clinical review, CIWA-Ar monitoring, and symptom-triggered diazepam protocol. Prescribe thiamine before any glucose administration to prevent Wernicke's encephalopathy. If inpatient is unavailable, the patient must not attempt withdrawal alone — family or carer support is essential."
+  },
+  {
+    "q": "A person who injects drugs (PWID) presents to your clinic for wound management. You notice track marks and old injection sites. What is the most important additional health check to offer?",
+    "options": [
+      "Drug urine screen — to confirm substance use",
+      "Blood-borne virus (BBV) testing — hepatitis B, hepatitis C, and HIV serology",
+      "Chest X-ray for tuberculosis",
+      "Psychiatric assessment only"
+    ],
+    "correct": 1,
+    "explanation": "People who inject drugs have high rates of blood-borne virus (BBV) transmission from sharing injecting equipment. Hepatitis C affects approximately 50% of PWID in Australia. Hepatitis B and HIV are also prevalent. Offer BBV testing at every opportunity — HCV antibody and RNA (to confirm active infection), HBsAg/anti-HBs/anti-HBc, and HIV serology. HCV is now curable with DAA therapy (8–12 weeks, >95% cure). HBV vaccination if not immune. Needle and syringe program referral, naloxone prescription, and STI screening are also important harm reduction interventions."
+  },
+  {
+    "q": "What is the recommended treatment for opioid use disorder in Australian primary care?",
+    "options": [
+      "Methadone is the only approved opioid agonist treatment — must be dispensed daily at a pharmacy",
+      "Buprenorphine-naloxone (Suboxone) sublingual or monthly depot buprenorphine — NPs can prescribe with appropriate authority in most states",
+      "Naltrexone is the only evidence-based treatment — start immediately without medically supervised withdrawal",
+      "Residential rehabilitation is required before pharmacotherapy"
+    ],
+    "correct": 1,
+    "explanation": "Opioid agonist treatment (OAT) is the gold standard for opioid use disorder — significantly reduces mortality, illicit drug use, crime, and HIV/HCV transmission. Buprenorphine-naloxone (Suboxone) is first-line: partial opioid agonist with ceiling effect on respiratory depression — safer than methadone. Monthly depot formulations (Brixta, Sublocade) improve adherence and reduce diversion. NPs can prescribe buprenorphine in most Australian states with appropriate training and prescriber authority. Naltrexone (full antagonist) can be used for patients who have completed withdrawal and want to remain opioid-free — must not be started until fully withdrawn."
+  },
+  {
+    "q": "You recognise a patient as unresponsive with pinpoint pupils, slow respirations (4/min), and cyanosis in the waiting room. A companion says they used heroin 30 minutes ago. What are the immediate actions?",
+    "options": [
+      "Wait for paramedics to arrive before doing anything",
+      "Call 000, administer naloxone 400mcg IM or intranasal, perform rescue breathing if needed, position in recovery position if breathing resumes",
+      "Administer flumazenil — this is a benzodiazepine overdose",
+      "IV access only — naloxone is only for hospital use"
+    ],
+    "correct": 1,
+    "explanation": "Opioid overdose: call 000 immediately. Administer naloxone — 400mcg IM (preferred for fast onset) or intranasal (2mg if using 2mg/0.1mL formulation). Repeat every 2–3 minutes up to 3 doses if no response. Perform rescue breathing if apnoeic. Recovery position if breathing resumes. Stay until paramedics arrive — naloxone duration (60–90 min) is shorter than most opioids and the patient may re-sedate. All clinical settings should have naloxone available. Flumazenil is for benzodiazepine overdose — pinpoint pupils strongly suggest opioids."
+  },
+  {
+    "q": "Which statement about take-home naloxone in Australia is correct?",
+    "options": [
+      "Naloxone is a Schedule 8 drug and can only be administered by healthcare professionals",
+      "Naloxone is available over the counter at pharmacies without a prescription and NPs should prescribe it to all patients at risk of opioid overdose and their carers",
+      "Naloxone is only appropriate for people who use illicit opioids",
+      "Take-home naloxone increases opioid use by providing a safety net"
+    ],
+    "correct": 1,
+    "explanation": "Naloxone is available over the counter in Australian pharmacies (no prescription needed in most states). NPs should proactively prescribe take-home naloxone to: anyone on regular or high-dose opioids (prescribed or illicit), anyone with history of overdose, and their household contacts/carers. Evidence shows take-home naloxone saves lives without increasing opioid use. Include training on recognition of overdose and administration technique. The MATES program and peer-based naloxone distribution programs have significantly reduced overdose deaths in Australia."
+  },
+  {
+    "q": "A 38-year-old woman presents 36 hours after her last drink. She has been drinking 2 bottles of wine daily for 5 years. She is tremulous, diaphoretic, agitated, CIWA-Ar score 14, HR 108, BP 154/96. No hallucinations, no seizures yet. What is the most appropriate management?",
+    "options": [
+      "Reassurance only — mild withdrawal is self-limiting",
+      "Oral diazepam 20mg stat, repeat 10–20mg every 1–2 hours based on CIWA-Ar score; IV thiamine; admit or arrange hourly monitoring",
+      "Haloperidol 5mg IM for agitation",
+      "Oral naltrexone to reduce craving immediately"
+    ],
+    "correct": 1,
+    "explanation": "CIWA-Ar score 14 indicates moderate alcohol withdrawal — significant risk of progression to seizures or delirium tremens. Management: symptom-triggered diazepam protocol (loading dose 20mg oral, repeat 10–20mg every 1–2 hours until CIWA-Ar <8). Diazepam's long half-life provides self-tapering. IV thiamine 300mg before any glucose. Admit if: CIWA-Ar >15, seizure history, hallucinations, unable to take oral medications, social isolation, or comorbidities. Monitor closely — CIWA-Ar every hour. Haloperidol lowers seizure threshold — avoid in withdrawal."
+  },
+  {
+    "q": "Which of the following correctly describes the mechanism and indication for acamprosate in alcohol use disorder?",
+    "options": [
+      "Acamprosate is an opioid antagonist that reduces the rewarding effects of alcohol",
+      "Acamprosate modulates GABA and glutamate systems to reduce protracted withdrawal symptoms (dysphoria, anxiety, craving) — most effective when started after detoxification and continued for 6–12 months",
+      "Acamprosate causes an unpleasant reaction when alcohol is consumed",
+      "Acamprosate is a benzodiazepine used for acute withdrawal management"
+    ],
+    "correct": 1,
+    "explanation": "Acamprosate (Campral) modulates GABA and NMDA glutamate receptors to normalise the neurochemical dysregulation that persists for months after alcohol cessation — reducing protracted withdrawal symptoms including dysphoria, anxiety, and cravings. It is most effective when started after detoxification is complete. Dose: 666mg (2 tablets) TDS, regardless of size/weight. PBS-listed. Continue for 6–12 months. Works best in motivated patients committed to abstinence. Naltrexone (opioid antagonist) is the alternative — reduces alcohol reward and is suitable for patients who may drink occasionally. Disulfiram causes the aversion reaction."
+  },
+  {
+    "q": "A 22-year-old presents with acute agitation, paranoia, and visual hallucinations. His friend reports he smoked methamphetamine 3 hours ago. BP 172/108, HR 124, Temp 37.9°C. What is the most appropriate immediate management?",
+    "options": [
+      "Haloperidol 10mg IM immediately — antipsychotics are first-line",
+      "Place in a calm, quiet environment; oral or IV benzodiazepine (diazepam) for agitation first-line; monitor vitals; call 000 if not settling or deteriorating",
+      "Naloxone — this presentation is consistent with opioid toxicity",
+      "Discharge with GP follow-up — stimulant effects will wear off"
+    ],
+    "correct": 1,
+    "explanation": "Acute methamphetamine toxicity with agitation and psychosis: benzodiazepines (diazepam 5–10mg oral or IV) are first-line to reduce agitation and prevent complications (hyperthermia, seizure, rhabdomyolysis). Calm environment, low stimulation. If inadequate response to benzodiazepines — droperidol or olanzapine (antipsychotics). Avoid typical antipsychotics (haloperidol) as first-line — may lower seizure threshold. Monitor for hyperthermia (most dangerous complication) — active cooling if needed. BP management if severely hypertensive. Call 000 if significant hyperthermia (>39°C), seizure, arrhythmia, or chest pain."
+  },
+  {
+    "q": "A patient with hepatitis C and active injecting drug use asks about treatment. They continue to inject heroin. Should treatment be offered?",
+    "options": [
+      "No — patients must be abstinent for 12 months before HCV treatment",
+      "Yes — active drug use is not a contraindication to DAA therapy. Treat with appropriate support, harm reduction, and monitoring for reinfection",
+      "Only if the patient is enrolled in a methadone program",
+      "Defer until they stop injecting — reinfection makes treatment pointless"
+    ],
+    "correct": 1,
+    "explanation": "Active drug use is NOT a contraindication to hepatitis C direct-acting antiviral (DAA) treatment. Current Australian guidelines and clinical practice strongly support treating PWID — they have the highest HCV burden and benefit most from treatment. Cure rates with DAAs are >95% regardless of drug use status. Provide treatment alongside harm reduction (NSP, naloxone, OAT), education about reinfection risk, and follow-up HCV RNA testing 3 months post-treatment to confirm sustained virological response (SVR = cure). Reinfection can occur and be retreated. NPs can prescribe DAA therapy under PBS authority."
+  },
+  {
+    "q": "Which of the following statements about cannabis use disorder is correct?",
+    "options": [
+      "Cannabis is not addictive — dependence cannot develop",
+      "Cannabis use disorder affects approximately 9% of people who use cannabis and is characterised by tolerance, withdrawal, and loss of control — CBT and motivational interviewing are first-line treatments",
+      "There is approved pharmacotherapy for cannabis use disorder in Australia",
+      "Occasional cannabis use has no health risks"
+    ],
+    "correct": 1,
+    "explanation": "Cannabis use disorder develops in approximately 9% of all users and up to 17% of those who start in adolescence. Withdrawal syndrome: irritability, anxiety, insomnia, decreased appetite, restlessness — peaks 2–3 days after cessation, resolves in 1–2 weeks. No approved pharmacotherapy in Australia — treatment is psychological: CBT, motivational interviewing, contingency management. Risks of regular use: psychosis (2–3x increased risk, especially high-THC products), cognitive impairment particularly with adolescent-onset use, cannabis use disorder, and respiratory disease from smoking. Cannabinoid hyperemesis syndrome is a specific syndrome of cyclical vomiting in heavy users."
+  },
+  {
+    "q": "A 35-year-old male presents with severe chest pain, palpitations, and agitation after using cocaine. ECG shows ST elevation in leads II, III, and aVF. BP 196/114. Which class of medication should be AVOIDED in cocaine-induced chest pain?",
+    "options": [
+      "Benzodiazepines",
+      "Glyceryl trinitrate (GTN)",
+      "Beta-blockers",
+      "Aspirin"
+    ],
+    "correct": 2,
+    "explanation": "Beta-blockers are contraindicated in cocaine toxicity — they cause unopposed alpha-adrenergic stimulation resulting in paradoxical worsening of hypertension and coronary artery spasm. Management of cocaine-induced chest pain: benzodiazepines (reduce sympathetic drive and agitation), GTN (vasodilate coronary arteries), aspirin, and calcium channel blockers (verapamil, diltiazem — for coronary spasm). Coronary angiography as for any ACS. Cocaine-induced MI occurs even in young people with normal coronaries due to vasospasm and thrombosis. Urine drug screen confirms cocaine use."
+  },
+  {
+    "q": "What is the CIWA-Ar scale used for in alcohol management?",
+    "options": [
+      "Screening for alcohol use disorder in the community",
+      "Quantifying the severity of alcohol withdrawal symptoms to guide medication dosing — scores above 8 typically require pharmacotherapy",
+      "Measuring blood alcohol concentration",
+      "Assessing liver function in alcohol-related liver disease"
+    ],
+    "correct": 1,
+    "explanation": "The CIWA-Ar (Clinical Institute Withdrawal Assessment for Alcohol, revised) is a 10-item validated scale assessing the severity of alcohol withdrawal: nausea, tremor, diaphoresis, anxiety, agitation, perceptual disturbances, headache, and orientation. Score 0–8 = mild (monitor, no medication), 8–15 = moderate (pharmacotherapy recommended), >15 = severe (urgent treatment, hospital admission). Symptom-triggered therapy guided by CIWA-Ar is superior to fixed-dose diazepam schedules — reduces total benzodiazepine use and duration of treatment. Reassess every 1–4 hours during active withdrawal."
+  },
+  {
+    "q": "A patient on methadone maintenance treatment presents with mild left leg cellulitis. They ask if their usual pharmacy dose needs to be adjusted. What is your approach?",
+    "options": [
+      "Stop methadone during the acute illness — opioids are immunosuppressive",
+      "Continue methadone at current dose — coordinate with prescribing doctor and dispensing pharmacy; treat cellulitis with appropriate antibiotics; be aware of drug interactions",
+      "Double the methadone dose for pain management",
+      "Switch to buprenorphine during the acute illness"
+    ],
+    "correct": 1,
+    "explanation": "Continue methadone at the prescribed dose — abrupt cessation or dose changes without specialist input can destabilise OAT and precipitate withdrawal, drug use relapse, and overdose risk. Contact the patient's OAT prescriber to inform them of the acute illness. Be aware of drug interactions: some antibiotics (e.g. fluconazole, erythromycin, ciprofloxacin) increase methadone levels — may need dose adjustment. If hospitalisation is required, ensure methadone continuation is arranged with the ward team — failure to continue OAT in hospital is a patient safety issue. Treat the cellulitis appropriately."
+  },
+  {
+    "q": "A mother of two young children presents asking for help reducing her alcohol consumption. She is drinking 6 standard drinks daily and is breastfeeding a 6-month-old infant. Which pharmacotherapy option is CONTRAINDICATED?",
+    "options": [
+      "Brief psychological intervention — safe in breastfeeding",
+      "Acamprosate — limited data but generally considered lower risk",
+      "Naltrexone — present in breast milk, breastfeeding not recommended",
+      "Thiamine supplementation"
+    ],
+    "correct": 2,
+    "explanation": "Naltrexone is present in breast milk and is not recommended during breastfeeding due to potential effects on the infant — breastfeeding should be discouraged if naltrexone is used. Acamprosate has limited data in breastfeeding — decision should be made on risk-benefit basis in consultation with a specialist. Disulfiram is also contraindicated in breastfeeding. Brief intervention and psychological support are safe and should be the primary approach. Thiamine supplementation is safe and important if nutritional deficiency is a concern. This case also raises child protection considerations — assess maternal functioning, parenting capacity, and children's safety."
+  },
+  {
+    "q": "A 48-year-old man presents confused, with nystagmus and difficulty walking. He has been drinking heavily for years and has been unwell with vomiting for 3 days. Blood glucose is 3.2 mmol/L. What must be done BEFORE administering glucose?",
+    "options": [
+      "CT brain — to exclude intracranial haemorrhage",
+      "IV thiamine 500mg — Wernicke's encephalopathy must be treated before glucose administration; glucose without thiamine can precipitate acute Wernicke's",
+      "Blood alcohol level — to confirm intoxication",
+      "Oral thiamine 100mg — adequate to prevent Wernicke's"
+    ],
+    "correct": 1,
+    "explanation": "In any malnourished or alcohol-dependent patient who is confused and may require glucose, IV thiamine MUST be given before glucose. Administering glucose to a thiamine-deficient patient can precipitate acute Wernicke's encephalopathy by depleting the limited remaining thiamine stores in glucose metabolism. This patient has the classic triad: confusion, nystagmus (ophthalmoplegia), and ataxia — treat as Wernicke's encephalopathy. IV thiamine 500mg TDS for 3–5 days. Oral thiamine is inadequate for treatment — poor absorption in malnourished/alcohol-dependent patients. Do not wait for blood levels or confirmation."
+  },
+  {
+    "q": "Which of the following is considered a harm reduction intervention for people who inject drugs?",
+    "options": [
+      "Mandatory drug testing before accessing healthcare",
+      "Needle and Syringe Programs (NSP), naloxone provision, hepatitis C treatment, and supervised injecting facilities",
+      "Refusing treatment until the patient is abstinent",
+      "Reporting all PWID to police as a public health measure"
+    ],
+    "correct": 1,
+    "explanation": "Harm reduction is an evidence-based public health approach that aims to reduce the negative consequences of drug use without requiring abstinence. Key interventions: Needle and Syringe Programs (NSP) — reduce HCV and HIV transmission; take-home naloxone — reduces overdose deaths; hepatitis C treatment — curative even with ongoing use; supervised injecting facilities (available in some Australian cities); drug checking services; opioid agonist treatment; and hepatitis B vaccination. Harm reduction is cost-effective and saves lives. Withholding healthcare, mandatory testing, or punitive approaches increase harms and reduce engagement with services."
+  },
+  {
+    "q": "A patient on buprenorphine-naloxone for opioid use disorder presents with a severe dental abscess requiring IV antibiotics. They are in significant pain. Which analgesic approach is most appropriate?",
+    "options": [
+      "Withhold all opioid analgesia — the patient is an addict and will abuse it",
+      "Continue buprenorphine at current dose; add regular paracetamol, NSAIDs, and local anaesthetic. If opioid analgesia is required, higher doses may be needed due to buprenorphine cross-tolerance — consult with OAT prescriber",
+      "Stop buprenorphine immediately — it will block all pain relief",
+      "Double the buprenorphine dose for pain management"
+    ],
+    "correct": 1,
+    "explanation": "People on buprenorphine OAT have the same right to adequate pain management as any other patient. Continue buprenorphine — stopping it risks withdrawal and destabilisation. For mild-moderate pain: non-opioid analgesics (paracetamol, NSAIDs). If opioid analgesia is needed for severe pain: higher doses of full opioid agonists may be required due to buprenorphine cross-tolerance and partial agonist competitive binding. Involve pain management or addiction medicine specialist if available. Never withhold pain management based on addiction history alone — this is discriminatory and harmful."
+  },
+  {
+    "q": "What is the recommended approach to supporting a patient who relapses to drinking after a period of abstinence?",
+    "options": [
+      "Discharge from your care — repeated relapse means treatment is not working",
+      "Acknowledge the relapse non-judgementally, explore what happened, reinforce what went well, review the treatment plan, and continue pharmacotherapy and psychological support — relapse is a normal part of recovery",
+      "Increase supervised dispensing of medications as punishment",
+      "Refer back to detox immediately — another withdrawal is required"
+    ],
+    "correct": 1,
+    "explanation": "Relapse is a normal and expected part of recovery from alcohol use disorder — it does not indicate treatment failure or that the patient is not trying. The model of addiction as a chronic relapsing condition means that relapse should be responded to in the same way as relapse in diabetes or hypertension — review, adjust the plan, and continue. Use motivational interviewing techniques: explore ambivalence, identify triggers, reinforce self-efficacy. Continue or restart pharmacotherapy. Review psychological support. Stigmatising responses to relapse cause disengagement from care and worse outcomes."
+  },
+  {
+    "q": "A 19-year-old presents with nausea, vomiting, and abdominal pain. He reports cyclical episodes of vomiting lasting 24–48 hours, occurring every 2–3 weeks for the past year. He mentions that hot showers relieve his symptoms dramatically. He smokes cannabis daily. What is the most likely diagnosis?",
+    "options": [
+      "Cyclical vomiting syndrome — refer to gastroenterology",
+      "Cannabinoid hyperemesis syndrome — advise cannabis cessation; haloperidol effective acutely",
+      "Peptic ulcer disease — H. pylori testing and PPI",
+      "Functional dyspepsia — low FODMAP diet"
+    ],
+    "correct": 1,
+    "explanation": "Cannabinoid hyperemesis syndrome (CHS) is characterised by cyclical nausea and vomiting in heavy cannabis users, with the pathognomonic feature of relief with hot showers or bathing (compulsive bathing behaviour). Often misdiagnosed for years. Prevalence is increasing with higher-potency cannabis products. The only curative treatment is cannabis cessation — symptoms typically resolve within days to weeks of stopping. Acute management: haloperidol has the best evidence for acute antiemetic effect in CHS (superior to ondansetron). Topical capsaicin cream to the abdomen also shows benefit."
+  }
+]
