@@ -1,0 +1,222 @@
+[
+  {
+    "q": "A 24-year-old falls on his outstretched hand playing football. X-ray is reported as normal. He has point tenderness in the anatomical snuffbox. What is the correct management?",
+    "options": [
+      "Reassure — normal X-ray excludes a fracture, apply ice and return to sport",
+      "Immobilise in a scaphoid cast and arrange MRI or repeat X-ray in 10–14 days — X-ray misses up to 30% of scaphoid fractures initially",
+      "Buddy tape and follow up with GP in 4 weeks",
+      "Apply a wrist splint and prescribe NSAIDs only"
+    ],
+    "correct": 1,
+    "explanation": "Anatomical snuffbox tenderness after FOOSH = scaphoid fracture until proven otherwise. Plain X-ray has a 20–30% false negative rate in the first 10–14 days — periosteal reaction is not yet visible. Management: immobilise in scaphoid cast (thumb spica) and either repeat X-ray at 10–14 days or arrange MRI/CT immediately for definitive diagnosis. MRI is most sensitive and avoids radiation. Missing a scaphoid fracture risks avascular necrosis (particularly of the proximal pole — retrograde blood supply), non-union, and permanent wrist disability. Never reassure on the basis of a normal initial X-ray when clinical suspicion exists."
+  },
+  {
+    "q": "Kanavel's four signs indicate which condition requiring emergency management?",
+    "options": [
+      "Carpal tunnel syndrome — night splinting",
+      "Flexor tenosynovitis — emergency surgical referral for IV antibiotics and tendon sheath washout within hours",
+      "Trigger finger — corticosteroid injection",
+      "De Quervain's tenosynovitis — thumb spica splint"
+    ],
+    "correct": 1,
+    "explanation": "Kanavel's four cardinal signs of flexor tenosynovitis: 1) Uniform oedema of the entire finger (fusiform/sausage digit), 2) Finger held in slight flexion at rest, 3) Severe pain with passive extension of the finger, 4) Tenderness along the entire flexor tendon sheath (volar surface from palm to distal finger). This is a surgical emergency — infection within the closed tendon sheath spreads rapidly, causing irreversible tendon necrosis within hours. IV antibiotics and urgent surgical washout are required. Delayed treatment leads to permanent finger flexion contracture and loss of hand function. Do not confuse with the benign trigger finger or a felon (fingertip pulp abscess)."
+  },
+  {
+    "q": "A 45-year-old woman has numbness and tingling in her right thumb, index, and middle fingers, worse at night and when driving. Phalen's test is positive at 45 seconds. What is the diagnosis and first-line management?",
+    "options": [
+      "Cervical radiculopathy — MRI cervical spine",
+      "Carpal tunnel syndrome — wrist splint in neutral position worn at night; activity modification",
+      "De Quervain's tenosynovitis — Finkelstein's test and first dorsal compartment injection",
+      "Ulnar nerve entrapment — elbow padding at night"
+    ],
+    "correct": 1,
+    "explanation": "Carpal tunnel syndrome (CTS): median nerve compression at the wrist. Distribution: thumb, index, middle finger, radial half of ring finger. Nocturnal symptoms (wakes at night, shakes hand for relief) are characteristic. Phalen's test positive (sustained wrist flexion reproduces symptoms). First-line management: wrist splint in neutral position worn at night — reduces carpal tunnel pressure during sleep when wrist tends to flex. Daytime splinting during aggravating activities. Corticosteroid injection for short-term relief. Surgical carpal tunnel decompression for refractory cases or thenar wasting. Cervical radiculopathy: C6 causes thumb/index tingling but also has neck and proximal arm symptoms and reduced brachioradialis reflex — distinguish carefully."
+  },
+  {
+    "q": "Finkelstein's test reproduces pain in which condition and how is it performed?",
+    "options": [
+      "Carpal tunnel syndrome — sustained wrist flexion 60 seconds",
+      "De Quervain's tenosynovitis — patient tucks thumb in fist, examiner ulnar deviates the wrist, reproducing radial wrist pain",
+      "Trigger finger — passive extension of the locked finger",
+      "Scaphoid fracture — axial compression of the thumb"
+    ],
+    "correct": 1,
+    "explanation": "De Quervain's tenosynovitis: stenosing inflammation of the APL and EPB tendons in the first dorsal compartment. Finkelstein's test: patient makes a fist with the thumb tucked inside the fingers, examiner firmly ulnar deviates the wrist — positive if this reproduces the patient's radial wrist pain. Highly sensitive for De Quervain's. Tenderness over the radial styloid and first dorsal compartment is the key physical finding. Common in new mothers (lifting infants with outstretched thumb), middle-aged women, and after increased repetitive thumb use. Treatment: thumb spica splint, NSAIDs, corticosteroid injection into the first dorsal compartment."
+  },
+  {
+    "q": "A 60-year-old woman has progressive palmar fibrosis. Her right ring finger is contracted at 45° at the MCP joint and 20° at the PIP joint. She cannot place her hand flat on a table. She is referred for hand surgery assessment. What is this condition?",
+    "options": [
+      "Trigger finger — A1 pulley corticosteroid injection",
+      "Dupuytren's contracture — referral threshold met (MCP ≥30°, any PIP contracture); needle fasciotomy, collagenase injection, or surgical fasciectomy",
+      "Flexor tendon rupture — emergency repair",
+      "Rheumatoid arthritis — refer to rheumatology"
+    ],
+    "correct": 1,
+    "explanation": "Dupuytren's contracture: palmar fibromatosis causing progressive flexion contracture. Palmar nodules (early) progressing to cords causing irreducible finger contracture. Usually painless. Associated with diabetes, alcohol, liver disease, phenytoin, smoking, northern European ancestry. Referral threshold: MCP contracture ≥30° (functional limitation — fails the 'tabletop test') or any PIP joint contracture (PIP is harder to correct surgically). Treatment options: needle fasciotomy (percutaneous, quick recovery, higher recurrence), collagenase injection (Xiaflex — non-surgical enzymatic), open surgical fasciectomy (most complete correction, higher complication rate). No effective non-surgical prevention of progression."
+  },
+  {
+    "q": "A 28-year-old rugby player injures his thumb catching a ball — forced radial deviation. He has tenderness and swelling over the ulnar aspect of the right thumb MCP joint, and significant laxity with radial stress testing. MRI shows a complete UCL tear with a Stener lesion. What is the management?",
+    "options": [
+      "Thumb spica cast for 6 weeks — adequate for all UCL injuries",
+      "Surgical repair — a Stener lesion cannot heal without surgery as the torn ligament is folded above the adductor aponeurosis",
+      "Buddy tape and return to sport immediately",
+      "Corticosteroid injection and physiotherapy"
+    ],
+    "correct": 1,
+    "explanation": "Ulnar collateral ligament (UCL) injury of the thumb MCP joint — Gamekeeper's/Skier's thumb. Stener lesion occurs in complete UCL rupture: the torn ligament end is folded back and displaced superficial to the adductor aponeurosis, preventing it from healing in the correct anatomical position. Without surgical repair, the thumb remains unstable — pinch grip is permanently impaired. Management: incomplete tears (&lt;30° laxity, firm endpoint) — thumb spica cast 4–6 weeks; complete tears with Stener lesion — surgical repair is mandatory. MRI is the definitive investigation for Stener lesion detection."
+  },
+  {
+    "q": "A patient presents with a left ring finger that locks in flexion and requires passive extension with a snap to straighten. A tender nodule is palpable at the base of the finger. What is the diagnosis and management?",
+    "options": [
+      "Dupuytren's contracture — hand surgery referral",
+      "Trigger finger — corticosteroid injection into the A1 pulley sheath; surgical release for refractory cases",
+      "Flexor tenosynovitis — emergency surgical referral",
+      "Mallet finger — extension splinting"
+    ],
+    "correct": 1,
+    "explanation": "Trigger finger: catching or locking of the finger in flexion due to a nodular thickening of the flexor tendon catching on the A1 pulley at the distal palmar crease. The 'triggering' is the snap when the patient or examiner extends the locked finger. Tenderness at the A1 pulley is the key finding. Common in middle-aged women, diabetics, and repetitive gripping activities. Management: corticosteroid injection into the tendon sheath at the A1 pulley (70–80% success rate), night extension splinting as adjunct. Surgical A1 pulley release for refractory or recurrent trigger finger. Distinguish from Dupuytren's (cord causing contracture, no triggering), flexor tenosynovitis (Kanavel's signs, infection, emergency), and mallet finger (DIP joint only, no triggering)."
+  },
+  {
+    "q": "A 22-year-old is working with a grease gun. The trigger slips and high-pressure grease is injected into his index fingertip. The entry wound is tiny and the pain is mild. He wants to go back to work. What is the correct response?",
+    "options": [
+      "Clean the wound, apply a dressing, and advise him to return if pain increases",
+      "Emergency transfer — high-pressure injection injuries cause extensive tissue necrosis and require urgent surgical debridement regardless of initial appearance",
+      "Prescribe antibiotics and review in 24 hours",
+      "Reassure — the wound is small and unlikely to cause significant damage"
+    ],
+    "correct": 1,
+    "explanation": "High-pressure injection injuries (grease guns, paint guns, hydraulic fluid) are deceptive surgical emergencies. The tiny entry wound belies the extent of internal damage — high-pressure injection drives material along fascial planes and tendon sheaths throughout the hand and forearm, causing extensive chemical inflammation and necrosis. Initial symptoms may be mild. Without urgent surgical debridement (within hours), amputation rates are high. Emergency transfer — do not be reassured by the small wound or mild initial symptoms. Paint injections are the most toxic and have the worst outcomes; grease and oil are slightly more contained but still require emergency management."
+  },
+  {
+    "q": "Which of the following correctly describes the management of mallet finger?",
+    "options": [
+      "Buddy tape to the adjacent finger for 4 weeks — adequate for all extensor tendon injuries",
+      "Continuous DIP joint extension splinting for 6–8 weeks, 24 hours per day — the splint must never be removed or the 6 weeks restart from the beginning",
+      "Surgical repair is always required for mallet finger",
+      "Volar plate splint in flexion — reduces tension on the extensor tendon"
+    ],
+    "correct": 1,
+    "explanation": "Mallet finger: avulsion of the terminal extensor tendon at the DIP joint. Cannot actively extend the DIP joint — finger droops. Management: DIP extension splint worn continuously for 6–8 weeks. The key point: the splint must NEVER be removed — even momentarily allows DIP flexion which ruptures the healing tendon and the 6 weeks restart from day one. The PIP joint is left free. Patient education is critical — explain why the splint cannot be removed (use waterproof splint or support the joint during brief removal). Bony avulsion involving &gt;30% of articular surface or subluxation — orthopaedic referral for possible surgical fixation. After 6 weeks of extension: physiotherapy for gradual ROM restoration."
+  },
+  {
+    "q": "A 55-year-old female office worker develops gradually worsening right wrist pain over 6 months. She reports clicking and pain on the ulnar side of her wrist with forearm rotation. There was no trauma. Her grip strength is reduced. What structure is most likely involved?",
+    "options": [
+      "Scaphoid — anatomical snuffbox tenderness",
+      "Triangular fibrocartilage complex (TFCC) — ulnar-sided wrist pain with forearm rotation; MRI wrist for diagnosis; orthopaedic or hand surgery referral",
+      "Radial collateral ligament — radial deviation stress test",
+      "Carpal tunnel — median nerve compression"
+    ],
+    "correct": 1,
+    "explanation": "TFCC (triangular fibrocartilage complex) injuries: the TFCC is a cartilaginous structure on the ulnar side of the wrist stabilising the distal radioulnar joint. Presents with ulnar-sided wrist pain, clicking or clunking with forearm rotation, and reduced grip strength. Mechanism: degenerative (age-related) or traumatic (FOOSH, forceful forearm rotation). TFCC load test: axial load with ulnar deviation and forearm rotation reproduces pain. MRI wrist (with or without arthrogram) is the investigation of choice. Management: activity modification, splinting, physiotherapy, corticosteroid injection, arthroscopic repair or debridement for refractory cases. Hand surgery or orthopaedic referral for confirmed TFCC pathology."
+  },
+  {
+    "q": "A 40-year-old construction worker presents with right hand pain and a hard, smooth lump on the dorsum of the wrist that has been present for 3 months. It transilluminates with a torch. There is no tenderness. What is the most likely diagnosis and management?",
+    "options": [
+      "Lipoma — surgical excision required",
+      "Ganglion cyst — most common soft tissue tumour of the hand and wrist; reassurance (40–60% resolve spontaneously), aspiration, or surgical excision if symptomatic",
+      "Malignant tumour — urgent biopsy",
+      "Sebaceous cyst — incise and drain"
+    ],
+    "correct": 1,
+    "explanation": "Ganglion cyst: most common soft tissue mass of the hand and wrist — filled with thick, gelatinous fluid arising from joint capsules or tendon sheaths. Dorsal wrist (most common), volar wrist, flexor tendon sheath (seed ganglion), dorsal DIP joint (mucous cyst). Characteristics: smooth, firm, transilluminates, may fluctuate in size, often asymptomatic. Management: observation — 40–60% resolve spontaneously; aspiration — effective but high recurrence (50%); surgical excision — lower recurrence (10–15%), reserved for symptomatic ganglia not resolving. Reassurance that ganglia are benign is important. Ultrasound confirms the diagnosis if uncertain."
+  },
+  {
+    "q": "A 70-year-old woman falls and sustains a Colles fracture. It is successfully reduced and she is placed in a plaster cast. What important secondary preventive intervention should be initiated at this appointment?",
+    "options": [
+      "Physiotherapy for wrist strengthening immediately",
+      "Assessment and treatment of osteoporosis — DXA scan, bisphosphonate, vitamin D and calcium supplementation, falls prevention program",
+      "Referral for carpal tunnel decompression — common complication of Colles fracture",
+      "No additional intervention — the fracture management is complete"
+    ],
+    "correct": 1,
+    "explanation": "A Colles fracture in an older woman is a sentinel fragility fracture — it identifies high fracture risk and is the ideal opportunity for osteoporosis assessment and management. Fragility fractures (from minimal trauma) double the risk of future fractures. Initiate: DXA scan (confirm bone density), bisphosphonate (zoledronic acid annual IV or alendronate weekly oral), calcium and vitamin D supplementation (if dietary intake inadequate), falls risk assessment and prevention program. Fracture Liaison Services (FLS) available in many Australian hospitals coordinate secondary fracture prevention. Initiating this at the time of fracture significantly reduces subsequent hip fracture risk. This is a high-yield primary prevention intervention that is consistently underutilised."
+  },
+  {
+    "q": "A 35-year-old male presents with pain, weakness, and wasting of the small muscles of the right hand. He has reduced sensation over the little and ring fingers (ulnar nerve distribution). He works as a cyclist and rests his hands on the handlebars for long periods. What is the diagnosis?",
+    "options": [
+      "Carpal tunnel syndrome — wrist splint",
+      "Ulnar nerve compression at the wrist (Guyon's canal) — cycling-related; padded gloves, handlebar modification, activity modification; splinting; consider nerve conduction studies",
+      "C8 radiculopathy — MRI cervical spine",
+      "Median nerve entrapment at the elbow"
+    ],
+    "correct": 1,
+    "explanation": "Ulnar nerve compression at Guyon's canal (wrist): the ulnar nerve passes through Guyon's canal at the wrist, vulnerable to compression from prolonged pressure (cycling handlebars, crutches, resting wrist on desk edge). Presents: ulnar nerve distribution sensory symptoms (little and ring fingers), weakness and wasting of hypothenar muscles and intrinsic hand muscles (interossei, lumbricals 3&4), Froment's sign positive. Distinguish from cubital tunnel (ulnar nerve at elbow — also causes elbow pain, different motor territory depending on level). Management: remove the compressive cause (padded gloves, handlebar changes), ulnar nerve splinting in neutral, nerve conduction studies to confirm and localise, surgical decompression if conservative management fails."
+  },
+  {
+    "q": "What is Froment's sign and what does a positive result indicate?",
+    "options": [
+      "Tapping over the carpal tunnel reproduces tingling — carpal tunnel syndrome",
+      "When asked to hold a piece of paper between the thumb and index finger, the patient flexes the thumb IP joint — indicates ulnar nerve weakness (weak adductor pollicis, compensated by flexor pollicis longus via median nerve)",
+      "Passive extension of a locked finger reproduces pain — trigger finger",
+      "Sustained wrist flexion reproduces median nerve symptoms — Phalen's test"
+    ],
+    "correct": 1,
+    "explanation": "Froment's sign tests adductor pollicis strength (ulnar nerve, deep branch). Normal: pinch is performed with the thumb IP joint extended (adductor pollicis provides stable pinch). Positive: when the paper is pulled away, the patient flexes the thumb IP joint — flexor pollicis longus (median nerve) compensates for weak adductor pollicis. Indicates ulnar nerve weakness. Also check: hypothenar wasting, interossei weakness (unable to spread fingers against resistance), and Wartenberg's sign (little finger held abducted). Ulnar nerve compression can occur at Guyon's canal (wrist), cubital tunnel (elbow — most common), or more proximally."
+  },
+  {
+    "q": "A 19-year-old female gymnast has had right wrist pain for 3 weeks after increasing training load. Pain is on the dorsal radial wrist, worse with weight bearing through the wrist (handstands). X-ray shows a small lucency in the distal radial physis. What is the diagnosis?",
+    "options": [
+      "Scaphoid fracture — scaphoid cast",
+      "Distal radial physeal stress injury (gymnast's wrist) — rest from gymnastics, wrist splint, sports medicine or orthopaedic referral",
+      "De Quervain's tenosynovitis — Finkelstein's test positive",
+      "Carpal instability — MRI wrist"
+    ],
+    "correct": 1,
+    "explanation": "Gymnast's wrist (distal radial physeal stress injury): repetitive compressive and shear forces on the distal radial growth plate (physis) from weight-bearing activities. Presents: dorsal wrist pain with weight bearing, worsens with gymnastics training. X-ray: widening or lucency of the distal radial physis — a stress reaction. Management: rest from gymnastics (4–6 weeks minimum), wrist splint for comfort, gradual return to sport with load modification. Sports medicine or orthopaedic referral. Untreated: premature physeal closure causing radial shortening, positive ulnar variance, and ulnar impaction syndrome. Growth plate injuries in young athletes must be taken seriously."
+  },
+  {
+    "q": "Which statement correctly describes corticosteroid injection for carpal tunnel syndrome?",
+    "options": [
+      "Corticosteroid injection is contraindicated in carpal tunnel syndrome — risk of tendon rupture",
+      "Corticosteroid injection into the carpal tunnel provides effective short-term relief (up to 3 months) and is appropriate when conservative measures have failed; it does not alter the long-term course and surgical decompression remains the definitive treatment for persistent or severe CTS",
+      "Corticosteroid injection is the definitive treatment — surgery is rarely needed",
+      "Injection should always precede splinting in CTS management"
+    ],
+    "correct": 1,
+    "explanation": "Corticosteroid injection into the carpal tunnel provides effective short-term symptomatic relief — useful for mild-moderate CTS when splinting has failed, during pregnancy (most cases of pregnancy-related CTS resolve post-partum), or bridging to surgery. Evidence: significant symptom improvement for up to 3 months; long-term benefit is less established. Technique: inject into the carpal tunnel ulnar to the palmaris longus tendon — avoid median nerve and flexor tendons. Surgical carpal tunnel decompression remains the most effective long-term treatment for persistent or severe CTS (particularly with thenar wasting or significant NCS changes). One or two injections before surgery is reasonable."
+  },
+  {
+    "q": "A 50-year-old male has a history of rheumatoid arthritis and presents with right middle finger that is fixed in flexion at the PIP joint and hyperextension at the DIP joint. What deformity is this?",
+    "options": [
+      "Mallet finger — DIP flexion, PIP normal",
+      "Boutonnière deformity — PIP flexion, DIP hyperextension; caused by central slip rupture; splinting in extension or surgical repair",
+      "Swan-neck deformity — PIP hyperextension, DIP flexion",
+      "Trigger finger — catching in flexion"
+    ],
+    "correct": 1,
+    "explanation": "Boutonnière deformity: PIP joint flexion + DIP joint hyperextension. Caused by rupture or attenuation of the central slip of the extensor tendon at the PIP joint — the lateral bands migrate volarly, becoming flexors of the PIP joint and hyperextensors of the DIP. Common in rheumatoid arthritis (synovitis erodes the central slip) and trauma (forced PIP flexion). Swan-neck deformity is the opposite: PIP hyperextension + DIP flexion. Management of boutonnière: acute traumatic — PIP extension splinting 6 weeks; chronic/RA — may require surgical reconstruction. Assess central slip integrity: Elson's test (PIP flexed over table edge — extend actively — if central slip ruptured, DIP becomes rigid in extension)."
+  },
+  {
+    "q": "A patient asks about the difference between osteoarthritis and rheumatoid arthritis affecting the hand. Which statement correctly distinguishes them?",
+    "options": [
+      "Both conditions affect the same joints — they are clinically identical",
+      "OA affects DIP and PIP joints (Heberden's and Bouchard's nodes), CMC joint of thumb; RA affects MCP and PIP joints symmetrically, spares DIP joints, associated with systemic features and elevated inflammatory markers",
+      "RA only affects young people — OA only affects elderly",
+      "OA causes significant systemic inflammation — RA does not"
+    ],
+    "correct": 1,
+    "explanation": "Hand OA vs RA distribution: OA — DIP joints (Heberden's nodes), PIP joints (Bouchard's nodes), first CMC joint (thumb base). Morning stiffness &lt;30 minutes. Normal inflammatory markers. RA — MCP joints (most characteristic), PIP joints symmetrically; DIP joints SPARED (key distinguishing feature). Morning stiffness &gt;1 hour. Elevated ESR, CRP, positive RF and anti-CCP. Systemic features (fatigue, weight loss). Deformities: ulnar deviation at MCPs, boutonnière, swan-neck, Z-thumb. Both cause pain and functional impairment but have different treatment pathways — OA: symptomatic; RA: disease-modifying antirheumatic drugs (DMARDs) urgently."
+  },
+  {
+    "q": "A 45-year-old female teacher develops right wrist pain, swelling, and stiffness 3 months after starting rowing. Pain is diffuse over the dorsum of the wrist with crepitus on movement. Swelling is noted along the extensor tendon sheaths approximately 4cm proximal to the wrist. What is the diagnosis?",
+    "options": [
+      "De Quervain's tenosynovitis — Finkelstein's positive",
+      "Intersection syndrome — inflammation where the APL/EPB (first dorsal compartment) cross over the ECRB/ECRL (second dorsal compartment) approximately 4cm proximal to the wrist; treat with splinting, NSAIDs, activity modification, corticosteroid injection",
+      "Carpal tunnel syndrome — nocturnal symptoms",
+      "TFCC injury — ulnar-sided pain with forearm rotation"
+    ],
+    "correct": 1,
+    "explanation": "Intersection syndrome: friction and inflammation where the first dorsal compartment tendons (APL and EPB) cross over the second dorsal compartment tendons (ECRB and ECRL) at the musculotendinous junction approximately 4cm proximal to the wrist. Common in rowers, canoeists, weightlifters, and skiers — repetitive wrist extension activities. Presents: pain, swelling, and characteristic crepitus ('squeaking') over the dorsoradial forearm 4cm proximal to Lister's tubercle (more proximal than De Quervain's). Treatment: rest from rowing, wrist extension splint, NSAIDs, corticosteroid injection, physiotherapy. Most resolve with conservative management."
+  },
+  {
+    "q": "What is the most common complication of an untreated or missed scaphoid fracture?",
+    "options": [
+      "Infection — osteomyelitis",
+      "Avascular necrosis of the proximal pole and non-union — the proximal pole of the scaphoid has a retrograde blood supply vulnerable to disruption by fracture; non-union leads to progressive wrist arthritis (SNAC wrist)",
+      "Carpal tunnel syndrome — median nerve compression from swelling",
+      "De Quervain's tenosynovitis — first dorsal compartment inflammation"
+    ],
+    "correct": 1,
+    "explanation": "The scaphoid has a tenuous blood supply — the main blood supply enters distally and travels proximally (retrograde). A fracture through the waist or proximal pole can disrupt this supply, causing avascular necrosis (AVN) of the proximal pole. AVN rate: 10–15% for waist fractures, up to 30–40% for proximal pole fractures. Non-union rate without treatment: up to 30% for undisplaced waist fractures. Untreated non-union and AVN lead to progressive wrist arthritis — scaphoid non-union advanced collapse (SNAC wrist) — causing permanent pain and loss of wrist function. This is why anatomical snuffbox tenderness mandates immobilisation and definitive imaging even with a normal X-ray."
+  }
+]

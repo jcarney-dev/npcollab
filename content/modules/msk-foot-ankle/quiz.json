@@ -1,0 +1,222 @@
+[
+  {
+    "q": "According to the Ottawa Ankle Rules, which finding indicates an ankle X-ray is required?",
+    "options": [
+      "Swelling and bruising over the lateral ankle after an inversion injury",
+      "Bony tenderness at the posterior tip of the lateral or medial malleolus, OR inability to weight bear 4 steps both immediately after injury and in clinic",
+      "ATFL tenderness on palpation",
+      "Pain with active ankle inversion"
+    ],
+    "correct": 1,
+    "explanation": "Ottawa Ankle Rules: X-ray the ankle if bone tenderness at the posterior edge or tip of the LATERAL malleolus (distal 6cm), OR bone tenderness at the posterior edge or tip of the MEDIAL malleolus (distal 6cm), OR inability to weight bear 4 steps both immediately after the injury AND at the time of assessment. Swelling, bruising, and ATFL tenderness alone do NOT indicate fracture. The Ottawa Rules have sensitivity &gt;99% for clinically significant ankle fractures and reduce unnecessary X-rays by 30–40%. Apply at every ankle injury — document your Ottawa assessment clearly."
+  },
+  {
+    "q": "A 40-year-old male runner develops gradual onset right heel pain, worst in the first few steps in the morning and after sitting for long periods. Tenderness is maximal at the medial calcaneal tuberosity. His X-ray shows a calcaneal spur. What is the diagnosis and management?",
+    "options": [
+      "Calcaneal stress fracture — non-weight bearing and MRI",
+      "Plantar fasciitis — calf and plantar fascia stretching, supportive footwear, load modification; the calcaneal spur is incidental and does not require treatment",
+      "Fat pad atrophy — heel cup",
+      "Retrocalcaneal bursitis — corticosteroid injection into the bursa"
+    ],
+    "correct": 1,
+    "explanation": "Plantar fasciitis: classic first-step morning pain, medial calcaneal tuberosity tenderness, activity-related pain. Calcaneal spur is present in 50% of asymptomatic adults — it is an incidental finding and is NOT the cause of pain (the fascia insertion is the pain source). Evidence-based management: plantar fascia-specific stretch and calf stretching (best evidence), supportive footwear with cushioned heel and arch support, load modification, NSAIDs short-term, taping (low-dye), intrinsic foot strengthening. Most resolve within 12 months with appropriate conservative management."
+  },
+  {
+    "q": "A 35-year-old recreational tennis player hears a 'pop' in the back of his left leg and falls to the ground. He cannot stand on his tiptoes. Simmonds-Thompson test is positive on the left. What is the diagnosis and management?",
+    "options": [
+      "Calf muscle (gastrocnemius) tear — RICE and physiotherapy",
+      "Achilles tendon rupture — urgent orthopaedic referral; non-operative functional rehabilitation or surgical repair",
+      "Ankle sprain — Ottawa Rules and X-ray",
+      "Posterior tibial tendon rupture — orthotics"
+    ],
+    "correct": 1,
+    "explanation": "Achilles tendon rupture: sudden 'pop' or kick sensation during push-off activity. Simmonds-Thompson (calf squeeze) test: patient prone, knees flexed — squeeze calf — no ankle plantarflexion = complete rupture. Note: the patient may still be able to plantarflex weakly using other flexors — this does not exclude rupture. Do not be reassured by preserved plantarflexion. Urgent orthopaedic referral. Both operative (surgical repair) and non-operative (functional rehabilitation in equinus boot with progressive weight bearing) have similar overall re-rupture rates and functional outcomes in most patients. Ultrasound or MRI confirms complete vs partial rupture."
+  },
+  {
+    "q": "A 28-year-old falls from a ladder and lands on his right foot. He has severe midfoot pain and swelling, and cannot weight bear. Bruising is visible on the plantar surface of the arch. X-ray shows widening of 3mm between the bases of the 1st and 2nd metatarsals. What is the diagnosis and immediate management?",
+    "options": [
+      "Plantar fasciitis — supportive footwear and stretching",
+      "Lisfranc injury — non-weight bearing immediately, urgent orthopaedic referral for surgical assessment",
+      "5th metatarsal avulsion fracture — buddy tape and weight bear as tolerated",
+      "Ankle sprain — Ottawa Rules and RICE"
+    ],
+    "correct": 1,
+    "explanation": "Lisfranc injury: tarsometatarsal joint complex disruption. Key features: midfoot pain post-trauma, plantar arch bruising (pathognomonic), inability to weight bear, X-ray widening &gt;2mm between base of 1st and 2nd metatarsals. Management: non-weight bearing immediately — any weight bearing worsens displacement. Urgent orthopaedic referral. Significant instability requires surgical fixation (ORIF or primary arthrodesis). Missed or inadequately treated Lisfranc leads to progressive midfoot arthritis, chronic pain, and significant functional limitation. If X-ray appears normal but clinical suspicion is high — MRI or CT for definitive assessment."
+  },
+  {
+    "q": "What does the Windlass test assess and how is it performed?",
+    "options": [
+      "Morton's neuroma — squeezing the forefoot reproduces a click",
+      "Plantar fasciitis — passive dorsiflexion of the great toe tightens the plantar fascia via the windlass mechanism, reproducing medial heel pain",
+      "Achilles tendon integrity — calf squeeze with patient prone",
+      "Anterior talofibular ligament — anterior drawer of the talus"
+    ],
+    "correct": 1,
+    "explanation": "Windlass test for plantar fasciitis: patient standing or supine, examiner passively dorsiflexes the great toe. This tightens the plantar fascia through the windlass mechanism — the plantar fascia wraps around the metatarsal heads and tightens as the toe is dorsiflexed. A positive test reproduces the patient&apos;s heel pain at the medial calcaneal tuberosity. High sensitivity and specificity for plantar fasciitis. The Windlass mechanism is also why first-step pain is worst — the fascia is cold and tight after rest, and the first step loads the windlass mechanism maximally."
+  },
+  {
+    "q": "A 55-year-old male presents with burning pain and tingling between his 3rd and 4th toes of the right foot, worse in tight shoes and relieved by removing his shoes and massaging his foot. Squeezing the forefoot transversely while applying dorsoplantar pressure to the 3rd intermetatarsal space reproduces a click with pain. What is the diagnosis?",
+    "options": [
+      "Plantar fasciitis — Windlass test positive",
+      "Morton's neuroma — Mulder's click positive; wide-toed shoes, metatarsal pad, corticosteroid injection, surgical excision",
+      "Stress fracture of the 3rd metatarsal — X-ray and MRI",
+      "Gout — elevated uric acid and first MTP joint involvement"
+    ],
+    "correct": 1,
+    "explanation": "Morton&apos;s neuroma: perineural fibrosis of the interdigital nerve — most common between 3rd and 4th metatarsal heads. Burning pain and tingling in the affected webspace, worse in tight shoes (compression narrows the intermetatarsal space), relieved by removing shoes and massaging. Mulder&apos;s click: transverse forefoot compression while applying dorsoplantar pressure to the intermetatarsal space — reproducible click with pain reproduction — highly specific. Ultrasound confirms the diagnosis. Management: wide-toed footwear, metatarsal dome pad, corticosteroid injection (50–70% effective short-term), sclerosing alcohol injection, surgical excision for refractory cases."
+  },
+  {
+    "q": "Which statement correctly describes the management of Achilles tendinopathy?",
+    "options": [
+      "Corticosteroid injection is first-line — reduces tendon inflammation effectively",
+      "Eccentric calf loading (Alfredsson protocol) and heavy slow resistance training are the most evidence-based treatments; corticosteroid injection is contraindicated due to risk of tendon rupture",
+      "Complete rest for 8 weeks — the tendon needs to heal without loading",
+      "Surgery is required for all mid-portion Achilles tendinopathy"
+    ],
+    "correct": 1,
+    "explanation": "Achilles tendinopathy is a degenerative condition (tendinosis) not primarily inflammatory — corticosteroids do not address the pathology and significantly increase Achilles tendon rupture risk (avoid). Evidence-based management: eccentric calf loading (Alfredsson protocol: single-leg heel drops, straight and bent knee, 3 sets of 15 reps twice daily for 12 weeks) — promotes tendon remodelling. Heavy slow resistance (HSR) training is an effective alternative with better compliance. NSAIDs for short-term pain relief. Heel raise to reduce Achilles load. Load management — reduce running volume temporarily. Extracorporeal shockwave therapy (ESWT) for refractory mid-portion tendinopathy."
+  },
+  {
+    "q": "A 65-year-old diabetic female presents with a non-healing ulcer on the plantar surface of her right 1st MTP joint. There is surrounding callus, no erythema, and ankle pulses are palpable. She has reduced sensation to monofilament testing. What is the classification of this ulcer?",
+    "options": [
+      "Venous ulcer — compression bandaging",
+      "Neuropathic diabetic foot ulcer — debridement of callus, pressure offloading (total contact cast or removable cast walker), podiatry referral, glycaemic optimisation, foot care education",
+      "Arterial ulcer — urgent vascular surgery",
+      "Pressure ulcer — foam dressing and mattress"
+    ],
+    "correct": 1,
+    "explanation": "Neuropathic diabetic foot ulcer: located under areas of high pressure (MTP joint, heel, callus), surrounded by callus, adequate vascular supply (palpable pulses — distinguishes from ischaemic ulcer), reduced monofilament sensation. Management: 1) Offloading — total contact cast (gold standard) or removable cast walker; without offloading, the ulcer cannot heal; 2) Debridement of callus and necrotic tissue by podiatry; 3) Glycaemic optimisation; 4) Regular podiatry follow-up; 5) Screen for osteomyelitis if probe-to-bone positive or deep ulcer (MRI most sensitive). MDT approach: podiatry, endocrinology, vascular surgery, wound nurse."
+  },
+  {
+    "q": "A 30-year-old long-distance runner develops insidious onset 2nd metatarsal pain that has been worsening for 3 weeks. There is point tenderness over the 2nd metatarsal shaft. X-ray is reported as normal. What is the most likely diagnosis and next investigation?",
+    "options": [
+      "Morton's neuroma — Mulder's click",
+      "Metatarsal stress fracture — MRI or bone scan; X-ray misses most stress fractures in the first 2–3 weeks",
+      "Plantar fasciitis — Windlass test",
+      "Lisfranc injury — weight-bearing X-ray with stress views"
+    ],
+    "correct": 1,
+    "explanation": "Metatarsal stress fracture: insidious onset midfoot/forefoot pain in a runner, point tenderness over the metatarsal shaft, worsening with continued running, normal initial X-ray (X-ray detects only 50–70% of stress fractures initially — periosteal reaction appears at 2–3 weeks). 2nd and 3rd metatarsals most common. MRI is the most sensitive investigation (identifies bone marrow oedema indicating stress reaction before cortical fracture). Bone scan is an alternative if MRI unavailable. Management: rest from impact activity for 4–6 weeks, stiff-soled shoe or CAM boot, gradual return to running. High-risk stress fractures (navicular, 5th metatarsal proximal diaphysis — Jones fracture) require orthopaedic referral."
+  },
+  {
+    "q": "The 'too many toes' sign on posterior observation of a patient is associated with which condition?",
+    "options": [
+      "Hallux valgus — lateral deviation of the great toe",
+      "Posterior tibial tendon dysfunction with acquired adult flatfoot — excessive forefoot abduction causes more than 2 toes to be visible lateral to the heel on posterior view",
+      "Morton's neuroma — splaying of the forefoot",
+      "Plantar fasciitis — altered gait pattern"
+    ],
+    "correct": 1,
+    "explanation": "Posterior tibial tendon dysfunction (PTTD): the posterior tibial tendon is the primary dynamic stabiliser of the medial arch. Degeneration causes progressive flatfoot deformity. &apos;Too many toes&apos; sign: from behind the patient, normally ≤2 toes are visible lateral to the heel; in PTTD, the forefoot abducts and more than 2 toes are visible. Single heel raise test: patient cannot perform a single heel raise on the affected side. Management by stage: Stage I (pain, no deformity) — physiotherapy, orthotics; Stage II (flexible flatfoot) — custom orthotics/AFO, physiotherapy; Stage III–IV (rigid deformity) — surgical reconstruction or arthrodesis."
+  },
+  {
+    "q": "A footballer sustains an ankle inversion injury. The Ottawa Rules are not met. On examination, he has significant ATFL tenderness and anterior drawer testing shows 3+ laxity with a soft endpoint compared to the other side. He cannot walk without pain. What grade of ankle sprain does this represent?",
+    "options": [
+      "Grade I — microscopic ligament tears, minimal laxity, normal function",
+      "Grade III — complete ligament rupture, significant laxity, soft endpoint, functional impairment",
+      "Grade II — partial tear, moderate laxity, moderate functional loss",
+      "This presentation requires X-ray before grading"
+    ],
+    "correct": 1,
+    "explanation": "Ankle sprain grading: Grade I — microscopic ATFL tears, minimal swelling, full weight bearing, normal anterior drawer. Grade II — partial ATFL tear, moderate swelling, antalgic gait, mild-moderate anterior drawer laxity. Grade III — complete ATFL rupture, significant swelling, unable to weight bear fully, marked anterior drawer laxity with soft endpoint (no firm stopping point — complete ligament discontinuity). This patient has Grade III features: 3+ laxity, soft endpoint, significant functional impairment. Ottawa Rules assess fracture risk — not sprain grade."
+  },
+  {
+    "q": "A 50-year-old female develops gradual onset medial ankle and arch pain over 6 months. She notes her right foot is becoming flatter. On examination, she cannot perform a single heel raise on the right. Palpation reveals tenderness along the posterior tibial tendon. What is the most appropriate initial management?",
+    "options": [
+      "Complete rest and non-weight bearing for 8 weeks",
+      "Custom medial arch orthotic or ankle-foot orthosis (AFO), posterior tibial tendon strengthening physiotherapy, and podiatry referral",
+      "Surgical reconstruction — first-line for all PTTD",
+      "Corticosteroid injection into the posterior tibial tendon sheath — reduces inflammation"
+    ],
+    "correct": 1,
+    "explanation": "Posterior tibial tendon dysfunction (PTTD) Stage I–II management: medial arch support is the most important intervention — custom orthotics or prefabricated orthotic with medial heel wedge and arch support reduces load on the posterior tibial tendon. AFO for more advanced dysfunction. Physiotherapy: tibialis posterior eccentric strengthening, calf stretching. Podiatry: gait assessment, orthotic fabrication. Corticosteroid injection around the posterior tibial tendon is controversial — may weaken the already-compromised tendon and risk rupture. Surgery (tendon transfer, calcaneal osteotomy, or arthrodesis) for Stage III–IV or failed conservative management."
+  },
+  {
+    "q": "A patient presents with acute foot pain and swelling 5 days after starting a new running program. Point tenderness is maximal at the navicular. Ottawa Foot Rule: the navicular is tender. What is the management?",
+    "options": [
+      "Weight bear as tolerated and review in 2 weeks",
+      "X-ray (Ottawa Rule met) — if X-ray normal and high clinical suspicion, MRI is required; navicular stress fracture requires non-weight bearing and orthopaedic review — it is a high-risk stress fracture",
+      "Morton's neuroma treatment — wide shoes and corticosteroid injection",
+      "Plantar fasciitis management — stretching and supportive footwear"
+    ],
+    "correct": 1,
+    "explanation": "Navicular stress fracture is a HIGH-RISK stress fracture — the dorsal third of the navicular has poor blood supply and is susceptible to delayed union and non-union. Ottawa Rule met (navicular tenderness) — X-ray required. However, X-ray misses most navicular stress fractures — MRI or CT is required if X-ray is normal and clinical suspicion remains. Management: strict non-weight bearing in a cast for 6–8 weeks (NOT a boot — must be non-weight bearing). Orthopaedic referral — surgical fixation considered for complete fractures or elite athletes. Do NOT allow continued weight bearing on a suspected navicular stress fracture."
+  },
+  {
+    "q": "What is the evidence-based treatment for lateral ankle sprain rehabilitation?",
+    "options": [
+      "Complete immobilisation in plaster cast for 6 weeks — allows ligament healing",
+      "Early functional rehabilitation — early weight bearing as tolerated, ankle brace, progressive proprioceptive and strengthening exercises, return-to-sport program",
+      "Surgery — ligament reconstruction for all Grade II–III sprains",
+      "Rest only — exercise risks re-injury during the healing phase"
+    ],
+    "correct": 1,
+    "explanation": "Functional rehabilitation is superior to immobilisation for all grades of ankle sprain. POLICE protocol: Protection (brace), Optimal Loading (weight bear as tolerated), Ice, Compression, Elevation. Physiotherapy program: ROM exercises, peroneal strengthening (resisted eversion), proprioception training (balance board — most important for preventing recurrence), sport-specific rehabilitation. Proprioceptive training is essential — lateral ankle sprain recurs in up to 70% without rehabilitation and in approximately 30% with appropriate rehabilitation. Ankle brace for return to sport for at least 6 months after Grade II–III sprain. Surgery (Brostrom repair) reserved for chronic ankle instability after failed rehabilitation."
+  },
+  {
+    "q": "Which statement correctly describes hallux valgus management?",
+    "options": [
+      "Surgery is the first-line treatment for all hallux valgus",
+      "Wide-toed accommodative footwear and orthotics for pain management; surgery (osteotomy) for significant pain and deformity not responding to conservative measures — surgery corrects the deformity but results are not always predictable",
+      "Splints and toe spacers correct the deformity long-term",
+      "NSAIDs alone are the most evidence-based treatment"
+    ],
+    "correct": 1,
+    "explanation": "Hallux valgus (bunion) management: Conservative — wide-toed shoes (most important — narrow shoes worsen deformity and pain), orthotics (reduce overpronation), bunion pads for pain relief, night splints (do not correct deformity but may slow progression). Surgical indications: significant pain affecting daily activities not responding to conservative measures, progressive deformity causing shoe-fitting difficulty, associated secondary deformities (hammer toes). Surgery types: distal osteotomy (mild-moderate), scarf/chevron osteotomy (moderate), proximal osteotomy (severe). Surgical outcomes are generally good but not universally excellent — patients should have realistic expectations."
+  },
+  {
+    "q": "A 45-year-old man presents with acute severe pain, swelling, and erythema of the right first MTP joint. The joint is exquisitely tender — even the weight of a sheet is intolerable. Serum uric acid is 0.62 mmol/L. What is the diagnosis and management?",
+    "options": [
+      "Septic arthritis — emergency joint aspiration and IV antibiotics",
+      "Acute gout (podagra) — NSAIDs or colchicine for acute attack; urate-lowering therapy after the acute attack resolves",
+      "Pseudogout — calcium pyrophosphate crystals — joint aspiration confirms",
+      "Hallux valgus with bursitis — corticosteroid injection into the bursa"
+    ],
+    "correct": 1,
+    "explanation": "Acute gout at the first MTP joint (podagra): classic presentation — severe acute pain, erythema, warmth, and swelling. Exquisite tenderness (even sheet weight is intolerable) is characteristic. Note: serum uric acid is frequently NORMAL during an acute gout attack — do not use it to rule out gout. Acute treatment: NSAIDs (naproxen 500mg BD or indomethacin 50mg TDS) for 5–7 days, or colchicine 1mg then 0.5mg 1 hour later. Corticosteroid injection or oral prednisolone if NSAIDs contraindicated. Do NOT start allopurinol during an acute attack. Urate-lowering therapy: start 4–6 weeks after the acute attack resolves — target uric acid &lt;0.36 mmol/L. Colchicine prophylaxis for 3–6 months when starting allopurinol."
+  },
+  {
+    "q": "A patient is referred for a diabetic foot assessment. What is the correct frequency of foot review for a patient with peripheral neuropathy and a previous foot ulcer?",
+    "options": [
+      "Annual review only — if no current ulcer",
+      "Every 1–3 months — high-risk feet require frequent review; includes monofilament testing, foot inspection, footwear review, and podiatry",
+      "Only when symptomatic — patients can self-manage between appointments",
+      "Six-monthly — standard for all diabetic patients"
+    ],
+    "correct": 1,
+    "explanation": "Diabetic foot risk stratification guides review frequency: Low risk (no neuropathy, no vascular disease, no deformity) — annual review. Moderate risk (one risk factor present) — every 3–6 months. High risk (multiple risk factors, previous ulcer, previous amputation, renal replacement therapy) — every 1–3 months with multidisciplinary podiatry involvement. This patient (neuropathy + previous ulcer) is HIGH risk — review every 1–3 months. Review components: monofilament testing, skin inspection, callus management, footwear adequacy, ABI if vascular concerns, education. Diabetic foot disease is the leading cause of non-traumatic lower limb amputation in Australia — intensive preventive care dramatically reduces amputation rates."
+  },
+  {
+    "q": "A 33-year-old soccer player develops outer ankle pain after a tackle. The Ottawa Rules indicate an X-ray is required. X-ray shows a small avulsion fracture at the base of the 5th metatarsal. What is the management?",
+    "options": [
+      "Surgical fixation — all 5th metatarsal fractures require surgery",
+      "Avulsion fracture of the base of the 5th metatarsal (from peroneus brevis pull) — symptomatic treatment, weight bear as tolerated with supportive footwear or CAM boot; heals well conservatively in most cases",
+      "Non-weight bearing cast for 8 weeks — treat as a Jones fracture",
+      "This finding is incidental — treat as an ankle sprain"
+    ],
+    "correct": 1,
+    "explanation": "5th metatarsal base avulsion fracture: the peroneus brevis tendon inserts on the styloid process at the base of the 5th metatarsal — a forceful inversion avulses this fragment. These fractures heal well conservatively in most cases — weight bearing as tolerated with a firm-soled shoe or CAM boot for 4–6 weeks. Distinguish from a Jones fracture (transverse fracture through the proximal diaphysis — approximately 1.5cm from the tip of the styloid) — Jones fractures have poor blood supply and high non-union rate, requiring non-weight bearing and often surgical fixation. Examine the fracture line location on X-ray carefully."
+  },
+  {
+    "q": "A 60-year-old woman has had bilateral forefoot pain for 2 years with significant hallux valgus bilaterally, overriding 2nd toes, and calluses under both 2nd metatarsal heads. She has been unable to find comfortable shoes. Conservative management has failed to adequately control symptoms. What is the most appropriate next step?",
+    "options": [
+      "Continue conservative management indefinitely — surgery is too risky in a 60-year-old",
+      "Referral to orthopaedic surgery or podiatric surgery for surgical correction — bilateral significant hallux valgus with failed conservative management and functional limitation is an indication for surgery",
+      "Custom orthotics only — never refer for surgery",
+      "Corticosteroid injection into the MTP joints bilaterally"
+    ],
+    "correct": 1,
+    "explanation": "Indications for hallux valgus surgery: significant pain affecting daily activities and footwear, failed conservative management (minimum 3–6 months), progressive deformity causing secondary problems (hammer toes, metatarsalgia from lateral transfer), or significant difficulty with shoe fitting. Age alone is not a contraindication — surgical outcomes are good in appropriately selected patients. Bilateral surgery can be performed staged or simultaneously. Surgical options depend on deformity severity: mild (chevron/Austin osteotomy), moderate (scarf osteotomy), severe (Lapidus procedure — 1st TMT joint fusion). Realistic patient expectations are important — recovery takes 3–6 months."
+  },
+  {
+    "q": "A 25-year-old triathlete develops gradual onset medial shin pain that has been progressively worsening over 3 weeks of increased training. Pain is reproduced by hop testing and palpation along the posteromedial tibial border. X-ray is normal. What is the most likely diagnosis?",
+    "options": [
+      "Deep vein thrombosis — doppler ultrasound",
+      "Medial tibial stress syndrome (shin splints) — activity modification, progressive load management, biomechanical assessment; if pain is point tender and severe, MRI to exclude tibial stress fracture",
+      "Compartment syndrome — urgent surgical fasciotomy",
+      "Peripheral arterial disease — ABI measurement"
+    ],
+    "correct": 1,
+    "explanation": "Medial tibial stress syndrome (MTSS/shin splints): diffuse medial tibial border pain in runners — caused by traction periostitis along the tibial periosteum from soleus and deep flexor muscle pull. Distinguished from tibial stress fracture: MTSS has diffuse pain over 5+cm of the posteromedial tibia, whereas stress fracture has point tenderness at one spot (often with positive hop test). MRI if: severe point tenderness, hop test positive, or not resolving. MTSS management: reduce training load, correct contributing factors (overpronation, training errors, footwear), calf strengthening, progressive return to running. Most resolve with 4–8 weeks of load modification."
+  }
+]
