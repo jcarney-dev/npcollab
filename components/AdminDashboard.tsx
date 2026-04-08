@@ -241,6 +241,57 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             </div>
           )}
         </section>
+
+        {/* Analytics */}
+        <section className="admin-section">
+          <h2 className="admin-section-title">📊 Site Analytics</h2>
+          <p style={{fontSize:'0.85rem',color:'#6b7280',marginBottom:'16px'}}>
+            Session data only — no external tracking, no cookies.
+          </p>
+          <div className="admin-stats" style={{marginBottom:'20px'}}>
+            <div className="admin-stat">
+              <div className="admin-stat-value" id="a-pv">—</div>
+              <div className="admin-stat-label">Page Views</div>
+            </div>
+            <div className="admin-stat">
+              <div className="admin-stat-value" id="a-pages">—</div>
+              <div className="admin-stat-label">Pages Visited</div>
+            </div>
+            <div className="admin-stat">
+              <div className="admin-stat-value" id="a-quiz">—</div>
+              <div className="admin-stat-label">Quizzes Completed</div>
+            </div>
+          </div>
+          <h3 style={{fontSize:'0.9rem',fontWeight:600,color:'#1f2937',marginBottom:'10px'}}>Most Visited Pages</h3>
+          <div id="a-pages-list">
+            <p style={{color:'#6b7280',fontSize:'0.85rem'}}>No data yet — browse the site first.</p>
+          </div>
+          <div id="a-quiz-detail" />
+          <script dangerouslySetInnerHTML={{__html: `
+            (function() {
+              try {
+                var d = JSON.parse(localStorage.getItem('npa') || '{"pv":0,"pages":{},"quiz":{}}');
+                var pvEl = document.getElementById('a-pv');
+                var pagesEl = document.getElementById('a-pages');
+                var quizEl = document.getElementById('a-quiz');
+                if (pvEl) pvEl.textContent = String(d.pv || 0);
+                var pages = d.pages || {};
+                if (pagesEl) pagesEl.textContent = String(Object.keys(pages).length);
+                var quizData = d.quiz || {};
+                var totalQuiz = Object.values(quizData).reduce(function(a,v){return a+(Array.isArray(v)?v.length:0);},0);
+                if (quizEl) quizEl.textContent = String(totalQuiz);
+                var labels = {home:'Home',scope:'Scope',assessment:'Assessment',eyes:'Eyes',ent:'ENT',support:'Support',analytics:'Analytics',about:'About'};
+                var topPages = Object.entries(pages).sort(function(a,b){return b[1]-a[1];}).slice(0,6);
+                var listEl = document.getElementById('a-pages-list');
+                if (listEl && topPages.length > 0) {
+                  listEl.innerHTML = topPages.map(function(e){
+                    return '<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px 14px;margin-bottom:8px;display:flex;justify-content:space-between"><span style="color:#374151">'+(labels[e[0]]||e[0])+'</span><span style="font-weight:600;color:#c9a84c">'+e[1]+' views</span></div>';
+                  }).join('');
+                }
+              } catch(e) {}
+            })();
+          `}} />
+        </section>
       </div>
     </div>
   );

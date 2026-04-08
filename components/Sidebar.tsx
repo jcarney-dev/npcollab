@@ -54,8 +54,9 @@ const navGroups = [
   {
     label: 'Community',
     items: [
-      { label: 'Job Board', href: '/community/jobs', icon: '💼', disabled: true, coming: true },
-      { label: 'News',      href: '/community/news', icon: '📰', disabled: true, coming: true },
+      { label: 'Job Board', href: '/community/jobs',    icon: '💼', disabled: true, coming: true },
+      { label: 'News',      href: '/community/news',    icon: '📰', disabled: true, coming: true },
+      { label: 'Podcast',   href: '/community/podcast', icon: '🎙️', disabled: true, coming: true },
     ]
   },
   {
@@ -91,9 +92,8 @@ const navGroups = [
   {
     label: 'Site',
     items: [
-      { label: 'About & Contributors', href: '/about',     icon: '👥' },
-      { label: 'Support NPCollab',     href: '/support',   icon: '❤️' },
-      { label: 'Analytics',            href: '/analytics', icon: '📊' },
+      { label: 'About & Contributors', href: '/about',   icon: '👥' },
+      { label: 'Support NPCollab',     href: '/support', icon: '❤️' },
     ]
   }
 ];
