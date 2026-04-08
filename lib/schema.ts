@@ -4,6 +4,7 @@ import {
   text,
   boolean,
   timestamp,
+  integer,
 } from 'drizzle-orm/pg-core';
 
 // ── access_requests ────────────────────────────────────────────────────────
@@ -59,6 +60,30 @@ export const podcastSubscribers = pgTable('podcast_subscribers', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
+// ── podcast_broadcasts ─────────────────────────────────────────────────────
+// Log of broadcast emails sent to all podcast subscribers
+export const podcastBroadcasts = pgTable('podcast_broadcasts', {
+  id:             uuid('id').primaryKey().defaultRandom(),
+  subject:        text('subject').notNull(),
+  body:           text('body').notNull(),
+  recipientCount: integer('recipient_count').notNull().default(0),
+  sentAt:         timestamp('sent_at').notNull().defaultNow(),
+});
+
+// ── news_items ─────────────────────────────────────────────────────────────
+// Admin-managed news items for the Community > News section
+export const newsItems = pgTable('news_items', {
+  id:          uuid('id').primaryKey().defaultRandom(),
+  title:       text('title').notNull(),
+  summary:     text('summary').notNull(),
+  url:         text('url'),                              // external link (optional)
+  type:        text('type').notNull().default('article'), // 'article' | 'external' | 'announcement'
+  sourceName:  text('source_name').notNull().default(''),
+  status:      text('status').notNull().default('draft'), // 'draft' | 'published' | 'rejected'
+  publishedAt: timestamp('published_at'),
+  createdAt:   timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;
 export type NewAccessRequest      = typeof accessRequests.$inferInsert;
@@ -68,3 +93,7 @@ export type Sponsor               = typeof sponsors.$inferSelect;
 export type NewSponsor            = typeof sponsors.$inferInsert;
 export type PodcastSubscriber     = typeof podcastSubscribers.$inferSelect;
 export type NewPodcastSubscriber  = typeof podcastSubscribers.$inferInsert;
+export type PodcastBroadcast      = typeof podcastBroadcasts.$inferSelect;
+export type NewPodcastBroadcast   = typeof podcastBroadcasts.$inferInsert;
+export type NewsItem              = typeof newsItems.$inferSelect;
+export type NewNewsItem           = typeof newsItems.$inferInsert;

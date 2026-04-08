@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { accessRequests, users, sponsors, podcastSubscribers } from '@/lib/schema';
+import { accessRequests, users, sponsors, podcastSubscribers, newsItems } from '@/lib/schema';
 import { eq, desc, count } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
-  const [pendingRequests, allUsers, allSponsors, allPodcastSubscribers, stats] = await Promise.all([
+  const [pendingRequests, allUsers, allSponsors, allPodcastSubscribers, allNewsItems, stats] = await Promise.all([
     db
       .select()
       .from(accessRequests)
@@ -30,6 +30,10 @@ export default async function AdminPage() {
       .select()
       .from(podcastSubscribers)
       .orderBy(desc(podcastSubscribers.createdAt)),
+    db
+      .select()
+      .from(newsItems)
+      .orderBy(desc(newsItems.createdAt)),
     Promise.all([
       db.select({ count: count() }).from(accessRequests).where(eq(accessRequests.status, 'pending')),
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
@@ -46,6 +50,7 @@ export default async function AdminPage() {
       users={allUsers}
       sponsors={allSponsors}
       podcastSubscribers={allPodcastSubscribers}
+      newsItems={allNewsItems}
       stats={{
         pending: pending[0].count,
         active: active[0].count,

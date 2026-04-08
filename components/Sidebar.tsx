@@ -61,7 +61,7 @@ const navGroups: NavGroup[] = [
     items: [
       { label: 'Job Board', href: '/community/jobs',    icon: '💼', disabled: true, coming: true },
       { label: 'News',      href: '/community/news',    icon: '📰', disabled: true, coming: true },
-      { label: 'Podcast',   href: '/community/podcast', icon: '🎙️', disabled: true, coming: true },
+      { label: 'Podcast',   href: '/community/podcast', icon: '🎙️' },
     ]
   },
   {

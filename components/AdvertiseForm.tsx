@@ -57,60 +57,59 @@ export default function AdvertiseForm() {
 
   if (success) {
     return (
-      <div className="info-box" style={{ marginTop: '24px' }}>
-        <p>
-          <strong>Enquiry received — thank you.</strong> We will review your enquiry and get back to you within 2 business days.
-        </p>
+      <div className="public-success">
+        <div className="public-success-icon">✓</div>
+        <h2>Enquiry received</h2>
+        <p>Thanks for your interest in sponsoring NPCollab. We will review your enquiry and get back to you within 2 business days.</p>
       </div>
     );
   }
 
   return (
-    <form className="public-form" onSubmit={handleSubmit} style={{ marginTop: '24px' }}>
-      <div className="form-group">
-        <label className="form-label" htmlFor="companyName">Company name</label>
+    <form className="public-form" onSubmit={handleSubmit} noValidate>
+      <div className="form-field">
+        <label htmlFor="companyName">Company name</label>
         <input
           id="companyName"
-          className="form-input"
           type="text"
           placeholder="e.g. MedTech Australia Pty Ltd"
           value={form.companyName}
           onChange={e => update('companyName', e.target.value)}
           disabled={loading}
+          autoComplete="organization"
         />
       </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="contactName">Contact name</label>
+      <div className="form-field">
+        <label htmlFor="contactName">Contact name</label>
         <input
           id="contactName"
-          className="form-input"
           type="text"
-          placeholder="Your name"
+          placeholder="Your full name"
           value={form.contactName}
           onChange={e => update('contactName', e.target.value)}
           disabled={loading}
+          autoComplete="name"
         />
       </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="advertEmail">Email address</label>
+      <div className="form-field">
+        <label htmlFor="advertEmail">Email address</label>
         <input
           id="advertEmail"
-          className="form-input"
           type="email"
           placeholder="you@company.com.au"
           value={form.email}
           onChange={e => update('email', e.target.value)}
           disabled={loading}
+          autoComplete="email"
         />
       </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="option">Advertising option</label>
+      <div className="form-field">
+        <label htmlFor="option">Advertising option</label>
         <select
           id="option"
-          className="form-input"
           value={form.option}
           onChange={e => update('option', e.target.value)}
           disabled={loading}
@@ -122,27 +121,24 @@ export default function AdvertiseForm() {
         </select>
       </div>
 
-      <div className="form-group">
-        <label className="form-label" htmlFor="advertMessage">Message</label>
+      <div className="form-field">
+        <label htmlFor="advertMessage">Message</label>
         <textarea
           id="advertMessage"
-          className="form-input"
           rows={4}
-          placeholder="Tell us about your company and what you'd like to achieve…"
+          placeholder="Tell us about your company and what you&apos;d like to achieve with NPCollab sponsorship…"
           value={form.message}
           onChange={e => update('message', e.target.value)}
           disabled={loading}
-          style={{ resize: 'vertical' }}
         />
       </div>
 
-      {error && <p className="form-error">{error}</p>}
+      {error && <div className="form-error">{error}</div>}
 
       <button
         type="submit"
         className="btn-primary"
         disabled={loading}
-        style={{ width: '100%', marginTop: '8px' }}
       >
         {loading ? 'Sending…' : 'Send Enquiry →'}
       </button>
