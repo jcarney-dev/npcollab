@@ -51,6 +51,14 @@ export const sponsors = pgTable('sponsors', {
   createdAt:    timestamp('created_at').notNull().defaultNow(),
 });
 
+// ── podcast_subscribers ────────────────────────────────────────────────────
+// Stores email addresses of users who want to be notified when the podcast launches
+export const podcastSubscribers = pgTable('podcast_subscribers', {
+  id:        uuid('id').primaryKey().defaultRandom(),
+  email:     text('email').notNull().unique(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;
 export type NewAccessRequest      = typeof accessRequests.$inferInsert;
@@ -58,3 +66,5 @@ export type User                  = typeof users.$inferSelect;
 export type NewUser               = typeof users.$inferInsert;
 export type Sponsor               = typeof sponsors.$inferSelect;
 export type NewSponsor            = typeof sponsors.$inferInsert;
+export type PodcastSubscriber     = typeof podcastSubscribers.$inferSelect;
+export type NewPodcastSubscriber  = typeof podcastSubscribers.$inferInsert;

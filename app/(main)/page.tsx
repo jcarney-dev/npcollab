@@ -216,11 +216,12 @@ export default async function HomePage() {
           <p>Chest wall pain, costochondritis, and musculoskeletal chest assessment.</p>
           <div className="module-meta"><span>📋 Assessment</span><span>📝 SOAP Note</span><span>❓ 20 Qs</span></div>
         </Link>
-      </div>
-
-      <div className="label" style={{marginBottom:'14px',marginTop:'32px'}}>Coming Soon</div>
-      <div className="modules-grid">
-        <div className="module-card coming-soon"><span className="tag-coming">Soon</span><div className="module-icon">👨</div><h3>Men&apos;s Health</h3><p>Prostate, testosterone, sexual health, and men&apos;s preventive care.</p></div>
+        <Link href="/modules/mens-health" className="module-card">
+          <div className="module-icon">🔵</div>
+          <h3>Men&apos;s Health</h3>
+          <p>ED, testosterone deficiency, BPH, prostate cancer screening, and male mental health.</p>
+          <div className="module-meta"><span>📋 Assessment</span><span>📝 SOAP Note</span><span>❓ 20 Qs</span></div>
+        </Link>
       </div>
 
       <div className="info-box" style={{marginTop:'32px'}}>

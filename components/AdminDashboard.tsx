@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import type { AccessRequest, User, Sponsor } from '@/lib/schema';
+import type { AccessRequest, User, Sponsor, PodcastSubscriber } from '@/lib/schema';
 
 interface Props {
   pendingRequests: AccessRequest[];
   users: User[];
   sponsors: Sponsor[];
+  podcastSubscribers: PodcastSubscriber[];
   stats: { pending: number; active: number; disabled: number; total: number };
 }
 
@@ -287,15 +288,85 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
   );
 }
 
+// ── Podcast Subscribers section ─────────────────────────────────────────────
+
+function PodcastSubscribersSection({ subscribers }: { subscribers: PodcastSubscriber[] }) {
+  function handleExport() {
+    fetch('/api/admin/podcast-subscribers', { method: 'POST' })
+      .then(res => res.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `podcast-subscribers-${new Date().toISOString().slice(0, 10)}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+  }
+
+  return (
+    <section className="admin-section">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
+        <h2 className="admin-section-title" style={{ margin: 0 }}>
+          🎙️ Podcast Subscribers
+          {subscribers.length > 0 && (
+            <span className="admin-badge" style={{ marginLeft: '8px' }}>{subscribers.length}</span>
+          )}
+        </h2>
+        {subscribers.length > 0 && (
+          <button
+            onClick={handleExport}
+            style={{
+              fontSize: '13px',
+              fontWeight: 500,
+              color: 'var(--navy)',
+              background: 'var(--gold-pale)',
+              border: '1px solid var(--gold-light)',
+              borderRadius: '6px',
+              padding: '7px 14px',
+              cursor: 'pointer',
+            }}
+          >
+            Export CSV
+          </button>
+        )}
+      </div>
+
+      {subscribers.length === 0 ? (
+        <p className="admin-empty">No podcast subscribers yet.</p>
+      ) : (
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Subscribed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subscribers.map(s => (
+                <tr key={s.id}>
+                  <td>{s.email}</td>
+                  <td>{new Date(s.createdAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
+
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, stats: initialStats }: Props) {
+export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, stats: initialStats }: Props) {
   const [pending, setPending] = useState(initial);
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'analytics'>('requests');
+  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'analytics'>('requests');
 
   function notify(msg: string, type: 'success' | 'error' = 'success') {
     setNotification({ msg, type });
@@ -417,6 +488,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             { key: 'requests',  label: 'Access Requests', badge: stats.pending },
             { key: 'users',     label: 'Users',           badge: 0 },
             { key: 'sponsors',  label: 'Sponsors',        badge: 0 },
+            { key: 'podcast',   label: '🎙️ Podcast',      badge: 0 },
             { key: 'analytics', label: 'Analytics',       badge: 0 },
           ] as const).map(tab => (
             <button
@@ -547,6 +619,11 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         )}
 
         {/* Analytics */}
+        {/* Podcast Subscribers */}
+        {activeTab === 'podcast' && (
+          <PodcastSubscribersSection subscribers={podcastSubscribers} />
+        )}
+
         {activeTab === 'analytics' && (
           <section className="admin-section">
             <h2 className="admin-section-title">📊 Site Analytics</h2>

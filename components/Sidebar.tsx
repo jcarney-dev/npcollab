@@ -5,7 +5,10 @@ import { usePathname } from 'next/navigation';
 import { SidebarSponsorCard } from './SponsorCard';
 import type { Sponsor } from '@/lib/schema';
 
-const navGroups = [
+type NavItem = { label: string; href: string; icon: string; disabled?: boolean; coming?: boolean };
+type NavGroup = { label: string; items: NavItem[] };
+
+const navGroups: NavGroup[] = [
   {
     label: 'Getting Started',
     items: [
@@ -31,7 +34,7 @@ const navGroups = [
       { label: 'GU & Nephrology',       href: '/modules/gu-nephrology',       icon: '🫘' },
       { label: 'Integumentary',         href: '/modules/integumentary',       icon: '🩹' },
       { label: 'Maxillofacial/Dental',  href: '/modules/maxillofacial-dental',icon: '🦷' },
-      { label: "Men's Health",          href: '/modules/mens-health',         icon: '👨', disabled: true, coming: true },
+      { label: "Men's Health",          href: '/modules/mens-health',         icon: '👨' },
       { label: 'Mental Health',         href: '/modules/mental-health',       icon: '🧠' },
       { label: 'MSK — Back',              href: '/modules/musculoskeletal/back',        icon: '🦴' },
       { label: 'MSK — Chest Wall',        href: '/modules/musculoskeletal/chest',       icon: '🦴' },

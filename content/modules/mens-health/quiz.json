@@ -1,0 +1,122 @@
+[
+  {
+    "q": "A 52-year-old man presents with gradual-onset erectile dysfunction over 18 months. Morning erections are absent. He has hypertension, type 2 diabetes, and smokes 10 cigarettes per day. What is the most likely aetiology of his ED?",
+    "options": ["Psychogenic — absence of morning erections rules out organic cause", "Vascular — cardiovascular risk factors are the predominant driver", "Medication-induced — antihypertensives are the most likely cause", "Hormonal — testosterone deficiency alone explains this presentation"],
+    "correct": 1,
+    "explanation": "The gradual onset, absence of morning erections, and significant cardiovascular risk factors (hypertension, T2DM, smoking) point strongly to vascular (arteriogenic) ED. ED is now recognised as an independent marker of cardiovascular disease — men with ED have a 40% higher risk of major adverse cardiac events. Absent morning erections suggest organic rather than purely psychogenic aetiology."
+  },
+  {
+    "q": "A morning total testosterone level of 7.2 nmol/L is obtained in a 48-year-old man with fatigue, low libido, reduced muscle mass, and hot flushes. LH and FSH are in the normal range. What is the most appropriate interpretation?",
+    "options": ["Normal result — testosterone deficiency only occurs below 5 nmol/L", "Primary hypogonadism — LH and FSH would be elevated if this were primary", "Testosterone deficiency with possible primary hypogonadism — LH/FSH should be elevated if the pituitary is compensating correctly", "Secondary hypogonadism — the normal LH/FSH with low testosterone indicates hypothalamic-pituitary dysfunction"],
+    "correct": 3,
+    "explanation": "A testosterone of 7.2 nmol/L with normal LH/FSH in a symptomatic man indicates secondary (central/hypogonadotrophic) hypogonadism — the pituitary is not compensating appropriately for the low testosterone. Normal or low-normal LH/FSH with low testosterone points to a hypothalamic-pituitary cause. Primary hypogonadism would be expected to show elevated LH/FSH as the pituitary attempts to stimulate failing testes. This warrants further investigation including prolactin and consideration of MRI brain."
+  },
+  {
+    "q": "A 65-year-old man has an IPSS score of 16 and a post-void residual of 85mL on ultrasound. PSA is 2.8 ng/mL and DRE shows a smooth, symmetrical, approximately 40mL prostate. What is the most appropriate first-line pharmacological management?",
+    "options": ["Tamsulosin 400mcg nocte alone — alpha-1 blocker for symptom relief", "Finasteride 5mg daily alone — 5-ARI for large prostate", "Combination tamsulosin and finasteride — indicated for moderate-severe LUTS with large prostate", "Tadalafil 5mg daily — only indicated if concurrent ED"],
+    "correct": 2,
+    "explanation": "IPSS 16 (moderate) with a large prostate (~40mL) and significant PVR indicates combination therapy is appropriate. The AUA/EAU guidelines and Australian practice support combining an alpha-1 blocker (tamsulosin — rapid symptom relief) with a 5-alpha reductase inhibitor (finasteride — reduces prostate volume over 6–12 months) in men with moderate-severe LUTS and prostates >30–40mL. This combination reduces progression to acute urinary retention and surgical intervention."
+  },
+  {
+    "q": "You are counselling a 55-year-old man about PSA testing. According to the RACGP and Urological Society of Australia and New Zealand guidance, what is the recommended approach?",
+    "options": ["PSA testing should be offered routinely to all men over 50 without discussion", "PSA testing requires informed consent — discuss benefits and harms before ordering", "PSA testing is not recommended in Australian primary care due to poor specificity", "PSA testing is only appropriate if the patient has urinary symptoms"],
+    "correct": 1,
+    "explanation": "Both the RACGP and the Urological Society of Australia and New Zealand recommend that PSA testing should only be offered after an informed consent discussion covering the benefits (early detection of significant prostate cancer) and potential harms (overdiagnosis, overtreatment, anxiety, biopsy complications). Routine screening without discussion is not endorsed. The decision to test should be a shared one between the patient and clinician."
+  },
+  {
+    "q": "A 38-year-old man presents with sudden severe right testicular pain of 2-hour duration with nausea and vomiting. On examination the right testis is high-riding and tender, the cremasteric reflex is absent on the right. What is the immediate management?",
+    "options": ["Scrotal ultrasound — to confirm testicular torsion before referral", "Urgent urology referral — suspected testicular torsion, do not delay for imaging", "Empirical antibiotics — epididymo-orchitis is more common", "Analgesia and review in 24 hours — likely epididymo-orchitis in young men"],
+    "correct": 1,
+    "explanation": "Testicular torsion is a surgical emergency. The classic presentation — sudden severe pain, high-riding testis, absent cremasteric reflex — has a high positive predictive value. Testicular salvage is approximately 100% if detorsion occurs within 6 hours, falling to 50% at 12 hours and near zero at 24 hours. Do NOT delay for ultrasound if clinical suspicion is high — call urology and transfer immediately. Ultrasound is useful if diagnosis is uncertain but should never delay surgical exploration in a high-suspicion case."
+  },
+  {
+    "q": "A 50-year-old man is commenced on testosterone gel for confirmed testosterone deficiency. Which monitoring parameter is most important at the 3-month review?",
+    "options": ["Serum testosterone level only — to confirm therapeutic range", "Haematocrit, PSA, testosterone level, and symptom assessment", "Liver function tests — testosterone gel causes significant hepatotoxicity", "Bone density scan — mandatory at 3 months for osteoporosis risk"],
+    "correct": 1,
+    "explanation": "At 3 months post-TRT commencement, monitoring should include: haematocrit (TRT stimulates erythropoiesis — polycythaemia risk if >0.54), PSA (TRT can unmask subclinical prostate cancer — refer urology if PSA rises >0.75 ng/mL above baseline), trough testosterone level (to confirm therapeutic range and adjust dose), and symptom assessment (energy, libido, mood, erectile function). Liver function tests are not routinely required for transdermal preparations (relevant for oral methyltestosterone, which is not used in Australia)."
+  },
+  {
+    "q": "Using AUDIT-C, a 45-year-old man scores 6/12. He drinks 3 beers per evening and 8–10 beers on weekends. According to NHMRC 2020 alcohol guidelines, what advice should be provided?",
+    "options": ["His drinking is within safe limits — no intervention required", "He is drinking at a hazardous level — his weekly intake exceeds NHMRC guidelines of 10 standard drinks/week", "Only weekend drinking is concerning — advise reducing to 4 standard drinks on any one day", "Advise complete alcohol abstinence — any alcohol consumption is harmful"],
+    "correct": 1,
+    "explanation": "AUDIT-C ≥3 in men is a positive screen for hazardous drinking. This man is drinking approximately 21 standard drinks per week (3 beers x 5 weekdays = 15 + approximately 8–10 on weekends), well exceeding the NHMRC 2020 guideline of no more than 10 standard drinks per week and no more than 4 on any single day. Brief intervention should be delivered. AUDIT-C ≥6 indicates harmful drinking and warrants a more structured intervention or referral."
+  },
+  {
+    "q": "A 40-year-old man with no cardiac symptoms is commenced on sildenafil 50mg for ED. He mentions he uses glyceryl trinitrate (GTN) spray occasionally for chest pain. What is the most important counselling point?",
+    "options": ["Sildenafil should be used 4 hours after GTN to avoid interaction", "Sildenafil is absolutely contraindicated with any nitrate — concurrent use can cause profound life-threatening hypotension", "The interaction is only relevant with regular (not PRN) nitrate use", "Reduce the sildenafil dose to 25mg when using with nitrates to minimise risk"],
+    "correct": 1,
+    "explanation": "PDE5 inhibitors (sildenafil, tadalafil, vardenafil) are absolutely contraindicated with nitrates (GTN, isosorbide mononitrate/dinitrate, amyl nitrite/poppers). Both classes reduce preload via different mechanisms, and concurrent use can cause profound, potentially fatal hypotension. There is no safe time window or dose reduction that makes this combination acceptable. This man should be assessed for his chest pain aetiology — if he requires GTN, he cannot safely use PDE5 inhibitors."
+  },
+  {
+    "q": "A 32-year-old man presents with a painless firm lump in the right testis, noted incidentally 2 weeks ago. There is no fever, no tender epididymis, and no urinary symptoms. What is the most appropriate next step?",
+    "options": ["Reassure — most testicular lumps in young men are benign epididymal cysts", "Prescribe empirical antibiotics for epididymo-orchitis", "Urgent scrotal ultrasound — any solid testicular lump in a young man requires urgent investigation to exclude malignancy", "Refer to urology in 3 months if the lump has not resolved"],
+    "correct": 2,
+    "explanation": "Testicular cancer is the most common malignancy in men aged 15–40 in Australia. A firm, painless testicular lump in this age group must be considered malignant until proven otherwise. Urgent scrotal ultrasound should be arranged — if ultrasound is suspicious, urgent urology referral is required for serum tumour markers (AFP, beta-hCG, LDH) and surgical exploration. A 3-month wait is not appropriate for a potentially malignant testicular lump."
+  },
+  {
+    "q": "Which of the following PSA results in a 58-year-old man is most appropriate to refer to urology without further delay?",
+    "options": ["PSA 1.2 ng/mL — repeat in 2 years", "PSA 3.8 ng/mL — age-appropriate, repeat in 12 months", "PSA 5.6 ng/mL — exceeds upper limit for age, refer urology", "PSA 2.1 ng/mL — reassure and repeat in 12 months"],
+    "correct": 2,
+    "explanation": "Age-specific PSA norms vary, but a PSA >4 ng/mL in a 58-year-old warrants urology referral for consideration of prostate biopsy. For men aged 50–59, a PSA above approximately 3.5–4 ng/mL warrants further evaluation. PSA velocity (rising PSA over time) is also clinically significant. A PSA of 5.6 ng/mL is clearly above the threshold for this age group and requires urology review."
+  },
+  {
+    "q": "A 35-year-old man presents with a 2-day history of left testicular pain, urethral discharge, and dysuria. He has a new sexual partner. What is the most likely diagnosis and appropriate management?",
+    "options": ["Testicular torsion — urgent surgical referral", "Epididymo-orchitis — likely sexually transmitted, treat empirically with ceftriaxone plus doxycycline", "Varicocele — lifestyle advice and urology review", "Prostatitis — treat with ciprofloxacin for 4 weeks"],
+    "correct": 1,
+    "explanation": "Epididymo-orchitis in men under 35 with urethral discharge and a new sexual partner is most likely sexually transmitted — chlamydia and gonorrhoea are the predominant pathogens. First-pass urine for PCR (gonorrhoea and chlamydia) and urethral swab should be taken before treatment. Australian STI management guidelines recommend ceftriaxone 500mg IM stat + doxycycline 100mg BD for 10–14 days for suspected STI-related epididymo-orchitis. Partner notification and testing is required."
+  },
+  {
+    "q": "A 60-year-old man is using finasteride 5mg daily for BPH. His PSA result returns at 2.2 ng/mL. How should this be interpreted?",
+    "options": ["2.2 ng/mL is normal for his age — no action required", "Finasteride reduces PSA by approximately 50% — his effective PSA is approximately 4.4 ng/mL and warrants urology review", "Finasteride increases PSA — the actual PSA is likely lower than 2.2 ng/mL", "PSA testing is not valid in men on finasteride"],
+    "correct": 1,
+    "explanation": "5-alpha reductase inhibitors (finasteride, dutasteride) reduce PSA levels by approximately 50% within 6 months. When interpreting PSA in a man on a 5-ARI, the measured value should be doubled to estimate the effective PSA. In this case, the effective PSA is approximately 4.4 ng/mL, which exceeds the threshold for urology referral. Failure to account for 5-ARI use can lead to missed prostate cancer diagnoses."
+  },
+  {
+    "q": "Central obesity, fasting TG 2.3 mmol/L, HDL 0.9 mmol/L, BP 138/88 mmHg, and fasting BGL 6.1 mmol/L are found in a 50-year-old man. What diagnosis do these findings represent?",
+    "options": ["Type 2 diabetes — the BGL exceeds the diagnostic threshold", "Metabolic syndrome — 5 of 5 criteria are met", "Hypertensive urgency — requires immediate BP management", "Polycythaemia vera — these are early haematological signs"],
+    "correct": 1,
+    "explanation": "Metabolic syndrome requires ≥3 of 5 criteria: central obesity (waist >94cm Caucasian male), TG ≥1.7 mmol/L, HDL <1.0 mmol/L, BP ≥130/85 mmHg, and fasting BGL ≥5.6 mmol/L or known T2DM. This man meets all 5 criteria. Metabolic syndrome significantly increases cardiovascular risk and is associated with testosterone deficiency, NAFLD, OSA, and progression to T2DM. The fasting BGL of 6.1 mmol/L is in the impaired fasting glucose range (prediabetes), not yet diagnostic of T2DM (which requires ≥7.0 mmol/L on fasting, or ≥11.1 mmol/L random, or 2h OGTT ≥11.1 mmol/L)."
+  },
+  {
+    "q": "A 28-year-old MSM (man who has sex with men) presents for a sexual health check. He is HIV-negative and has had 4 partners in the last 3 months with inconsistent condom use. What is the most appropriate STI screening package?",
+    "options": ["First-pass urine for chlamydia and gonorrhoea only", "HIV and syphilis serology only — genital STIs are less common in MSM", "First-pass urine PCR, pharyngeal swab, rectal swab, HIV, syphilis, hepatitis A and B serology", "Annual STI screening is sufficient regardless of risk behaviours"],
+    "correct": 2,
+    "explanation": "High-risk MSM (multiple partners, inconsistent condom use) require 3-monthly comprehensive STI screening: first-pass urine PCR (chlamydia and gonorrhoea), pharyngeal swab (gonorrhoea is often asymptomatic at this site), rectal swab (if receptive anal sex), HIV serology (or rapid test), syphilis serology, and hepatitis A and B serology (if not immune). PrEP should also be discussed if not already prescribed. Annual screening is insufficient at this risk level."
+  },
+  {
+    "q": "A 30-year-old man is taking anabolic steroids (testosterone enanthate 500mg/week) obtained outside medical supervision. He and his partner are trying to conceive. What is the most important piece of information to convey?",
+    "options": ["Anabolic steroids improve sperm quality due to elevated testosterone levels", "Exogenous testosterone suppresses the HPG axis — causing azoospermia or severe oligospermia — and he is likely infertile while using it", "He should have a semen analysis performed while continuing the anabolic steroids", "Low-dose anabolic steroids are safe to use during fertility treatment"],
+    "correct": 1,
+    "explanation": "Supraphysiological exogenous testosterone (anabolic steroids) profoundly suppresses the hypothalamic-pituitary-gonadal axis via negative feedback. This results in suppressed LH and FSH, leading to testicular atrophy, markedly reduced or absent spermatogenesis (azoospermia), and potential infertility. Recovery of spermatogenesis after cessation can take 6–18 months and is not guaranteed. This is a critical counselling point for men on anabolic steroids who desire fertility."
+  },
+  {
+    "q": "Australian men account for approximately what percentage of suicide deaths in Australia?",
+    "options": ["40%", "55%", "75%", "90%"],
+    "correct": 2,
+    "explanation": "Australian men account for approximately 75% of suicide deaths in Australia — approximately 3 times the rate of women. This stark disparity reflects barriers to help-seeking, cultural expectations around stoicism, higher rates of substance use as coping mechanisms, and underdiagnosis of mental health conditions. NPs in primary care have a critical role in routine mental health screening, reducing stigma, and facilitating access to support. Direct questioning about suicidal ideation does not increase risk and is essential in assessment."
+  },
+  {
+    "q": "A man on tadalafil 5mg daily for ED and BPH asks why his doctor also prescribed tamsulosin. What is the most important counselling point regarding concurrent use?",
+    "options": ["Tamsulosin and tadalafil can be safely combined — use the lowest dose of tamsulosin to reduce orthostatic hypotension risk", "Tamsulosin is absolutely contraindicated with tadalafil due to fatal hypotension risk", "Tadalafil and tamsulosin must be taken 8 hours apart to prevent interaction", "The combination should be avoided — choose one or the other only"],
+    "correct": 0,
+    "explanation": "Unlike non-selective alpha-blockers (such as doxazosin and terazosin), tamsulosin (an alpha-1a selective blocker) can be used with PDE5 inhibitors with caution. The combination can cause additive hypotension, particularly orthostatic. Using the lowest effective dose of tamsulosin and counselling the patient about standing slowly minimises risk. Current guidelines support this combination for men with both ED and LUTS/BPH. Tadalafil 5mg daily (not PRN sildenafil) is preferred when combining with tamsulosin."
+  },
+  {
+    "q": "A 47-year-old man with a waist circumference of 104cm has a calculated 5-year absolute cardiovascular risk of 18% on the AusCVDRisk calculator. Which of the following management approaches is most aligned with Australian guidelines?",
+    "options": ["Lifestyle advice only — pharmacotherapy is not yet indicated below 20%", "Lifestyle advice plus initiation of statin therapy — high CVD risk warrants pharmacotherapy", "Refer to cardiology before initiating any pharmacotherapy", "Repeat the risk calculation in 12 months before making a management decision"],
+    "correct": 1,
+    "explanation": "An absolute 5-year CVD risk of >15% is classified as HIGH risk in Australian guidelines. At this level, pharmacotherapy (statin therapy and antihypertensive medication if indicated) is recommended in addition to lifestyle modification, regardless of individual cholesterol or blood pressure values. The absolute risk approach shifts management from treating individual risk factors in isolation to managing overall cardiovascular risk. Lifestyle optimisation should occur in parallel, not instead of, pharmacotherapy at this risk level."
+  },
+  {
+    "q": "A 35-year-old man and his partner have been trying to conceive for 14 months. A semen analysis is performed. Which WHO 2021 reference value represents the lower reference limit for normal sperm concentration?",
+    "options": ["5 million/mL", "16 million/mL", "20 million/mL", "40 million/mL"],
+    "correct": 1,
+    "explanation": "The WHO 2021 lower reference limits for semen analysis include: sperm concentration ≥16 million/mL (revised from 15 million/mL in 2010 WHO criteria), total sperm count ≥39 million per ejaculate, progressive motility ≥30%, and normal morphology ≥4% (Kruger strict criteria). Results below these thresholds (oligospermia, asthenospermia, teratospermia) should prompt further endocrine evaluation and urology/andrology referral. Azoospermia (no sperm) requires urgent specialist assessment."
+  },
+  {
+    "q": "A 45-year-old man scores 8 on the PHQ-9 (mild depression). He attributes his low mood to work stress but also mentions fatigue, reduced libido, and hot flushes for 8 months. What is the most important additional investigation to order at this consultation?",
+    "options": ["Thyroid function tests only — hypothyroidism explains all symptoms", "Morning total testosterone — testosterone deficiency can present with depressive symptoms and should be excluded", "Commence an SSRI immediately — PHQ-9 score warrants pharmacotherapy", "Refer to psychology — all depression in men is psychogenic"],
+    "correct": 1,
+    "explanation": "The combination of low mood, fatigue, reduced libido, and hot flushes in a middle-aged man strongly suggests testosterone deficiency as a contributing or primary aetiology. Before diagnosing depression and commencing an SSRI, it is essential to exclude testosterone deficiency — untreated hypogonadism will not respond adequately to antidepressants and addressing testosterone deficiency may resolve the mood symptoms. Morning total testosterone should be checked alongside TFTs. Treating the underlying cause is preferred over symptomatic management alone."
+  }
+]
