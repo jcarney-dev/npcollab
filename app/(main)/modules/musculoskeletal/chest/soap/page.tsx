@@ -178,18 +178,15 @@ const soapData = {
 export default function MskChestSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Chest Wall SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: Rib fractures with haemothorax in an elderly patient with COPD and osteoporosis</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Chest Wall</h1>
+        <p>Chest wall pain, costochondritis, rib fractures, and musculoskeletal causes of chest pain</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/chest" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function EndocrineAssessmentPage() {
   return (
     <>
-      <div className="page-header">
+            <div className="page-header">
         <div className="label">Clinical Module</div>
         <h1>🔬 Endocrine</h1>
         <p>Diabetes, thyroid disease, adrenal disorders, and metabolic conditions</p>

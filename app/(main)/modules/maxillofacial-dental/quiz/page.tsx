@@ -5,18 +5,15 @@ import quizData from '@/content/modules/maxillofacial-dental/quiz.json';
 export default function MaxillofacialDentalQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦷</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>Maxillofacial &amp; Dental — Quiz</h1>
-          <p className="page-subtitle">20 questions covering maxillofacial and dental clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦷 Maxillofacial &amp; Dental</h1>
+        <p>Dental emergencies, orofacial infections, oral mucosal conditions, facial trauma, and oral cancer recognition for NP practice.</p>
       </div>
 
       <ModuleTabs moduleId="maxillofacial-dental" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="maxillofacial-dental" questions={quizData} />
       </div>
 

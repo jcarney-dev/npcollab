@@ -54,18 +54,15 @@ const resources = [
 export default function MskFootAnkleResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Foot &amp; Ankle Resources</h1>
-          <p className="page-subtitle">Curated Australian resources for foot and ankle clinical practice</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Foot &amp; Ankle</h1>
+        <p>Foot and ankle pain, sprains, plantar fasciitis, and common foot presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/foot-ankle" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <section className="content-section">
           <h2>Australian Resources</h2>
           <p>All resources listed are Australian or provide Australia-specific guidance relevant to NP practice.</p>

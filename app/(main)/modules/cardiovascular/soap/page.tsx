@@ -4,16 +4,16 @@ import SoapNote from '@/components/SoapNote';
 export default function CardiovascularSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩸</div>
-        <div>
-          <h1>Cardiovascular — SOAP Note</h1>
-          <p>Example consultation: 65-year-old male with intermittent claudication</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫀 Cardiovascular</h1>
+        <p>Vascular disease, DVT, cerebrovascular disease, and CVD risk management</p>
       </div>
 
       <ModuleTabs moduleId="cardiovascular" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="65-Year-Old Male — Peripheral Arterial Disease"
         meta="ABI Right 0.72 | Claudication at 200m | High CVD risk — undertreated"
@@ -147,6 +147,8 @@ export default function CardiovascularSoapPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

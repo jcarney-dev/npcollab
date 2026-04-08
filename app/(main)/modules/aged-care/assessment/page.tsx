@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Aged Care — Assessment' };
 export default function AgedCareAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Aged Care</div>
-        <h1>🏥 Assessment</h1>
-        <p>Comprehensive geriatric assessment covering cognition, function, falls, polypharmacy, continence, nutrition, and psychosocial domains.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧓 Aged Care</h1>
+        <p>Assessment and management of common aged care presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="aged-care" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -253,6 +255,8 @@ export default function AgedCareAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Aged Care Quality and Safety Commission, Therapeutic Guidelines (Aged Care), Australian Commission on Safety and Quality in Health Care.
       </div>
+      </div>
+
     </>
   );
 }

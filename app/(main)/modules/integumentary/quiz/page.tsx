@@ -8,15 +8,19 @@ export const metadata: Metadata = { title: 'Integumentary — Quiz' };
 export default function IntegumentaryQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Integumentary</div>
-        <h1>🩹 Quiz</h1>
-        <p>Test your knowledge of dermatology, skin cancer, wound management, and skin infections.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩹 Integumentary</h1>
+        <p>Assessment and management of common dermatological presentations, skin malignancy, and wound care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="integumentary" />
 
+
+      <div className="content-prose">
       <Quiz moduleId="integumentary" questions={questions} />
+      </div>
+
     </>
   );
 }

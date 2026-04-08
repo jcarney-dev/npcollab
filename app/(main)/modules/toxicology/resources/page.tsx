@@ -46,17 +46,16 @@ const resources = [
 export default function ToxicologyResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">⚗️</span>
-        <div>
-          <span className="label">Clinical Module — Resources</span>
-          <h1>Toxicology Resources</h1>
-          <p>Curated Australian toxicology resources for NP practice — poison information, management guidelines, and crisis support.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>⚗️ Toxicology</h1>
+        <p>Toxidrome recognition, overdose management, antidotes, and the NP role in poisoning presentations.</p>
       </div>
 
       <ModuleTabs moduleId="toxicology" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url + r.title} className="resource-link">
@@ -72,6 +71,8 @@ export default function ToxicologyResourcesPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

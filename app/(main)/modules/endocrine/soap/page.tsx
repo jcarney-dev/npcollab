@@ -102,13 +102,15 @@ const sections = [
 export default function EndocrineSoapPage() {
   return (
     <>
-      <div className="page-header">
+            <div className="page-header">
         <div className="label">Clinical Module</div>
         <h1>🔬 Endocrine</h1>
         <p>Diabetes, thyroid disease, adrenal disorders, and metabolic conditions</p>
       </div>
       <ModuleTabs moduleId="endocrine" />
 
+
+      <div className="content-prose">
       <div style={{ marginBottom: '20px' }}>
         <h3 style={{ color: 'var(--navy)', marginBottom: '6px', fontFamily: 'var(--font-body)' }}>Example SOAP Note — Type 2 Diabetes Review</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Sample: 58-year-old female with suboptimal T2DM control presenting for 3-monthly review. Click each section to expand.</p>
@@ -117,6 +119,8 @@ export default function EndocrineSoapPage() {
       <div className="info-box" style={{ marginTop: '24px' }}>
         <p>⚠️ <strong>Educational purposes only.</strong> Always apply your own clinical judgement and refer to current RACGP and Diabetes Australia guidelines. Medication decisions should account for individual patient factors including renal function, contraindications, and patient preferences.</p>
       </div>
+      </div>
+
     </>
   );
 }

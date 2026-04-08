@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Palliative Care — Assessment' };
 export default function PalliativeCareAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Palliative Care</div>
-        <h1>🕊️ Assessment</h1>
-        <p>Structured palliative care assessment including symptom tools, medication review, goals of care, and carer assessment.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🕊️ Palliative Care</h1>
+        <p>Symptom management, advance care planning, and end-of-life care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="palliative-care" />
 
+
+      <div className="content-prose">
       <h2>Symptom Assessment Tools</h2>
 
       <div className="assessment-grid">
@@ -127,6 +129,8 @@ export default function PalliativeCareAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: CareSearch Palliative Care Knowledge Network, Therapeutic Guidelines (Palliative Care), Palliative Care Australia.
       </div>
+      </div>
+
     </>
   );
 }

@@ -186,18 +186,15 @@ const soapData = {
 export default function MskBackSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Back SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: L5 radiculopathy with foot drop in a warehouse worker</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Back</h1>
+        <p>Low back pain, lumbar radiculopathy, spinal stenosis, and serious spinal pathology</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/back" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

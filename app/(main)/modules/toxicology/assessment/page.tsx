@@ -3,17 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function ToxicologyAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">⚗️</span>
-        <div>
-          <span className="label">Clinical Module — Assessment</span>
-          <h1>Toxicology Assessment</h1>
-          <p>Systematic toxicological history, toxidrome examination, pupil assessment, and investigations for poisoning presentations.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>⚗️ Toxicology</h1>
+        <p>Toxidrome recognition, overdose management, antidotes, and the NP role in poisoning presentations.</p>
       </div>
 
       <ModuleTabs moduleId="toxicology" />
 
+
+      <div className="content-prose">
       <h2>Toxicology History</h2>
 
       <h3>Exposure History (Key Questions)</h3>
@@ -177,6 +176,8 @@ export default function ToxicologyAssessmentPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

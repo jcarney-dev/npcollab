@@ -54,18 +54,15 @@ const resources = [
 export default function MskKneeResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Knee Resources</h1>
-          <p className="page-subtitle">Curated Australian resources for knee clinical practice</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Knee</h1>
+        <p>Knee injuries, osteoarthritis, tendinopathy, and common knee presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/knee" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <section className="content-section">
           <h2>Australian Resources</h2>
           <p>All resources listed are Australian or provide Australia-specific guidance relevant to NP practice.</p>

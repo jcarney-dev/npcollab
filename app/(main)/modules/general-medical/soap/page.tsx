@@ -4,16 +4,16 @@ import SoapNote from '@/components/SoapNote';
 export default function GeneralMedicalSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩺</div>
-        <div>
-          <h1>General Medical — SOAP Note</h1>
-          <p>Example consultation: 72-year-old with fever and confusion</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩺 General Medical</h1>
+        <p>Undifferentiated and multisystem presentations in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="general-medical" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="72-Year-Old Male — Urosepsis with Acute Urinary Retention"
         meta="qSOFA 3/3 | Lactate 3.8 | BP 96/58 | Septic shock"
@@ -135,6 +135,8 @@ export default function GeneralMedicalSoapPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

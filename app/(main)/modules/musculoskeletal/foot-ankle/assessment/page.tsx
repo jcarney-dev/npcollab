@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MskFootAnkleAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module — Assessment</span>
-          <h1>MSK — Foot &amp; Ankle: Assessment</h1>
-          <p className="page-subtitle">Structured history, Ottawa Rules, systematic examination, and targeted investigations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Foot &amp; Ankle</h1>
+        <p>Foot and ankle pain, sprains, plantar fasciitis, and common foot presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/foot-ankle" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <section className="content-section">
           <h2>History</h2>

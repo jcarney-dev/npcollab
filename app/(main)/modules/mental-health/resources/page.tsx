@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Mental Health — Resources' };
 export default function MentalHealthResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Mental Health</div>
-        <h1>🧠 Resources</h1>
-        <p>Curated Australian clinical guidelines, tools, and consumer resources for mental health practice.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧠 Mental Health</h1>
+        <p>Assessment and management of common mental health presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="mental-health" />
 
+
+      <div className="content-prose">
       <h2>Clinical Guidelines</h2>
       <div className="resource-list">
         <a href="https://www.tg.org.au" target="_blank" rel="noopener" className="resource-link">
@@ -109,6 +111,8 @@ export default function MentalHealthResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Resources current as of 2025 — verify currency before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

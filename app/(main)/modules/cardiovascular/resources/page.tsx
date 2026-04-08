@@ -46,16 +46,16 @@ const resources = [
 export default function CardiovascularResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩸</div>
-        <div>
-          <h1>Cardiovascular — Resources</h1>
-          <p>Curated Australian resources for vascular and CVD risk management</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫀 Cardiovascular</h1>
+        <p>Vascular disease, DVT, cerebrovascular disease, and CVD risk management</p>
       </div>
 
       <ModuleTabs moduleId="cardiovascular" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -70,6 +70,8 @@ export default function CardiovascularResourcesPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

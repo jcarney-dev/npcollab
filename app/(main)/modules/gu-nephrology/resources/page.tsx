@@ -49,14 +49,16 @@ const resources = [
 export default function GuNephrologyResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GU &amp; Nephrology</div>
-        <h1>🫘 Resources</h1>
-        <p>Curated Australian resources for renal and genitourinary clinical practice.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫘 GU &amp; Nephrology</h1>
+        <p>Assessment and management of urinary tract, renal, and male genitourinary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gu-nephrology" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -71,6 +73,8 @@ export default function GuNephrologyResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Links were current at time of publication — verify current guidelines before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

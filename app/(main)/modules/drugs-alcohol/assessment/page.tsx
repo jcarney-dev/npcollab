@@ -3,16 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function DrugsAlcoholAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🍺</div>
-        <div>
-          <h1>Drugs &amp; Alcohol — Assessment</h1>
-          <p>Substance use history, examination, and investigations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧪 Drugs &amp; Alcohol</h1>
+        <p>Substance use disorders — assessment and management in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="drugs-alcohol" />
 
+
+      <div className="content-prose">
       <section>
         <h2>Substance Use History</h2>
 
@@ -157,6 +157,8 @@ export default function DrugsAlcoholAssessmentPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

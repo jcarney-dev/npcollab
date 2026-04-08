@@ -245,14 +245,16 @@ const sections = [
 export default function AgedCareSOAPPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Aged Care</div>
-        <h1>🏥 SOAP Note</h1>
-        <p>Example: 83-year-old female RACF resident with delirium, recurrent falls, UTI, hyponatraemia, and polypharmacy review.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧓 Aged Care</h1>
+        <p>Assessment and management of common aged care presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="aged-care" />
 
+
+      <div className="content-prose">
       <div className="info-box" style={{marginBottom:'1.5rem'}}>
         <strong>Example case only.</strong> All patient details are fictional. Always document according to your organisation&apos;s standards and apply your own clinical judgement.
       </div>
@@ -266,6 +268,8 @@ export default function AgedCareSOAPPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Aged Care), Aged Care Quality and Safety Commission Standards.
       </div>
+      </div>
+
     </>
   );
 }

@@ -170,14 +170,16 @@ const sections = [
 export default function MentalHealthSOAPPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Mental Health</div>
-        <h1>🧠 SOAP Note</h1>
-        <p>Example: 45-year-old male with moderately severe depression, hazardous alcohol use, and passive suicidal ideation following relationship breakdown.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧠 Mental Health</h1>
+        <p>Assessment and management of common mental health presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="mental-health" />
 
+
+      <div className="content-prose">
       <div className="info-box" style={{marginBottom:'1.5rem'}}>
         <strong>Example case only.</strong> This SOAP note is a teaching tool for NP students and practitioners. All patient details are fictional. Always document according to your organisation&apos;s standards and apply your own clinical judgement.
       </div>
@@ -191,6 +193,8 @@ export default function MentalHealthSOAPPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: DSM-5, Therapeutic Guidelines (Psychotropic), RANZCP clinical practice guidelines.
       </div>
+      </div>
+
     </>
   );
 }

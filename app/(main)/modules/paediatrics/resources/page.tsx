@@ -49,14 +49,16 @@ const resources = [
 export default function PaediatricsResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Paediatrics</div>
-        <h1>👶 Resources</h1>
-        <p>Curated Australian resources for paediatric clinical practice, immunisation, and prescribing.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>👶 Paediatrics</h1>
+        <p>Assessment and management of common paediatric presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="paediatrics" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -71,6 +73,8 @@ export default function PaediatricsResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Links were current at time of publication — verify current guidelines before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

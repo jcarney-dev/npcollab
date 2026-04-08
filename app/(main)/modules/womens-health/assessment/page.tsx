@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: "Women's Health — Assessment" };
 export default function WomensHealthAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Women&apos;s Health</div>
-        <h1>🌸 Assessment</h1>
-        <p>Structured women&apos;s health history and examination covering menstrual, reproductive, contraceptive, menopausal, and breast health domains.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>👩 Women&apos;s Health</h1>
+        <p>Assessment and management of common women&apos;s health presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="womens-health" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -222,6 +224,8 @@ export default function WomensHealthAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: RANZCOG, NCSP, Jean Hailes for Women&apos;s Health, Therapeutic Guidelines.
       </div>
+      </div>
+
     </>
   );
 }

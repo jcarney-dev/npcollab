@@ -148,18 +148,15 @@ const soapData = {
 export default function MskKneeSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Knee SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: ACL rupture in a football player</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Knee</h1>
+        <p>Knee injuries, osteoarthritis, tendinopathy, and common knee presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/knee" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

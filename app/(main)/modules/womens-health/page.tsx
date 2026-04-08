@@ -14,6 +14,8 @@ export default function WomensHealthPage() {
 
       <ModuleTabs moduleId="womens-health" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -82,6 +84,8 @@ export default function WomensHealthPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Clinical content references Australian guidelines including RANZCOG, NCSP, Jean Hailes, and Therapeutic Guidelines.
       </div>
+      </div>
+
     </>
   );
 }

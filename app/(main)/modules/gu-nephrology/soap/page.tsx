@@ -121,14 +121,16 @@ const sections = [
 export default function GuNephrologySoapPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GU &amp; Nephrology</div>
-        <h1>🫘 SOAP Note</h1>
-        <p>Example clinical note: 32-year-old female with recurrent urinary tract infection.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫘 GU &amp; Nephrology</h1>
+        <p>Assessment and management of urinary tract, renal, and male genitourinary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gu-nephrology" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="GU Presentation — Recurrent UTI"
         meta="32-year-old female | 3rd UTI in 6 months | Post-coital pattern | Cefalexin treatment + post-coital prophylaxis"
@@ -138,6 +140,8 @@ export default function GuNephrologySoapPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Urinary Tract), Australian STI Management Guidelines.
       </div>
+      </div>
+
     </>
   );
 }

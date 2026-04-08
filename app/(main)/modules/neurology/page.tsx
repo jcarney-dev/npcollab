@@ -14,6 +14,8 @@ export default function NeurologyPage() {
 
       <ModuleTabs moduleId="neurology" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -86,6 +88,8 @@ export default function NeurologyPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Clinical content references Therapeutic Guidelines (Neurology), Stroke Foundation clinical guidelines, and ILAE classification.
       </div>
+      </div>
+
     </>
   );
 }

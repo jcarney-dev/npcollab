@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Aged Care — Resources' };
 export default function AgedCareResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Aged Care</div>
-        <h1>🏥 Resources</h1>
-        <p>Curated Australian clinical guidelines, tools, and consumer resources for aged care practice.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧓 Aged Care</h1>
+        <p>Assessment and management of common aged care presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="aged-care" />
 
+
+      <div className="content-prose">
       <h2>Clinical Guidelines</h2>
       <div className="resource-list">
         <a href="https://www.tg.org.au" target="_blank" rel="noopener" className="resource-link">
@@ -121,6 +123,8 @@ export default function AgedCareResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Resources current as of 2025 — verify currency before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

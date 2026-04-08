@@ -152,14 +152,16 @@ const sections = [
 export default function PaediatricsSoapPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Paediatrics</div>
-        <h1>👶 SOAP Note</h1>
-        <p>Example clinical note: 18-month-old male presenting with mild croup.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>👶 Paediatrics</h1>
+        <p>Assessment and management of common paediatric presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="paediatrics" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="Paediatric Acute Presentation — Croup"
         meta="18-month-old male | Mild croup (Westley score 1) | Dexamethasone 2mg oral | Discharged with safety netting"
@@ -169,6 +171,8 @@ export default function PaediatricsSoapPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Weight-based dosing must be calculated individually for each patient.
       </div>
+      </div>
+
     </>
   );
 }

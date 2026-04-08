@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MskElbowPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Elbow</h1>
-          <p className="page-subtitle">Lateral and medial epicondylalgia, cubital tunnel syndrome, olecranon bursitis, and elbow fractures</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Elbow</h1>
+        <p>Lateral epicondylitis, medial epicondylitis, olecranon bursitis, and elbow pain presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/elbow" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>

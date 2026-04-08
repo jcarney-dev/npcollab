@@ -167,18 +167,15 @@ const soapData = {
 export default function MskWristSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Wrist &amp; Hand SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: De Quervain&apos;s tenosynovitis in a physiotherapist and new mother</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Wrist &amp; Hand</h1>
+        <p>Wrist and hand pain, fractures, tendinopathy, and nerve entrapment syndromes</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/wrist" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

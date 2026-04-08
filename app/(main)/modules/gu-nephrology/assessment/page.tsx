@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'GU & Nephrology — Assessment' };
 export default function GuNephrologyAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GU &amp; Nephrology</div>
-        <h1>🫘 Assessment</h1>
-        <p>Structured genitourinary and renal history and examination, including fluid status, investigations, and key clinical signs.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫘 GU &amp; Nephrology</h1>
+        <p>Assessment and management of urinary tract, renal, and male genitourinary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gu-nephrology" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -119,6 +121,8 @@ export default function GuNephrologyAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Urinary Tract), CARI Guidelines, Kidney Health Australia.
       </div>
+      </div>
+
     </>
   );
 }

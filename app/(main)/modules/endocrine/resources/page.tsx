@@ -9,13 +9,15 @@ export const metadata: Metadata = {
 export default function EndocrineResourcesPage() {
   return (
     <>
-      <div className="page-header">
+            <div className="page-header">
         <div className="label">Clinical Module</div>
         <h1>🔬 Endocrine</h1>
         <p>Diabetes, thyroid disease, adrenal disorders, and metabolic conditions</p>
       </div>
       <ModuleTabs moduleId="endocrine" />
 
+
+      <div className="content-prose">
       <h3 style={{ color: 'var(--navy)', marginBottom: '6px', fontFamily: 'var(--font-body)' }}>Clinical Resources — Endocrine</h3>
       <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', marginBottom: '24px' }}>Curated Australian resources for NP endocrine practice</p>
       <div className="resources-list">
@@ -60,6 +62,8 @@ export default function EndocrineResourcesPage() {
           <div className="r-ext">↗</div>
         </a>
       </div>
+      </div>
+
     </>
   );
 }

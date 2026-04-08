@@ -46,16 +46,16 @@ const resources = [
 export default function GeneralMedicalResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩺</div>
-        <div>
-          <h1>General Medical — Resources</h1>
-          <p>Curated Australian resources for general medical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩺 General Medical</h1>
+        <p>Undifferentiated and multisystem presentations in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="general-medical" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url + r.title} className="resource-link">
@@ -70,6 +70,8 @@ export default function GeneralMedicalResourcesPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

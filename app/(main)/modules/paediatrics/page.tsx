@@ -14,6 +14,8 @@ export default function PaediatricsPage() {
 
       <ModuleTabs moduleId="paediatrics" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Refer Urgently or Call 000</h4>
         <ul>
@@ -74,6 +76,8 @@ export default function PaediatricsPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. All clinical content references Australian guidelines including the Royal Children&apos;s Hospital Melbourne Clinical Practice Guidelines, Therapeutic Guidelines (Paediatrics), and the Australian Immunisation Handbook.
       </div>
+      </div>
+
     </>
   );
 }

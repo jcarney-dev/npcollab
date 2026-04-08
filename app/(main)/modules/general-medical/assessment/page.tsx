@@ -3,16 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function GeneralMedicalAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩺</div>
-        <div>
-          <h1>General Medical — Assessment</h1>
-          <p>History, examination, and investigations for general medical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩺 General Medical</h1>
+        <p>Undifferentiated and multisystem presentations in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="general-medical" />
 
+
+      <div className="content-prose">
       <section>
         <h2>General Medical History</h2>
 
@@ -153,6 +153,8 @@ export default function GeneralMedicalAssessmentPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-hip-pelvis/quiz.json';
 export default function MskHipPelvisQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Hip &amp; Pelvis Quiz</h1>
-          <p className="page-subtitle">20 questions covering hip and pelvis clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Hip &amp; Pelvis</h1>
+        <p>Hip and pelvis pain, osteoarthritis, trochanteric bursitis, and hip fracture</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/hip-pelvis" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/hip-pelvis" questions={quizData} />
       </div>
 

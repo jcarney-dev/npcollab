@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MaxillofacialDentalAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦷</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>Maxillofacial &amp; Dental — Assessment</h1>
-          <p className="page-subtitle">Structured history, examination, and investigations for maxillofacial and dental presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦷 Maxillofacial &amp; Dental</h1>
+        <p>Dental emergencies, orofacial infections, oral mucosal conditions, facial trauma, and oral cancer recognition for NP practice.</p>
       </div>
 
       <ModuleTabs moduleId="maxillofacial-dental" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <section className="content-section">
           <h2>History</h2>

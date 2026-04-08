@@ -183,18 +183,15 @@ const soapData = {
 export default function MaxillofacialDentalSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦷</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>Maxillofacial &amp; Dental — SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: dental abscess with facial cellulitis in poorly controlled diabetes</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦷 Maxillofacial &amp; Dental</h1>
+        <p>Dental emergencies, orofacial infections, oral mucosal conditions, facial trauma, and oral cancer recognition for NP practice.</p>
       </div>
 
       <ModuleTabs moduleId="maxillofacial-dental" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

@@ -3,16 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function CardiovascularPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩸</div>
-        <div>
-          <h1>Cardiovascular</h1>
-          <p>Vascular disease, DVT, cerebrovascular disease, and CVD risk management</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫀 Cardiovascular</h1>
+        <p>Vascular disease, DVT, cerebrovascular disease, and CVD risk management</p>
       </div>
 
       <ModuleTabs moduleId="cardiovascular" />
 
+
+      <div className="content-prose">
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <strong>Red Flags — Act Urgently</strong>
         <ul>
@@ -97,6 +97,8 @@ export default function CardiovascularPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Australian Heart Foundation and Therapeutic Guidelines for current evidence.</p>
       </div>
+      </div>
+
     </div>
   );
 }

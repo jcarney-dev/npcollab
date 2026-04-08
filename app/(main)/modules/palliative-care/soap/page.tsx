@@ -135,14 +135,16 @@ const sections = [
 export default function PalliativeCareSoapPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Palliative Care</div>
-        <h1>🕊️ SOAP Note</h1>
-        <p>Example clinical note: 68-year-old with advanced lung cancer — pain and dyspnoea management.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🕊️ Palliative Care</h1>
+        <p>Symptom management, advance care planning, and end-of-life care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="palliative-care" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="Palliative Care Review — Pain and Dyspnoea"
         meta="68-year-old male | Stage IV NSCLC | Opioid titration + anticipatory prescribing | Home-based care"
@@ -152,6 +154,8 @@ export default function PalliativeCareSoapPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Opioid dose conversions must be verified individually — refer to Therapeutic Guidelines (Palliative Care) or CareSearch drug information.
       </div>
+      </div>
+
     </>
   );
 }

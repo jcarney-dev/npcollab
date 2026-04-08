@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-wrist/quiz.json';
 export default function MskWristQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Wrist &amp; Hand Quiz</h1>
-          <p className="page-subtitle">20 questions covering wrist and hand clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Wrist &amp; Hand</h1>
+        <p>Wrist and hand pain, fractures, tendinopathy, and nerve entrapment syndromes</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/wrist" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/wrist" questions={quizData} />
       </div>
 

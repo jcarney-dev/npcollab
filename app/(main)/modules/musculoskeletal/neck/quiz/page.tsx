@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-neck/quiz.json';
 export default function MskNeckQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Neck Quiz</h1>
-          <p className="page-subtitle">20 questions covering neck pain and cervical spine clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Neck</h1>
+        <p>Cervical spine pain, radiculopathy, whiplash, and serious cervical pathology</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/neck" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/neck" questions={quizData} />
       </div>
 

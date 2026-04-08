@@ -139,14 +139,16 @@ const sections = [
 export default function IntegumentarySoapPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Integumentary</div>
-        <h1>🩹 SOAP Note</h1>
-        <p>Example clinical note: 58-year-old male with cellulitis of the right lower leg.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩹 Integumentary</h1>
+        <p>Assessment and management of common dermatological presentations, skin malignancy, and wound care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="integumentary" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="Dermatological Presentation — Cellulitis"
         meta="58-year-old male | Cellulitis right lower leg | Tinea pedis portal of entry | Type 2 diabetes | Outpatient cefalexin"
@@ -156,6 +158,8 @@ export default function IntegumentarySoapPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Dermatology and Antibiotic).
       </div>
+      </div>
+
     </>
   );
 }

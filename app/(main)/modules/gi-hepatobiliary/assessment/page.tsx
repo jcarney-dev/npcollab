@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'GI & Hepatobiliary — Assessment' }
 export default function GiAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GI &amp; Hepatobiliary</div>
-        <h1>🫃 Assessment</h1>
-        <p>Structured gastrointestinal and hepatobiliary history and examination, including alarm features and targeted investigations.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫃 GI &amp; Hepatobiliary</h1>
+        <p>Assessment and management of common gastrointestinal and hepatobiliary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gi-hepatobiliary" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -122,6 +124,8 @@ export default function GiAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Gastrointestinal), GESA Clinical Practice Guidelines.
       </div>
+      </div>
+
     </>
   );
 }

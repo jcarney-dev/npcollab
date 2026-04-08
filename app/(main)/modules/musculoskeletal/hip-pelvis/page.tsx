@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MskHipPelvisPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Hip &amp; Pelvis</h1>
-          <p className="page-subtitle">Hip fracture, osteoarthritis, FAI, greater trochanteric pain, and pelvic presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Hip &amp; Pelvis</h1>
+        <p>Hip and pelvis pain, osteoarthritis, trochanteric bursitis, and hip fracture</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/hip-pelvis" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>

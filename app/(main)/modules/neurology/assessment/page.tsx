@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Neurology — Assessment' };
 export default function NeurologyAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Neurology</div>
-        <h1>🧬 Assessment</h1>
-        <p>Structured neurological history and examination for common presentations including headache, seizure, stroke, and movement disorders.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧬 Neurology</h1>
+        <p>Assessment and management of common neurological presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="neurology" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -229,6 +231,8 @@ export default function NeurologyAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Neurology), Stroke Foundation Australia.
       </div>
+      </div>
+
     </>
   );
 }

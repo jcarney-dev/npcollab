@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Integumentary — Assessment' };
 export default function IntegumentaryAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Integumentary</div>
-        <h1>🩹 Assessment</h1>
-        <p>Structured dermatological history and skin examination including lesion description, ABCDE criteria, dermoscopy, and targeted investigations.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩹 Integumentary</h1>
+        <p>Assessment and management of common dermatological presentations, skin malignancy, and wound care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="integumentary" />
 
+
+      <div className="content-prose">
       <h2>Dermatological History</h2>
 
       <div className="assessment-grid">
@@ -123,6 +125,8 @@ export default function IntegumentaryAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Dermatology), Australasian College of Dermatologists, Wounds Australia.
       </div>
+      </div>
+
     </>
   );
 }

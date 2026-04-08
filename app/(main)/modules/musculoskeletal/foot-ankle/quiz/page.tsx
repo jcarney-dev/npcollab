@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-foot-ankle/quiz.json';
 export default function MskFootAnkleQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Foot &amp; Ankle Quiz</h1>
-          <p className="page-subtitle">20 questions covering foot and ankle clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Foot &amp; Ankle</h1>
+        <p>Foot and ankle pain, sprains, plantar fasciitis, and common foot presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/foot-ankle" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/foot-ankle" questions={quizData} />
       </div>
 

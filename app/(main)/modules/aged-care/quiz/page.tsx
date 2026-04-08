@@ -8,15 +8,19 @@ export const metadata: Metadata = { title: 'Aged Care — Quiz' };
 export default function AgedCareQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Aged Care</div>
-        <h1>🏥 Aged Care — Quiz</h1>
-        <p>Test your knowledge of delirium, dementia, falls, polypharmacy, continence, and advance care planning in the Australian aged care context.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧓 Aged Care</h1>
+        <p>Assessment and management of common aged care presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="aged-care" />
 
+
+      <div className="content-prose">
       <Quiz moduleId="aged-care" questions={questions} />
+      </div>
+
     </>
   );
 }

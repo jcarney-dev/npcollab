@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MskChestPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Chest Wall</h1>
-          <p className="page-subtitle">Costochondritis, rib fractures, herpes zoster, slipping rib syndrome, and chest wall pain assessment</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Chest Wall</h1>
+        <p>Chest wall pain, costochondritis, rib fractures, and musculoskeletal causes of chest pain</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/chest" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <div className="highlight-box">
           <h3>🚨 Red Flags — Always Exclude Before Diagnosing MSK Chest Pain</h3>

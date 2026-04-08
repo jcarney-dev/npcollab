@@ -3,16 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function GeneralMedicalPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩺</div>
-        <div>
-          <h1>General Medical</h1>
-          <p>Undifferentiated and multisystem presentations in NP practice</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩺 General Medical</h1>
+        <p>Undifferentiated and multisystem presentations in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="general-medical" />
 
+
+      <div className="content-prose">
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <strong>Red Flags — Act Urgently</strong>
         <ul>
@@ -112,6 +112,8 @@ export default function GeneralMedicalPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Therapeutic Guidelines (Antibiotic, Rheumatology, Endocrinology) and RACGP guidelines for current protocols.</p>
       </div>
+      </div>
+
     </div>
   );
 }

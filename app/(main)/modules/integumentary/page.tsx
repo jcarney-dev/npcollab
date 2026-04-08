@@ -14,6 +14,8 @@ export default function IntegumentaryPage() {
 
       <ModuleTabs moduleId="integumentary" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Act Urgently</h4>
         <ul>
@@ -70,6 +72,8 @@ export default function IntegumentaryPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. All clinical content references Australian guidelines including Therapeutic Guidelines (Dermatology), Australasian College of Dermatologists, and Wounds Australia.
       </div>
+      </div>
+
     </>
   );
 }

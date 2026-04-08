@@ -180,18 +180,15 @@ const soapData = {
 export default function MskElbowSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Elbow SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: lateral epicondylalgia in an office worker</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Elbow</h1>
+        <p>Lateral epicondylitis, medial epicondylitis, olecranon bursitis, and elbow pain presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/elbow" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

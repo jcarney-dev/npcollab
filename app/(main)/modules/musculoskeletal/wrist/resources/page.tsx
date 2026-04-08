@@ -54,18 +54,15 @@ const resources = [
 export default function MskWristResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Wrist &amp; Hand Resources</h1>
-          <p className="page-subtitle">Curated Australian resources for wrist and hand clinical practice</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Wrist &amp; Hand</h1>
+        <p>Wrist and hand pain, fractures, tendinopathy, and nerve entrapment syndromes</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/wrist" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <section className="content-section">
           <h2>Australian Resources</h2>
           <p>All resources listed are Australian or provide Australia-specific guidance relevant to NP practice.</p>

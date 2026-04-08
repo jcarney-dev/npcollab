@@ -46,17 +46,16 @@ const resources = [
 export default function OncoHaematologyResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🩸</span>
-        <div>
-          <span className="label">Clinical Module — Resources</span>
-          <h1>Onco-Haematology Resources</h1>
-          <p>Curated Australian oncology and haematology resources for NP practice — treatment protocols, screening programs, and clinical guidelines.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩸 Onco-Haematology</h1>
+        <p>Oncology and haematology for NP practice — cancer screening, toxicity monitoring, haematological malignancies, and oncological emergencies.</p>
       </div>
 
       <ModuleTabs moduleId="onco-haematology" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -72,6 +71,8 @@ export default function OncoHaematologyResourcesPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

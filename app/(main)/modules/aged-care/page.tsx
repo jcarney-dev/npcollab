@@ -14,6 +14,8 @@ export default function AgedCarePage() {
 
       <ModuleTabs moduleId="aged-care" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -82,6 +84,8 @@ export default function AgedCarePage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Clinical content references Therapeutic Guidelines (Aged Care), Aged Care Quality Standards, and Australian Commission on Safety and Quality in Health Care resources.
       </div>
+      </div>
+
     </>
   );
 }

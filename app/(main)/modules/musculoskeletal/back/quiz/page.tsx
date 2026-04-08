@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-back/quiz.json';
 export default function MskBackQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Back Quiz</h1>
-          <p className="page-subtitle">20 questions covering low back pain clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Back</h1>
+        <p>Low back pain, lumbar radiculopathy, spinal stenosis, and serious spinal pathology</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/back" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/back" questions={quizData} />
       </div>
 

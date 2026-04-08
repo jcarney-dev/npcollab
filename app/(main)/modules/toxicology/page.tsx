@@ -3,17 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function ToxicologyPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">⚗️</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>Toxicology</h1>
-          <p>Toxidrome recognition, overdose management, antidotes, and the NP role in poisoning presentations across emergency, primary care, and mental health settings.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>⚗️ Toxicology</h1>
+        <p>Toxidrome recognition, overdose management, antidotes, and the NP role in poisoning presentations.</p>
       </div>
 
       <ModuleTabs moduleId="toxicology" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h2>🚨 Red Flags — Act Urgently — Call 000</h2>
         <ul>
@@ -103,6 +102,8 @@ export default function ToxicologyPage() {
       </p>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

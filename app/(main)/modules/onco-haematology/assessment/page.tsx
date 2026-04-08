@@ -3,17 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function OncoHaematologyAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🩸</span>
-        <div>
-          <span className="label">Clinical Module — Assessment</span>
-          <h1>Onco-Haematology Assessment</h1>
-          <p>Pre-chemotherapy assessment, performance status, CTCAE grading, CVAD assessment, and cancer screening.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩸 Onco-Haematology</h1>
+        <p>Oncology and haematology for NP practice — cancer screening, toxicity monitoring, haematological malignancies, and oncological emergencies.</p>
       </div>
 
       <ModuleTabs moduleId="onco-haematology" />
 
+
+      <div className="content-prose">
       <h2>Pre-Chemotherapy Assessment</h2>
 
       <h3>History Questions</h3>
@@ -202,6 +201,8 @@ export default function OncoHaematologyAssessmentPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

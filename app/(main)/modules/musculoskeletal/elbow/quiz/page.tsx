@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-elbow/quiz.json';
 export default function MskElbowQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Elbow Quiz</h1>
-          <p className="page-subtitle">20 questions covering elbow clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Elbow</h1>
+        <p>Lateral epicondylitis, medial epicondylitis, olecranon bursitis, and elbow pain presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/elbow" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/elbow" questions={quizData} />
       </div>
 

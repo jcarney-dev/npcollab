@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function MskShoulderResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Musculoskeletal Module</div>
-        <h1>🦴 Shoulder</h1>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Shoulder</h1>
         <p>Rotator cuff disease, impingement, AC joint injuries, frozen shoulder, and instability</p>
       </div>
       <ModuleTabs moduleId="musculoskeletal/shoulder" />

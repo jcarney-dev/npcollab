@@ -4,16 +4,16 @@ import SoapNote from '@/components/SoapNote';
 export default function DrugsAlcoholSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🍺</div>
-        <div>
-          <h1>Drugs &amp; Alcohol — SOAP Note</h1>
-          <p>Example consultation: 42-year-old with severe alcohol use disorder</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧪 Drugs &amp; Alcohol</h1>
+        <p>Substance use disorders — assessment and management in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="drugs-alcohol" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="42-Year-Old Male — Alcohol Use Disorder Seeking Help"
         meta="AUDIT 36/40 | CIWA-Ar 8 (mild withdrawal) | Previous withdrawal seizure"
@@ -167,6 +167,8 @@ export default function DrugsAlcoholSoapPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

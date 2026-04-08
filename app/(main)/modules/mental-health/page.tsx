@@ -14,6 +14,8 @@ export default function MentalHealthPage() {
 
       <ModuleTabs moduleId="mental-health" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -82,6 +84,8 @@ export default function MentalHealthPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. All clinical content references Australian guidelines including Therapeutic Guidelines (Psychotropic) and the Royal Australian and New Zealand College of Psychiatrists (RANZCP) clinical practice guidelines.
       </div>
+      </div>
+
     </>
   );
 }

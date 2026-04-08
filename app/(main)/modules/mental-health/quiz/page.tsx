@@ -8,15 +8,19 @@ export const metadata: Metadata = { title: 'Mental Health — Quiz' };
 export default function MentalHealthQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Mental Health</div>
-        <h1>🧠 Mental Health — Quiz</h1>
-        <p>Test your knowledge of mental health assessment, pharmacotherapy, risk assessment, and management in the NP context.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧠 Mental Health</h1>
+        <p>Assessment and management of common mental health presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="mental-health" />
 
+
+      <div className="content-prose">
       <Quiz moduleId="mental-health" questions={questions} />
+      </div>
+
     </>
   );
 }

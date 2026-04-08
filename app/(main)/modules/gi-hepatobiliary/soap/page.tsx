@@ -146,14 +146,16 @@ const sections = [
 export default function GiSoapPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GI &amp; Hepatobiliary</div>
-        <h1>🫃 SOAP Note</h1>
-        <p>Example clinical note: 45-year-old female presenting with biliary colic.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫃 GI &amp; Hepatobiliary</h1>
+        <p>Assessment and management of common gastrointestinal and hepatobiliary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gi-hepatobiliary" />
 
+
+      <div className="content-prose">
       <SoapNote
         title="GI Presentation — Biliary Colic"
         meta="45-year-old female | Symptomatic cholelithiasis | Normal LFTs | Referred for elective cholecystectomy"
@@ -163,6 +165,8 @@ export default function GiSoapPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Gastrointestinal).
       </div>
+      </div>
+
     </>
   );
 }

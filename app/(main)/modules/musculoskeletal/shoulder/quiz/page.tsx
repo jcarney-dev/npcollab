@@ -8,10 +8,10 @@ export const metadata: Metadata = { title: 'MSK Shoulder — Quiz' };
 export default function ShoulderQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Musculoskeletal</div>
-        <h1>🦴 Shoulder — Quiz</h1>
-        <p>Test your knowledge of shoulder assessment, diagnosis, and management in the NP context.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Shoulder</h1>
+        <p>Rotator cuff disease, impingement, AC joint injuries, frozen shoulder, and instability</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/shoulder" />

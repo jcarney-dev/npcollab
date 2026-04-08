@@ -49,14 +49,16 @@ const resources = [
 export default function IntegumentaryResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Integumentary</div>
-        <h1>🩹 Resources</h1>
-        <p>Curated Australian resources for dermatology, skin cancer, and wound management.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩹 Integumentary</h1>
+        <p>Assessment and management of common dermatological presentations, skin malignancy, and wound care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="integumentary" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -71,6 +73,8 @@ export default function IntegumentaryResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Links were current at time of publication — verify current guidelines before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

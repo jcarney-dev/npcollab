@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MskNeckAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Neck Assessment</h1>
-          <p className="page-subtitle">Structured history, examination, and investigations for neck pain presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Neck</h1>
+        <p>Cervical spine pain, radiculopathy, whiplash, and serious cervical pathology</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/neck" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <section className="content-section">
           <h2>History</h2>

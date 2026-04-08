@@ -14,6 +14,8 @@ export default function PalliativeCarePage() {
 
       <ModuleTabs moduleId="palliative-care" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Act Immediately</h4>
         <ul>
@@ -83,6 +85,8 @@ export default function PalliativeCarePage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. All clinical content references Australian guidelines including CareSearch, Palliative Care Australia, and Therapeutic Guidelines (Palliative Care).
       </div>
+      </div>
+
     </>
   );
 }

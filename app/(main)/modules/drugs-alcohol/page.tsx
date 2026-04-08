@@ -3,16 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function DrugsAlcoholPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🍺</div>
-        <div>
-          <h1>Drugs &amp; Alcohol</h1>
-          <p>Substance use disorders — assessment and management in NP practice</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧪 Drugs &amp; Alcohol</h1>
+        <p>Substance use disorders — assessment and management in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="drugs-alcohol" />
 
+
+      <div className="content-prose">
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <strong>Red Flags — Act Urgently</strong>
         <ul>
@@ -121,6 +121,8 @@ export default function DrugsAlcoholPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Therapeutic Guidelines and state/territory alcohol and drug service guidelines for current protocols.</p>
       </div>
+      </div>
+
     </div>
   );
 }

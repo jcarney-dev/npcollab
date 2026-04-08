@@ -46,17 +46,16 @@ const resources = [
 export default function SurgicalResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🔪</span>
-        <div>
-          <span className="label">Clinical Module — Resources</span>
-          <h1>Surgical Resources</h1>
-          <p>Curated Australian surgical resources for NP practice — perioperative care, wound management, and VTE prophylaxis.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🔪 Surgical</h1>
+        <p>Perioperative assessment, acute surgical presentations, post-operative complications, and VTE prophylaxis for NP practice.</p>
       </div>
 
       <ModuleTabs moduleId="surgical" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -72,6 +71,8 @@ export default function SurgicalResourcesPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

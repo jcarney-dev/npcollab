@@ -133,17 +133,16 @@ const soapData = {
 export default function OncoHaematologySoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🩸</span>
-        <div>
-          <span className="label">Clinical Module — SOAP Note</span>
-          <h1>Onco-Haematology SOAP Note</h1>
-          <p>Example clinical note: febrile neutropenia in DLBCL with penicillin allergy.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩸 Onco-Haematology</h1>
+        <p>Oncology and haematology for NP practice — cancer screening, toxicity monitoring, haematological malignancies, and oncological emergencies.</p>
       </div>
 
       <ModuleTabs moduleId="onco-haematology" />
 
+
+      <div className="content-prose">
       <SoapNote
         title={soapData.title}
         meta={soapData.meta}
@@ -151,6 +150,8 @@ export default function OncoHaematologySoapPage() {
       />
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

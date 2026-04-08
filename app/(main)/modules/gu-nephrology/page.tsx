@@ -14,6 +14,8 @@ export default function GuNephrologyPage() {
 
       <ModuleTabs moduleId="gu-nephrology" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Act Urgently</h4>
         <ul>
@@ -56,6 +58,8 @@ export default function GuNephrologyPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. All clinical content references Australian guidelines including Therapeutic Guidelines (Urinary Tract), CARI Guidelines, and Kidney Health Australia.
       </div>
+      </div>
+
     </>
   );
 }

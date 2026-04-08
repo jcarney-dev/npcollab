@@ -3,16 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function CardiovascularAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🩸</div>
-        <div>
-          <h1>Cardiovascular — Assessment</h1>
-          <p>History, examination, and investigations for vascular presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫀 Cardiovascular</h1>
+        <p>Vascular disease, DVT, cerebrovascular disease, and CVD risk management</p>
       </div>
 
       <ModuleTabs moduleId="cardiovascular" />
 
+
+      <div className="content-prose">
       <section>
         <h2>Cardiovascular History</h2>
 
@@ -132,6 +132,8 @@ export default function CardiovascularAssessmentPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

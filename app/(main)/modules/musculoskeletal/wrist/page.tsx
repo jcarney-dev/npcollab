@@ -3,18 +3,15 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function MskWristPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Wrist &amp; Hand</h1>
-          <p className="page-subtitle">Fractures, nerve entrapments, tendinopathies, and common hand and wrist presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Wrist &amp; Hand</h1>
+        <p>Wrist and hand pain, fractures, tendinopathy, and nerve entrapment syndromes</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/wrist" />
 
-      <div className="content-body">
+      <div className="content-prose">
 
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>

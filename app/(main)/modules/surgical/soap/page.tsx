@@ -112,17 +112,16 @@ const soapData = {
 export default function SurgicalSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🔪</span>
-        <div>
-          <span className="label">Clinical Module — SOAP Note</span>
-          <h1>Surgical SOAP Note</h1>
-          <p>Example clinical note: post-operative surgical site infection following laparoscopic appendicectomy.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🔪 Surgical</h1>
+        <p>Perioperative assessment, acute surgical presentations, post-operative complications, and VTE prophylaxis for NP practice.</p>
       </div>
 
       <ModuleTabs moduleId="surgical" />
 
+
+      <div className="content-prose">
       <SoapNote
         title={soapData.title}
         meta={soapData.meta}
@@ -130,6 +129,8 @@ export default function SurgicalSoapPage() {
       />
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

@@ -8,15 +8,19 @@ export const metadata: Metadata = { title: "Women's Health — Quiz" };
 export default function WomensHealthQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Women&apos;s Health</div>
-        <h1>🌸 Women&apos;s Health — Quiz</h1>
-        <p>Test your knowledge of menstrual disorders, contraception, menopause, cervical screening, and breast health in the Australian NP context.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>👩 Women&apos;s Health</h1>
+        <p>Assessment and management of common women&apos;s health presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="womens-health" />
 
+
+      <div className="content-prose">
       <Quiz moduleId="womens-health" questions={questions} />
+      </div>
+
     </>
   );
 }

@@ -8,15 +8,19 @@ export const metadata: Metadata = { title: 'Paediatrics — Quiz' };
 export default function PaediatricsQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Paediatrics</div>
-        <h1>👶 Quiz</h1>
-        <p>Test your knowledge of common paediatric presentations, assessment, and management in the NP context.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>👶 Paediatrics</h1>
+        <p>Assessment and management of common paediatric presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="paediatrics" />
 
+
+      <div className="content-prose">
       <Quiz moduleId="paediatrics" questions={questions} />
+      </div>
+
     </>
   );
 }

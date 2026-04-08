@@ -3,17 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function SurgicalAssessmentPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🔪</span>
-        <div>
-          <span className="label">Clinical Module — Assessment</span>
-          <h1>Surgical Assessment</h1>
-          <p>Systematic approach to pre-operative evaluation, acute surgical assessment, and post-operative monitoring.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🔪 Surgical</h1>
+        <p>Perioperative assessment, acute surgical presentations, post-operative complications, and VTE prophylaxis for NP practice.</p>
       </div>
 
       <ModuleTabs moduleId="surgical" />
 
+
+      <div className="content-prose">
       <h2>Surgical History</h2>
 
       <h3>Acute Surgical Presentation</h3>
@@ -215,6 +214,8 @@ export default function SurgicalAssessmentPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

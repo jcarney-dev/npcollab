@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Mental Health — Assessment' };
 export default function MentalHealthAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Mental Health</div>
-        <h1>🧠 Assessment</h1>
-        <p>Structured mental health assessment including history, Mental State Examination, risk assessment, and validated screening tools.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧠 Mental Health</h1>
+        <p>Assessment and management of common mental health presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="mental-health" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -290,6 +292,8 @@ export default function MentalHealthAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: DSM-5, Therapeutic Guidelines (Psychotropic), RANZCP clinical practice guidelines.
       </div>
+      </div>
+
     </>
   );
 }

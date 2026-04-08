@@ -5,18 +5,15 @@ import quizData from '@/content/modules/msk-knee/quiz.json';
 export default function MskKneeQuizPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Knee Quiz</h1>
-          <p className="page-subtitle">20 questions covering knee clinical presentations</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Knee</h1>
+        <p>Knee injuries, osteoarthritis, tendinopathy, and common knee presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/knee" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <Quiz moduleId="musculoskeletal/knee" questions={quizData} />
       </div>
 

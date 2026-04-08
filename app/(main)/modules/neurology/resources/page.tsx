@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Neurology — Resources' };
 export default function NeurologyResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Neurology</div>
-        <h1>🧬 Resources</h1>
-        <p>Curated Australian clinical guidelines, tools, and consumer resources for neurological practice.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧬 Neurology</h1>
+        <p>Assessment and management of common neurological presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="neurology" />
 
+
+      <div className="content-prose">
       <h2>Clinical Guidelines</h2>
       <div className="resource-list">
         <a href="https://www.tg.org.au" target="_blank" rel="noopener" className="resource-link">
@@ -117,6 +119,8 @@ export default function NeurologyResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Resources current as of 2025 — verify currency before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

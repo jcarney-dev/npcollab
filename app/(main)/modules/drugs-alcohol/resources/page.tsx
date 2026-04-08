@@ -46,16 +46,16 @@ const resources = [
 export default function DrugsAlcoholResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <div className="page-header-icon">🍺</div>
-        <div>
-          <h1>Drugs &amp; Alcohol — Resources</h1>
-          <p>Curated Australian resources for substance use disorder management</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🧪 Drugs &amp; Alcohol</h1>
+        <p>Substance use disorders — assessment and management in NP practice</p>
       </div>
 
       <ModuleTabs moduleId="drugs-alcohol" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -70,6 +70,8 @@ export default function DrugsAlcoholResourcesPage() {
       <div className="info-box">
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
+      </div>
+
     </div>
   );
 }

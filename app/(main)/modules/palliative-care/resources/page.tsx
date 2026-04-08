@@ -49,14 +49,16 @@ const resources = [
 export default function PalliativeCareResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Palliative Care</div>
-        <h1>🕊️ Resources</h1>
-        <p>Curated Australian resources for palliative care clinical practice, advance care planning, and end-of-life care.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🕊️ Palliative Care</h1>
+        <p>Symptom management, advance care planning, and end-of-life care in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="palliative-care" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url + r.title} className="resource-link">
@@ -71,6 +73,8 @@ export default function PalliativeCareResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Links were current at time of publication — verify current guidelines before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

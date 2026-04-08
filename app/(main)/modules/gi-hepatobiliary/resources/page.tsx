@@ -49,14 +49,16 @@ const resources = [
 export default function GiResourcesPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GI &amp; Hepatobiliary</div>
-        <h1>🫃 Resources</h1>
-        <p>Curated Australian resources for gastrointestinal and hepatobiliary clinical practice.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫃 GI &amp; Hepatobiliary</h1>
+        <p>Assessment and management of common gastrointestinal and hepatobiliary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gi-hepatobiliary" />
 
+
+      <div className="content-prose">
       <ul className="resource-list">
         {resources.map((r) => (
           <li key={r.url} className="resource-link">
@@ -71,6 +73,8 @@ export default function GiResourcesPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Links were current at time of publication — verify current guidelines before clinical use.
       </div>
+      </div>
+
     </>
   );
 }

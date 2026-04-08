@@ -54,18 +54,15 @@ const resources = [
 export default function MskNeckResourcesPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Neck Resources</h1>
-          <p className="page-subtitle">Curated Australian resources for neck pain and cervical spine clinical practice</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Neck</h1>
+        <p>Cervical spine pain, radiculopathy, whiplash, and serious cervical pathology</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/neck" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <section className="content-section">
           <h2>Australian Resources</h2>
           <p>All resources listed are Australian or provide Australia-specific guidance relevant to NP practice.</p>

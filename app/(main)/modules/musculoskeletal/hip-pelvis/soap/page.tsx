@@ -156,18 +156,15 @@ const soapData = {
 export default function MskHipPelvisSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Hip &amp; Pelvis SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: right hip OA in a 68-year-old female</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Hip &amp; Pelvis</h1>
+        <p>Hip and pelvis pain, osteoarthritis, trochanteric bursitis, and hip fracture</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/hip-pelvis" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

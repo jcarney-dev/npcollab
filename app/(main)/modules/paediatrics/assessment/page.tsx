@@ -6,14 +6,16 @@ export const metadata: Metadata = { title: 'Paediatrics — Assessment' };
 export default function PaediatricsAssessmentPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">Paediatrics</div>
-        <h1>👶 Assessment</h1>
-        <p>Structured paediatric history and examination including age-appropriate vital signs, developmental milestones, and targeted system assessment.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>👶 Paediatrics</h1>
+        <p>Assessment and management of common paediatric presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="paediatrics" />
 
+
+      <div className="content-prose">
       <h2>History</h2>
 
       <div className="assessment-grid">
@@ -215,6 +217,8 @@ export default function PaediatricsAssessmentPage() {
       <div className="info-box" style={{marginTop:'1rem'}}>
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Royal Children&apos;s Hospital Melbourne Clinical Practice Guidelines, Therapeutic Guidelines (Paediatrics).
       </div>
+      </div>
+
     </>
   );
 }

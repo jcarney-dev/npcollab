@@ -161,18 +161,15 @@ const soapData = {
 export default function MskFootAnkleSoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🦴</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>MSK — Foot &amp; Ankle SOAP Note</h1>
-          <p className="page-subtitle">Example clinical case: Grade II lateral ankle sprain in a young athlete</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🦴 MSK — Foot &amp; Ankle</h1>
+        <p>Foot and ankle pain, sprains, plantar fasciitis, and common foot presentations</p>
       </div>
 
       <ModuleTabs moduleId="musculoskeletal/foot-ankle" />
 
-      <div className="content-body">
+      <div className="content-prose">
         <SoapNote {...soapData} />
       </div>
 

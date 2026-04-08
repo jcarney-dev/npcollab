@@ -3,17 +3,16 @@ import ModuleTabs from '@/components/ModuleTabs';
 export default function OncoHaematologyPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">🩸</span>
-        <div>
-          <span className="label">Clinical Module</span>
-          <h1>Onco-Haematology</h1>
-          <p>Oncology and haematology for NP practice — cancer screening, toxicity monitoring, haematological malignancies, and oncological emergencies.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🩸 Onco-Haematology</h1>
+        <p>Oncology and haematology for NP practice — cancer screening, toxicity monitoring, haematological malignancies, and oncological emergencies.</p>
       </div>
 
       <ModuleTabs moduleId="onco-haematology" />
 
+
+      <div className="content-prose">
       <div className="highlight-box">
         <h2>🚨 Red Flags — Act Urgently</h2>
         <ul>
@@ -93,6 +92,8 @@ export default function OncoHaematologyPage() {
       </div>
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

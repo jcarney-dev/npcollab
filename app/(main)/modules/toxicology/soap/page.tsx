@@ -121,17 +121,16 @@ const soapData = {
 export default function ToxicologySoapPage() {
   return (
     <div>
-      <div className="page-header">
-        <span className="page-header-icon">⚗️</span>
-        <div>
-          <span className="label">Clinical Module — SOAP Note</span>
-          <h1>Toxicology SOAP Note</h1>
-          <p>Example clinical note: paracetamol overdose with intentional self-harm, NAC indicated.</p>
-        </div>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>⚗️ Toxicology</h1>
+        <p>Toxidrome recognition, overdose management, antidotes, and the NP role in poisoning presentations.</p>
       </div>
 
       <ModuleTabs moduleId="toxicology" />
 
+
+      <div className="content-prose">
       <SoapNote
         title={soapData.title}
         meta={soapData.meta}
@@ -139,6 +138,8 @@ export default function ToxicologySoapPage() {
       />
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
+      </div>
+
     </div>
   );
 }

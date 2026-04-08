@@ -8,15 +8,19 @@ export const metadata: Metadata = { title: 'GI & Hepatobiliary — Quiz' };
 export default function GiQuizPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">GI &amp; Hepatobiliary</div>
-        <h1>🫃 Quiz</h1>
-        <p>Test your knowledge of gastrointestinal and hepatobiliary presentations, investigations, and management.</p>
+            <div className="page-header">
+        <div className="label">Clinical Module</div>
+        <h1>🫃 GI &amp; Hepatobiliary</h1>
+        <p>Assessment and management of common gastrointestinal and hepatobiliary presentations in the Nurse Practitioner context.</p>
       </div>
 
       <ModuleTabs moduleId="gi-hepatobiliary" />
 
+
+      <div className="content-prose">
       <Quiz moduleId="gi-hepatobiliary" questions={questions} />
+      </div>
+
     </>
   );
 }
