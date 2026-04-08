@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function OncoHaematologyPage() {
   return (
@@ -93,6 +94,8 @@ export default function OncoHaematologyPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="onco-haematology" />
 
     </div>
   );

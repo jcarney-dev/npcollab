@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskHipPelvisPage() {
   return (
@@ -81,6 +82,8 @@ export default function MskHipPelvisPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleSponsorSlot moduleSlug="musculoskeletal-hip-pelvis" />
+
     </div>
   );
 }

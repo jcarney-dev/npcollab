@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MaxillofacialDentalPage() {
   return (
@@ -74,6 +75,8 @@ export default function MaxillofacialDentalPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="maxillofacial-dental" />
 
     </div>
   );

@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskElbowPage() {
   return (
@@ -82,6 +83,8 @@ export default function MskElbowPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleSponsorSlot moduleSlug="musculoskeletal-elbow" />
+
     </div>
   );
 }

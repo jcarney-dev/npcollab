@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function DrugsAlcoholPage() {
   return (
@@ -122,6 +123,8 @@ export default function DrugsAlcoholPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Therapeutic Guidelines and state/territory alcohol and drug service guidelines for current protocols.</p>
       </div>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="drugs-alcohol" />
 
     </div>
   );

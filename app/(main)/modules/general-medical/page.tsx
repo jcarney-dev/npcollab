@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function GeneralMedicalPage() {
   return (
@@ -113,6 +114,8 @@ export default function GeneralMedicalPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Therapeutic Guidelines (Antibiotic, Rheumatology, Endocrinology) and RACGP guidelines for current protocols.</p>
       </div>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="general-medical" />
 
     </div>
   );

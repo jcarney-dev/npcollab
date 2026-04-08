@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { accessRequests, users } from '@/lib/schema';
+import { accessRequests, users, sponsors } from '@/lib/schema';
 import { eq, desc, count } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
-  const [pendingRequests, allUsers, stats] = await Promise.all([
+  const [pendingRequests, allUsers, allSponsors, stats] = await Promise.all([
     db
       .select()
       .from(accessRequests)
@@ -22,6 +22,10 @@ export default async function AdminPage() {
       .select()
       .from(users)
       .orderBy(desc(users.approvedAt)),
+    db
+      .select()
+      .from(sponsors)
+      .orderBy(desc(sponsors.createdAt)),
     Promise.all([
       db.select({ count: count() }).from(accessRequests).where(eq(accessRequests.status, 'pending')),
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
@@ -36,6 +40,7 @@ export default async function AdminPage() {
     <AdminDashboard
       pendingRequests={pendingRequests}
       users={allUsers}
+      sponsors={allSponsors}
       stats={{
         pending: pending[0].count,
         active: active[0].count,

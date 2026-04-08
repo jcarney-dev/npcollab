@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function ToxicologyPage() {
   return (
@@ -103,6 +104,8 @@ export default function ToxicologyPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="toxicology" />
 
     </div>
   );

@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskBackPage() {
   return (
@@ -118,6 +119,8 @@ export default function MskBackPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleSponsorSlot moduleSlug="musculoskeletal-back" />
+
     </div>
   );
 }

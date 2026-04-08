@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: "Women's Health" };
 
@@ -86,6 +87,8 @@ export default function WomensHealthPage() {
       </div>
       </div>
 
+    
+      <ModuleSponsorSlot moduleSlug="womens-health" />
     </>
   );
 }

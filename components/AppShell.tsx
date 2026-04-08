@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
+import type { Sponsor } from '@/lib/schema';
 
 function getBreadcrumb(pathname: string): string {
   const map: Record<string, string> = {
@@ -189,14 +190,19 @@ function getBreadcrumb(pathname: string): string {
   return '';
 }
 
-export default function AppShell({ children }: { children: React.ReactNode }) {
+interface AppShellProps {
+  children: React.ReactNode;
+  sidebarSponsor?: Sponsor | null;
+}
+
+export default function AppShell({ children, sidebarSponsor }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const breadcrumb = getBreadcrumb(pathname);
 
   return (
     <div className="app-shell">
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} />
 
       <div className="main-content">
         <header className="topbar">
@@ -228,7 +234,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <footer className="page-footer">
           <div>© {new Date().getFullYear()} NPCollab · Built by NPs, for NPs ·{' '}
             <a href="https://www.nursingmidwiferyboard.gov.au" target="_blank" rel="noopener">NMBA</a> ·{' '}
-            <a href="https://www.ahpra.gov.au" target="_blank" rel="noopener">AHPRA</a>
+            <a href="https://www.ahpra.gov.au" target="_blank" rel="noopener">AHPRA</a> ·{' '}
+            <Link href="/advertise">Advertise</Link>
           </div>
           <div>⚠️ Educational purposes only. Always apply your own clinical judgement.</div>
         </footer>

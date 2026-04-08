@@ -1,9 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getActiveSponsor } from '@/lib/sponsors';
+import { HomepageSponsorCard } from '@/components/SponsorCard';
 
 export const metadata: Metadata = { title: 'Home' };
 
-export default function HomePage() {
+export default async function HomePage() {
+  let homepageSponsor = null;
+  try {
+    homepageSponsor = await getActiveSponsor('homepage');
+  } catch {
+    // Fail silently at build time
+  }
+
   return (
     <>
       <div className="hero">
@@ -217,6 +226,12 @@ export default function HomePage() {
       <div className="info-box" style={{marginTop:'32px'}}>
         <p>📚 <strong>New to NP practice?</strong> Start with the <Link href="/intro">Introduction</Link> and <Link href="/metaspecialties">Metaspecialties</Link> pages, then work through <Link href="/scope">Scope of Practice</Link> before diving into clinical modules.</p>
       </div>
+
+      {homepageSponsor && (
+        <div style={{marginTop:'40px'}}>
+          <HomepageSponsorCard sponsor={homepageSponsor} />
+        </div>
+      )}
     </>
   );
 }

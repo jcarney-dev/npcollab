@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
   title: 'Cardiac | Clinical Modules',
@@ -208,6 +209,8 @@ export default function CardiacOverviewPage() {
           <p>👉 Continue to the <Link href="/modules/cardiac/assessment/">Assessment tab</Link> for targeted cardiac history and examination steps.</p>
         </div>
       </div>
+    
+      <ModuleSponsorSlot moduleSlug="cardiac" />
     </>
   );
 }

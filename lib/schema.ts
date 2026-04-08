@@ -33,8 +33,28 @@ export const users = pgTable('users', {
                .references(() => accessRequests.id),
 });
 
+// ── sponsors ───────────────────────────────────────────────────────────────
+// Stores sponsor enquiries and active sponsors
+export const sponsors = pgTable('sponsors', {
+  id:           uuid('id').primaryKey().defaultRandom(),
+  companyName:  text('company_name').notNull(),
+  contactName:  text('contact_name').notNull(),
+  contactEmail: text('contact_email').notNull(),
+  logoUrl:      text('logo_url'),
+  websiteUrl:   text('website_url').notNull().default(''),
+  placement:    text('placement').notNull().default('sidebar'), // 'sidebar' | 'module' | 'homepage'
+  moduleSlug:   text('module_slug'),                             // set when placement = 'module'
+  message:      text('message'),                                 // original enquiry message
+  active:       boolean('active').notNull().default(false),
+  startDate:    timestamp('start_date'),
+  endDate:      timestamp('end_date'),
+  createdAt:    timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;
 export type NewAccessRequest      = typeof accessRequests.$inferInsert;
 export type User                  = typeof users.$inferSelect;
 export type NewUser               = typeof users.$inferInsert;
+export type Sponsor               = typeof sponsors.$inferSelect;
+export type NewSponsor            = typeof sponsors.$inferInsert;

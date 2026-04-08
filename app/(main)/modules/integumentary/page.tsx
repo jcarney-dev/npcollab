@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Integumentary (Dermatology)' };
 
@@ -74,6 +75,8 @@ export default function IntegumentaryPage() {
       </div>
       </div>
 
+    
+      <ModuleSponsorSlot moduleSlug="integumentary" />
     </>
   );
 }

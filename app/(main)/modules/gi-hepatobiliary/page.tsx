@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'GI & Hepatobiliary' };
 
@@ -72,6 +73,8 @@ export default function GiHepatobiliaryPage() {
       </div>
       </div>
 
+    
+      <ModuleSponsorSlot moduleSlug="gi-hepatobiliary" />
     </>
   );
 }

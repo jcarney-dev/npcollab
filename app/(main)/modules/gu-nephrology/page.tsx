@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'GU & Nephrology' };
 
@@ -60,6 +61,8 @@ export default function GuNephrologyPage() {
       </div>
       </div>
 
+    
+      <ModuleSponsorSlot moduleSlug="gu-nephrology" />
     </>
   );
 }

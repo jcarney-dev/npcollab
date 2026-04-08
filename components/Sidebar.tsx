@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { SidebarSponsorCard } from './SponsorCard';
+import type { Sponsor } from '@/lib/schema';
 
 const navGroups = [
   {
@@ -101,9 +103,10 @@ const navGroups = [
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  sponsor?: Sponsor | null;
 }
 
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, sponsor }: SidebarProps) {
   const pathname = usePathname();
 
   function isActive(href: string) {
@@ -151,6 +154,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
           ))}
         </nav>
+
+        {sponsor && (
+          <div className="sidebar-sponsor-wrap">
+            <SidebarSponsorCard sponsor={sponsor} />
+          </div>
+        )}
 
         <div className="sidebar-footer">
           <div className="support-badge">

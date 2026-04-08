@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
   title: 'Ophthalmology',
@@ -64,6 +65,8 @@ export default function EyesPage() {
           <p>👉 Continue to the <Link href="/modules/eyes/assessment/">Assessment tab</Link> for targeted history and examination.</p>
         </div>
       </div>
+    
+      <ModuleSponsorSlot moduleSlug="eyes" />
     </>
   );
 }

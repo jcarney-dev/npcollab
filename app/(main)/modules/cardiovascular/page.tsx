@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function CardiovascularPage() {
   return (
@@ -98,6 +99,8 @@ export default function CardiovascularPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Australian Heart Foundation and Therapeutic Guidelines for current evidence.</p>
       </div>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="cardiovascular" />
 
     </div>
   );

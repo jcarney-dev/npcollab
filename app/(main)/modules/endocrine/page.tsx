@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
   title: 'Endocrine | Clinical Modules',
@@ -172,6 +173,8 @@ export default function EndocrinePage() {
           <p>👉 Continue to the <Link href="/modules/endocrine/assessment">Assessment tab</Link> for targeted endocrine history, examination, and investigation steps.</p>
         </div>
       </div>
+    
+      <ModuleSponsorSlot moduleSlug="endocrine" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
   title: 'MSK — Shoulder | Clinical Modules',
@@ -171,6 +172,8 @@ export default function MskShoulderPage() {
           <p>👉 Continue to the <Link href="/modules/musculoskeletal/shoulder/assessment">Assessment tab</Link> for systematic shoulder history, examination, and special tests.</p>
         </div>
       </div>
+    
+      <ModuleSponsorSlot moduleSlug="musculoskeletal-shoulder" />
     </>
   );
 }

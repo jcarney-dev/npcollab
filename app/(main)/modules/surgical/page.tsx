@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function SurgicalPage() {
   return (
@@ -106,6 +107,8 @@ export default function SurgicalPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleSponsorSlot moduleSlug="surgical" />
 
     </div>
   );
