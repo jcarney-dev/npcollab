@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { accessRequests, users, sponsors, podcastSubscribers, newsItems } from '@/lib/schema';
+import { accessRequests, users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, siteSettings } from '@/lib/schema';
 import { eq, desc, count } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -12,28 +12,25 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
-  const [pendingRequests, allUsers, allSponsors, allPodcastSubscribers, allNewsItems, stats] = await Promise.all([
-    db
-      .select()
-      .from(accessRequests)
-      .where(eq(accessRequests.status, 'pending'))
-      .orderBy(desc(accessRequests.createdAt)),
-    db
-      .select()
-      .from(users)
-      .orderBy(desc(users.approvedAt)),
-    db
-      .select()
-      .from(sponsors)
-      .orderBy(desc(sponsors.createdAt)),
-    db
-      .select()
-      .from(podcastSubscribers)
-      .orderBy(desc(podcastSubscribers.createdAt)),
-    db
-      .select()
-      .from(newsItems)
-      .orderBy(desc(newsItems.createdAt)),
+  const [
+    pendingRequests,
+    allUsers,
+    allSponsors,
+    allPodcastSubscribers,
+    allPodcastBroadcasts,
+    allNewsItems,
+    allJobListings,
+    allSiteSettings,
+    stats,
+  ] = await Promise.all([
+    db.select().from(accessRequests).where(eq(accessRequests.status, 'pending')).orderBy(desc(accessRequests.createdAt)),
+    db.select().from(users).orderBy(desc(users.approvedAt)),
+    db.select().from(sponsors).orderBy(desc(sponsors.createdAt)),
+    db.select().from(podcastSubscribers).orderBy(desc(podcastSubscribers.createdAt)),
+    db.select().from(podcastBroadcasts).orderBy(desc(podcastBroadcasts.sentAt)),
+    db.select().from(newsItems).orderBy(desc(newsItems.createdAt)),
+    db.select().from(jobListings).orderBy(desc(jobListings.createdAt)),
+    db.select().from(siteSettings),
     Promise.all([
       db.select({ count: count() }).from(accessRequests).where(eq(accessRequests.status, 'pending')),
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
@@ -44,13 +41,22 @@ export default async function AdminPage() {
 
   const [pending, active, disabled, total] = stats;
 
+  // Convert site_settings rows to a key/value map
+  const settingsMap: Record<string, string> = {};
+  for (const row of allSiteSettings) {
+    settingsMap[row.key] = row.value;
+  }
+
   return (
     <AdminDashboard
       pendingRequests={pendingRequests}
       users={allUsers}
       sponsors={allSponsors}
       podcastSubscribers={allPodcastSubscribers}
+      podcastBroadcasts={allPodcastBroadcasts}
       newsItems={allNewsItems}
+      jobListings={allJobListings}
+      siteSettings={settingsMap}
       stats={{
         pending: pending[0].count,
         active: active[0].count,

@@ -40,6 +40,20 @@ export async function POST(req: NextRequest) {
   return Response.json(item);
 }
 
+// DELETE — remove a news item
+export async function DELETE(req: NextRequest) {
+  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+
+  const body = await req.json();
+  const { id } = body;
+
+  if (!id) return Response.json({ error: 'ID is required.' }, { status: 400 });
+
+  await db.delete(newsItems).where(eq(newsItems.id, id));
+
+  return Response.json({ ok: true });
+}
+
 // PUT — update existing news item
 export async function PUT(req: NextRequest) {
   if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });

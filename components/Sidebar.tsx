@@ -107,9 +107,10 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   sponsor?: Sponsor | null;
+  adPreviewMode?: boolean;
 }
 
-export default function Sidebar({ isOpen, onClose, sponsor }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false }: SidebarProps) {
   const pathname = usePathname();
 
   function isActive(href: string) {
@@ -161,6 +162,15 @@ export default function Sidebar({ isOpen, onClose, sponsor }: SidebarProps) {
         {sponsor && (
           <div className="sidebar-sponsor-wrap">
             <SidebarSponsorCard sponsor={sponsor} />
+          </div>
+        )}
+        {!sponsor && adPreviewMode && (
+          <div className="sidebar-sponsor-wrap">
+            <div style={{ border: '2px dashed var(--gold-light)', borderRadius: '8px', padding: '16px', textAlign: 'center', opacity: 0.8 }}>
+              <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '6px' }}>Ad Placement Preview</div>
+              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>[ Sponsor Ad — Sidebar ]</div>
+              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', marginTop: '4px' }}>240 × 90px</div>
+            </div>
           </div>
         )}
 

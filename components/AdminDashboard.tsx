@@ -1,14 +1,17 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem } from '@/lib/schema';
+import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast } from '@/lib/schema';
 
 interface Props {
   pendingRequests: AccessRequest[];
   users: User[];
   sponsors: Sponsor[];
   podcastSubscribers: PodcastSubscriber[];
+  podcastBroadcasts: PodcastBroadcast[];
   newsItems: NewsItem[];
+  jobListings: JobListing[];
+  siteSettings: Record<string, string>;
   stats: { pending: number; active: number; disabled: number; total: number };
 }
 
@@ -322,7 +325,7 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
 
 // ── Podcast Subscribers section ─────────────────────────────────────────────
 
-function PodcastSubscribersSection({ subscribers }: { subscribers: PodcastSubscriber[] }) {
+function PodcastSubscribersSection({ subscribers, broadcasts }: { subscribers: PodcastSubscriber[]; broadcasts: PodcastBroadcast[] }) {
   const [broadcastSubject, setBroadcastSubject] = useState('');
   const [broadcastBody, setBroadcastBody] = useState('');
   const [preview, setPreview] = useState(false);
@@ -497,23 +500,286 @@ function PodcastSubscribersSection({ subscribers }: { subscribers: PodcastSubscr
           )}
         </div>
       </div>
+
+      {/* Broadcast history */}
+      {broadcasts.length > 0 && (
+        <div style={{ borderTop: '1px solid var(--border)', paddingTop: '24px', marginTop: '24px' }}>
+          <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Broadcast History</h3>
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr><th>Subject</th><th>Recipients</th><th>Sent</th></tr>
+              </thead>
+              <tbody>
+                {broadcasts.map(b => (
+                  <tr key={b.id}>
+                    <td style={{ fontWeight: 500 }}>{b.subject}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{b.recipientCount}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>
+                      {new Date(b.sentAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
 
 // ── Job Board section ────────────────────────────────────────────────────────
 
-function JobBoardSection() {
+const EMPLOYMENT_TYPES = ['Full-time', 'Part-time', 'Casual', 'Contract', 'Locum'];
+const JOB_SPECIALTIES = [
+  'General Practice', 'Emergency Medicine', 'Aged Care', 'Mental Health', 'Paediatrics',
+  'Oncology', 'Cardiology', 'Respiratory', 'Endocrinology', 'Musculoskeletal',
+  'Palliative Care', 'Community Health', 'Remote / Rural', 'Other',
+];
+
+const emptyJobForm = {
+  employerName: '', contactEmail: '', jobTitle: '', location: '',
+  employmentType: 'Full-time', specialty: '', description: '', salaryRange: '',
+  applicationUrl: '', expiresAt: '',
+};
+
+interface JobFormProps {
+  form: typeof emptyJobForm;
+  setForm: React.Dispatch<React.SetStateAction<typeof emptyJobForm>>;
+  saving: boolean;
+  onSave: () => void;
+  onCancel: () => void;
+}
+
+function ManualJobForm({ form, setForm, saving, onSave, onCancel }: JobFormProps) {
+  const fs = { width: '100%', padding: '7px 11px', border: '1px solid var(--border)', borderRadius: '5px', fontSize: '13px', fontFamily: 'var(--font-body)', boxSizing: 'border-box' } as const;
+  const ls = { display: 'block', fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' } as const;
+  const btnNav = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--navy)', background: 'var(--navy)', color: '#fff' } as const;
+  const btnOut = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--border)', background: '#fff', color: 'var(--navy)' } as const;
+
+  return (
+    <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '20px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: 'var(--navy)' }}>Manual Job Entry</h4>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div><label style={ls}>Organisation name</label><input style={fs} value={form.employerName} onChange={e => setForm(f => ({...f, employerName: e.target.value}))} placeholder="e.g. Hunter New England Health" /></div>
+        <div><label style={ls}>Contact email</label><input style={fs} type="email" value={form.contactEmail} onChange={e => setForm(f => ({...f, contactEmail: e.target.value}))} placeholder="hr@example.com" /></div>
+      </div>
+      <div><label style={ls}>Job title</label><input style={fs} value={form.jobTitle} onChange={e => setForm(f => ({...f, jobTitle: e.target.value}))} placeholder="e.g. Nurse Practitioner — Acute Care" /></div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
+        <div><label style={ls}>Location</label><input style={fs} value={form.location} onChange={e => setForm(f => ({...f, location: e.target.value}))} placeholder="e.g. Newcastle, NSW" /></div>
+        <div><label style={ls}>Employment type</label>
+          <select style={fs} value={form.employmentType} onChange={e => setForm(f => ({...f, employmentType: e.target.value}))}>
+            {EMPLOYMENT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+          </select>
+        </div>
+        <div><label style={ls}>Specialty</label>
+          <select style={fs} value={form.specialty} onChange={e => setForm(f => ({...f, specialty: e.target.value}))}>
+            <option value="">Select…</option>
+            {JOB_SPECIALTIES.map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div><label style={ls}>Salary range (optional)</label><input style={fs} value={form.salaryRange} onChange={e => setForm(f => ({...f, salaryRange: e.target.value}))} placeholder="e.g. $120,000–$140,000 + super" /></div>
+        <div><label style={ls}>Expiry date</label><input style={fs} type="date" value={form.expiresAt} onChange={e => setForm(f => ({...f, expiresAt: e.target.value}))} /></div>
+      </div>
+      <div><label style={ls}>Application URL</label><input style={fs} type="url" value={form.applicationUrl} onChange={e => setForm(f => ({...f, applicationUrl: e.target.value}))} placeholder="https://…" /></div>
+      <div><label style={ls}>Job description</label><textarea style={{...fs, resize: 'vertical'}} rows={5} value={form.description} onChange={e => setForm(f => ({...f, description: e.target.value}))} placeholder="Role description, requirements, and responsibilities…" /></div>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <button style={btnNav} onClick={onSave} disabled={saving || !form.jobTitle.trim() || !form.employerName.trim() || !form.description.trim()}>{saving ? 'Saving…' : 'Create listing (go live immediately)'}</button>
+        <button style={btnOut} onClick={onCancel}>Cancel</button>
+      </div>
+    </div>
+  );
+}
+
+function JobBoardSection({ initial }: { initial: JobListing[] }) {
+  const [listings, setListings] = useState(initial);
+  const [showManual, setShowManual] = useState(false);
+  const [manualForm, setManualForm] = useState(emptyJobForm);
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  function notify(text: string, type: 'success' | 'error' = 'success') {
+    setMsg({ text, type });
+    setTimeout(() => setMsg(null), 5000);
+  }
+
+  async function saveManual() {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/jobs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(manualForm),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to create listing.', 'error'); return; }
+      setListings(prev => [json, ...prev]);
+      notify('Job listing created and live.');
+      setManualForm(emptyJobForm);
+      setShowManual(false);
+    } catch { notify('Network error.', 'error'); }
+    finally { setSaving(false); }
+  }
+
+  async function updateStatus(id: string, action: 'approve' | 'reject') {
+    try {
+      const res = await fetch('/api/admin/jobs', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, action }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to update listing.', 'error'); return; }
+      setListings(prev => prev.map(l => l.id === id ? json : l));
+      notify(action === 'approve' ? 'Listing approved and live.' : 'Listing rejected.');
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  const btnGold = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
+  const btnApprove = { ...btnGold, background: '#f0fdf4', border: '1px solid #bbf7d0', color: '#166534' } as const;
+  const btnReject = { ...btnGold, background: '#fef2f2', border: '1px solid #fecaca', color: 'var(--error)' } as const;
+
+  const STATUS_COLOR: Record<string, string> = {
+    pending: '#92400e',
+    pending_approval: '#1d4ed8',
+    approved: '#166534',
+    rejected: 'var(--error)',
+    draft: 'var(--text-muted)',
+  };
+
+  const pendingApproval = listings.filter(l => l.status === 'pending_approval');
+  const approved = listings.filter(l => l.status === 'approved');
+  const imported = listings.filter(l => l.paymentStatus === 'imported');
+  const other = listings.filter(l => !['pending_approval','approved'].includes(l.status) && l.paymentStatus !== 'imported');
+
   return (
     <section className="admin-section">
-      <h2 className="admin-section-title">💼 Job Board</h2>
-      <div style={{ padding: '32px 24px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', textAlign: 'center' }}>
-        <p style={{ fontSize: '32px', marginBottom: '12px' }}>🚧</p>
-        <h3 style={{ color: 'var(--navy)', marginBottom: '8px', fontFamily: 'var(--font-body)', fontWeight: 600 }}>Job Board Coming Soon</h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '480px', margin: '0 auto', lineHeight: 1.6 }}>
-          Job Board listings will appear here once Stripe payment is configured. Employers will be able to post NP positions, which you can approve and publish from this panel.
-        </p>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+        <h2 className="admin-section-title" style={{ margin: 0 }}>
+          💼 Job Board
+          {pendingApproval.length > 0 && <span className="admin-badge" style={{ marginLeft: '8px' }}>{pendingApproval.length} awaiting approval</span>}
+        </h2>
+        {!showManual && <button style={btnGold} onClick={() => setShowManual(true)}>+ Manual entry</button>}
       </div>
+
+      {msg && (
+        <div style={{ padding: '10px 14px', borderRadius: '6px', marginBottom: '16px', fontSize: '13px', background: msg.type === 'success' ? '#f0fdf4' : '#fef2f2', border: `1px solid ${msg.type === 'success' ? '#bbf7d0' : '#fecaca'}`, color: msg.type === 'success' ? '#166534' : 'var(--error)' }}>
+          {msg.text}
+        </div>
+      )}
+
+      {showManual && (
+        <ManualJobForm form={manualForm} setForm={setManualForm} saving={saving} onSave={saveManual} onCancel={() => { setShowManual(false); setManualForm(emptyJobForm); }} />
+      )}
+
+      {/* Pending approval */}
+      {pendingApproval.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Awaiting Approval ({pendingApproval.length})</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
+            <table className="admin-table">
+              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Submitted</th><th>Payment</th><th></th></tr></thead>
+              <tbody>
+                {pendingApproval.map(l => (
+                  <tr key={l.id}>
+                    <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                    <td>{l.employerName}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.createdAt)}</td>
+                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: '#166534' }}>{l.paymentStatus}</span></td>
+                    <td style={{ display: 'flex', gap: '8px' }}>
+                      <button style={btnApprove} onClick={() => updateStatus(l.id, 'approve')}>Approve</button>
+                      <button style={btnReject} onClick={() => updateStatus(l.id, 'reject')}>Reject</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* Live listings */}
+      {approved.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Live Listings ({approved.length})</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
+            <table className="admin-table">
+              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Type</th><th>Expires</th><th>Status</th></tr></thead>
+              <tbody>
+                {approved.map(l => (
+                  <tr key={l.id}>
+                    <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                    <td>{l.employerName}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{l.paymentStatus}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.expiresAt)}</td>
+                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[l.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* Imported listings */}
+      {imported.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Imported Listings ({imported.length})</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
+            <table className="admin-table">
+              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Imported</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                {imported.map(l => (
+                  <tr key={l.id}>
+                    <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                    <td>{l.employerName}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.createdAt)}</td>
+                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[l.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
+                    <td>
+                      {l.status === 'draft' && (
+                        <button style={btnApprove} onClick={() => updateStatus(l.id, 'approve')}>Publish</button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* Other (rejected, pending) */}
+      {other.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Other Listings ({other.length})</h3>
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead><tr><th>Job title</th><th>Employer</th><th>Payment</th><th>Submitted</th><th>Status</th></tr></thead>
+              <tbody>
+                {other.map(l => (
+                  <tr key={l.id}>
+                    <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                    <td>{l.employerName}</td>
+                    <td style={{ color: 'var(--text-muted)' }}>{l.paymentStatus}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.createdAt)}</td>
+                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[l.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {listings.length === 0 && !showManual && (
+        <p className="admin-empty">No job listings yet. Use &ldquo;Manual entry&rdquo; to add one, or wait for employer submissions.</p>
+      )}
     </section>
   );
 }
@@ -522,6 +788,53 @@ function JobBoardSection() {
 
 const NEWS_TYPES = ['article', 'external', 'announcement'] as const;
 const STATUS_OPTS = ['draft', 'published', 'rejected'] as const;
+const NEWS_STATUS_COLOR: Record<string, string> = { published: '#166534', draft: 'var(--text-muted)', rejected: 'var(--error)' };
+
+const emptyNewsForm = { title: '', summary: '', url: '', type: 'article', sourceName: '', status: 'draft' };
+
+interface NewsFormComponentProps {
+  form: typeof emptyNewsForm;
+  setForm: React.Dispatch<React.SetStateAction<typeof emptyNewsForm>>;
+  saving: boolean;
+  isNew: boolean;
+  onSave: () => void;
+  onCancel: () => void;
+}
+
+function NewsFormComponent({ form, setForm, saving, isNew, onSave, onCancel }: NewsFormComponentProps) {
+  const fieldStyle = { width: '100%', padding: '7px 11px', border: '1px solid var(--border)', borderRadius: '5px', fontSize: '13px', fontFamily: 'var(--font-body)', boxSizing: 'border-box' } as const;
+  const labelStyle = { display: 'block', fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' } as const;
+  const btnNav = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--navy)', background: 'var(--navy)', color: '#fff' } as const;
+  const btnOut = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--border)', background: '#fff', color: 'var(--navy)' } as const;
+
+  return (
+    <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '20px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: 'var(--navy)' }}>{isNew ? 'New News Item' : 'Edit News Item'}</h4>
+      <div><label style={labelStyle}>Title</label><input style={fieldStyle} value={form.title} onChange={e => setForm(f => ({...f, title: e.target.value}))} placeholder="Article or announcement title" /></div>
+      <div><label style={labelStyle}>Summary</label><textarea style={{...fieldStyle, resize: 'vertical'}} rows={3} value={form.summary} onChange={e => setForm(f => ({...f, summary: e.target.value}))} placeholder="Brief summary — 1–3 sentences" /></div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div><label style={labelStyle}>URL (optional)</label><input style={fieldStyle} value={form.url} onChange={e => setForm(f => ({...f, url: e.target.value}))} placeholder="https://…" /></div>
+        <div><label style={labelStyle}>Source name</label><input style={fieldStyle} value={form.sourceName} onChange={e => setForm(f => ({...f, sourceName: e.target.value}))} placeholder="e.g. NMBA, RACGP, ABC Health" /></div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div><label style={labelStyle}>Type</label>
+          <select style={fieldStyle} value={form.type} onChange={e => setForm(f => ({...f, type: e.target.value}))}>
+            {NEWS_TYPES.map(t => <option key={t} value={t}>{t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
+          </select>
+        </div>
+        <div><label style={labelStyle}>Status</label>
+          <select style={fieldStyle} value={form.status} onChange={e => setForm(f => ({...f, status: e.target.value}))}>
+            {STATUS_OPTS.map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase()+s.slice(1)}</option>)}
+          </select>
+        </div>
+      </div>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <button style={btnNav} onClick={onSave} disabled={saving || !form.title.trim() || !form.summary.trim()}>{saving ? 'Saving…' : isNew ? 'Create' : 'Save changes'}</button>
+        <button style={btnOut} onClick={onCancel}>Cancel</button>
+      </div>
+    </div>
+  );
+}
 
 function NewsSection({ initial }: { initial: NewsItem[] }) {
   const [items, setItems] = useState(initial);
@@ -529,22 +842,20 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
   const [editing, setEditing] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-
-  const emptyForm = { title: '', summary: '', url: '', type: 'article' as string, sourceName: '', status: 'draft' as string };
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState(emptyNewsForm);
 
   function notify(text: string, type: 'success' | 'error' = 'success') {
     setMsg({ text, type });
     setTimeout(() => setMsg(null), 4000);
   }
 
-  function startCreate() { setForm(emptyForm); setEditing(null); setCreating(true); }
+  function startCreate() { setForm(emptyNewsForm); setEditing(null); setCreating(true); }
   function startEdit(item: NewsItem) {
     setCreating(false);
     setEditing(item.id);
     setForm({ title: item.title, summary: item.summary, url: item.url ?? '', type: item.type, sourceName: item.sourceName, status: item.status });
   }
-  function cancel() { setCreating(false); setEditing(null); setForm(emptyForm); }
+  function cancel() { setCreating(false); setEditing(null); setForm(emptyNewsForm); }
 
   async function save(isNew: boolean) {
     setSaving(true);
@@ -566,43 +877,23 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
     finally { setSaving(false); }
   }
 
-  const fieldStyle = { width: '100%', padding: '7px 11px', border: '1px solid var(--border)', borderRadius: '5px', fontSize: '13px', fontFamily: 'var(--font-body)', boxSizing: 'border-box' } as const;
-  const labelStyle = { display: 'block', fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' } as const;
-  const btnGold = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
-  const btnNav = { ...btnGold, background: 'var(--navy)', color: '#fff', border: '1px solid var(--navy)' } as const;
-  const btnOut = { ...btnGold, background: '#fff', border: '1px solid var(--border)' } as const;
-
-  const STATUS_COLOR: Record<string, string> = { published: '#166534', draft: 'var(--text-muted)', rejected: 'var(--error)' };
-
-  function NewsForm({ isNew }: { isNew: boolean }) {
-    return (
-      <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '20px', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: 'var(--navy)' }}>{isNew ? 'New News Item' : 'Edit News Item'}</h4>
-        <div><label style={labelStyle}>Title</label><input style={fieldStyle} value={form.title} onChange={e => setForm(f => ({...f, title: e.target.value}))} placeholder="Article or announcement title" /></div>
-        <div><label style={labelStyle}>Summary</label><textarea style={{...fieldStyle, resize: 'vertical'}} rows={3} value={form.summary} onChange={e => setForm(f => ({...f, summary: e.target.value}))} placeholder="Brief summary — 1–3 sentences" /></div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-          <div><label style={labelStyle}>URL (optional)</label><input style={fieldStyle} value={form.url} onChange={e => setForm(f => ({...f, url: e.target.value}))} placeholder="https://…" /></div>
-          <div><label style={labelStyle}>Source name</label><input style={fieldStyle} value={form.sourceName} onChange={e => setForm(f => ({...f, sourceName: e.target.value}))} placeholder="e.g. NMBA, RACGP, ABC Health" /></div>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-          <div><label style={labelStyle}>Type</label>
-            <select style={fieldStyle} value={form.type} onChange={e => setForm(f => ({...f, type: e.target.value}))}>
-              {NEWS_TYPES.map(t => <option key={t} value={t}>{t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
-            </select>
-          </div>
-          <div><label style={labelStyle}>Status</label>
-            <select style={fieldStyle} value={form.status} onChange={e => setForm(f => ({...f, status: e.target.value}))}>
-              {STATUS_OPTS.map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase()+s.slice(1)}</option>)}
-            </select>
-          </div>
-        </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <button style={btnNav} onClick={() => save(isNew)} disabled={saving || !form.title.trim() || !form.summary.trim()}>{saving ? 'Saving…' : isNew ? 'Create' : 'Save changes'}</button>
-          <button style={btnOut} onClick={cancel}>Cancel</button>
-        </div>
-      </div>
-    );
+  async function deleteItem(id: string) {
+    if (!confirm('Delete this news item?')) return;
+    try {
+      const res = await fetch('/api/admin/news', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      if (!res.ok) { notify('Failed to delete.', 'error'); return; }
+      setItems(prev => prev.filter(i => i.id !== id));
+      notify('News item deleted.');
+    } catch { notify('Network error.', 'error'); }
   }
+
+  const btnGold = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
+  const btnOut = { ...btnGold, background: '#fff', border: '1px solid var(--border)' } as const;
+  const btnDel = { ...btnGold, background: '#fef2f2', border: '1px solid #fecaca', color: 'var(--error)' } as const;
 
   return (
     <section className="admin-section">
@@ -617,7 +908,9 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
         </div>
       )}
 
-      {creating && <NewsForm isNew={true} />}
+      {creating && (
+        <NewsFormComponent form={form} setForm={setForm} saving={saving} isNew={true} onSave={() => save(true)} onCancel={cancel} />
+      )}
 
       {items.length === 0 && !creating ? (
         <p className="admin-empty">No news items yet. Click &ldquo;+ New item&rdquo; to create one.</p>
@@ -634,12 +927,17 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
                     <td style={{ fontWeight: 500 }}>{item.title}</td>
                     <td style={{ textTransform: 'capitalize' }}>{item.type}</td>
                     <td style={{ color: 'var(--text-muted)' }}>{item.sourceName || '—'}</td>
-                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[item.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{item.status}</span></td>
+                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: NEWS_STATUS_COLOR[item.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{item.status}</span></td>
                     <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{item.publishedAt ? new Date(item.publishedAt).toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric'}) : new Date(item.createdAt).toLocaleDateString('en-AU', {day:'numeric',month:'short',year:'numeric'})}</td>
-                    <td><button style={{...btnOut, padding:'4px 10px', fontSize:'12px'}} onClick={() => editing === item.id ? cancel() : startEdit(item)}>{editing === item.id ? 'Cancel' : 'Edit'}</button></td>
+                    <td style={{ display: 'flex', gap: '6px' }}>
+                      <button style={{...btnOut, padding:'4px 10px', fontSize:'12px'}} onClick={() => editing === item.id ? cancel() : startEdit(item)}>{editing === item.id ? 'Cancel' : 'Edit'}</button>
+                      {editing !== item.id && <button style={{...btnDel, padding:'4px 10px', fontSize:'12px'}} onClick={() => deleteItem(item.id)}>Delete</button>}
+                    </td>
                   </tr>
                   {editing === item.id && (
-                    <tr key={`${item.id}-edit`}><td colSpan={6} style={{ padding: '0 0 16px' }}><NewsForm isNew={false} /></td></tr>
+                    <tr key={`${item.id}-edit`}><td colSpan={6} style={{ padding: '0 0 16px' }}>
+                      <NewsFormComponent form={form} setForm={setForm} saving={saving} isNew={false} onSave={() => save(false)} onCancel={cancel} />
+                    </td></tr>
                   )}
                 </>
               ))}
@@ -651,32 +949,123 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
   );
 }
 
-// ── Analytics section ────────────────────────────────────────────────────────
+// ── Settings section ─────────────────────────────────────────────────────────
 
-function AnalyticsSection() {
-  const umamiUrl = process.env.NEXT_PUBLIC_UMAMI_DASHBOARD_URL;
+function SettingsSection({ initialSettings }: { initialSettings: Record<string, string> }) {
+  const [adPreview, setAdPreview] = useState(initialSettings.ad_preview_mode === 'true');
+  const [umamiUrl, setUmamiUrl] = useState(initialSettings.umami_dashboard_url || '');
+  const [saving, setSaving] = useState<string | null>(null);
+  const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  function notify(text: string, type: 'success' | 'error' = 'success') {
+    setMsg({ text, type });
+    setTimeout(() => setMsg(null), 4000);
+  }
+
+  async function saveSetting(key: string, value: string) {
+    setSaving(key);
+    try {
+      const res = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key, value }),
+      });
+      if (!res.ok) { notify('Failed to save setting.', 'error'); return; }
+      notify('Setting saved.');
+    } catch { notify('Network error.', 'error'); }
+    finally { setSaving(null); }
+  }
+
+  async function toggleAdPreview() {
+    const newVal = !adPreview;
+    setAdPreview(newVal);
+    await saveSetting('ad_preview_mode', String(newVal));
+  }
+
+  const fieldStyle = { width: '100%', padding: '8px 12px', border: '1px solid var(--border)', borderRadius: '6px', fontSize: '14px', fontFamily: 'var(--font-body)', boxSizing: 'border-box' } as const;
+  const btnNav = { fontSize: '13px', fontWeight: 500, padding: '7px 16px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--navy)', background: 'var(--navy)', color: '#fff' } as const;
+
   return (
     <section className="admin-section">
-      <h2 className="admin-section-title">📊 Analytics</h2>
-      <AnalyticsContent umamiUrl={umamiUrl} />
+      <h2 className="admin-section-title">⚙️ Settings</h2>
+
+      {msg && (
+        <div style={{ padding: '10px 14px', borderRadius: '6px', marginBottom: '20px', fontSize: '13px', background: msg.type === 'success' ? '#f0fdf4' : '#fef2f2', border: `1px solid ${msg.type === 'success' ? '#bbf7d0' : '#fecaca'}`, color: msg.type === 'success' ? '#166534' : 'var(--error)' }}>
+          {msg.text}
+        </div>
+      )}
+
+      {/* Ad Preview Toggle */}
+      <div style={{ padding: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+          <div>
+            <h3 style={{ margin: '0 0 4px', fontSize: '15px', fontWeight: 600, color: 'var(--navy)' }}>Show ad placement previews on live site</h3>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+              When enabled, all three sponsor slots (sidebar, homepage, module) display placeholder cards with correct dimensions,
+              labelled with their placement type. Useful for showing sponsors where their ad will appear.
+            </p>
+          </div>
+          <button
+            onClick={toggleAdPreview}
+            disabled={saving === 'ad_preview_mode'}
+            style={{
+              flexShrink: 0,
+              padding: '8px 20px',
+              borderRadius: '6px',
+              fontWeight: 600,
+              fontSize: '14px',
+              cursor: 'pointer',
+              border: adPreview ? '1px solid #166534' : '1px solid var(--border)',
+              background: adPreview ? '#f0fdf4' : '#fff',
+              color: adPreview ? '#166534' : 'var(--text-muted)',
+              transition: 'all 0.15s',
+            }}
+          >
+            {saving === 'ad_preview_mode' ? 'Saving…' : adPreview ? '✓ On' : 'Off'}
+          </button>
+        </div>
+      </div>
+
+      {/* Umami URL */}
+      <div style={{ padding: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px' }}>
+        <h3 style={{ margin: '0 0 4px', fontSize: '15px', fontWeight: 600, color: 'var(--navy)' }}>Umami analytics dashboard URL</h3>
+        <p style={{ margin: '0 0 12px', fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+          Paste your Umami share URL here. The Analytics tab will embed this dashboard. If not set, the Analytics tab shows setup instructions.
+        </p>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <input
+            style={fieldStyle}
+            type="url"
+            value={umamiUrl}
+            onChange={e => setUmamiUrl(e.target.value)}
+            placeholder="https://analytics.umami.is/share/…"
+          />
+          <button
+            style={{ ...btnNav, flexShrink: 0 }}
+            onClick={() => saveSetting('umami_dashboard_url', umamiUrl)}
+            disabled={saving === 'umami_dashboard_url'}
+          >
+            {saving === 'umami_dashboard_url' ? 'Saving…' : 'Save'}
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
 
-// Client-readable env var must be passed at build time; for dynamic check we read window or use a client component pattern
-// Since AdminDashboard is 'use client', we can read NEXT_PUBLIC_ env vars directly
-function AnalyticsContent({ umamiUrl }: { umamiUrl?: string }) {
-  // In the client bundle, NEXT_PUBLIC_ vars are inlined at build time
-  const url = umamiUrl ?? (typeof window !== 'undefined' ? (window as unknown as Record<string, string>).__NEXT_PUBLIC_UMAMI_DASHBOARD_URL : undefined);
-  if (url) {
+// ── Analytics section ────────────────────────────────────────────────────────
+
+function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
+  if (umamiUrl) {
     return (
-      <div>
+      <section className="admin-section">
+        <h2 className="admin-section-title">📊 Analytics</h2>
         <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>
           Live Umami analytics dashboard. Use the Umami interface to filter by date, page, and device.
         </p>
         <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
           <iframe
-            src={url}
+            src={umamiUrl}
             width="100%"
             height="800"
             frameBorder="0"
@@ -684,39 +1073,41 @@ function AnalyticsContent({ umamiUrl }: { umamiUrl?: string }) {
             title="Umami Analytics Dashboard"
           />
         </div>
-      </div>
+      </section>
     );
   }
   return (
-    <div style={{ padding: '40px 32px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', textAlign: 'center' }}>
-      <p style={{ fontSize: '32px', marginBottom: '12px' }}>📊</p>
-      <h3 style={{ color: 'var(--navy)', marginBottom: '8px', fontFamily: 'var(--font-body)', fontWeight: 600 }}>Analytics powered by Umami</h3>
-      <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '480px', margin: '0 auto 16px', lineHeight: 1.6 }}>
-        Once configured, your Umami analytics dashboard will appear here. Set the{' '}
-        <code style={{ background: 'var(--border)', padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }}>NEXT_PUBLIC_UMAMI_DASHBOARD_URL</code>{' '}
-        environment variable in Vercel to your Umami share URL.
-      </p>
-      <a
-        href="https://umami.is"
-        target="_blank"
-        rel="noopener"
-        style={{ fontSize: '13px', color: 'var(--gold)', textDecoration: 'underline' }}
-      >
-        Learn about Umami →
-      </a>
-    </div>
+    <section className="admin-section">
+      <h2 className="admin-section-title">📊 Analytics</h2>
+      <div style={{ padding: '40px 32px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', textAlign: 'center' }}>
+        <p style={{ fontSize: '32px', marginBottom: '12px' }}>📊</p>
+        <h3 style={{ color: 'var(--navy)', marginBottom: '8px', fontFamily: 'var(--font-body)', fontWeight: 600 }}>Analytics powered by Umami</h3>
+        <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '480px', margin: '0 auto 16px', lineHeight: 1.6 }}>
+          Paste your Umami dashboard URL in Settings to enable analytics here.
+        </p>
+        <a
+          href="https://umami.is"
+          target="_blank"
+          rel="noopener"
+          style={{ fontSize: '13px', color: 'var(--gold)', textDecoration: 'underline' }}
+        >
+          Learn about Umami →
+        </a>
+      </div>
+    </section>
   );
 }
 
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, newsItems: initialNews, stats: initialStats }: Props) {
+export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, siteSettings, stats: initialStats }: Props) {
   const [pending, setPending] = useState(initial);
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'news' | 'analytics'>('requests');
+  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'news' | 'analytics' | 'settings'>('requests');
+  const pendingJobCount = initialJobs.filter(j => j.status === 'pending_approval').length;
 
   function notify(msg: string, type: 'success' | 'error' = 'success') {
     setNotification({ msg, type });
@@ -839,9 +1230,10 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             { key: 'users',     label: 'Users',           badge: 0 },
             { key: 'sponsors',  label: 'Sponsors',        badge: 0 },
             { key: 'podcast',   label: '🎙️ Podcast',      badge: 0 },
-            { key: 'jobs',      label: '💼 Job Board',    badge: 0 },
+            { key: 'jobs',      label: '💼 Job Board',    badge: pendingJobCount },
             { key: 'news',      label: '📰 News',          badge: 0 },
             { key: 'analytics', label: 'Analytics',       badge: 0 },
+            { key: 'settings',  label: '⚙️ Settings',     badge: 0 },
           ] as const).map(tab => (
             <button
               key={tab.key}
@@ -970,21 +1362,25 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
           <SponsorsSection initial={initialSponsors} notify={notify} />
         )}
 
-        {/* Analytics */}
         {/* Podcast Subscribers */}
         {activeTab === 'podcast' && (
-          <PodcastSubscribersSection subscribers={podcastSubscribers} />
+          <PodcastSubscribersSection subscribers={podcastSubscribers} broadcasts={initialBroadcasts} />
         )}
 
         {/* Job Board */}
-        {activeTab === 'jobs' && <JobBoardSection />}
+        {activeTab === 'jobs' && <JobBoardSection initial={initialJobs} />}
 
         {/* News */}
         {activeTab === 'news' && <NewsSection initial={initialNews} />}
 
         {/* Analytics */}
         {activeTab === 'analytics' && (
-          <AnalyticsSection />
+          <AnalyticsSection umamiUrl={siteSettings.umami_dashboard_url || undefined} />
+        )}
+
+        {/* Settings */}
+        {activeTab === 'settings' && (
+          <SettingsSection initialSettings={siteSettings} />
         )}
       </div>
     </div>

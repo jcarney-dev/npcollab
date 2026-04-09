@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getActiveSponsor } from '@/lib/sponsors';
+import { getActiveSponsor, isAdPreviewMode } from '@/lib/sponsors';
 import { HomepageSponsorCard } from '@/components/SponsorCard';
 
 export const metadata: Metadata = { title: 'Home' };
 
 export default async function HomePage() {
   let homepageSponsor = null;
+  let adPreview = false;
   try {
-    homepageSponsor = await getActiveSponsor('homepage');
+    [homepageSponsor, adPreview] = await Promise.all([
+      getActiveSponsor('homepage'),
+      isAdPreviewMode(),
+    ]);
   } catch {
     // Fail silently at build time
   }
@@ -231,6 +235,13 @@ export default async function HomePage() {
       {homepageSponsor && (
         <div style={{marginTop:'40px'}}>
           <HomepageSponsorCard sponsor={homepageSponsor} />
+        </div>
+      )}
+      {!homepageSponsor && adPreview && (
+        <div style={{ marginTop: '40px', border: '2px dashed var(--gold-light)', borderRadius: '10px', padding: '24px', textAlign: 'center', background: 'var(--gold-pale)' }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '6px' }}>Ad Placement Preview</div>
+          <div style={{ fontSize: '15px', color: 'var(--navy)', fontWeight: 600 }}>[ Sponsor Ad — Homepage ]</div>
+          <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px' }}>468 × 120px</div>
         </div>
       )}
     </>

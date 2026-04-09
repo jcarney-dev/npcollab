@@ -193,16 +193,17 @@ function getBreadcrumb(pathname: string): string {
 interface AppShellProps {
   children: React.ReactNode;
   sidebarSponsor?: Sponsor | null;
+  adPreviewMode?: boolean;
 }
 
-export default function AppShell({ children, sidebarSponsor }: AppShellProps) {
+export default function AppShell({ children, sidebarSponsor, adPreviewMode = false }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const breadcrumb = getBreadcrumb(pathname);
 
   return (
     <div className="app-shell">
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} adPreviewMode={adPreviewMode} />
 
       <div className="main-content">
         <header className="topbar">
@@ -235,7 +236,9 @@ export default function AppShell({ children, sidebarSponsor }: AppShellProps) {
           <div>© {new Date().getFullYear()} NPCollab · Built by NPs, for NPs ·{' '}
             <a href="https://www.nursingmidwiferyboard.gov.au" target="_blank" rel="noopener">NMBA</a> ·{' '}
             <a href="https://www.ahpra.gov.au" target="_blank" rel="noopener">AHPRA</a> ·{' '}
-            <Link href="/advertise">Advertise</Link>
+            <Link href="/advertise">Advertise</Link> ·{' '}
+            <Link href="/community/jobs/post">Post a Job</Link> ·{' '}
+            <Link href="/employers">For Employers</Link>
           </div>
           <div>⚠️ Educational purposes only. Always apply your own clinical judgement.</div>
         </footer>

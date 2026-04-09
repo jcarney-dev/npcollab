@@ -84,6 +84,35 @@ export const newsItems = pgTable('news_items', {
   createdAt:   timestamp('created_at').notNull().defaultNow(),
 });
 
+// ── job_listings ───────────────────────────────────────────────────────────
+// Job postings submitted by employers (Stripe-paid or manual/imported)
+export const jobListings = pgTable('job_listings', {
+  id:              uuid('id').primaryKey().defaultRandom(),
+  employerName:    text('employer_name').notNull(),
+  contactEmail:    text('contact_email').notNull(),
+  jobTitle:        text('job_title').notNull(),
+  location:        text('location').notNull(),
+  employmentType:  text('employment_type').notNull().default('full-time'),
+  specialty:       text('specialty').notNull().default(''),
+  description:     text('description').notNull(),
+  salaryRange:     text('salary_range'),
+  applicationUrl:  text('application_url').notNull(),
+  status:          text('status').notNull().default('pending'),        // 'pending' | 'pending_approval' | 'approved' | 'rejected' | 'draft'
+  paymentStatus:   text('payment_status').notNull().default('unpaid'), // 'unpaid' | 'paid' | 'manual' | 'imported'
+  stripeSessionId: text('stripe_session_id'),
+  expiresAt:       timestamp('expires_at'),
+  createdAt:       timestamp('created_at').notNull().defaultNow(),
+});
+
+// ── site_settings ──────────────────────────────────────────────────────────
+// Key/value store for admin-configurable site settings
+export const siteSettings = pgTable('site_settings', {
+  id:        uuid('id').primaryKey().defaultRandom(),
+  key:       text('key').notNull().unique(),
+  value:     text('value').notNull().default(''),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;
 export type NewAccessRequest      = typeof accessRequests.$inferInsert;
@@ -97,3 +126,7 @@ export type PodcastBroadcast      = typeof podcastBroadcasts.$inferSelect;
 export type NewPodcastBroadcast   = typeof podcastBroadcasts.$inferInsert;
 export type NewsItem              = typeof newsItems.$inferSelect;
 export type NewNewsItem           = typeof newsItems.$inferInsert;
+export type JobListing            = typeof jobListings.$inferSelect;
+export type NewJobListing         = typeof jobListings.$inferInsert;
+export type SiteSetting           = typeof siteSettings.$inferSelect;
+export type NewSiteSetting        = typeof siteSettings.$inferInsert;
