@@ -594,6 +594,52 @@ function ManualJobForm({ form, setForm, saving, onSave, onCancel }: JobFormProps
   );
 }
 
+// CSV column order matches the spec exactly
+const CSV_COLUMNS = ['job_title','employer_name','location','employment_type','specialty','description','salary_range','application_url','source'] as const;
+type CsvRow = Record<typeof CSV_COLUMNS[number], string>;
+
+function parseCSV(text: string): CsvRow[] {
+  const lines = text.split(/\r?\n/).filter(l => l.trim());
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/\s+/g, '_'));
+  return lines.slice(1).map(line => {
+    // Handle quoted fields with commas inside
+    const fields: string[] = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') { inQ = !inQ; }
+      else if (ch === ',' && !inQ) { fields.push(cur.trim()); cur = ''; }
+      else { cur += ch; }
+    }
+    fields.push(cur.trim());
+    const row: Partial<CsvRow> = {};
+    headers.forEach((h, i) => { (row as Record<string,string>)[h] = fields[i] ?? ''; });
+    return row as CsvRow;
+  }).filter(r => r.job_title?.trim() || r.employer_name?.trim());
+}
+
+function downloadTemplate() {
+  const headers = CSV_COLUMNS.join(',');
+  const example = [
+    '"Nurse Practitioner — Acute Care"',
+    '"Hunter New England Health"',
+    '"Newcastle, NSW"',
+    '"Full-time"',
+    '"Emergency Medicine"',
+    '"Join our multidisciplinary team as an endorsed NP. Responsibilities include independent assessment, diagnosis and management of acute presentations."',
+    '"$120,000–$140,000 + super"',
+    '"https://yourorganisation.com.au/careers"',
+    '"NPCollab"',
+  ].join(',');
+  const csv = `${headers}\n${example}`;
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'npcollab-jobs-template.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
 function JobBoardSection({ initial }: { initial: JobListing[] }) {
   const [listings, setListings] = useState(initial);
   const [showManual, setShowManual] = useState(false);
@@ -601,62 +647,165 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
+  // CSV import state
+  const [csvRows, setCsvRows] = useState<CsvRow[]>([]);
+  const [csvSelected, setCsvSelected] = useState<Set<number>>(new Set());
+  const [csvImporting, setCsvImporting] = useState(false);
+  const [showCsvPreview, setShowCsvPreview] = useState(false);
+
+  // Edit state for imported listings
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState(emptyJobForm);
+
   function notify(text: string, type: 'success' | 'error' = 'success') {
     setMsg({ text, type });
-    setTimeout(() => setMsg(null), 5000);
+    setTimeout(() => setMsg(null), 6000);
   }
 
+  // ── Manual entry ─────────────────────────────────────────────────────────────
   async function saveManual() {
     setSaving(true);
     try {
-      const res = await fetch('/api/admin/jobs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(manualForm),
-      });
+      const res = await fetch('/api/admin/jobs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(manualForm) });
       const json = await res.json();
       if (!res.ok) { notify(json.error || 'Failed to create listing.', 'error'); return; }
       setListings(prev => [json, ...prev]);
       notify('Job listing created and live.');
-      setManualForm(emptyJobForm);
-      setShowManual(false);
+      setManualForm(emptyJobForm); setShowManual(false);
     } catch { notify('Network error.', 'error'); }
     finally { setSaving(false); }
   }
 
-  async function updateStatus(id: string, action: 'approve' | 'reject') {
+  // ── CSV file parse ────────────────────────────────────────────────────────────
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const text = ev.target?.result as string;
+      const rows = parseCSV(text);
+      setCsvRows(rows);
+      setCsvSelected(new Set(rows.map((_, i) => i)));
+      setShowCsvPreview(true);
+    };
+    reader.readAsText(file);
+    e.target.value = ''; // allow re-upload of same file
+  }
+
+  function toggleRow(i: number) {
+    setCsvSelected(prev => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n; });
+  }
+
+  function toggleAll() {
+    if (csvSelected.size === csvRows.length) setCsvSelected(new Set());
+    else setCsvSelected(new Set(csvRows.map((_, i) => i)));
+  }
+
+  async function importSelected() {
+    const selected = csvRows.filter((_, i) => csvSelected.has(i));
+    if (selected.length === 0) { notify('No rows selected.', 'error'); return; }
+    setCsvImporting(true);
     try {
       const res = await fetch('/api/admin/jobs', {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, action }),
+        body: JSON.stringify({ action: 'bulk-import', rows: selected }),
       });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Import failed.', 'error'); return; }
+      setListings(prev => [...json.listings, ...prev]);
+      notify(`${json.created} listing${json.created !== 1 ? 's' : ''} imported successfully.`);
+      setCsvRows([]); setCsvSelected(new Set()); setShowCsvPreview(false);
+    } catch { notify('Network error.', 'error'); }
+    finally { setCsvImporting(false); }
+  }
+
+  // ── Approve / reject / delete ─────────────────────────────────────────────────
+  async function updateStatus(id: string, action: 'approve' | 'reject') {
+    try {
+      const res = await fetch('/api/admin/jobs', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, action }) });
       const json = await res.json();
       if (!res.ok) { notify(json.error || 'Failed to update listing.', 'error'); return; }
       setListings(prev => prev.map(l => l.id === id ? json : l));
-      notify(action === 'approve' ? 'Listing approved and live.' : 'Listing rejected.');
+      notify(action === 'approve' ? 'Listing published and live.' : 'Listing rejected.');
     } catch { notify('Network error.', 'error'); }
   }
 
-  const btnGold = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
+  async function deleteListing(id: string) {
+    if (!confirm('Delete this listing? This cannot be undone.')) return;
+    try {
+      const res = await fetch('/api/admin/jobs', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) });
+      if (!res.ok) { notify('Failed to delete.', 'error'); return; }
+      setListings(prev => prev.filter(l => l.id !== id));
+      notify('Listing deleted.');
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  async function publishAll() {
+    const ids = importedDraft.map(l => l.id);
+    if (ids.length === 0) return;
+    if (!confirm(`Publish all ${ids.length} imported listings?`)) return;
+    try {
+      const res = await fetch('/api/admin/jobs', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'bulk-approve', ids }) });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to publish.', 'error'); return; }
+      const updatedMap = new Map<string, JobListing>(json.listings.map((l: JobListing) => [l.id, l]));
+      setListings(prev => prev.map(l => updatedMap.has(l.id) ? updatedMap.get(l.id) as JobListing : l));
+      notify(`${json.updated} listing${json.updated !== 1 ? 's' : ''} published and live.`);
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  // ── Edit imported listing ─────────────────────────────────────────────────────
+  function startEdit(l: JobListing) {
+    setEditingId(l.id);
+    setEditForm({
+      employerName: l.employerName, contactEmail: l.contactEmail || '',
+      jobTitle: l.jobTitle, location: l.location,
+      employmentType: l.employmentType, specialty: l.specialty || '',
+      description: l.description, salaryRange: l.salaryRange || '',
+      applicationUrl: l.applicationUrl, expiresAt: '',
+    });
+  }
+
+  async function saveEdit() {
+    if (!editingId) return;
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/jobs', {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: editingId, ...editForm }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to save.', 'error'); return; }
+      setListings(prev => prev.map(l => l.id === editingId ? json : l));
+      notify('Listing updated.'); setEditingId(null);
+    } catch { notify('Network error.', 'error'); }
+    finally { setSaving(false); }
+  }
+
+  // ── Derived lists ─────────────────────────────────────────────────────────────
+  const pendingApproval = listings.filter(l => l.status === 'pending_approval');
+  const approved        = listings.filter(l => l.status === 'approved');
+  const importedDraft   = listings.filter(l => l.paymentStatus === 'imported' && l.status === 'draft');
+  const other           = listings.filter(l => !['pending_approval','approved'].includes(l.status) && !(l.paymentStatus === 'imported' && l.status === 'draft'));
+
+  // ── Style tokens ──────────────────────────────────────────────────────────────
+  const btnGold    = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
   const btnApprove = { ...btnGold, background: '#f0fdf4', border: '1px solid #bbf7d0', color: '#166534' } as const;
-  const btnReject = { ...btnGold, background: '#fef2f2', border: '1px solid #fecaca', color: 'var(--error)' } as const;
+  const btnReject  = { ...btnGold, background: '#fef2f2', border: '1px solid #fecaca', color: 'var(--error)' } as const;
+  const btnNav     = { ...btnGold, background: 'var(--navy)', color: '#fff', border: '1px solid var(--navy)' } as const;
+  const btnOut     = { ...btnGold, background: '#fff', border: '1px solid var(--border)' } as const;
+  const fs         = { width: '100%', padding: '7px 11px', border: '1px solid var(--border)', borderRadius: '5px', fontSize: '13px', fontFamily: 'var(--font-body)', boxSizing: 'border-box' } as const;
+  const ls         = { display: 'block', fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' } as const;
 
   const STATUS_COLOR: Record<string, string> = {
-    pending: '#92400e',
-    pending_approval: '#1d4ed8',
-    approved: '#166534',
-    rejected: 'var(--error)',
-    draft: 'var(--text-muted)',
+    pending: '#92400e', pending_approval: '#1d4ed8', approved: '#166534', rejected: 'var(--error)', draft: 'var(--text-muted)',
   };
-
-  const pendingApproval = listings.filter(l => l.status === 'pending_approval');
-  const approved = listings.filter(l => l.status === 'approved');
-  const imported = listings.filter(l => l.paymentStatus === 'imported');
-  const other = listings.filter(l => !['pending_approval','approved'].includes(l.status) && l.paymentStatus !== 'imported');
 
   return (
     <section className="admin-section">
+
+      {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
         <h2 className="admin-section-title" style={{ margin: 0 }}>
           💼 Job Board
@@ -671,11 +820,91 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
         </div>
       )}
 
+      {/* Manual entry form */}
       {showManual && (
         <ManualJobForm form={manualForm} setForm={setManualForm} saving={saving} onSave={saveManual} onCancel={() => { setShowManual(false); setManualForm(emptyJobForm); }} />
       )}
 
-      {/* Pending approval */}
+      {/* ── Import Jobs from CSV ─────────────────────────────────────────────── */}
+      <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '20px', marginBottom: '28px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', flexWrap: 'wrap', gap: '10px' }}>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 600, color: 'var(--navy)' }}>Import Jobs from CSV</h3>
+          <button style={btnOut} onClick={downloadTemplate}>↓ Download CSV Template</button>
+        </div>
+        <p style={{ margin: '0 0 8px', fontSize: '13px', color: 'var(--text-muted)' }}>
+          Expected columns (in order): <code style={{ background: 'var(--border)', padding: '1px 5px', borderRadius: '3px', fontSize: '12px' }}>job_title, employer_name, location, employment_type, specialty, description, salary_range, application_url, source</code>
+        </p>
+        <label style={{ display: 'inline-block', padding: '7px 16px', background: 'var(--navy)', color: '#fff', borderRadius: '5px', fontSize: '13px', fontWeight: 500, cursor: 'pointer', marginTop: '8px' }}>
+          Choose CSV file
+          <input type="file" accept=".csv" style={{ display: 'none' }} onChange={handleFileChange} />
+        </label>
+
+        {/* CSV preview table */}
+        {showCsvPreview && csvRows.length > 0 && (
+          <div style={{ marginTop: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', flexWrap: 'wrap', gap: '10px' }}>
+              <p style={{ margin: 0, fontSize: '13px', fontWeight: 600, color: 'var(--navy)' }}>
+                {csvRows.length} row{csvRows.length !== 1 ? 's' : ''} found — {csvSelected.size} selected
+              </p>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <button style={btnOut} onClick={toggleAll}>{csvSelected.size === csvRows.length ? 'Deselect all' : 'Select all'}</button>
+                <button
+                  style={{ ...btnNav, opacity: csvImporting || csvSelected.size === 0 ? 0.6 : 1 }}
+                  onClick={importSelected}
+                  disabled={csvImporting || csvSelected.size === 0}
+                >
+                  {csvImporting ? 'Importing…' : `Import ${csvSelected.size} selected`}
+                </button>
+                <button style={btnOut} onClick={() => { setCsvRows([]); setCsvSelected(new Set()); setShowCsvPreview(false); }}>Cancel</button>
+              </div>
+            </div>
+            <div className="admin-table-wrap" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+              <table className="admin-table" style={{ fontSize: '12px' }}>
+                <thead>
+                  <tr>
+                    <th style={{ width: '36px' }}>
+                      <input type="checkbox" checked={csvSelected.size === csvRows.length} onChange={toggleAll} style={{ cursor: 'pointer' }} />
+                    </th>
+                    <th>Job title</th>
+                    <th>Employer</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Specialty</th>
+                    <th>Salary</th>
+                    <th>Application URL</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {csvRows.map((row, i) => (
+                    <tr key={i} style={{ opacity: csvSelected.has(i) ? 1 : 0.4 }}>
+                      <td>
+                        <input type="checkbox" checked={csvSelected.has(i)} onChange={() => toggleRow(i)} style={{ cursor: 'pointer' }} />
+                      </td>
+                      <td style={{ fontWeight: 500 }}>{row.job_title || '—'}</td>
+                      <td>{row.employer_name || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{row.location || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{row.employment_type || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{row.specialty || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{row.salary_range || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)', maxWidth: '160px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        {row.application_url ? <a href={row.application_url} target="_blank" rel="noopener" style={{ color: 'var(--gold)' }}>{row.application_url}</a> : '—'}
+                      </td>
+                      <td style={{ color: 'var(--text-muted)' }}>{row.source || '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {showCsvPreview && csvRows.length === 0 && (
+          <p style={{ marginTop: '12px', fontSize: '13px', color: 'var(--error)' }}>No valid rows found. Check the file has the correct column headers.</p>
+        )}
+      </div>
+
+      {/* ── Pending approval (Stripe payments) ──────────────────────────────── */}
       {pendingApproval.length > 0 && (
         <>
           <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Awaiting Approval ({pendingApproval.length})</h3>
@@ -702,22 +931,84 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
         </>
       )}
 
-      {/* Live listings */}
+      {/* ── Imported Listings (draft, payment_status = imported) ─────────────── */}
+      {importedDraft.length > 0 && (
+        <>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
+            <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 600, color: 'var(--navy)' }}>Imported Listings ({importedDraft.length})</h3>
+            <button style={btnApprove} onClick={publishAll}>Publish All ({importedDraft.length})</button>
+          </div>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
+            <table className="admin-table">
+              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Source / Specialty</th><th>Imported</th><th></th></tr></thead>
+              <tbody>
+                {importedDraft.map(l => (
+                  <>
+                    <tr key={l.id}>
+                      <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                      <td>{l.employerName}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{l.specialty || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.createdAt)}</td>
+                      <td style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                        <button style={btnApprove} onClick={() => updateStatus(l.id, 'approve')}>Publish</button>
+                        <button style={btnOut} onClick={() => editingId === l.id ? setEditingId(null) : startEdit(l)}>{editingId === l.id ? 'Cancel' : 'Edit'}</button>
+                        <button style={btnReject} onClick={() => deleteListing(l.id)}>Delete</button>
+                      </td>
+                    </tr>
+                    {editingId === l.id && (
+                      <tr key={`${l.id}-edit`}>
+                        <td colSpan={6} style={{ padding: '0 0 16px' }}>
+                          <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                              <div><label style={ls}>Job title</label><input style={fs} value={editForm.jobTitle} onChange={e => setEditForm(f => ({...f, jobTitle: e.target.value}))} /></div>
+                              <div><label style={ls}>Employer</label><input style={fs} value={editForm.employerName} onChange={e => setEditForm(f => ({...f, employerName: e.target.value}))} /></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+                              <div><label style={ls}>Location</label><input style={fs} value={editForm.location} onChange={e => setEditForm(f => ({...f, location: e.target.value}))} /></div>
+                              <div><label style={ls}>Employment type</label>
+                                <select style={fs} value={editForm.employmentType} onChange={e => setEditForm(f => ({...f, employmentType: e.target.value}))}>
+                                  {EMPLOYMENT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                                </select>
+                              </div>
+                              <div><label style={ls}>Specialty</label><input style={fs} value={editForm.specialty} onChange={e => setEditForm(f => ({...f, specialty: e.target.value}))} /></div>
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                              <div><label style={ls}>Salary range</label><input style={fs} value={editForm.salaryRange} onChange={e => setEditForm(f => ({...f, salaryRange: e.target.value}))} /></div>
+                              <div><label style={ls}>Application URL</label><input style={fs} value={editForm.applicationUrl} onChange={e => setEditForm(f => ({...f, applicationUrl: e.target.value}))} /></div>
+                            </div>
+                            <div><label style={ls}>Description</label><textarea style={{...fs, resize: 'vertical'}} rows={4} value={editForm.description} onChange={e => setEditForm(f => ({...f, description: e.target.value}))} /></div>
+                            <div style={{ display: 'flex', gap: '8px' }}>
+                              <button style={btnNav} onClick={saveEdit} disabled={saving}>{saving ? 'Saving…' : 'Save changes'}</button>
+                              <button style={btnOut} onClick={() => setEditingId(null)}>Cancel</button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* ── Live listings ─────────────────────────────────────────────────────── */}
       {approved.length > 0 && (
         <>
           <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Live Listings ({approved.length})</h3>
           <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
             <table className="admin-table">
-              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Type</th><th>Expires</th><th>Status</th></tr></thead>
+              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Via</th><th>Expires</th></tr></thead>
               <tbody>
                 {approved.map(l => (
                   <tr key={l.id}>
                     <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
                     <td>{l.employerName}</td>
                     <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
-                    <td style={{ color: 'var(--text-muted)' }}>{l.paymentStatus}</td>
+                    <td><span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'capitalize' }}>{l.paymentStatus}</span></td>
                     <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.expiresAt)}</td>
-                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[l.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
                   </tr>
                 ))}
               </tbody>
@@ -726,39 +1017,11 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
         </>
       )}
 
-      {/* Imported listings */}
-      {imported.length > 0 && (
-        <>
-          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Imported Listings ({imported.length})</h3>
-          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
-            <table className="admin-table">
-              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Imported</th><th>Status</th><th></th></tr></thead>
-              <tbody>
-                {imported.map(l => (
-                  <tr key={l.id}>
-                    <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
-                    <td>{l.employerName}</td>
-                    <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
-                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.createdAt)}</td>
-                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[l.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
-                    <td>
-                      {l.status === 'draft' && (
-                        <button style={btnApprove} onClick={() => updateStatus(l.id, 'approve')}>Publish</button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      )}
-
-      {/* Other (rejected, pending) */}
+      {/* ── Other (rejected, unpaid pending) ─────────────────────────────────── */}
       {other.length > 0 && (
         <>
-          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Other Listings ({other.length})</h3>
-          <div className="admin-table-wrap">
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Other ({other.length})</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
             <table className="admin-table">
               <thead><tr><th>Job title</th><th>Employer</th><th>Payment</th><th>Submitted</th><th>Status</th></tr></thead>
               <tbody>
@@ -778,7 +1041,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
       )}
 
       {listings.length === 0 && !showManual && (
-        <p className="admin-empty">No job listings yet. Use &ldquo;Manual entry&rdquo; to add one, or wait for employer submissions.</p>
+        <p className="admin-empty">No job listings yet. Use &ldquo;Manual entry&rdquo; or import a CSV to get started.</p>
       )}
     </section>
   );
