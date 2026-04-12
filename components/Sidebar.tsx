@@ -164,12 +164,19 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
             <SidebarSponsorCard sponsor={sponsor} />
           </div>
         )}
-        {!sponsor && adPreviewMode && (
+        {adPreviewMode && (
           <div className="sidebar-sponsor-wrap">
-            <div style={{ border: '2px dashed var(--gold-light)', borderRadius: '8px', padding: '16px', textAlign: 'center', opacity: 0.8 }}>
-              <div style={{ fontSize: '11px', fontWeight: 600, color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '6px' }}>Ad Placement Preview</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>[ Sponsor Ad — Sidebar ]</div>
-              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', marginTop: '4px' }}>240 × 90px</div>
+            <div style={{
+              border: '2px solid var(--navy)',
+              borderRadius: '8px',
+              padding: '14px 12px',
+              textAlign: 'center',
+              background: 'rgba(11,24,41,0.85)',
+              width: '100%',
+              boxSizing: 'border-box',
+            }}>
+              <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Ad Placement</div>
+              <div style={{ fontSize: '12px', color: 'var(--gold-light)', fontWeight: 600, lineHeight: 1.4 }}>[ Ad Placement — Sidebar Sponsor ]</div>
             </div>
           </div>
         )}

@@ -5,6 +5,9 @@ import { HomepageSponsorCard } from '@/components/SponsorCard';
 
 export const metadata: Metadata = { title: 'Home' };
 
+// Force dynamic so ad preview mode is read from DB on every request
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   let homepageSponsor = null;
   let adPreview = false;
@@ -237,11 +240,17 @@ export default async function HomePage() {
           <HomepageSponsorCard sponsor={homepageSponsor} />
         </div>
       )}
-      {!homepageSponsor && adPreview && (
-        <div style={{ marginTop: '40px', border: '2px dashed var(--gold-light)', borderRadius: '10px', padding: '24px', textAlign: 'center', background: 'var(--gold-pale)' }}>
-          <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '6px' }}>Ad Placement Preview</div>
-          <div style={{ fontSize: '15px', color: 'var(--navy)', fontWeight: 600 }}>[ Sponsor Ad — Homepage ]</div>
-          <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px' }}>468 × 120px</div>
+      {adPreview && (
+        <div style={{
+          marginTop: '40px',
+          border: '2px solid var(--navy)',
+          borderRadius: '10px',
+          padding: '28px 24px',
+          textAlign: 'center',
+          background: 'var(--navy)',
+        }}>
+          <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>Ad Placement</div>
+          <div style={{ fontSize: '16px', color: 'var(--gold-light)', fontWeight: 600 }}>[ Ad Placement — Homepage Sponsor ]</div>
         </div>
       )}
     </>
