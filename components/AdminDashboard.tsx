@@ -650,6 +650,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
   // CSV import state
   const [csvRows, setCsvRows] = useState<CsvRow[]>([]);
   const [csvSelected, setCsvSelected] = useState<Set<number>>(new Set());
+  const [csvDuplicates, setCsvDuplicates] = useState<Set<number>>(new Set());
   const [csvImporting, setCsvImporting] = useState(false);
   const [showCsvPreview, setShowCsvPreview] = useState(false);
 
@@ -676,7 +677,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
     finally { setSaving(false); }
   }
 
-  // ── CSV file parse ────────────────────────────────────────────────────────────
+  // ── CSV file parse + duplicate detection ─────────────────────────────────────
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -684,8 +685,26 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
     reader.onload = ev => {
       const text = ev.target?.result as string;
       const rows = parseCSV(text);
+
+      // Detect duplicates against all existing listings (any status)
+      const dupes = new Set<number>();
+      rows.forEach((row, i) => {
+        const csvUrl   = row.application_url?.trim().toLowerCase();
+        const csvTitle = row.job_title?.trim().toLowerCase();
+        const csvEmp   = row.employer_name?.trim().toLowerCase();
+        const isDupe = listings.some(l => {
+          const sameUrl = csvUrl && l.applicationUrl?.trim().toLowerCase() === csvUrl;
+          const sameTitle = csvTitle && l.jobTitle?.trim().toLowerCase() === csvTitle;
+          const sameEmp   = csvEmp   && l.employerName?.trim().toLowerCase() === csvEmp;
+          return sameUrl || (sameTitle && sameEmp);
+        });
+        if (isDupe) dupes.add(i);
+      });
+
       setCsvRows(rows);
-      setCsvSelected(new Set(rows.map((_, i) => i)));
+      setCsvDuplicates(dupes);
+      // Pre-select all rows EXCEPT duplicates
+      setCsvSelected(new Set(rows.map((_, i) => i).filter(i => !dupes.has(i))));
       setShowCsvPreview(true);
     };
     reader.readAsText(file);
@@ -715,7 +734,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
       if (!res.ok) { notify(json.error || 'Import failed.', 'error'); return; }
       setListings(prev => [...json.listings, ...prev]);
       notify(`${json.created} listing${json.created !== 1 ? 's' : ''} imported successfully.`);
-      setCsvRows([]); setCsvSelected(new Set()); setShowCsvPreview(false);
+      setCsvRows([]); setCsvSelected(new Set()); setCsvDuplicates(new Set()); setShowCsvPreview(false);
     } catch { notify('Network error.', 'error'); }
     finally { setCsvImporting(false); }
   }
@@ -891,6 +910,16 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
 
         {showCsvPreview && csvRows.length > 0 && (
           <div style={{ marginTop: '20px' }}>
+            {/* Duplicate summary banner */}
+            {csvDuplicates.size > 0 && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', marginBottom: '12px', borderRadius: '6px', background: '#fffbeb', border: '1px solid #fde68a', fontSize: '13px', color: '#92400e' }}>
+                <span style={{ fontWeight: 700 }}>⚠</span>
+                <span>
+                  <strong>{csvDuplicates.size} duplicate{csvDuplicates.size !== 1 ? 's' : ''}</strong> found and deselected — matching an existing listing by URL or job title + employer. Tick a row to import it anyway.
+                </span>
+              </div>
+            )}
+
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', flexWrap: 'wrap', gap: '10px' }}>
               <p style={{ margin: 0, fontSize: '13px', fontWeight: 600, color: 'var(--navy)' }}>
                 {csvRows.length} row{csvRows.length !== 1 ? 's' : ''} found — {csvSelected.size} selected
@@ -900,7 +929,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                 <button style={{ ...btnNav, opacity: csvImporting || csvSelected.size === 0 ? 0.6 : 1 }} onClick={importSelected} disabled={csvImporting || csvSelected.size === 0}>
                   {csvImporting ? 'Importing…' : `Import ${csvSelected.size} selected`}
                 </button>
-                <button style={btnOut} onClick={() => { setCsvRows([]); setCsvSelected(new Set()); setShowCsvPreview(false); }}>Cancel</button>
+                <button style={btnOut} onClick={() => { setCsvRows([]); setCsvSelected(new Set()); setCsvDuplicates(new Set()); setShowCsvPreview(false); }}>Cancel</button>
               </div>
             </div>
             <div className="admin-table-wrap" style={{ maxHeight: '400px', overflowY: 'auto' }}>
@@ -912,21 +941,31 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {csvRows.map((row, i) => (
-                    <tr key={i} style={{ opacity: csvSelected.has(i) ? 1 : 0.4 }}>
-                      <td><input type="checkbox" checked={csvSelected.has(i)} onChange={() => toggleRow(i)} style={{ cursor: 'pointer' }} /></td>
-                      <td style={{ fontWeight: 500 }}>{row.job_title || '—'}</td>
-                      <td>{row.employer_name || '—'}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{row.location || '—'}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{row.employment_type || '—'}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{row.specialty || '—'}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{row.salary_range || '—'}</td>
-                      <td style={{ color: 'var(--text-muted)', maxWidth: '160px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                        {row.application_url ? <a href={row.application_url} target="_blank" rel="noopener" style={{ color: 'var(--gold)' }}>{row.application_url}</a> : '—'}
-                      </td>
-                      <td style={{ color: 'var(--text-muted)' }}>{row.source || '—'}</td>
-                    </tr>
-                  ))}
+                  {csvRows.map((row, i) => {
+                    const isDupe = csvDuplicates.has(i);
+                    return (
+                      <tr key={i} style={{ opacity: csvSelected.has(i) ? 1 : 0.45, background: isDupe && !csvSelected.has(i) ? '#fffbeb' : undefined }}>
+                        <td><input type="checkbox" checked={csvSelected.has(i)} onChange={() => toggleRow(i)} style={{ cursor: 'pointer' }} /></td>
+                        <td style={{ fontWeight: 500 }}>
+                          <span>{row.job_title || '—'}</span>
+                          {isDupe && (
+                            <span style={{ marginLeft: '6px', fontSize: '10px', fontWeight: 700, padding: '2px 6px', borderRadius: '10px', background: '#fde68a', color: '#92400e', whiteSpace: 'nowrap' }}>
+                              Already imported
+                            </span>
+                          )}
+                        </td>
+                        <td>{row.employer_name || '—'}</td>
+                        <td style={{ color: 'var(--text-muted)' }}>{row.location || '—'}</td>
+                        <td style={{ color: 'var(--text-muted)' }}>{row.employment_type || '—'}</td>
+                        <td style={{ color: 'var(--text-muted)' }}>{row.specialty || '—'}</td>
+                        <td style={{ color: 'var(--text-muted)' }}>{row.salary_range || '—'}</td>
+                        <td style={{ color: 'var(--text-muted)', maxWidth: '160px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          {row.application_url ? <a href={row.application_url} target="_blank" rel="noopener" style={{ color: 'var(--gold)' }}>{row.application_url}</a> : '—'}
+                        </td>
+                        <td style={{ color: 'var(--text-muted)' }}>{row.source || '—'}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
