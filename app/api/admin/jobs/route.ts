@@ -65,6 +65,7 @@ export async function POST(req: NextRequest) {
   if (!employerName?.trim() || !jobTitle?.trim() || !location?.trim() || !description?.trim() || !applicationUrl?.trim()) {
     return Response.json({ error: 'Required fields missing.' }, { status: 400 });
   }
+  const now = new Date();
   const [listing] = await db.insert(jobListings).values({
     employerName: employerName.trim(),
     contactEmail: contactEmail?.trim() || '',
@@ -77,12 +78,13 @@ export async function POST(req: NextRequest) {
     applicationUrl: applicationUrl.trim(),
     status: 'approved',
     paymentStatus: 'manual',
+    postedAt: now,
     expiresAt: expiresAt ? new Date(expiresAt) : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
   }).returning();
   return Response.json(listing);
 }
 
-// PUT — approve, reject, bulk-approve, or generic update
+// PUT — approve, reject, bulk-approve, close, reopen, extend, or generic update
 export async function PUT(req: NextRequest) {
   if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
@@ -93,10 +95,11 @@ export async function PUT(req: NextRequest) {
   if (action === 'bulk-approve') {
     const ids: string[] = body.ids ?? [];
     if (ids.length === 0) return Response.json({ updated: 0, listings: [] });
+    const now = new Date();
     const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
     const updated = await db
       .update(jobListings)
-      .set({ status: 'approved', expiresAt })
+      .set({ status: 'approved', postedAt: now, expiresAt })
       .where(inArray(jobListings.id, ids))
       .returning();
     return Response.json({ updated: updated.length, listings: updated });
@@ -106,10 +109,11 @@ export async function PUT(req: NextRequest) {
   if (!id) return Response.json({ error: 'ID is required.' }, { status: 400 });
 
   if (action === 'approve') {
+    const now = new Date();
     const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
     const [listing] = await db
       .update(jobListings)
-      .set({ status: 'approved', expiresAt })
+      .set({ status: 'approved', postedAt: now, expiresAt })
       .where(eq(jobListings.id, id))
       .returning();
 
@@ -155,12 +159,81 @@ export async function PUT(req: NextRequest) {
     return Response.json(listing);
   }
 
+  if (action === 'close') {
+    const [listing] = await db
+      .update(jobListings)
+      .set({ status: 'closed' })
+      .where(eq(jobListings.id, id))
+      .returning();
+
+    // Email employer if they paid
+    if (listing.paymentStatus === 'paid' && listing.contactEmail) {
+      const resendKey = process.env.RESEND_API_KEY;
+      if (resendKey) {
+        try {
+          const resend = new Resend(resendKey);
+          await resend.emails.send({
+            from: FROM,
+            to: listing.contactEmail,
+            subject: 'Your NPCollab job listing has been closed',
+            html: `
+              <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px 20px; color: #1A2B3C;">
+                <div style="background: #0B1829; border-radius: 8px 8px 0 0; padding: 24px 32px; border-bottom: 3px solid #C9A84C;">
+                  <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 700;">Job listing closed</h1>
+                </div>
+                <div style="background: #ffffff; border: 1px solid #DDE3EC; border-top: none; border-radius: 0 0 8px 8px; padding: 28px 32px;">
+                  <p>Hi there,</p>
+                  <p>Your job listing <strong>${listing.jobTitle}</strong> at <strong>${listing.employerName}</strong> has been closed by the NPCollab team and is no longer visible on the job board.</p>
+                  <p>If you have any questions, please reply to this email.</p>
+                  <hr style="border: none; border-top: 1px solid #DDE3EC; margin: 24px 0;">
+                  <p style="font-size: 12px; color: #4A6080;">NPCollab — Free education for Australian Nurse Practitioners</p>
+                </div>
+              </div>
+            `,
+          });
+        } catch (err) {
+          console.error('Failed to send close notification:', err);
+        }
+      }
+    }
+    return Response.json(listing);
+  }
+
+  if (action === 'reopen') {
+    const [listing] = await db
+      .update(jobListings)
+      .set({ status: 'approved' })
+      .where(eq(jobListings.id, id))
+      .returning();
+    return Response.json(listing);
+  }
+
+  if (action === 'extend') {
+    // Get current listing first to base extension on current expiresAt
+    const [current] = await db.select().from(jobListings).where(eq(jobListings.id, id));
+    if (!current) return Response.json({ error: 'Listing not found.' }, { status: 404 });
+    const base = current.expiresAt && current.expiresAt > new Date() ? current.expiresAt : new Date();
+    const newExpiry = new Date(base.getTime() + 30 * 24 * 60 * 60 * 1000);
+    // If listing was expired, set back to approved
+    const newStatus = current.status === 'approved' || current.status === 'closed' ? 'approved' : current.status;
+    const [listing] = await db
+      .update(jobListings)
+      .set({ expiresAt: newExpiry, status: newStatus })
+      .where(eq(jobListings.id, id))
+      .returning();
+    return Response.json(listing);
+  }
+
   // Generic field update (edit)
   const updateData: Record<string, unknown> = {};
-  const editableFields = ['jobTitle','employerName','location','employmentType','specialty','description','salaryRange','applicationUrl','status','expiresAt'];
+  const editableFields = ['jobTitle','employerName','contactEmail','location','employmentType','specialty','description','salaryRange','applicationUrl','status','expiresAt','postedAt'];
   for (const f of editableFields) {
     if (fields[f] !== undefined) {
-      updateData[f] = f === 'expiresAt' ? (fields[f] ? new Date(fields[f]) : null) : fields[f];
+      if (f === 'expiresAt' || f === 'postedAt') {
+        updateData[f] = fields[f] ? new Date(fields[f]) : null;
+      } else {
+        updateData[f] = fields[f];
+      }
     }
   }
   const [listing] = await db.update(jobListings).set(updateData).where(eq(jobListings.id, id)).returning();

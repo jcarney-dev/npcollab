@@ -653,7 +653,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
   const [csvImporting, setCsvImporting] = useState(false);
   const [showCsvPreview, setShowCsvPreview] = useState(false);
 
-  // Edit state for imported listings
+  // Edit state (shared across all sections)
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState(emptyJobForm);
 
@@ -689,7 +689,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
       setShowCsvPreview(true);
     };
     reader.readAsText(file);
-    e.target.value = ''; // allow re-upload of same file
+    e.target.value = '';
   }
 
   function toggleRow(i: number) {
@@ -720,19 +720,26 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
     finally { setCsvImporting(false); }
   }
 
-  // ── Approve / reject / delete ─────────────────────────────────────────────────
-  async function updateStatus(id: string, action: 'approve' | 'reject') {
+  // ── Approve / reject ──────────────────────────────────────────────────────────
+  async function updateStatus(id: string, action: 'approve' | 'reject' | 'close' | 'reopen' | 'extend') {
     try {
       const res = await fetch('/api/admin/jobs', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, action }) });
       const json = await res.json();
       if (!res.ok) { notify(json.error || 'Failed to update listing.', 'error'); return; }
       setListings(prev => prev.map(l => l.id === id ? json : l));
-      notify(action === 'approve' ? 'Listing published and live.' : 'Listing rejected.');
+      const msgs: Record<string, string> = {
+        approve: 'Listing published and live.',
+        reject: 'Listing rejected.',
+        close: 'Listing closed and removed from public board.',
+        reopen: 'Listing reopened and now live.',
+        extend: 'Expiry extended by 30 days.',
+      };
+      notify(msgs[action] || 'Updated.');
     } catch { notify('Network error.', 'error'); }
   }
 
   async function deleteListing(id: string) {
-    if (!confirm('Delete this listing? This cannot be undone.')) return;
+    if (!confirm('Delete this listing permanently? This cannot be undone.')) return;
     try {
       const res = await fetch('/api/admin/jobs', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) });
       if (!res.ok) { notify('Failed to delete.', 'error'); return; }
@@ -755,7 +762,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
     } catch { notify('Network error.', 'error'); }
   }
 
-  // ── Edit imported listing ─────────────────────────────────────────────────────
+  // ── Edit listing ──────────────────────────────────────────────────────────────
   function startEdit(l: JobListing) {
     setEditingId(l.id);
     setEditForm({
@@ -763,7 +770,8 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
       jobTitle: l.jobTitle, location: l.location,
       employmentType: l.employmentType, specialty: l.specialty || '',
       description: l.description, salaryRange: l.salaryRange || '',
-      applicationUrl: l.applicationUrl, expiresAt: '',
+      applicationUrl: l.applicationUrl,
+      expiresAt: l.expiresAt ? new Date(l.expiresAt).toISOString().split('T')[0] : '',
     });
   }
 
@@ -784,10 +792,18 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
   }
 
   // ── Derived lists ─────────────────────────────────────────────────────────────
+  const now = new Date();
   const pendingApproval = listings.filter(l => l.status === 'pending_approval');
-  const approved        = listings.filter(l => l.status === 'approved');
   const importedDraft   = listings.filter(l => l.paymentStatus === 'imported' && l.status === 'draft');
-  const other           = listings.filter(l => !['pending_approval','approved'].includes(l.status) && !(l.paymentStatus === 'imported' && l.status === 'draft'));
+  const liveListings    = listings.filter(l => l.status === 'approved' && l.expiresAt && new Date(l.expiresAt) > now);
+  const expiredListings = listings.filter(l => l.status === 'approved' && l.expiresAt && new Date(l.expiresAt) <= now);
+  const closedListings  = listings.filter(l => l.status === 'closed');
+  const other           = listings.filter(l =>
+    l.status !== 'pending_approval' &&
+    l.status !== 'approved' &&
+    l.status !== 'closed' &&
+    !(l.paymentStatus === 'imported' && l.status === 'draft')
+  );
 
   // ── Style tokens ──────────────────────────────────────────────────────────────
   const btnGold    = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
@@ -795,12 +811,46 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
   const btnReject  = { ...btnGold, background: '#fef2f2', border: '1px solid #fecaca', color: 'var(--error)' } as const;
   const btnNav     = { ...btnGold, background: 'var(--navy)', color: '#fff', border: '1px solid var(--navy)' } as const;
   const btnOut     = { ...btnGold, background: '#fff', border: '1px solid var(--border)' } as const;
+  const btnWarn    = { ...btnGold, background: '#fffbeb', border: '1px solid #fde68a', color: '#92400e' } as const;
   const fs         = { width: '100%', padding: '7px 11px', border: '1px solid var(--border)', borderRadius: '5px', fontSize: '13px', fontFamily: 'var(--font-body)', boxSizing: 'border-box' } as const;
   const ls         = { display: 'block', fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' } as const;
 
-  const STATUS_COLOR: Record<string, string> = {
-    pending: '#92400e', pending_approval: '#1d4ed8', approved: '#166534', rejected: 'var(--error)', draft: 'var(--text-muted)',
-  };
+  const paymentLabel: Record<string, string> = { paid: 'Stripe', manual: 'Manual', imported: 'Import', unpaid: 'Unpaid' };
+
+  // ── Inline edit form row (shared) ─────────────────────────────────────────────
+  function EditRow({ colSpan }: { colSpan: number }) {
+    return (
+      <tr>
+        <td colSpan={colSpan} style={{ padding: '0 0 16px' }}>
+          <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <div><label style={ls}>Job title</label><input style={fs} value={editForm.jobTitle} onChange={e => setEditForm(f => ({...f, jobTitle: e.target.value}))} /></div>
+              <div><label style={ls}>Employer</label><input style={fs} value={editForm.employerName} onChange={e => setEditForm(f => ({...f, employerName: e.target.value}))} /></div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+              <div><label style={ls}>Location</label><input style={fs} value={editForm.location} onChange={e => setEditForm(f => ({...f, location: e.target.value}))} /></div>
+              <div><label style={ls}>Employment type</label>
+                <select style={fs} value={editForm.employmentType} onChange={e => setEditForm(f => ({...f, employmentType: e.target.value}))}>
+                  {EMPLOYMENT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                </select>
+              </div>
+              <div><label style={ls}>Specialty</label><input style={fs} value={editForm.specialty} onChange={e => setEditForm(f => ({...f, specialty: e.target.value}))} /></div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+              <div><label style={ls}>Salary range</label><input style={fs} value={editForm.salaryRange} onChange={e => setEditForm(f => ({...f, salaryRange: e.target.value}))} /></div>
+              <div><label style={ls}>Application URL</label><input style={fs} value={editForm.applicationUrl} onChange={e => setEditForm(f => ({...f, applicationUrl: e.target.value}))} /></div>
+              <div><label style={ls}>Expiry date</label><input style={fs} type="date" value={editForm.expiresAt} onChange={e => setEditForm(f => ({...f, expiresAt: e.target.value}))} /></div>
+            </div>
+            <div><label style={ls}>Description</label><textarea style={{...fs, resize: 'vertical'}} rows={4} value={editForm.description} onChange={e => setEditForm(f => ({...f, description: e.target.value}))} /></div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button style={btnNav} onClick={saveEdit} disabled={saving}>{saving ? 'Saving…' : 'Save changes'}</button>
+              <button style={btnOut} onClick={() => setEditingId(null)}>Cancel</button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    );
+  }
 
   return (
     <section className="admin-section">
@@ -839,7 +889,6 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
           <input type="file" accept=".csv" style={{ display: 'none' }} onChange={handleFileChange} />
         </label>
 
-        {/* CSV preview table */}
         {showCsvPreview && csvRows.length > 0 && (
           <div style={{ marginTop: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', flexWrap: 'wrap', gap: '10px' }}>
@@ -848,11 +897,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
               </p>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 <button style={btnOut} onClick={toggleAll}>{csvSelected.size === csvRows.length ? 'Deselect all' : 'Select all'}</button>
-                <button
-                  style={{ ...btnNav, opacity: csvImporting || csvSelected.size === 0 ? 0.6 : 1 }}
-                  onClick={importSelected}
-                  disabled={csvImporting || csvSelected.size === 0}
-                >
+                <button style={{ ...btnNav, opacity: csvImporting || csvSelected.size === 0 ? 0.6 : 1 }} onClick={importSelected} disabled={csvImporting || csvSelected.size === 0}>
                   {csvImporting ? 'Importing…' : `Import ${csvSelected.size} selected`}
                 </button>
                 <button style={btnOut} onClick={() => { setCsvRows([]); setCsvSelected(new Set()); setShowCsvPreview(false); }}>Cancel</button>
@@ -862,25 +907,14 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
               <table className="admin-table" style={{ fontSize: '12px' }}>
                 <thead>
                   <tr>
-                    <th style={{ width: '36px' }}>
-                      <input type="checkbox" checked={csvSelected.size === csvRows.length} onChange={toggleAll} style={{ cursor: 'pointer' }} />
-                    </th>
-                    <th>Job title</th>
-                    <th>Employer</th>
-                    <th>Location</th>
-                    <th>Type</th>
-                    <th>Specialty</th>
-                    <th>Salary</th>
-                    <th>Application URL</th>
-                    <th>Source</th>
+                    <th style={{ width: '36px' }}><input type="checkbox" checked={csvSelected.size === csvRows.length} onChange={toggleAll} style={{ cursor: 'pointer' }} /></th>
+                    <th>Job title</th><th>Employer</th><th>Location</th><th>Type</th><th>Specialty</th><th>Salary</th><th>Application URL</th><th>Source</th>
                   </tr>
                 </thead>
                 <tbody>
                   {csvRows.map((row, i) => (
                     <tr key={i} style={{ opacity: csvSelected.has(i) ? 1 : 0.4 }}>
-                      <td>
-                        <input type="checkbox" checked={csvSelected.has(i)} onChange={() => toggleRow(i)} style={{ cursor: 'pointer' }} />
-                      </td>
+                      <td><input type="checkbox" checked={csvSelected.has(i)} onChange={() => toggleRow(i)} style={{ cursor: 'pointer' }} /></td>
                       <td style={{ fontWeight: 500 }}>{row.job_title || '—'}</td>
                       <td>{row.employer_name || '—'}</td>
                       <td style={{ color: 'var(--text-muted)' }}>{row.location || '—'}</td>
@@ -898,7 +932,6 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
             </div>
           </div>
         )}
-
         {showCsvPreview && csvRows.length === 0 && (
           <p style={{ marginTop: '12px', fontSize: '13px', color: 'var(--error)' }}>No valid rows found. Check the file has the correct column headers.</p>
         )}
@@ -940,7 +973,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
           </div>
           <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
             <table className="admin-table">
-              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Source / Specialty</th><th>Imported</th><th></th></tr></thead>
+              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Specialty</th><th>Imported</th><th></th></tr></thead>
               <tbody>
                 {importedDraft.map(l => (
                   <>
@@ -956,36 +989,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                         <button style={btnReject} onClick={() => deleteListing(l.id)}>Delete</button>
                       </td>
                     </tr>
-                    {editingId === l.id && (
-                      <tr key={`${l.id}-edit`}>
-                        <td colSpan={6} style={{ padding: '0 0 16px' }}>
-                          <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                              <div><label style={ls}>Job title</label><input style={fs} value={editForm.jobTitle} onChange={e => setEditForm(f => ({...f, jobTitle: e.target.value}))} /></div>
-                              <div><label style={ls}>Employer</label><input style={fs} value={editForm.employerName} onChange={e => setEditForm(f => ({...f, employerName: e.target.value}))} /></div>
-                            </div>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
-                              <div><label style={ls}>Location</label><input style={fs} value={editForm.location} onChange={e => setEditForm(f => ({...f, location: e.target.value}))} /></div>
-                              <div><label style={ls}>Employment type</label>
-                                <select style={fs} value={editForm.employmentType} onChange={e => setEditForm(f => ({...f, employmentType: e.target.value}))}>
-                                  {EMPLOYMENT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-                                </select>
-                              </div>
-                              <div><label style={ls}>Specialty</label><input style={fs} value={editForm.specialty} onChange={e => setEditForm(f => ({...f, specialty: e.target.value}))} /></div>
-                            </div>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                              <div><label style={ls}>Salary range</label><input style={fs} value={editForm.salaryRange} onChange={e => setEditForm(f => ({...f, salaryRange: e.target.value}))} /></div>
-                              <div><label style={ls}>Application URL</label><input style={fs} value={editForm.applicationUrl} onChange={e => setEditForm(f => ({...f, applicationUrl: e.target.value}))} /></div>
-                            </div>
-                            <div><label style={ls}>Description</label><textarea style={{...fs, resize: 'vertical'}} rows={4} value={editForm.description} onChange={e => setEditForm(f => ({...f, description: e.target.value}))} /></div>
-                            <div style={{ display: 'flex', gap: '8px' }}>
-                              <button style={btnNav} onClick={saveEdit} disabled={saving}>{saving ? 'Saving…' : 'Save changes'}</button>
-                              <button style={btnOut} onClick={() => setEditingId(null)}>Cancel</button>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    )}
+                    {editingId === l.id && <EditRow key={`${l.id}-edit`} colSpan={6} />}
                   </>
                 ))}
               </tbody>
@@ -994,21 +998,99 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
         </>
       )}
 
-      {/* ── Live listings ─────────────────────────────────────────────────────── */}
-      {approved.length > 0 && (
+      {/* ── Live Listings ─────────────────────────────────────────────────────── */}
+      {liveListings.length > 0 && (
         <>
-          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Live Listings ({approved.length})</h3>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Live Listings ({liveListings.length})</h3>
           <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
             <table className="admin-table">
-              <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Via</th><th>Expires</th></tr></thead>
+              <thead>
+                <tr><th>Job title</th><th>Employer</th><th>Location</th><th>Specialty</th><th>Type</th><th>Posted</th><th>Expires</th><th>Via</th><th></th></tr>
+              </thead>
               <tbody>
-                {approved.map(l => (
+                {liveListings.map(l => (
+                  <>
+                    <tr key={l.id}>
+                      <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                      <td>{l.employerName}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{l.specialty || '—'}</td>
+                      <td style={{ color: 'var(--text-muted)', fontSize: '12px' }}>{l.employmentType}</td>
+                      <td style={{ color: 'var(--text-muted)', fontSize: '12px' }}>{formatDate(l.postedAt || l.createdAt)}</td>
+                      <td style={{ color: 'var(--text-muted)', fontSize: '12px' }}>{formatDate(l.expiresAt)}</td>
+                      <td><span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)' }}>{paymentLabel[l.paymentStatus] || l.paymentStatus}</span></td>
+                      <td style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                        <button style={btnOut} onClick={() => editingId === l.id ? setEditingId(null) : startEdit(l)}>{editingId === l.id ? 'Cancel' : 'Edit'}</button>
+                        <button style={btnGold} onClick={() => updateStatus(l.id, 'extend')}>+30d</button>
+                        <button style={btnWarn} onClick={() => { if (confirm('Close this listing? It will be removed from the public board immediately.')) updateStatus(l.id, 'close'); }}>Close</button>
+                        <button style={btnReject} onClick={() => deleteListing(l.id)}>Delete</button>
+                      </td>
+                    </tr>
+                    {editingId === l.id && <EditRow key={`${l.id}-edit`} colSpan={9} />}
+                  </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* ── Expired Listings ──────────────────────────────────────────────────── */}
+      {expiredListings.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: '#92400e', marginBottom: '12px' }}>Expired Listings ({expiredListings.length})</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
+            <table className="admin-table">
+              <thead>
+                <tr><th>Job title</th><th>Employer</th><th>Location</th><th>Posted</th><th>Expired</th><th>Via</th><th></th></tr>
+              </thead>
+              <tbody>
+                {expiredListings.map(l => (
+                  <>
+                    <tr key={l.id}>
+                      <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
+                      <td>{l.employerName}</td>
+                      <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
+                      <td style={{ color: 'var(--text-muted)', fontSize: '12px' }}>{formatDate(l.postedAt || l.createdAt)}</td>
+                      <td style={{ color: '#92400e', fontSize: '12px', fontWeight: 500 }}>{formatDate(l.expiresAt)}</td>
+                      <td><span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)' }}>{paymentLabel[l.paymentStatus] || l.paymentStatus}</span></td>
+                      <td style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                        <button style={btnApprove} onClick={() => updateStatus(l.id, 'extend')}>Extend +30d</button>
+                        <button style={btnOut} onClick={() => editingId === l.id ? setEditingId(null) : startEdit(l)}>{editingId === l.id ? 'Cancel' : 'Edit'}</button>
+                        <button style={btnReject} onClick={() => deleteListing(l.id)}>Delete</button>
+                      </td>
+                    </tr>
+                    {editingId === l.id && <EditRow key={`${l.id}-edit`} colSpan={7} />}
+                  </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* ── Closed Listings ───────────────────────────────────────────────────── */}
+      {closedListings.length > 0 && (
+        <>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '12px' }}>Closed Listings ({closedListings.length})</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
+            <table className="admin-table">
+              <thead>
+                <tr><th>Job title</th><th>Employer</th><th>Location</th><th>Posted</th><th>Expires</th><th>Via</th><th></th></tr>
+              </thead>
+              <tbody>
+                {closedListings.map(l => (
                   <tr key={l.id}>
-                    <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
-                    <td>{l.employerName}</td>
+                    <td style={{ fontWeight: 500, opacity: 0.7 }}>{l.jobTitle}</td>
+                    <td style={{ opacity: 0.7 }}>{l.employerName}</td>
                     <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
-                    <td><span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'capitalize' }}>{l.paymentStatus}</span></td>
-                    <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.expiresAt)}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '12px' }}>{formatDate(l.postedAt || l.createdAt)}</td>
+                    <td style={{ color: 'var(--text-muted)', fontSize: '12px' }}>{formatDate(l.expiresAt)}</td>
+                    <td><span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)' }}>{paymentLabel[l.paymentStatus] || l.paymentStatus}</span></td>
+                    <td style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                      <button style={btnApprove} onClick={() => updateStatus(l.id, 'reopen')}>Reopen</button>
+                      <button style={btnReject} onClick={() => deleteListing(l.id)}>Delete</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -1020,10 +1102,10 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
       {/* ── Other (rejected, unpaid pending) ─────────────────────────────────── */}
       {other.length > 0 && (
         <>
-          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '12px' }}>Other ({other.length})</h3>
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '12px' }}>Other ({other.length})</h3>
           <div className="admin-table-wrap" style={{ marginBottom: '24px' }}>
             <table className="admin-table">
-              <thead><tr><th>Job title</th><th>Employer</th><th>Payment</th><th>Submitted</th><th>Status</th></tr></thead>
+              <thead><tr><th>Job title</th><th>Employer</th><th>Payment</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
               <tbody>
                 {other.map(l => (
                   <tr key={l.id}>
@@ -1031,7 +1113,10 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                     <td>{l.employerName}</td>
                     <td style={{ color: 'var(--text-muted)' }}>{l.paymentStatus}</td>
                     <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{formatDate(l.createdAt)}</td>
-                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: STATUS_COLOR[l.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
+                    <td><span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'capitalize' }}>{l.status}</span></td>
+                    <td>
+                      <button style={btnReject} onClick={() => deleteListing(l.id)}>Delete</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

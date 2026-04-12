@@ -100,6 +100,7 @@ export const jobListings = pgTable('job_listings', {
   status:          text('status').notNull().default('pending'),        // 'pending' | 'pending_approval' | 'approved' | 'rejected' | 'draft'
   paymentStatus:   text('payment_status').notNull().default('unpaid'), // 'unpaid' | 'paid' | 'manual' | 'imported'
   stripeSessionId: text('stripe_session_id'),
+  postedAt:        timestamp('posted_at'),
   expiresAt:       timestamp('expires_at'),
   createdAt:       timestamp('created_at').notNull().defaultNow(),
 });

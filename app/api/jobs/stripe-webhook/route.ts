@@ -42,10 +42,10 @@ export async function POST(req: NextRequest) {
       return Response.json({ received: true });
     }
 
-    // Update listing status to 'pending_approval'
+    // Update listing status to 'pending_approval' and record posted_at
     const [listing] = await db
       .update(jobListings)
-      .set({ status: 'pending_approval', paymentStatus: 'paid' })
+      .set({ status: 'pending_approval', paymentStatus: 'paid', postedAt: new Date() })
       .where(eq(jobListings.id, listingId))
       .returning();
 
