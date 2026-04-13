@@ -4,7 +4,8 @@ import { courses } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 
 function isAdmin(req: NextRequest) {
-  return req.cookies.get('npcollab_admin')?.value === 'true';
+  const cookie = req.cookies.get('npcollab_admin');
+  return !!(cookie?.value && cookie.value === process.env.ADMIN_PASSWORD);
 }
 
 // GET /api/admin/courses — fetch all courses
