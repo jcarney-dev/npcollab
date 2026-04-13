@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast } from '@/lib/schema';
+import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course } from '@/lib/schema';
 
 interface Props {
   pendingRequests: AccessRequest[];
@@ -11,6 +11,7 @@ interface Props {
   podcastBroadcasts: PodcastBroadcast[];
   newsItems: NewsItem[];
   jobListings: JobListing[];
+  courses: Course[];
   siteSettings: Record<string, string>;
   stats: { pending: number; active: number; disabled: number; total: number };
 }
@@ -1336,6 +1337,293 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
   );
 }
 
+// ── Courses section ──────────────────────────────────────────────────────────
+
+const COURSE_TYPE_LABELS: Record<string, string> = {
+  conference: 'Conference', workshop: 'Workshop', online: 'Online',
+  webinar: 'Webinar', simulation: 'Simulation', other: 'Other',
+};
+
+const COURSE_STATUS_COLOR: Record<string, string> = {
+  approved: '#166534',
+  draft:    '#92400e',
+  expired:  'var(--text-muted)',
+};
+
+const emptyCourseForm = {
+  courseName: '', providerName: '', providerEmail: '', courseType: 'conference',
+  specialty: '', description: '', dateStart: '', dateEnd: '', location: '',
+  cost: '', cpdHours: '', registrationUrl: '', status: 'approved',
+};
+
+function CoursesSection({ initial }: { initial: Course[] }) {
+  const [courseList, setCourseList] = useState(initial);
+  const [showManual, setShowManual] = useState(false);
+  const [manualForm, setManualForm] = useState(emptyCourseForm);
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState(emptyCourseForm);
+
+  function notify(text: string, type: 'success' | 'error' = 'success') {
+    setMsg({ text, type });
+    setTimeout(() => setMsg(null), 6000);
+  }
+
+  const fs: React.CSSProperties = {
+    width: '100%', padding: '8px 10px', border: '1px solid var(--border)', borderRadius: '5px',
+    fontSize: '13px', fontFamily: 'var(--font-body)', boxSizing: 'border-box', color: 'var(--text)',
+  };
+
+  async function saveManual() {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/courses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(manualForm),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to create course.', 'error'); return; }
+      setCourseList(prev => [json, ...prev]);
+      notify('Course created.');
+      setManualForm(emptyCourseForm);
+      setShowManual(false);
+    } catch { notify('Network error.', 'error'); }
+    finally { setSaving(false); }
+  }
+
+  async function saveEdit(id: string) {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/courses', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, ...editForm }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to update.', 'error'); return; }
+      setCourseList(prev => prev.map(c => c.id === id ? json : c));
+      notify('Course updated.');
+      setEditingId(null);
+    } catch { notify('Network error.', 'error'); }
+    finally { setSaving(false); }
+  }
+
+  async function updateStatus(id: string, status: string) {
+    try {
+      const res = await fetch('/api/admin/courses', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to update.', 'error'); return; }
+      setCourseList(prev => prev.map(c => c.id === id ? json : c));
+      notify(`Course marked as ${status}.`);
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  async function deleteCourse(id: string) {
+    if (!confirm('Delete this course listing?')) return;
+    try {
+      const res = await fetch(`/api/admin/courses?id=${id}`, { method: 'DELETE' });
+      if (!res.ok) { notify('Failed to delete.', 'error'); return; }
+      setCourseList(prev => prev.filter(c => c.id !== id));
+      notify('Course deleted.');
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  function startEdit(c: Course) {
+    setEditingId(c.id);
+    setEditForm({
+      courseName: c.courseName, providerName: c.providerName, providerEmail: c.providerEmail ?? '',
+      courseType: c.courseType, specialty: c.specialty, description: c.description,
+      dateStart: toDateInput(c.dateStart), dateEnd: toDateInput(c.dateEnd ?? null),
+      location: c.location, cost: c.cost ?? '', cpdHours: c.cpdHours ?? '',
+      registrationUrl: c.registrationUrl, status: c.status,
+    });
+  }
+
+  const btnGold = { fontSize: '13px', fontWeight: 500, padding: '6px 14px', borderRadius: '5px', cursor: 'pointer', border: '1px solid var(--gold-light)', background: 'var(--gold-pale)', color: 'var(--navy)' } as const;
+  const btnOut  = { ...btnGold, background: '#fff', border: '1px solid var(--border)' } as const;
+  const btnDel  = { ...btnGold, background: '#fef2f2', border: '1px solid #fecaca', color: 'var(--error)' } as const;
+  const btnGreen = { ...btnGold, background: '#f0fdf4', border: '1px solid #bbf7d0', color: '#166534' } as const;
+
+  function CourseForm({ form, setForm, onSave, onCancel, isNew }: {
+    form: typeof emptyCourseForm;
+    setForm: React.Dispatch<React.SetStateAction<typeof emptyCourseForm>>;
+    onSave: () => void;
+    onCancel: () => void;
+    isNew: boolean;
+  }) {
+    return (
+      <div style={{ padding: '16px', background: 'var(--gold-pale)', border: '1px solid var(--gold-light)', borderRadius: '8px', marginBottom: '16px' }}>
+        <h4 style={{ margin: '0 0 14px', fontSize: '14px', fontWeight: 600, color: 'var(--navy)' }}>
+          {isNew ? 'Add Course Listing' : 'Edit Course'}
+        </h4>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '10px' }}>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Course Name *</label>
+            <input style={fs} value={form.courseName} onChange={e => setForm(f => ({ ...f, courseName: e.target.value }))} placeholder="Course name" />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Provider *</label>
+            <input style={fs} value={form.providerName} onChange={e => setForm(f => ({ ...f, providerName: e.target.value }))} placeholder="Organisation name" />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Type</label>
+            <select style={fs} value={form.courseType} onChange={e => setForm(f => ({ ...f, courseType: e.target.value }))}>
+              {Object.entries(COURSE_TYPE_LABELS).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+            </select>
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Specialty</label>
+            <input style={fs} value={form.specialty} onChange={e => setForm(f => ({ ...f, specialty: e.target.value }))} placeholder="e.g. Cardiology, General" />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Start Date *</label>
+            <input style={fs} type="date" value={form.dateStart} onChange={e => setForm(f => ({ ...f, dateStart: e.target.value }))} />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>End Date</label>
+            <input style={fs} type="date" value={form.dateEnd} onChange={e => setForm(f => ({ ...f, dateEnd: e.target.value }))} />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Location *</label>
+            <input style={fs} value={form.location} onChange={e => setForm(f => ({ ...f, location: e.target.value }))} placeholder="City / Online" />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Cost</label>
+            <input style={fs} value={form.cost} onChange={e => setForm(f => ({ ...f, cost: e.target.value }))} placeholder="Free, $250, etc." />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>CPD Hours</label>
+            <input style={fs} value={form.cpdHours} onChange={e => setForm(f => ({ ...f, cpdHours: e.target.value }))} placeholder="6" />
+          </div>
+          <div>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Status</label>
+            <select style={fs} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))}>
+              <option value="approved">Approved (Live)</option>
+              <option value="draft">Draft</option>
+              <option value="expired">Expired</option>
+            </select>
+          </div>
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Registration URL *</label>
+          <input style={fs} type="url" value={form.registrationUrl} onChange={e => setForm(f => ({ ...f, registrationUrl: e.target.value }))} placeholder="https://" />
+        </div>
+        <div style={{ marginBottom: '14px' }}>
+          <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '3px', textTransform: 'uppercase' }}>Description *</label>
+          <textarea style={{ ...fs, resize: 'vertical' }} rows={4} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="Course description…" />
+        </div>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <button style={btnGold} onClick={onSave} disabled={saving}>{saving ? 'Saving…' : isNew ? 'Add Course' : 'Save Changes'}</button>
+          <button style={btnOut} onClick={onCancel}>Cancel</button>
+        </div>
+      </div>
+    );
+  }
+
+  const live    = courseList.filter(c => c.status === 'approved');
+  const drafts  = courseList.filter(c => c.status === 'draft');
+  const expired = courseList.filter(c => c.status === 'expired');
+
+  function CourseRow({ c }: { c: Course }) {
+    return (
+      <>
+        <tr key={c.id}>
+          <td style={{ fontWeight: 500, maxWidth: '220px' }}>
+            {c.courseName}
+            {c.status === 'draft' && (
+              <span style={{ marginLeft: '6px', fontSize: '10px', fontWeight: 700, padding: '1px 6px', borderRadius: '3px', background: '#fef3c7', color: '#92400e', border: '1px solid #fde68a' }}>DRAFT</span>
+            )}
+          </td>
+          <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{c.providerName}</td>
+          <td style={{ fontSize: '12px' }}>{COURSE_TYPE_LABELS[c.courseType] || c.courseType}</td>
+          <td style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+            {new Date(c.dateStart).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
+          </td>
+          <td style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{c.location}</td>
+          <td>
+            <span style={{ fontSize: '11px', fontWeight: 700, color: COURSE_STATUS_COLOR[c.status] || 'var(--text-muted)', textTransform: 'capitalize' }}>
+              {c.status}
+            </span>
+          </td>
+          <td style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+            {c.status !== 'approved' && (
+              <button style={{ ...btnGreen, padding: '3px 8px', fontSize: '11px' }} onClick={() => updateStatus(c.id, 'approved')}>Approve</button>
+            )}
+            {c.status === 'approved' && (
+              <button style={{ ...btnOut, padding: '3px 8px', fontSize: '11px' }} onClick={() => updateStatus(c.id, 'expired')}>Expire</button>
+            )}
+            <button style={{ ...btnOut, padding: '3px 8px', fontSize: '11px' }} onClick={() => editingId === c.id ? setEditingId(null) : startEdit(c)}>
+              {editingId === c.id ? 'Cancel' : 'Edit'}
+            </button>
+            <button style={{ ...btnDel, padding: '3px 8px', fontSize: '11px' }} onClick={() => deleteCourse(c.id)}>Del</button>
+          </td>
+        </tr>
+        {editingId === c.id && (
+          <tr key={`${c.id}-edit`}>
+            <td colSpan={7} style={{ padding: '0 0 12px' }}>
+              <CourseForm form={editForm} setForm={setEditForm} onSave={() => saveEdit(c.id)} onCancel={() => setEditingId(null)} isNew={false} />
+            </td>
+          </tr>
+        )}
+      </>
+    );
+  }
+
+  function CourseTable({ items, title }: { items: Course[]; title: string }) {
+    if (items.length === 0) return null;
+    return (
+      <div style={{ marginBottom: '28px' }}>
+        <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px' }}>{title} ({items.length})</h3>
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr><th>Course</th><th>Provider</th><th>Type</th><th>Date</th><th>Location</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody>
+              {items.map(c => <CourseRow key={c.id} c={c} />)}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <section className="admin-section">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+        <h2 className="admin-section-title" style={{ margin: 0 }}>🎓 Courses</h2>
+        {!showManual && <button style={btnGold} onClick={() => setShowManual(true)}>+ Add Course</button>}
+      </div>
+
+      {msg && (
+        <div style={{ padding: '10px 14px', borderRadius: '6px', marginBottom: '16px', fontSize: '13px', background: msg.type === 'success' ? '#f0fdf4' : '#fef2f2', border: `1px solid ${msg.type === 'success' ? '#bbf7d0' : '#fecaca'}`, color: msg.type === 'success' ? '#166534' : 'var(--error)' }}>
+          {msg.text}
+        </div>
+      )}
+
+      {showManual && (
+        <CourseForm form={manualForm} setForm={setManualForm} onSave={saveManual} onCancel={() => { setShowManual(false); setManualForm(emptyCourseForm); }} isNew={true} />
+      )}
+
+      {courseList.length === 0 && !showManual ? (
+        <p className="admin-empty">No courses yet. Click &ldquo;+ Add Course&rdquo; to create one.</p>
+      ) : (
+        <>
+          <CourseTable items={live}    title="Live" />
+          <CourseTable items={drafts}  title="Drafts / Pending Review" />
+          <CourseTable items={expired} title="Expired" />
+        </>
+      )}
+    </section>
+  );
+}
+
 // ── Settings section ─────────────────────────────────────────────────────────
 
 function SettingsSection({ initialSettings }: { initialSettings: Record<string, string> }) {
@@ -1487,13 +1775,13 @@ function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
 
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, siteSettings, stats: initialStats }: Props) {
+export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, siteSettings, stats: initialStats }: Props) {
   const [pending, setPending] = useState(initial);
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'news' | 'analytics' | 'settings'>('requests');
+  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'analytics' | 'settings'>('requests');
   const pendingJobCount  = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount = initialNews.filter(n => n.status === 'pending').length;
 
@@ -1619,6 +1907,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             { key: 'sponsors',  label: 'Sponsors',        badge: 0 },
             { key: 'podcast',   label: '🎙️ Podcast',      badge: 0 },
             { key: 'jobs',      label: '💼 Job Board',    badge: pendingJobCount },
+            { key: 'courses',   label: '🎓 Courses',       badge: 0 },
             { key: 'news',      label: '📰 News',          badge: pendingNewsCount },
             { key: 'analytics', label: 'Analytics',       badge: 0 },
             { key: 'settings',  label: '⚙️ Settings',     badge: 0 },
@@ -1757,6 +2046,9 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
 
         {/* Job Board */}
         {activeTab === 'jobs' && <JobBoardSection initial={initialJobs} />}
+
+        {/* Courses */}
+        {activeTab === 'courses' && <CoursesSection initial={initialCourses} />}
 
         {/* News */}
         {activeTab === 'news' && <NewsSection initial={initialNews} />}

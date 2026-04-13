@@ -238,6 +238,7 @@ export default function AppShell({ children, sidebarSponsor, adPreviewMode = fal
             <a href="https://www.ahpra.gov.au" target="_blank" rel="noopener">AHPRA</a> ·{' '}
             <Link href="/advertise">Advertise</Link> ·{' '}
             <Link href="/community/jobs/post">Post a Job</Link> ·{' '}
+            <Link href="/community/courses/submit">Submit a Course</Link> ·{' '}
             <Link href="/employers">For Employers</Link>
           </div>
           <div>⚠️ Educational purposes only. Always apply your own clinical judgement.</div>

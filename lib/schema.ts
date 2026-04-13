@@ -105,6 +105,29 @@ export const jobListings = pgTable('job_listings', {
   createdAt:       timestamp('created_at').notNull().defaultNow(),
 });
 
+// ── courses ────────────────────────────────────────────────────────────────
+// CPD and education course listings
+export const courses = pgTable('courses', {
+  id:              uuid('id').primaryKey().defaultRandom(),
+  courseName:      text('course_name').notNull(),
+  providerName:    text('provider_name').notNull(),
+  providerEmail:   text('provider_email'),
+  courseType:      text('course_type').notNull().default('other'), // 'conference'|'workshop'|'online'|'webinar'|'simulation'|'other'
+  specialty:       text('specialty').notNull().default(''),
+  description:     text('description').notNull(),
+  dateStart:       timestamp('date_start').notNull(),
+  dateEnd:         timestamp('date_end'),
+  location:        text('location').notNull(),
+  cost:            text('cost'),
+  cpdHours:        text('cpd_hours'),
+  registrationUrl: text('registration_url').notNull(),
+  source:          text('source'),
+  status:          text('status').notNull().default('draft'),       // 'draft'|'approved'|'expired'
+  paymentStatus:   text('payment_status').notNull().default('manual'), // 'manual'|'imported'|'paid'
+  postedAt:        timestamp('posted_at'),
+  createdAt:       timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── site_settings ──────────────────────────────────────────────────────────
 // Key/value store for admin-configurable site settings
 export const siteSettings = pgTable('site_settings', {
@@ -129,5 +152,7 @@ export type NewsItem              = typeof newsItems.$inferSelect;
 export type NewNewsItem           = typeof newsItems.$inferInsert;
 export type JobListing            = typeof jobListings.$inferSelect;
 export type NewJobListing         = typeof jobListings.$inferInsert;
+export type Course                = typeof courses.$inferSelect;
+export type NewCourse             = typeof courses.$inferInsert;
 export type SiteSetting           = typeof siteSettings.$inferSelect;
 export type NewSiteSetting        = typeof siteSettings.$inferInsert;
