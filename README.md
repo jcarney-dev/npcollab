@@ -1,73 +1,50 @@
 # NPCollab
 
-**Australian Nurse Practitioner Resource Hub**
+**Australian Nurse Practitioner Resource Hub**  
 Free, collaborative clinical learning resource for Australian NPs and NP students.
 
 ## Live Site
 [npcollab.com](https://npcollab.com)
 
 ## Tech Stack
-- [Astro](https://astro.build) — static site generator
-- Vanilla CSS with CSS custom properties
-- Plain JavaScript (no framework)
-- Content in `.json` and `.astro` files
+- [Next.js 15](https://nextjs.org) (App Router, TypeScript)
+- Tailwind CSS + CSS custom properties
+- [Neon](https://neon.tech) (Postgres) via [Drizzle ORM](https://orm.drizzle.team)
+- [Resend](https://resend.com) for transactional email
+- [Vercel](https://vercel.com) for hosting
+- HTTP-only cookie auth (access codes + admin password)
 
 ## Project Structure
 ```
-src/
-  pages/
-    index.astro              # Home
-    scope/index.astro        # Scope of Practice
-    assessment/index.astro   # Patient Assessment
-    modules/
-      eyes/                  # Eyes module (5 pages)
-      ent/                   # ENT module (5 pages)
-    about/index.astro
-    support/index.astro
-    analytics/index.astro
-  layouts/
-    BaseLayout.astro         # Main shell (sidebar, topbar, footer)
-    ModuleLayout.astro       # Module tab interface
-  components/
-    SoapNote.astro           # Reusable SOAP accordion
-    Quiz.astro               # Interactive quiz component
-  content/
-    modules/
-      eyes/quiz.json         # Eyes quiz questions — edit here
-      ent/quiz.json          # ENT quiz questions — edit here
-  styles/
-    global.css               # Design system
-.github/workflows/
-  deploy.yml                 # FTP deploy to cPanel (manual trigger)
+app/
+  (main)/          # Protected routes (require access cookie)
+  (public)/        # Public routes (request-access, enter-access)
+  admin/           # Admin panel
+  api/             # API routes
+components/        # Shared React components
+content/modules/   # Quiz JSON files per module
+drizzle/           # Database migrations
+lib/               # Database, auth, email, schema utilities
+public/            # Static assets
 ```
 
-## Adding a New Clinical Module
-
-1. Create `src/pages/modules/MODULENAME/` with these files:
-   - `index.astro` (overview)
-   - `assessment/index.astro`
-   - `soap/index.astro`
-   - `resources/index.astro`
-   - `quiz/index.astro`
-2. Create `src/content/modules/MODULENAME/quiz.json` with 20 questions
-3. Add the module to the nav in `src/layouts/BaseLayout.astro`
-4. Add a card to the home page in `src/pages/index.astro`
-
-## Editing Content
-All quiz content is in the `.json` files in `src/content/modules/`.
-Page content is in the `.astro` files in `src/pages/`.
-Edit directly in GitHub using the pencil icon or press `.` to open GitHub Dev.
+## Development Workflow
+- All development work is done on the `dev` branch
+- To deploy to production, run: `bash deploy.sh`
+- This merges dev into main and triggers a single Vercel deployment
+- Never push directly to main
 
 ## Local Development
 ```bash
 npm install
 npm run dev
-# Open http://localhost:4321/npcollab/
+# Open http://localhost:3000
 ```
 
-## Deployment
-See `.github/workflows/deploy.yml`.
-Add FTP credentials as GitHub Secrets, then trigger manually or enable auto-deploy on push.
+Copy `.env.example` to `.env.local` and fill in your values before starting.
+
+## Database Migrations
+Migrations live in `drizzle/`. Run each against your Neon database via the Neon SQL editor or `drizzle-kit push`.
 
 ## Disclaimer
 All content is for educational purposes only. Always apply your own clinical judgement.
