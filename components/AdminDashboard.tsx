@@ -1174,8 +1174,8 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
 // ── News section ─────────────────────────────────────────────────────────────
 
 const NEWS_TYPES = ['article', 'external', 'announcement'] as const;
-const STATUS_OPTS = ['draft', 'published', 'rejected'] as const;
-const NEWS_STATUS_COLOR: Record<string, string> = { published: '#166534', draft: 'var(--text-muted)', rejected: 'var(--error)' };
+const STATUS_OPTS = ['pending', 'draft', 'published', 'rejected'] as const;
+const NEWS_STATUS_COLOR: Record<string, string> = { published: '#166534', draft: 'var(--text-muted)', rejected: 'var(--error)', pending: '#1d4ed8' };
 
 const emptyNewsForm = { title: '', summary: '', url: '', type: 'article', sourceName: '', status: 'draft' };
 
@@ -1494,7 +1494,8 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
   const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'news' | 'analytics' | 'settings'>('requests');
-  const pendingJobCount = initialJobs.filter(j => j.status === 'pending_approval').length;
+  const pendingJobCount  = initialJobs.filter(j => j.status === 'pending_approval').length;
+  const pendingNewsCount = initialNews.filter(n => n.status === 'pending').length;
 
   function notify(msg: string, type: 'success' | 'error' = 'success') {
     setNotification({ msg, type });
@@ -1618,7 +1619,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             { key: 'sponsors',  label: 'Sponsors',        badge: 0 },
             { key: 'podcast',   label: '🎙️ Podcast',      badge: 0 },
             { key: 'jobs',      label: '💼 Job Board',    badge: pendingJobCount },
-            { key: 'news',      label: '📰 News',          badge: 0 },
+            { key: 'news',      label: '📰 News',          badge: pendingNewsCount },
             { key: 'analytics', label: 'Analytics',       badge: 0 },
             { key: 'settings',  label: '⚙️ Settings',     badge: 0 },
           ] as const).map(tab => (
