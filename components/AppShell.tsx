@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
-import type { Sponsor } from '@/lib/schema';
+import type { Sponsor, UserV2 } from '@/lib/schema';
 
 function getBreadcrumb(pathname: string): string {
   const map: Record<string, string> = {
@@ -194,16 +194,17 @@ interface AppShellProps {
   children: React.ReactNode;
   sidebarSponsor?: Sponsor | null;
   adPreviewMode?: boolean;
+  sessionUser?: UserV2 | null;
 }
 
-export default function AppShell({ children, sidebarSponsor, adPreviewMode = false }: AppShellProps) {
+export default function AppShell({ children, sidebarSponsor, adPreviewMode = false, sessionUser = null }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const breadcrumb = getBreadcrumb(pathname);
 
   return (
     <div className="app-shell">
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} adPreviewMode={adPreviewMode} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} adPreviewMode={adPreviewMode} sessionUser={sessionUser} />
 
       <div className="main-content">
         <header className="topbar">

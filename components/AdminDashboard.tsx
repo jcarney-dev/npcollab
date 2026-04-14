@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course } from '@/lib/schema';
+import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2 } from '@/lib/schema';
 
 interface Props {
   pendingRequests: AccessRequest[];
@@ -12,6 +12,7 @@ interface Props {
   newsItems: NewsItem[];
   jobListings: JobListing[];
   courses: Course[];
+  registrations: UserV2[];
   siteSettings: Record<string, string>;
   stats: { pending: number; active: number; disabled: number; total: number };
 }
@@ -1337,6 +1338,147 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
   );
 }
 
+// ── Registrations section (users_v2) ─────────────────────────────────────────
+
+function RegistrationsSection({ initial }: { initial: UserV2[] }) {
+  const [regs, setRegs] = useState(initial);
+  const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  function notify(text: string, type: 'success' | 'error' = 'success') {
+    setMsg({ text, type });
+    setTimeout(() => setMsg(null), 5000);
+  }
+
+  const pending  = regs.filter(r => !r.approved);
+  const approved = regs.filter(r => r.approved);
+
+  async function approveUser(id: string) {
+    try {
+      const res = await fetch('/api/admin/users/approve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to approve.', 'error'); return; }
+      setRegs(prev => prev.map(r => r.id === id ? { ...r, approved: true } : r));
+      notify('User approved — welcome email sent.');
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  async function rejectUser(id: string) {
+    if (!confirm('Reject and delete this registration?')) return;
+    try {
+      const res = await fetch('/api/admin/users/reject', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to reject.', 'error'); return; }
+      setRegs(prev => prev.filter(r => r.id !== id));
+      notify('Registration rejected and removed.');
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  const btnGreen = { fontSize: '12px', fontWeight: 600, padding: '4px 12px', borderRadius: '5px', cursor: 'pointer', border: '1px solid #bbf7d0', background: '#f0fdf4', color: '#166534' } as const;
+  const btnRed   = { fontSize: '12px', fontWeight: 600, padding: '4px 12px', borderRadius: '5px', cursor: 'pointer', border: '1px solid #fecaca', background: '#fef2f2', color: 'var(--error)' } as const;
+
+  return (
+    <section className="admin-section">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+        <h2 className="admin-section-title" style={{ margin: 0 }}>🆕 Registrations</h2>
+        <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+          {pending.length} pending · {approved.length} approved
+        </span>
+      </div>
+
+      {msg && (
+        <div style={{ padding: '10px 14px', borderRadius: '6px', marginBottom: '16px', fontSize: '13px', background: msg.type === 'success' ? '#f0fdf4' : '#fef2f2', border: `1px solid ${msg.type === 'success' ? '#bbf7d0' : '#fecaca'}`, color: msg.type === 'success' ? '#166534' : 'var(--error)' }}>
+          {msg.text}
+        </div>
+      )}
+
+      {/* Pending */}
+      <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px' }}>
+        Pending Review ({pending.length})
+      </h3>
+      {pending.length === 0 ? (
+        <p className="admin-empty" style={{ marginBottom: '24px' }}>No pending registrations.</p>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
+          {pending.map(r => (
+            <div key={r.id} style={{
+              border: '1px solid var(--border)',
+              borderRadius: '8px',
+              padding: '16px 20px',
+              background: 'var(--off-white)',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px' }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--navy)', marginBottom: '4px' }}>{r.name}</div>
+                  <div style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '6px' }}>{r.email}</div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', fontSize: '12px' }}>
+                    {[
+                      r.state && `📍 ${r.state}`,
+                      r.npEndorsement && `🏥 ${r.npEndorsement}`,
+                      r.employer && `🏢 ${r.employer}`,
+                      r.currentRole && `👤 ${r.currentRole}`,
+                      r.specialtyArea && `🔬 ${r.specialtyArea}`,
+                    ].filter(Boolean).map((tag, i) => (
+                      <span key={i} style={{ padding: '2px 8px', borderRadius: '4px', background: '#fff', border: '1px solid var(--border)', color: 'var(--text-muted)' }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Statement if present — stored in the DB as a field we don't have yet, skip for now */}
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '6px' }}>
+                    Registered: {new Date(r.createdAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+                  <button style={btnGreen} onClick={() => approveUser(r.id)}>Approve</button>
+                  <button style={btnRed}   onClick={() => rejectUser(r.id)}>Reject</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Approved */}
+      <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px' }}>
+        Approved Users ({approved.length})
+      </h3>
+      {approved.length === 0 ? (
+        <p className="admin-empty">No approved users yet.</p>
+      ) : (
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>State</th><th>Endorsement</th><th>Role</th><th>Last login</th></tr>
+            </thead>
+            <tbody>
+              {approved.map(r => (
+                <tr key={r.id}>
+                  <td style={{ fontWeight: 500 }}>{r.name}</td>
+                  <td style={{ color: 'var(--text-muted)', fontSize: '13px' }}>{r.email}</td>
+                  <td style={{ fontSize: '13px' }}>{r.state}</td>
+                  <td style={{ fontSize: '13px' }}>{r.npEndorsement}</td>
+                  <td><span style={{ fontSize: '11px', fontWeight: 700, color: r.role === 'admin' ? 'var(--gold)' : 'var(--text-muted)', textTransform: 'uppercase' }}>{r.role}</span></td>
+                  <td style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                    {r.lastLogin ? new Date(r.lastLogin).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Never'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
+
 // ── Courses section ──────────────────────────────────────────────────────────
 
 const COURSE_TYPE_LABELS: Record<string, string> = {
@@ -1775,15 +1917,16 @@ function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
 
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, siteSettings, stats: initialStats }: Props) {
+export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, siteSettings, stats: initialStats }: Props) {
   const [pending, setPending] = useState(initial);
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'analytics' | 'settings'>('requests');
-  const pendingJobCount  = initialJobs.filter(j => j.status === 'pending_approval').length;
-  const pendingNewsCount = initialNews.filter(n => n.status === 'pending').length;
+  const [activeTab, setActiveTab] = useState<'registrations' | 'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'analytics' | 'settings'>('registrations');
+  const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
+  const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
+  const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
 
   function notify(msg: string, type: 'success' | 'error' = 'success') {
     setNotification({ msg, type });
@@ -1902,6 +2045,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         {/* Tab nav */}
         <div className="admin-tabs">
           {([
+            { key: 'registrations', label: '🆕 Registrations',  badge: pendingRegCount },
             { key: 'requests',  label: 'Access Requests', badge: stats.pending },
             { key: 'users',     label: 'Users',           badge: 0 },
             { key: 'sponsors',  label: 'Sponsors',        badge: 0 },
@@ -1922,6 +2066,11 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             </button>
           ))}
         </div>
+
+        {/* Registrations (users_v2) */}
+        {activeTab === 'registrations' && (
+          <RegistrationsSection initial={initialRegistrations} />
+        )}
 
         {/* Access Requests */}
         {activeTab === 'requests' && (

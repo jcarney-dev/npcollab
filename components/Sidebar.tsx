@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { SidebarSponsorCard } from './SponsorCard';
-import type { Sponsor } from '@/lib/schema';
+import type { Sponsor, UserV2 } from '@/lib/schema';
 
 type NavItem = { label: string; href: string; icon: string; disabled?: boolean; coming?: boolean };
 type NavGroup = { label: string; items: NavItem[] };
@@ -118,9 +118,10 @@ interface SidebarProps {
   onClose: () => void;
   sponsor?: Sponsor | null;
   adPreviewMode?: boolean;
+  sessionUser?: UserV2 | null;
 }
 
-export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false, sessionUser = null }: SidebarProps) {
   const pathname = usePathname();
 
   // MSK group is expanded by default when on any MSK sub-page
@@ -261,10 +262,119 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
         )}
 
         <div className="sidebar-footer">
-          <div className="support-badge">
-            <p>Free forever for Australian NPs. Help cover hosting costs.</p>
-            <Link href="/support" className="btn-support" onClick={onClose}>☕ Support NPCollab</Link>
-          </div>
+          {sessionUser ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {/* User info */}
+              <div style={{
+                padding: '10px 12px',
+                background: 'rgba(255,255,255,0.06)',
+                borderRadius: '8px',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}>
+                <div style={{
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  color: '#fff',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}>
+                  {sessionUser.name}
+                </div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>
+                  {sessionUser.npEndorsement}{sessionUser.state ? ` · ${sessionUser.state}` : ''}
+                </div>
+              </div>
+
+              {/* My Profile + Logout */}
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <Link
+                  href="/profile/edit"
+                  onClick={onClose}
+                  style={{
+                    flex: 1,
+                    textAlign: 'center',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    padding: '7px 0',
+                    borderRadius: '6px',
+                    background: 'rgba(201,168,76,0.15)',
+                    color: 'var(--gold-light)',
+                    textDecoration: 'none',
+                    border: '1px solid rgba(201,168,76,0.25)',
+                    transition: 'background 0.15s',
+                  }}
+                >
+                  My Profile
+                </Link>
+                <button
+                  onClick={async () => {
+                    await fetch('/api/auth/logout', { method: 'POST' });
+                    window.location.href = '/login';
+                  }}
+                  style={{
+                    flex: 1,
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    padding: '7px 0',
+                    borderRadius: '6px',
+                    background: 'rgba(255,255,255,0.06)',
+                    color: 'rgba(255,255,255,0.55)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    cursor: 'pointer',
+                    transition: 'background 0.15s',
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
+
+              {sessionUser.role === 'admin' && (
+                <Link
+                  href="/admin"
+                  onClick={onClose}
+                  style={{
+                    textAlign: 'center',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    padding: '6px 0',
+                    borderRadius: '6px',
+                    background: 'rgba(255,255,255,0.04)',
+                    color: 'rgba(255,255,255,0.4)',
+                    textDecoration: 'none',
+                    border: '1px solid rgba(255,255,255,0.07)',
+                    letterSpacing: '0.03em',
+                  }}
+                >
+                  ⚙ Admin Panel
+                </Link>
+              )}
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <Link
+                href="/login"
+                onClick={onClose}
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  padding: '9px 0',
+                  borderRadius: '7px',
+                  background: 'var(--gold)',
+                  color: 'var(--navy)',
+                  textDecoration: 'none',
+                }}
+              >
+                Log In
+              </Link>
+              <div className="support-badge">
+                <p>Free forever for Australian NPs. Help cover hosting costs.</p>
+                <Link href="/support" className="btn-support" onClick={onClose}>☕ Support NPCollab</Link>
+              </div>
+            </div>
+          )}
         </div>
       </aside>
 

@@ -158,6 +158,18 @@ export const magicLinks = pgTable('magic_links', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
+// ── admin_actions ──────────────────────────────────────────────────────────
+// One-time tokens embedded in admin notification emails (approve/reject links)
+export const adminActions = pgTable('admin_actions', {
+  id:        uuid('id').primaryKey().defaultRandom(),
+  action:    text('action').notNull(),        // 'approve' | 'reject'
+  userId:    uuid('user_id').notNull(),        // references users_v2.id
+  token:     text('token').notNull().unique(),
+  used:      boolean('used').notNull().default(false),
+  expiresAt: timestamp('expires_at').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── site_settings ──────────────────────────────────────────────────────────
 // Key/value store for admin-configurable site settings
 export const siteSettings = pgTable('site_settings', {
@@ -188,5 +200,7 @@ export type UserV2                = typeof usersV2.$inferSelect;
 export type NewUserV2             = typeof usersV2.$inferInsert;
 export type MagicLink             = typeof magicLinks.$inferSelect;
 export type NewMagicLink          = typeof magicLinks.$inferInsert;
+export type AdminAction           = typeof adminActions.$inferSelect;
+export type NewAdminAction        = typeof adminActions.$inferInsert;
 export type SiteSetting           = typeof siteSettings.$inferSelect;
 export type NewSiteSetting        = typeof siteSettings.$inferInsert;

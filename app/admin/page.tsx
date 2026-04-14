@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { accessRequests, users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings } from '@/lib/schema';
+import { accessRequests, users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2 } from '@/lib/schema';
 import { eq, desc, count } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -22,6 +22,7 @@ export default async function AdminPage() {
     allJobListings,
     allCourses,
     allSiteSettings,
+    allUsersV2,
     stats,
   ] = await Promise.all([
     db.select().from(accessRequests).where(eq(accessRequests.status, 'pending')).orderBy(desc(accessRequests.createdAt)),
@@ -33,6 +34,7 @@ export default async function AdminPage() {
     db.select().from(jobListings).orderBy(desc(jobListings.createdAt)),
     db.select().from(courses).orderBy(desc(courses.createdAt)),
     db.select().from(siteSettings),
+    db.select().from(usersV2).orderBy(desc(usersV2.createdAt)),
     Promise.all([
       db.select({ count: count() }).from(accessRequests).where(eq(accessRequests.status, 'pending')),
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
@@ -60,6 +62,7 @@ export default async function AdminPage() {
       jobListings={allJobListings}
       courses={allCourses}
       siteSettings={settingsMap}
+      registrations={allUsersV2}
       stats={{
         pending: pending[0].count,
         active: active[0].count,
