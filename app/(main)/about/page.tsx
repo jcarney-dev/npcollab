@@ -7,88 +7,114 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="page-header">
-        <div className="label">About</div>
-        <h1>About NPCollab</h1>
-        <p>A free, collaborative clinical resource built by Australian Nurse Practitioners, for Australian Nurse Practitioners.</p>
+      {/* ── SECTION 1: Hero ── */}
+      <div style={{ padding: '48px 0 40px' }}>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: 'var(--navy)', marginBottom: '14px', lineHeight: 1.2 }}>
+          About NPCollab
+        </h1>
+        <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: '560px', margin: 0 }}>
+          A free clinical education platform built by an Australian Nurse Practitioner, for Nurse Practitioners.
+        </p>
       </div>
 
-      <div className="content-prose">
+      <div className="content-prose" style={{ paddingTop: 0 }}>
 
-        <h2>Our Mission</h2>
-        <p>NPCollab exists to provide free, high-quality, evidence-based clinical learning resources for Australian Nurse Practitioners — whether you are just starting out, completing your Masters, or looking for a quick clinical reference. All content is Australian-contextualised, written and reviewed by practising NPs, and aligned with AHPRA standards and current Australian guidelines.</p>
-
-        <div className="highlight-box" style={{ marginBottom: '32px' }}>
-          <h4>Important Disclaimer</h4>
-          <p>All content on NPCollab is for <strong>educational purposes only</strong>. It does not constitute clinical advice. Always apply your own clinical judgement, refer to current Australian guidelines, and consult with colleagues when managing complex presentations.</p>
+        {/* ── SECTION 2: Mission ── */}
+        <div style={{ marginBottom: '48px' }}>
+          <h2 style={{ marginBottom: '12px' }}>Our Mission</h2>
+          <p style={{ margin: 0, maxWidth: '640px' }}>
+            NPCollab exists to provide free, accessible, and Australia-specific clinical education for Nurse Practitioners, Transitional NPs, and NP students. All content references Australian guidelines — Therapeutic Guidelines, NMBA, AHPRA, and relevant specialty colleges.
+          </p>
         </div>
 
-        <h2>Founder</h2>
-        <div style={{
-          display: 'flex',
-          gap: '16px',
-          alignItems: 'flex-start',
-          background: 'var(--off-white)',
-          border: '1px solid var(--border)',
-          borderRadius: '10px',
-          padding: '20px 22px',
-          marginBottom: '32px',
-        }}>
+        {/* ── SECTION 3: Founder ── */}
+        <div style={{ marginBottom: '48px' }}>
+          <h2 style={{ marginBottom: '20px' }}>Founder</h2>
           <div style={{
-            width: '52px',
-            height: '52px',
-            borderRadius: '50%',
-            background: 'var(--navy)',
-            color: 'var(--gold)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1.1rem',
-            fontWeight: 700,
-            flexShrink: 0,
-            letterSpacing: '0.02em',
+            gap: '20px',
+            alignItems: 'flex-start',
+            background: 'var(--white)',
+            border: '1px solid var(--navy)',
+            borderRadius: '12px',
+            padding: '24px 26px',
+            maxWidth: '680px',
           }}>
-            JC
-          </div>
-          <div>
-            <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text)', marginBottom: '2px' }}>Jason Carney</div>
-            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
-              Nurse Practitioner &middot; Newcastle, NSW &middot; Founder, Developer &amp; Content Creator
+            {/* Avatar */}
+            <div style={{
+              width: '64px',
+              height: '64px',
+              borderRadius: '50%',
+              background: 'var(--navy)',
+              color: 'var(--white)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.25rem',
+              fontWeight: 700,
+              flexShrink: 0,
+              letterSpacing: '0.03em',
+              fontFamily: 'var(--font-body)',
+            }}
+              aria-hidden="true"
+            >
+              JC
             </div>
-            <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.65, color: 'var(--text)' }}>
-              Jason is a Nurse Practitioner based in Newcastle, NSW. He created NPCollab to address the lack of free, Australian-specific clinical education resources for NPs and NP students. With a background spanning emergency nursing, advanced practice, and NP endorsement, he builds and maintains NPCollab in his own time — writing clinical content, developing the platform, and ensuring all resources reflect current Australian guidelines and practice standards.
-            </p>
+
+            {/* Text */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                color: 'var(--navy)',
+                marginBottom: '3px',
+              }}>
+                Jason Carney
+              </div>
+              <div style={{
+                fontSize: '0.82rem',
+                color: 'var(--gold)',
+                fontWeight: 600,
+                marginBottom: '12px',
+                letterSpacing: '0.01em',
+              }}>
+                Founder, Developer &amp; Content Creator
+              </div>
+              <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--text)' }}>
+                Jason Carney is an Australian Nurse Practitioner based in Newcastle, NSW. With a background spanning orthopaedic and perioperative surgery, telehealth, and urgent care, Jason created NPCollab to address the lack of free, accessible, and Australia-specific clinical education resources for Nurse Practitioners. Jason built NPCollab independently — designing, developing, and writing all clinical content — with the goal of supporting the growing NP workforce across Australia.
+              </p>
+            </div>
           </div>
         </div>
 
-        <h2>Contributors</h2>
-        <p>NPCollab welcomes NP contributors who want to help build and improve clinical modules, quiz questions, assessment frameworks, and SOAP note examples. If you have clinical expertise in an area not yet covered — or want to help refine existing content — we would love to hear from you.</p>
-        <a
-          href="mailto:jason.carney@npcollab.com.au"
-          className="btn-primary"
-          style={{ display: 'inline-block', marginBottom: '36px', fontSize: '0.88rem' }}
-        >
-          Get in Touch
-        </a>
+        {/* ── SECTION 4: Contributors ── */}
+        <div style={{ marginBottom: '48px' }}>
+          <h2 style={{ marginBottom: '12px' }}>Contributors</h2>
+          <p style={{ marginBottom: '20px', maxWidth: '580px' }}>
+            NPCollab welcomes clinical content contributions from practising NPs and healthcare educators. Contributors are acknowledged on the modules they help create.
+          </p>
+          <a
+            href="mailto:jason.carney@gmail.com"
+            className="btn-outline-gold"
+          >
+            Get in Touch
+          </a>
+        </div>
 
-        <h2>Advertising Disclosure</h2>
+        {/* ── SECTION 5: Advertising disclosure ── */}
         <div style={{
           border: '1px solid var(--border)',
           borderLeft: '3px solid var(--navy-light)',
           borderRadius: '8px',
-          padding: '16px 20px',
+          padding: '14px 18px',
           background: 'var(--off-white)',
-          marginBottom: '32px',
+          maxWidth: '620px',
         }}>
-          <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>
-            NPCollab is free to access. To help cover running costs, NPCollab may display occasional tasteful advertising from relevant healthcare companies and sponsors. All advertising is clearly labelled and editorially independent from clinical content.
+          <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+            NPCollab may display occasional advertising from relevant healthcare companies to help cover running costs. All advertising is clearly labelled and completely independent from clinical content. NPCollab does not accept advertising that conflicts with evidence-based clinical practice.
           </p>
         </div>
-
-        <h2>Built With</h2>
-        <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.75 }}>
-          Next.js &middot; TypeScript &middot; Tailwind CSS &middot; Neon (Postgres) &middot; Drizzle ORM &middot; Resend &middot; Vercel
-        </p>
 
       </div>
     </>

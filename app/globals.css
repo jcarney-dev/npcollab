@@ -252,6 +252,25 @@ a:hover { color: var(--gold-light); }
   border-color: rgba(255,255,255,0.6);
   color: var(--white);
 }
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 11px 24px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gold);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
 .btn-support {
   display: block;
   background: var(--gold);
