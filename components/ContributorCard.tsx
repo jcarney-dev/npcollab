@@ -11,7 +11,7 @@ export interface ContributorCardProps {
 
 /**
  * Reusable contributor card for module pages and the about page.
- * Renders only when a contributor has been assigned — pass null/undefined to suppress.
+ * Renders only when a contributor has been assigned.
  */
 export default function ContributorCard({ name, title, credentials, bio, initials }: ContributorCardProps) {
   const avatarText = initials ?? name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
@@ -30,7 +30,6 @@ export default function ContributorCard({ name, title, credentials, bio, initial
         marginBottom: '8px',
       }}
     >
-      {/* Avatar */}
       <div
         style={{
           width: '52px',
@@ -51,7 +50,6 @@ export default function ContributorCard({ name, title, credentials, bio, initial
         {avatarText}
       </div>
 
-      {/* Details */}
       <div style={{ flex: 1 }}>
         <div style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>
           Module Contributor

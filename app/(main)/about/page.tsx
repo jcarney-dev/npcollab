@@ -28,24 +28,14 @@ export default function AboutPage() {
         </div>
 
         <h2>Founder</h2>
-        <div className="contributor-card" style={{ maxWidth: '520px' }}>
-          <div className="contributor-avatar" style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: '50%',
-            background: 'var(--navy)',
-            color: 'var(--gold)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1.3rem',
-            fontWeight: 700,
-            flexShrink: 0,
-          }}>JC</div>
+        <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '18px 20px', maxWidth: '560px' }}>
+          <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'var(--navy)', color: 'var(--gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', fontWeight: 700, flexShrink: 0 }}>
+            JC
+          </div>
           <div>
-            <h4 style={{ margin: '0 0 2px' }}>Jason Carney</h4>
-            <div className="role" style={{ marginBottom: '8px' }}>Nurse Practitioner · Founder, Developer &amp; Content Creator</div>
-            <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)' }}>
+            <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text)', marginBottom: '2px' }}>Jason Carney</div>
+            <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '10px' }}>Nurse Practitioner &middot; Founder, Developer &amp; Content Creator</div>
+            <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.65, color: 'var(--text)' }}>
               Jason is a Nurse Practitioner based in Newcastle, NSW. He created NPCollab to address the lack of free, Australian-specific clinical education resources for NPs and NP students. With a background spanning emergency nursing, advanced practice, and NP endorsement, he builds and maintains NPCollab in his own time — writing clinical content, developing the platform, and ensuring all resources reflect current Australian guidelines and practice standards.
             </p>
           </div>

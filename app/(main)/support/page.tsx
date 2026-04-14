@@ -1,7 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
-
 export default function SupportPage() {
   const shareText = 'NPCollab is a free clinical education resource for Australian Nurse Practitioners. Check it out at npcollab.com';
   const shareUrl = 'https://npcollab.com';

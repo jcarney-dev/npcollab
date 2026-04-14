@@ -1459,6 +1459,20 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
     } catch { notify('Network error.', 'error'); }
   }
 
+  async function approveUser(u: UserV2) {
+    try {
+      const res = await fetch('/api/admin/users/approve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: u.id }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to approve.', 'error'); return; }
+      setUsers(prev => prev.map(x => x.id === u.id ? { ...x, approved: true } : x));
+      notify(`${u.name} approved — welcome email sent.`);
+    } catch { notify('Network error.', 'error'); }
+  }
+
   const thStyle: React.CSSProperties = { padding: '8px 12px', textAlign: 'left', fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid var(--border)', whiteSpace: 'nowrap' };
   const tdStyle: React.CSSProperties = { padding: '10px 12px', fontSize: '13px', color: 'var(--text)', verticalAlign: 'middle', borderBottom: '1px solid var(--border)' };
   const inputStyle: React.CSSProperties = { padding: '6px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' };
@@ -1559,23 +1573,14 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
                     <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{formatDate(u.createdAt)}</td>
                     <td style={{ ...tdStyle, whiteSpace: 'nowrap' }}>
                       <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
-                        <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => setExpandedId(expandedId === u.id ? null : u.id)}>
-                          {expandedId === u.id ? 'Close' : 'View'}
-                        </button>
-                        <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => { startEdit(u); setExpandedId(u.id); }}>
-                          Edit
-                        </button>
                         <button
                           style={btnSm(u.active ? '#92400e' : 'var(--success)', u.active ? '#fef3c7' : '#f0fdf4', u.active ? '#fcd34d' : '#86efac')}
                           onClick={() => toggleField(u, 'active')}
                         >
                           {u.active ? 'Deactivate' : 'Activate'}
                         </button>
-                        <button style={btnSm('#065f46', '#ecfdf5', '#6ee7b7')} onClick={() => sendLogin(u)}>
-                          Send Link
-                        </button>
-                        <button style={btnSm('var(--error)', '#fef2f2', '#fecaca')} onClick={() => deleteUser(u)}>
-                          Delete
+                        <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => setExpandedId(expandedId === u.id ? null : u.id)}>
+                          {expandedId === u.id ? 'Close' : 'View'}
                         </button>
                       </div>
                     </td>
@@ -1659,6 +1664,17 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
                               </button>
                               <button style={btnSm('#065f46', '#ecfdf5', '#6ee7b7')} onClick={() => sendLogin(u)}>
                                 Send Login Link
+                              </button>
+                              {!u.approved && (
+                                <button style={btnSm('#166534', '#dcfce7', '#86efac')} onClick={() => approveUser(u)}>
+                                  Approve
+                                </button>
+                              )}
+                              <button
+                                style={btnSm(u.active ? '#92400e' : 'var(--success)', u.active ? '#fef3c7' : '#f0fdf4', u.active ? '#fcd34d' : '#86efac')}
+                                onClick={() => toggleField(u, 'active')}
+                              >
+                                {u.active ? 'Deactivate' : 'Activate'}
                               </button>
                               <button style={btnSm('var(--error)', '#fef2f2', '#fecaca')} onClick={() => deleteUser(u)}>
                                 Delete

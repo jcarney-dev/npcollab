@@ -2,15 +2,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { usersV2, adminActions } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
+import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 
-function isAdmin(req: NextRequest): boolean {
-  const cookie = req.cookies.get('npcollab_admin');
-  return !!(cookie?.value && cookie.value === process.env.ADMIN_PASSWORD);
+async function isAdmin(req: NextRequest): Promise<boolean> {
+  const sessionToken = req.cookies.get(SESSION_COOKIE_NAME)?.value;
+  if (sessionToken) {
+    const session = await verifySessionToken(sessionToken);
+    if (session?.role === 'admin') return true;
+  }
+  const adminCookie = req.cookies.get('npcollab_admin');
+  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
 }
 
 // DELETE /api/admin/users/delete — permanently delete a users_v2 record
 export async function DELETE(req: NextRequest) {
-  if (!isAdmin(req)) {
+  if (!await isAdmin(req)) {
     return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   }
 
