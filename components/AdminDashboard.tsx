@@ -1338,6 +1338,341 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
   );
 }
 
+// ── Users V2 section (users_v2 full management) ───────────────────────────────
+
+const STATES_LIST = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'];
+const ENDORSEMENTS_LIST = [
+  'Primary Care', 'Mental Health', 'Emergency', 'Paediatrics', 'Neonatal',
+  'Aged Care', "Women's Health", 'Perioperative', 'Musculoskeletal', 'Other',
+];
+
+function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: string, type?: 'success' | 'error') => void }) {
+  const [users, setUsers] = useState(initial);
+  const [search, setSearch] = useState('');
+  const [filterState, setFilterState] = useState('');
+  const [filterEndorsement, setFilterEndorsement] = useState('');
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState<Partial<UserV2>>({});
+  const [saving, setSaving] = useState(false);
+
+  // Stats
+  const total     = users.length;
+  const approved  = users.filter(u => u.approved).length;
+  const pending   = users.filter(u => !u.approved).length;
+  const adminCount = users.filter(u => u.role === 'admin').length;
+
+  // Filtered list
+  const filtered = users.filter(u => {
+    const q = search.toLowerCase();
+    if (q && !u.name.toLowerCase().includes(q) && !u.email.toLowerCase().includes(q)) return false;
+    if (filterState && u.state !== filterState) return false;
+    if (filterEndorsement && u.npEndorsement !== filterEndorsement) return false;
+    if (filterStatus === 'active'   && !u.active) return false;
+    if (filterStatus === 'inactive' && u.active) return false;
+    if (filterStatus === 'pending'  && u.approved) return false;
+    return true;
+  });
+
+  function startEdit(u: UserV2) {
+    setEditingId(u.id);
+    setEditForm({
+      name:          u.name,
+      state:         u.state,
+      npEndorsement: u.npEndorsement,
+      employer:      u.employer ?? '',
+      specialtyArea: u.specialtyArea ?? '',
+      currentRole:   u.currentRole ?? '',
+    });
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setEditForm({});
+  }
+
+  async function saveEdit(id: string) {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/users/update', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, ...editForm }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to save.', 'error'); return; }
+      setUsers(prev => prev.map(u => u.id === id ? json.user : u));
+      notify('User updated.');
+      cancelEdit();
+    } catch { notify('Network error.', 'error'); }
+    finally { setSaving(false); }
+  }
+
+  async function toggleField(u: UserV2, field: 'active' | 'role') {
+    if (field === 'role') {
+      const msg = u.role === 'admin'
+        ? `Remove admin access from ${u.name}?`
+        : `Make ${u.name} an admin? They will have full access to the admin panel.`;
+      if (!confirm(msg)) return;
+    }
+    try {
+      const res = await fetch('/api/admin/users/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: u.id, field }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to update.', 'error'); return; }
+      setUsers(prev => prev.map(x => x.id === u.id ? json.user : x));
+      if (field === 'active') notify(json.user.active ? `${u.name} activated.` : `${u.name} deactivated.`);
+      else notify(json.user.role === 'admin' ? `${u.name} is now an admin.` : `${u.name} admin access removed.`);
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  async function sendLogin(u: UserV2) {
+    try {
+      const res = await fetch('/api/admin/users/send-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: u.id }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to send link.', 'error'); return; }
+      notify(`Login link sent to ${u.email}.`);
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  async function deleteUser(u: UserV2) {
+    if (!confirm(`Delete ${u.name} (${u.email})? This cannot be undone.`)) return;
+    try {
+      const res = await fetch('/api/admin/users/delete', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: u.id }),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to delete.', 'error'); return; }
+      setUsers(prev => prev.filter(x => x.id !== u.id));
+      if (expandedId === u.id) setExpandedId(null);
+      notify(`${u.name} deleted.`);
+    } catch { notify('Network error.', 'error'); }
+  }
+
+  const thStyle: React.CSSProperties = { padding: '8px 12px', textAlign: 'left', fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid var(--border)', whiteSpace: 'nowrap' };
+  const tdStyle: React.CSSProperties = { padding: '10px 12px', fontSize: '13px', color: 'var(--text)', verticalAlign: 'middle', borderBottom: '1px solid var(--border)' };
+  const inputStyle: React.CSSProperties = { padding: '6px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' };
+  const btnSm = (color: string, bg: string, border = 'transparent'): React.CSSProperties => ({
+    padding: '4px 10px', fontSize: '11px', fontWeight: 600, border: `1px solid ${border}`,
+    borderRadius: '5px', cursor: 'pointer', background: bg, color, fontFamily: 'inherit', whiteSpace: 'nowrap',
+  });
+
+  return (
+    <section className="admin-section">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <h2 className="admin-section-title" style={{ margin: 0 }}>Users</h2>
+      </div>
+
+      {/* Stats row */}
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {[
+          { label: 'Total', value: total },
+          { label: 'Approved', value: approved },
+          { label: 'Pending', value: pending },
+          { label: 'Admins', value: adminCount },
+        ].map(s => (
+          <div key={s.label} style={{ padding: '10px 16px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', minWidth: '90px' }}>
+            <div style={{ fontSize: '22px', fontWeight: 700, color: 'var(--navy)' }}>{s.value}</div>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, marginTop: '2px' }}>{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Filters */}
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '18px', flexWrap: 'wrap' }}>
+        <input
+          style={{ ...inputStyle, maxWidth: '220px' }}
+          placeholder="Search name or email…"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+        <select style={{ ...inputStyle, maxWidth: '130px' }} value={filterState} onChange={e => setFilterState(e.target.value)}>
+          <option value="">All states</option>
+          {STATES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
+        </select>
+        <select style={{ ...inputStyle, maxWidth: '180px' }} value={filterEndorsement} onChange={e => setFilterEndorsement(e.target.value)}>
+          <option value="">All endorsements</option>
+          {ENDORSEMENTS_LIST.map(e => <option key={e} value={e}>{e}</option>)}
+        </select>
+        <select style={{ ...inputStyle, maxWidth: '130px' }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+          <option value="all">All status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+          <option value="pending">Pending approval</option>
+        </select>
+      </div>
+
+      {filtered.length === 0 ? (
+        <p className="admin-empty">No users match the current filters.</p>
+      ) : (
+        <div className="admin-table-wrap">
+          <table className="admin-table" style={{ tableLayout: 'auto' }}>
+            <thead>
+              <tr>
+                <th style={thStyle}>Name</th>
+                <th style={thStyle}>Email</th>
+                <th style={thStyle}>State</th>
+                <th style={thStyle}>Endorsement</th>
+                <th style={thStyle}>Role</th>
+                <th style={thStyle}>Approved</th>
+                <th style={thStyle}>Active</th>
+                <th style={thStyle}>Last Login</th>
+                <th style={thStyle}>Joined</th>
+                <th style={thStyle}></th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map(u => (
+                <>
+                  <tr key={u.id} style={{ background: expandedId === u.id ? 'var(--off-white)' : '#fff' }}>
+                    <td style={tdStyle}>
+                      <span style={{ fontWeight: 600 }}>{u.name}</span>
+                      {u.role === 'admin' && (
+                        <span style={{ marginLeft: '6px', fontSize: '10px', background: 'var(--gold-pale)', color: 'var(--navy)', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, border: '1px solid var(--gold)' }}>ADMIN</span>
+                      )}
+                    </td>
+                    <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{u.email}</td>
+                    <td style={tdStyle}>{u.state || '—'}</td>
+                    <td style={tdStyle}>{u.npEndorsement || '—'}</td>
+                    <td style={tdStyle}>{u.role}</td>
+                    <td style={tdStyle}>
+                      <span style={{ fontSize: '11px', padding: '2px 7px', borderRadius: '4px', fontWeight: 600, background: u.approved ? '#f0fdf4' : '#fef3c7', color: u.approved ? 'var(--success)' : '#92400e', border: `1px solid ${u.approved ? '#86efac' : '#fcd34d'}` }}>
+                        {u.approved ? 'Yes' : 'Pending'}
+                      </span>
+                    </td>
+                    <td style={tdStyle}>
+                      <span style={{ fontSize: '11px', padding: '2px 7px', borderRadius: '4px', fontWeight: 600, background: u.active ? '#f0fdf4' : '#fef2f2', color: u.active ? 'var(--success)' : 'var(--error)', border: `1px solid ${u.active ? '#86efac' : '#fecaca'}` }}>
+                        {u.active ? 'Active' : 'Inactive'}
+                      </span>
+                    </td>
+                    <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{formatDate(u.lastLogin)}</td>
+                    <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{formatDate(u.createdAt)}</td>
+                    <td style={{ ...tdStyle, whiteSpace: 'nowrap' }}>
+                      <div style={{ display: 'flex', gap: '4px', flexWrap: 'nowrap' }}>
+                        <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => setExpandedId(expandedId === u.id ? null : u.id)}>
+                          {expandedId === u.id ? 'Close' : 'View'}
+                        </button>
+                        <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => { startEdit(u); setExpandedId(u.id); }}>
+                          Edit
+                        </button>
+                        <button
+                          style={btnSm(u.active ? '#92400e' : 'var(--success)', u.active ? '#fef3c7' : '#f0fdf4', u.active ? '#fcd34d' : '#86efac')}
+                          onClick={() => toggleField(u, 'active')}
+                        >
+                          {u.active ? 'Deactivate' : 'Activate'}
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  {expandedId === u.id && (
+                    <tr key={`${u.id}-expand`}>
+                      <td colSpan={10} style={{ padding: '16px 20px', background: 'var(--off-white)', borderBottom: '1px solid var(--border)' }}>
+                        {editingId === u.id ? (
+                          /* ── Inline edit form ── */
+                          <div style={{ maxWidth: '600px' }}>
+                            <div style={{ fontWeight: 700, fontSize: '13px', marginBottom: '14px', color: 'var(--navy)' }}>Edit profile</div>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '10px' }}>
+                              <div>
+                                <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>Full Name *</label>
+                                <input style={inputStyle} value={editForm.name ?? ''} onChange={e => setEditForm(f => ({ ...f, name: e.target.value }))} />
+                              </div>
+                              <div>
+                                <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>State *</label>
+                                <select style={inputStyle} value={editForm.state ?? ''} onChange={e => setEditForm(f => ({ ...f, state: e.target.value }))}>
+                                  <option value="">Select…</option>
+                                  {STATES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
+                                </select>
+                              </div>
+                              <div>
+                                <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>Endorsement *</label>
+                                <select style={inputStyle} value={editForm.npEndorsement ?? ''} onChange={e => setEditForm(f => ({ ...f, npEndorsement: e.target.value }))}>
+                                  <option value="">Select…</option>
+                                  {ENDORSEMENTS_LIST.map(e => <option key={e} value={e}>{e}</option>)}
+                                </select>
+                              </div>
+                              <div>
+                                <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>Employer</label>
+                                <input style={inputStyle} value={editForm.employer ?? ''} onChange={e => setEditForm(f => ({ ...f, employer: e.target.value }))} placeholder="Optional" />
+                              </div>
+                              <div>
+                                <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>Specialty Area</label>
+                                <input style={inputStyle} value={editForm.specialtyArea ?? ''} onChange={e => setEditForm(f => ({ ...f, specialtyArea: e.target.value }))} placeholder="Optional" />
+                              </div>
+                              <div>
+                                <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '4px', textTransform: 'uppercase' }}>Current Role</label>
+                                <input style={inputStyle} value={editForm.currentRole ?? ''} onChange={e => setEditForm(f => ({ ...f, currentRole: e.target.value }))} placeholder="Optional" />
+                              </div>
+                            </div>
+                            <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+                              <button style={{ ...btnSm('#fff', 'var(--navy)'), padding: '7px 18px', fontSize: '12px' }} onClick={() => saveEdit(u.id)} disabled={saving}>
+                                {saving ? 'Saving…' : 'Save Changes'}
+                              </button>
+                              <button style={{ ...btnSm('var(--text-muted)', '#fff', 'var(--border)'), padding: '7px 14px', fontSize: '12px' }} onClick={cancelEdit}>Cancel</button>
+                            </div>
+                          </div>
+                        ) : (
+                          /* ── Expanded detail view ── */
+                          <div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '12px', marginBottom: '16px' }}>
+                              {[
+                                { label: 'Email',         value: u.email },
+                                { label: 'State',         value: u.state || '—' },
+                                { label: 'Endorsement',   value: u.npEndorsement || '—' },
+                                { label: 'Employer',      value: u.employer || '—' },
+                                { label: 'Specialty',     value: u.specialtyArea || '—' },
+                                { label: 'Current Role',  value: u.currentRole || '—' },
+                                { label: 'Role',          value: u.role },
+                                { label: 'Profile Done',  value: u.profileComplete ? 'Yes' : 'No' },
+                              ].map(f => (
+                                <div key={f.label}>
+                                  <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '2px' }}>{f.label}</div>
+                                  <div style={{ fontSize: '13px', color: 'var(--text)' }}>{f.value}</div>
+                                </div>
+                              ))}
+                            </div>
+                            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                              <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => { startEdit(u); }}>
+                                Edit Profile
+                              </button>
+                              <button
+                                style={btnSm(u.role === 'admin' ? '#92400e' : '#1e40af', u.role === 'admin' ? '#fef3c7' : '#eff6ff', u.role === 'admin' ? '#fcd34d' : '#bfdbfe')}
+                                onClick={() => toggleField(u, 'role')}
+                              >
+                                {u.role === 'admin' ? 'Remove Admin' : 'Make Admin'}
+                              </button>
+                              <button style={btnSm('#065f46', '#ecfdf5', '#6ee7b7')} onClick={() => sendLogin(u)}>
+                                Send Login Link
+                              </button>
+                              <button style={btnSm('var(--error)', '#fef2f2', '#fecaca')} onClick={() => deleteUser(u)}>
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                      </td>
+                    </tr>
+                  )}
+                </>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
+
 // ── Registrations section (users_v2) ─────────────────────────────────────────
 
 function RegistrationsSection({ initial }: { initial: UserV2[] }) {
@@ -1953,7 +2288,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         active: prev.active + 1,
         total: prev.total + 1,
       }));
-      notify(`Access code ${json.user.accessCode} created for ${json.user.name}.`);
+      notify(`${json.user.name} approved.`);
     });
   }
 
@@ -2122,65 +2457,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
 
         {/* Users */}
         {activeTab === 'users' && (
-          <section className="admin-section">
-            <h2 className="admin-section-title">All users</h2>
-
-            {users.length === 0 ? (
-              <p className="admin-empty">No users yet.</p>
-            ) : (
-              <div className="admin-table-wrap">
-                <table className="admin-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
-                      <th>Access code</th>
-                      <th>Approved</th>
-                      <th>Status</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {users.map(u => (
-                      <tr key={u.id} className={u.active ? '' : 'admin-row--disabled'}>
-                        <td className="admin-td-name">{u.name}</td>
-                        <td className="admin-td-email">{u.email}</td>
-                        <td>{u.role}</td>
-                        <td>
-                          <div className="admin-code-cell">
-                            <code className="admin-code">{u.accessCode}</code>
-                            <button
-                              className="admin-copy-btn"
-                              onClick={() => copyCode(u.accessCode)}
-                              title="Copy access code"
-                            >
-                              Copy
-                            </button>
-                          </div>
-                        </td>
-                        <td>{formatDate(u.approvedAt)}</td>
-                        <td>
-                          <span className={`admin-status-badge admin-status-badge--${u.active ? 'active' : 'disabled'}`}>
-                            {u.active ? 'Active' : 'Disabled'}
-                          </span>
-                        </td>
-                        <td>
-                          <button
-                            className={u.active ? 'btn-disable' : 'btn-enable'}
-                            onClick={() => handleToggle(u.id, u.active)}
-                            disabled={isPending}
-                          >
-                            {u.active ? 'Disable' : 'Enable'}
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </section>
+          <UsersV2Section initial={initialRegistrations} notify={notify} />
         )}
 
         {/* Sponsors */}

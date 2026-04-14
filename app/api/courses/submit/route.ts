@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { courses } from '@/lib/schema';
-import { verifyAccessCookie, COOKIE_NAME } from '@/lib/auth';
+import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   // Must be logged in
-  const token = req.cookies.get(COOKIE_NAME)?.value;
+  const token = req.cookies.get(SESSION_COOKIE_NAME)?.value;
   if (!token) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
-  const user = await verifyAccessCookie(token);
-  if (!user) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  const session = await verifySessionToken(token);
+  if (!session) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
 
   let body: Record<string, string>;
   try {

@@ -100,8 +100,8 @@ export async function sendApprovalEmail(data: {
     <p style="margin: 0 0 24px; font-size: 14px; color: #4A6080; line-height: 1.6;">
       Keep this code safe — it&rsquo;s your personal access to NPCollab. Please do not share it with others.
     </p>
-    <a href="${SITE_URL}/enter-access" style="display: inline-block; background: #0B1829; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: 6px;">
-      Access NPCollab →
+    <a href="${SITE_URL}/login" style="display: inline-block; background: #0B1829; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: 6px;">
+      Log in to NPCollab →
     </a>
     <p style="margin: 28px 0 0; font-size: 13px; color: #4A6080; line-height: 1.5;">
       NPCollab is a free educational resource for Australian Nurse Practitioners. All content is for educational purposes only. Always apply your own clinical judgement.

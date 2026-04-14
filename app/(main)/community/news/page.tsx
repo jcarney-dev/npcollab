@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import { db } from '@/lib/db';
 import { newsItems } from '@/lib/schema';
 import type { NewsItem } from '@/lib/schema';
 import { eq, desc } from 'drizzle-orm';
-import { verifyAccessCookie, COOKIE_NAME } from '@/lib/auth';
+import { getSession } from '@/lib/session';
 import NewsClient from './NewsClient';
 
 export const metadata: Metadata = {
@@ -27,18 +26,9 @@ export default async function NewsPage() {
     items = [];
   }
 
-  // Check if user has a valid access cookie to show Submit News button
-  let isLoggedIn = false;
-  try {
-    const cookieStore = await cookies();
-    const raw = cookieStore.get(COOKIE_NAME)?.value;
-    if (raw) {
-      const userId = await verifyAccessCookie(raw);
-      isLoggedIn = !!userId;
-    }
-  } catch {
-    isLoggedIn = false;
-  }
+  // Check if user has a valid session to show Submit News button
+  const session = await getSession();
+  const isLoggedIn = !!session;
 
   return (
     <>

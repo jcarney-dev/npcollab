@@ -1,8 +1,7 @@
 import { db } from '@/lib/db';
 import { courses } from '@/lib/schema';
 import { eq, gte, and } from 'drizzle-orm';
-import { cookies } from 'next/headers';
-import { verifyAccessCookie, COOKIE_NAME } from '@/lib/auth';
+import { getSession } from '@/lib/session';
 import CoursesClient from './CoursesClient';
 
 export const dynamic = 'force-dynamic';
@@ -13,10 +12,8 @@ export const metadata = {
 };
 
 export default async function CoursesPage() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get(COOKIE_NAME)?.value;
-  const user = token ? await verifyAccessCookie(token) : null;
-  const isLoggedIn = !!user;
+  const session = await getSession();
+  const isLoggedIn = !!session;
 
   const now = new Date();
   const allCourses = await db

@@ -1,20 +1,20 @@
 import { db } from '@/lib/db';
 import { newsItems } from '@/lib/schema';
 import { NextRequest } from 'next/server';
-import { verifyAccessCookie, COOKIE_NAME } from '@/lib/auth';
+import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 import { Resend } from 'resend';
 
 const FROM = process.env.RESEND_FROM_EMAIL || 'noreply@contact.npcollab.com.au';
 
 export async function POST(req: NextRequest) {
-  // Must have a valid access cookie
-  const cookieValue = req.cookies.get(COOKIE_NAME)?.value;
-  if (!cookieValue) {
+  // Must have a valid session
+  const token = req.cookies.get(SESSION_COOKIE_NAME)?.value;
+  if (!token) {
     return Response.json({ error: 'You must be logged in to submit news.' }, { status: 401 });
   }
-  const userId = await verifyAccessCookie(cookieValue);
-  if (!userId) {
-    return Response.json({ error: 'Invalid session. Please re-enter your access code.' }, { status: 401 });
+  const session = await verifySessionToken(token);
+  if (!session) {
+    return Response.json({ error: 'Invalid session. Please log in again.' }, { status: 401 });
   }
 
   const body = await req.json();

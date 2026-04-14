@@ -237,6 +237,8 @@ export default function AppShell({ children, sidebarSponsor, adPreviewMode = fal
           <div>© {new Date().getFullYear()} NPCollab · Built by NPs, for NPs ·{' '}
             <a href="https://www.nursingmidwiferyboard.gov.au" target="_blank" rel="noopener">NMBA</a> ·{' '}
             <a href="https://www.ahpra.gov.au" target="_blank" rel="noopener">AHPRA</a> ·{' '}
+            <Link href="/login">Log In</Link> ·{' '}
+            <Link href="/request-access">Request Access</Link> ·{' '}
             <Link href="/advertise">Advertise</Link> ·{' '}
             <Link href="/community/jobs/post">Post a Job</Link> ·{' '}
             <Link href="/community/courses/submit">Submit a Course</Link> ·{' '}
