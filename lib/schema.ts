@@ -128,6 +128,36 @@ export const courses = pgTable('courses', {
   createdAt:       timestamp('created_at').notNull().defaultNow(),
 });
 
+// ── users_v2 ───────────────────────────────────────────────────────────────
+// New user table for magic-link auth system (replaces access-code flow)
+export const usersV2 = pgTable('users_v2', {
+  id:              uuid('id').primaryKey().defaultRandom(),
+  name:            text('name').notNull(),
+  email:           text('email').notNull().unique(),
+  state:           text('state').notNull().default(''),
+  npEndorsement:   text('np_endorsement').notNull().default(''),
+  employer:        text('employer'),
+  specialtyArea:   text('specialty_area'),
+  currentRole:     text('current_role'),
+  role:            text('role').notNull().default('user'),      // 'user' | 'admin'
+  active:          boolean('active').notNull().default(true),
+  approved:        boolean('approved').notNull().default(false),
+  createdAt:       timestamp('created_at').notNull().defaultNow(),
+  lastLogin:       timestamp('last_login'),
+  profileComplete: boolean('profile_complete').notNull().default(false),
+});
+
+// ── magic_links ────────────────────────────────────────────────────────────
+// One-time login tokens sent via email
+export const magicLinks = pgTable('magic_links', {
+  id:        uuid('id').primaryKey().defaultRandom(),
+  email:     text('email').notNull(),
+  token:     text('token').notNull().unique(),
+  expiresAt: timestamp('expires_at').notNull(),
+  used:      boolean('used').notNull().default(false),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── site_settings ──────────────────────────────────────────────────────────
 // Key/value store for admin-configurable site settings
 export const siteSettings = pgTable('site_settings', {
@@ -154,5 +184,9 @@ export type JobListing            = typeof jobListings.$inferSelect;
 export type NewJobListing         = typeof jobListings.$inferInsert;
 export type Course                = typeof courses.$inferSelect;
 export type NewCourse             = typeof courses.$inferInsert;
+export type UserV2                = typeof usersV2.$inferSelect;
+export type NewUserV2             = typeof usersV2.$inferInsert;
+export type MagicLink             = typeof magicLinks.$inferSelect;
+export type NewMagicLink          = typeof magicLinks.$inferInsert;
 export type SiteSetting           = typeof siteSettings.$inferSelect;
 export type NewSiteSetting        = typeof siteSettings.$inferInsert;
