@@ -35,16 +35,38 @@ export default function ScopePage() {
         <h2>Building Your Scope Document</h2>
         <p>Your scope of practice document should be a living record demonstrating the intersection of your population, clinical area, and advanced practice capabilities.</p>
         <h3>What to Include</h3>
-        <ul>
-          <li><strong>Practice population:</strong> Who do you provide care for?</li>
-          <li><strong>Clinical context:</strong> What setting, conditions, and presentations?</li>
-          <li><strong>Assessment capabilities:</strong> What history, examination, and diagnostic skills do you hold?</li>
-          <li><strong>Diagnostic authority:</strong> What investigations can you order and interpret?</li>
-          <li><strong>Prescribing scope:</strong> What Schedule 4/8 medications and for which conditions?</li>
-          <li><strong>Referral pathways:</strong> When and to whom do you refer?</li>
-          <li><strong>Limitations and exclusions:</strong> What is outside your current scope?</li>
-          <li><strong>Supervision and collaboration:</strong> Your professional support structure</li>
-        </ul>
+        <div className="content-item">
+          <span className="item-label">Practice population</span>
+          <p className="item-description">Who do you provide care for?</p>
+        </div>
+        <div className="content-item">
+          <span className="item-label">Clinical context</span>
+          <p className="item-description">What setting, conditions, and presentations?</p>
+        </div>
+        <div className="content-item">
+          <span className="item-label">Assessment capabilities</span>
+          <p className="item-description">What history, examination, and diagnostic skills do you hold?</p>
+        </div>
+        <div className="content-item">
+          <span className="item-label">Diagnostic authority</span>
+          <p className="item-description">What investigations can you order and interpret?</p>
+        </div>
+        <div className="content-item">
+          <span className="item-label">Prescribing scope</span>
+          <p className="item-description">What Schedule 4/8 medications and for which conditions?</p>
+        </div>
+        <div className="content-item">
+          <span className="item-label">Referral pathways</span>
+          <p className="item-description">When and to whom do you refer?</p>
+        </div>
+        <div className="content-item">
+          <span className="item-label">Limitations and exclusions</span>
+          <p className="item-description">What is outside your current scope?</p>
+        </div>
+        <div className="content-item" style={{marginBottom:'8px'}}>
+          <span className="item-label">Supervision and collaboration</span>
+          <p className="item-description">Your professional support structure.</p>
+        </div>
         <h3>Expanding Your Scope Over Time</h3>
         <ol>
           <li>Identify the education requirement (courses, supervision, simulation)</li>

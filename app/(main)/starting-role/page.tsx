@@ -74,14 +74,30 @@ export default function StartingRolePage() {
         <div className="assessment-grid">
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">🔍</div><h4>Where to Find a Mentor</h4></div>
-            <ul>
-              <li><strong>Your workplace</strong> — Is there an experienced NP already in your service? Ask them directly. Most NPs are deeply committed to growing the profession and will say yes.</li>
-              <li><strong>Your Masters program</strong> — Universities often have formal mentoring programs or can connect you with graduates in your area.</li>
-              <li><strong>ANMF and ACNP</strong> — The Australian College of Nurse Practitioners has networks and events where you can meet established NPs.</li>
-              <li><strong>LinkedIn and social media</strong> — Many experienced NPs are active professionally online and open to connection.</li>
-              <li><strong>State NP networks</strong> — Most states have NP-specific professional networks through their nursing peak bodies.</li>
-              <li><strong>Your collaborating medical practitioner</strong> — They are not a mentor in the traditional sense, but a good CMP relationship is an invaluable source of clinical guidance.</li>
-            </ul>
+            <div className="content-item">
+              <span className="item-label">Your workplace</span>
+              <p className="item-description">Is there an experienced NP already in your service? Ask them directly. Most NPs are deeply committed to growing the profession and will say yes.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Your Masters program</span>
+              <p className="item-description">Universities often have formal mentoring programs or can connect you with graduates in your area.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">ANMF and ACNP</span>
+              <p className="item-description">The Australian College of Nurse Practitioners has networks and events where you can meet established NPs.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">LinkedIn and social media</span>
+              <p className="item-description">Many experienced NPs are active professionally online and open to connection.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">State NP networks</span>
+              <p className="item-description">Most states have NP-specific professional networks through their nursing peak bodies.</p>
+            </div>
+            <div className="content-item" style={{marginBottom:0}}>
+              <span className="item-label">Your collaborating medical practitioner</span>
+              <p className="item-description">They are not a mentor in the traditional sense, but a good CMP relationship is an invaluable source of clinical guidance.</p>
+            </div>
           </div>
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">💬</div><h4>What to Look for in a Mentor</h4></div>
@@ -105,22 +121,45 @@ export default function StartingRolePage() {
         <div className="assessment-grid">
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">📄</div><h4>Your Application</h4></div>
-            <ul>
-              <li><strong>Tailor your cover letter every time</strong> — Generic applications stand out for the wrong reasons. Research the service, understand their patient population, and show how your experience maps to their specific needs.</li>
-              <li><strong>Lead with your clinical achievements</strong> — Not just your titles and dates. What have you actually done? What outcomes have you been part of? What have you led or changed?</li>
-              <li><strong>Be explicit about your scope</strong> — Describe your current or intended scope of practice clearly. Employers want to know exactly what you can do independently.</li>
-              <li><strong>Address the selection criteria methodically</strong> — Use STAR (Situation, Task, Action, Result) format for each criterion. Do not leave any unanswered.</li>
-              <li><strong>Document your prescribing experience</strong> — If you have prescribing experience as a TNP, include it. It reassures employers you can function autonomously from day one.</li>
-            </ul>
+            <div className="content-item">
+              <span className="item-label">Tailor your cover letter every time</span>
+              <p className="item-description">Generic applications stand out for the wrong reasons. Research the service, understand their patient population, and show how your experience maps to their specific needs.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Lead with your clinical achievements</span>
+              <p className="item-description">Not just your titles and dates. What have you actually done? What outcomes have you been part of? What have you led or changed?</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Be explicit about your scope</span>
+              <p className="item-description">Describe your current or intended scope of practice clearly. Employers want to know exactly what you can do independently.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Address the selection criteria methodically</span>
+              <p className="item-description">Use STAR (Situation, Task, Action, Result) format for each criterion. Do not leave any unanswered.</p>
+            </div>
+            <div className="content-item" style={{marginBottom:0}}>
+              <span className="item-label">Document your prescribing experience</span>
+              <p className="item-description">If you have prescribing experience as a TNP, include it. It reassures employers you can function autonomously from day one.</p>
+            </div>
           </div>
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">🎤</div><h4>The Interview</h4></div>
-            <ul>
-              <li><strong>Prepare clinical scenarios</strong> — You will almost certainly be asked how you would manage specific presentations. Think through 3–5 common presentations in your practice area and be ready to walk through your assessment and management.</li>
-              <li><strong>Know your scope boundaries</strong> — Interviewers want to see that you know when to refer and when to escalate. Saying "I would consult with my collaborating physician" at appropriate moments is a strength, not a weakness.</li>
-              <li><strong>Ask good questions</strong> — About the MDT structure, how the NP role is integrated, what the CMP arrangement looks like, and what growth looks like in the role. These show you are thinking seriously about fit.</li>
-              <li><strong>Acknowledge what you are still learning</strong> — Especially for first NP roles. Employers hiring new NPs expect a learning curve. Overconfidence is a red flag.</li>
-            </ul>
+            <div className="content-item">
+              <span className="item-label">Prepare clinical scenarios</span>
+              <p className="item-description">You will almost certainly be asked how you would manage specific presentations. Think through 3–5 common presentations in your practice area and be ready to walk through your assessment and management.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Know your scope boundaries</span>
+              <p className="item-description">Interviewers want to see that you know when to refer and when to escalate. Saying "I would consult with my collaborating physician" at appropriate moments is a strength, not a weakness.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Ask good questions</span>
+              <p className="item-description">About the MDT structure, how the NP role is integrated, what the CMP arrangement looks like, and what growth looks like in the role. These show you are thinking seriously about fit.</p>
+            </div>
+            <div className="content-item" style={{marginBottom:0}}>
+              <span className="item-label">Acknowledge what you are still learning</span>
+              <p className="item-description">Especially for first NP roles. Employers hiring new NPs expect a learning curve. Overconfidence is a red flag.</p>
+            </div>
           </div>
         </div>
 
@@ -141,24 +180,49 @@ export default function StartingRolePage() {
         <div className="assessment-grid">
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">📋</div><h4>In Your First Month</h4></div>
-            <ul>
-              <li><strong>Understand your scope document</strong> — Read every word of your scope of practice document. Know what you are authorised to do independently and what requires collaboration.</li>
-              <li><strong>Meet your CMP early</strong> — Establish the relationship, understand their expectations, agree on a communication plan, and clarify the escalation threshold.</li>
-              <li><strong>Learn the systems</strong> — EMR, pathology requesting, imaging referrals, MBS billing codes. These are not glamorous but they are essential.</li>
-              <li><strong>Map the MDT</strong> — Who are the allied health, nursing, and medical colleagues you will need to work with? Introduce yourself early and invest in those relationships.</li>
-              <li><strong>Identify your knowledge gaps honestly</strong> — Note the presentations that make you uncertain and build a study plan around them. NPCollab is a good place to start.</li>
-            </ul>
+            <div className="content-item">
+              <span className="item-label">Understand your scope document</span>
+              <p className="item-description">Read every word of your scope of practice document. Know what you are authorised to do independently and what requires collaboration.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Meet your CMP early</span>
+              <p className="item-description">Establish the relationship, understand their expectations, agree on a communication plan, and clarify the escalation threshold.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Learn the systems</span>
+              <p className="item-description">EMR, pathology requesting, imaging referrals, MBS billing codes. These are not glamorous but they are essential.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Map the MDT</span>
+              <p className="item-description">Who are the allied health, nursing, and medical colleagues you will need to work with? Introduce yourself early and invest in those relationships.</p>
+            </div>
+            <div className="content-item" style={{marginBottom:0}}>
+              <span className="item-label">Identify your knowledge gaps honestly</span>
+              <p className="item-description">Note the presentations that make you uncertain and build a study plan around them. NPCollab is a good place to start.</p>
+            </div>
           </div>
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">📈</div><h4>Building Confidence Over Time</h4></div>
-            <ul>
-              <li><strong>See patients — not paperwork</strong> — In early NP roles there is sometimes a pull toward administrative tasks. Protect your clinical time. Confidence comes from clinical exposure.</li>
-              <li><strong>Debrief difficult cases</strong> — With your CMP, your mentor, or trusted colleagues. Reflection is how you grow. Do not carry difficult cases alone.</li>
-              <li><strong>Document your clinical activity</strong> — Even after endorsement. This protects you medicolegally and tracks your scope expansion over time.</li>
-              <li><strong>Expand your scope deliberately</strong> — As your confidence and experience grow, revisit your scope document. Expanding scope is a formal process — do it properly.</li>
-              <li><strong>Stay connected to the NP community</strong> — Attend ACNP events, join state networks, and maintain your mentoring relationships. NP practice can be isolating and community matters.</li>
-              <li><strong>Look after yourself</strong> — NP roles carry significant clinical and professional responsibility. Burnout is real. Build sustainable habits from day one.</li>
-            </ul>
+            <div className="content-item">
+              <span className="item-label">See patients — not paperwork</span>
+              <p className="item-description">In early NP roles there is sometimes a pull toward administrative tasks. Protect your clinical time. Confidence comes from clinical exposure.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Debrief difficult cases</span>
+              <p className="item-description">With your CMP, your mentor, or trusted colleagues. Reflection is how you grow. Do not carry difficult cases alone.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Document your clinical activity</span>
+              <p className="item-description">Even after endorsement. This protects you medicolegally and tracks your scope expansion over time.</p>
+            </div>
+            <div className="content-item">
+              <span className="item-label">Expand your scope deliberately</span>
+              <p className="item-description">As your confidence and experience grow, revisit your scope document. Expanding scope is a formal process — do it properly.</p>
+            </div>
+            <div className="content-item" style={{marginBottom:0}}>
+              <span className="item-label">Stay connected to the NP community</span>
+              <p className="item-description">Attend ACNP events, join state networks, and maintain your mentoring relationships. NP practice can be isolating and community matters.</p>
+            </div>
           </div>
         </div>
 

@@ -113,27 +113,23 @@ export default function IntroPage() {
         <div className="assessment-grid">
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">1️⃣</div><h4>Step 1</h4></div>
-            <ul>
-              <li><Link href="/metaspecialties">Read Metaspecialties</Link> — understand NP practice areas</li>
-            </ul>
+            <Link href="/metaspecialties" className="step-card-link">Read Metaspecialties</Link>
+            <p className="step-card-desc">Understand the different NP practice areas and what each one looks like day to day.</p>
           </div>
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">2️⃣</div><h4>Step 2</h4></div>
-            <ul>
-              <li><Link href="/starting-role">Starting Your Role</Link> — TNP to NP pathway</li>
-            </ul>
+            <Link href="/starting-role" className="step-card-link">Starting Your Role</Link>
+            <p className="step-card-desc">Practical guidance on the TNP to NP endorsement pathway and landing your first role.</p>
           </div>
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">3️⃣</div><h4>Step 3</h4></div>
-            <ul>
-              <li><Link href="/scope">Scope of Practice</Link> — regulatory framework</li>
-            </ul>
+            <Link href="/scope" className="step-card-link">Scope of Practice</Link>
+            <p className="step-card-desc">The regulatory framework underpinning everything you do as a Nurse Practitioner.</p>
           </div>
           <div className="assessment-card">
             <div className="card-header"><div className="icon-circle">4️⃣</div><h4>Step 4</h4></div>
-            <ul>
-              <li><Link href="/assessment">Patient Assessment</Link> — OLDCARTS and history-taking</li>
-            </ul>
+            <Link href="/assessment" className="step-card-link">Patient Assessment</Link>
+            <p className="step-card-desc">OLDCARTS, comprehensive history-taking, and the NP clinical reasoning framework.</p>
           </div>
         </div>
 
