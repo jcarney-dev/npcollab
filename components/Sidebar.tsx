@@ -369,6 +369,24 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
               >
                 Log In
               </Link>
+              <Link
+                href="/request-access"
+                onClick={onClose}
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  padding: '8px 0',
+                  borderRadius: '7px',
+                  background: 'transparent',
+                  color: 'var(--gold-light)',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(201,168,76,0.4)',
+                }}
+              >
+                Create an account
+              </Link>
               <div className="support-badge">
                 <p>Free forever for Australian NPs. Help cover hosting costs.</p>
                 <Link href="/support" className="btn-support" onClick={onClose}>☕ Support NPCollab</Link>

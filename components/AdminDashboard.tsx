@@ -1558,7 +1558,7 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
                     <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{formatDate(u.lastLogin)}</td>
                     <td style={{ ...tdStyle, color: 'var(--text-muted)' }}>{formatDate(u.createdAt)}</td>
                     <td style={{ ...tdStyle, whiteSpace: 'nowrap' }}>
-                      <div style={{ display: 'flex', gap: '4px', flexWrap: 'nowrap' }}>
+                      <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
                         <button style={btnSm('var(--navy)', 'var(--off-white)', 'var(--border)')} onClick={() => setExpandedId(expandedId === u.id ? null : u.id)}>
                           {expandedId === u.id ? 'Close' : 'View'}
                         </button>
@@ -1570,6 +1570,12 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
                           onClick={() => toggleField(u, 'active')}
                         >
                           {u.active ? 'Deactivate' : 'Activate'}
+                        </button>
+                        <button style={btnSm('#065f46', '#ecfdf5', '#6ee7b7')} onClick={() => sendLogin(u)}>
+                          Send Link
+                        </button>
+                        <button style={btnSm('var(--error)', '#fef2f2', '#fecaca')} onClick={() => deleteUser(u)}>
+                          Delete
                         </button>
                       </div>
                     </td>
