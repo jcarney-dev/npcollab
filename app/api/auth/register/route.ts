@@ -35,7 +35,7 @@ function adminEmailHtml(opts: {
     <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
       <tr>
         <td style="background:#0B1829;padding:24px 36px;">
-          <span style="color:#fff;font-size:18px;font-weight:700;letter-spacing:-0.01em;">⚕ NPCollab</span>
+          <span style="color:#fff;font-size:18px;font-weight:700;letter-spacing:-0.01em;">NPCollab</span>
           <span style="color:#C9A84C;font-size:12px;margin-left:12px;">Admin Notification</span>
         </td>
       </tr>

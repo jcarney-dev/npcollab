@@ -64,40 +64,40 @@ export default function PrescribingPBSPage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">💊</div><h4>PBS Benefit Categories</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>Type</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>Description</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>NP Access</th>
+              <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>NP Access</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>Unrestricted</td>
-                <td style={{ padding: '10px 12px' }}>Any approved indication — no prior approval needed</td>
-                <td style={{ padding: '10px 12px', color: 'green' }}>✅ Full access</td>
+              <tr>
+                <td><strong>Unrestricted</strong></td>
+                <td>Any approved indication — no prior approval needed</td>
+                <td style={{ color: 'var(--success)' }}>✅ Full access</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>Restricted Benefit</td>
-                <td style={{ padding: '10px 12px' }}>Must prescribe for listed indication — no approval needed but prescriber must comply</td>
-                <td style={{ padding: '10px 12px', color: 'green' }}>✅ Within scope</td>
+              <tr>
+                <td><strong>Restricted Benefit</strong></td>
+                <td>Must prescribe for listed indication — no approval needed but prescriber must comply</td>
+                <td style={{ color: 'var(--success)' }}>✅ Within scope</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>Authority Required</td>
-                <td style={{ padding: '10px 12px' }}>Prior approval needed — phone or online via PBS Authorities</td>
-                <td style={{ padding: '10px 12px', color: 'green' }}>✅ Within scope</td>
+              <tr>
+                <td><strong>Authority Required</strong></td>
+                <td>Prior approval needed — phone or online via PBS Authorities</td>
+                <td style={{ color: 'var(--success)' }}>✅ Within scope</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>Authority (STREAMLINED)</td>
-                <td style={{ padding: '10px 12px' }}>Authority required but can self-approve by writing authority number on script</td>
-                <td style={{ padding: '10px 12px', color: 'green' }}>✅ Within scope</td>
+              <tr>
+                <td><strong>Authority (STREAMLINED)</strong></td>
+                <td>Authority required but can self-approve by writing authority number on script</td>
+                <td style={{ color: 'var(--success)' }}>✅ Within scope</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>Private Prescription</td>
-                <td style={{ padding: '10px 12px' }}>Not PBS subsidised — patient pays full cost</td>
-                <td style={{ padding: '10px 12px', color: 'green' }}>✅ Within scope</td>
+              <tr>
+                <td><strong>Private Prescription</strong></td>
+                <td>Not PBS subsidised — patient pays full cost</td>
+                <td style={{ color: 'var(--success)' }}>✅ Within scope</td>
               </tr>
             </tbody>
           </table>

@@ -55,7 +55,7 @@ function welcomeEmailHtml(name: string, loginUrl: string, year: number): string 
     <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
       <tr>
         <td style="background:#0B1829;padding:28px 40px;text-align:center;">
-          <span style="color:#fff;font-size:20px;font-weight:700;">⚕ NPCollab</span>
+          <span style="color:#fff;font-size:20px;font-weight:700;">NPCollab</span>
           <div style="color:#C9A84C;font-size:12px;margin-top:4px;font-weight:500;">Australian Nurse Practitioners</div>
         </td>
       </tr>

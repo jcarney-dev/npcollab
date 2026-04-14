@@ -51,48 +51,50 @@ export default function MskNeckPage() {
 
           <div className="info-box">
             <h4>Cervical Neurological Level Localisation</h4>
-            <table style={{width:'100%', borderCollapse:'collapse', fontSize:'0.9rem'}}>
-              <thead>
-                <tr style={{background:'rgba(201,168,76,0.1)'}}>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Level</th>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Motor</th>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Sensory</th>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Reflex</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>C5</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Shoulder abduction</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Lateral arm</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Biceps ↓</td>
-                </tr>
-                <tr>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>C6</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Wrist extension</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Thumb and index finger</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Brachioradialis ↓</td>
-                </tr>
-                <tr>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>C7</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Elbow extension</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Middle finger</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Triceps ↓</td>
-                </tr>
-                <tr>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>C8</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Finger flexion</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Ring and little fingers</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>None</td>
-                </tr>
-                <tr>
-                  <td style={{padding:'8px'}}>T1</td>
-                  <td style={{padding:'8px'}}>Hand intrinsics</td>
-                  <td style={{padding:'8px'}}>Inner forearm</td>
-                  <td style={{padding:'8px'}}>None</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+              <table className="np-table">
+                <thead>
+                  <tr>
+                    <th>Level</th>
+                    <th>Motor</th>
+                    <th>Sensory</th>
+                    <th>Reflex</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>C5</td>
+                    <td>Shoulder abduction</td>
+                    <td>Lateral arm</td>
+                    <td>Biceps ↓</td>
+                  </tr>
+                  <tr>
+                    <td>C6</td>
+                    <td>Wrist extension</td>
+                    <td>Thumb and index finger</td>
+                    <td>Brachioradialis ↓</td>
+                  </tr>
+                  <tr>
+                    <td>C7</td>
+                    <td>Elbow extension</td>
+                    <td>Middle finger</td>
+                    <td>Triceps ↓</td>
+                  </tr>
+                  <tr>
+                    <td>C8</td>
+                    <td>Finger flexion</td>
+                    <td>Ring and little fingers</td>
+                    <td>None</td>
+                  </tr>
+                  <tr>
+                    <td>T1</td>
+                    <td>Hand intrinsics</td>
+                    <td>Inner forearm</td>
+                    <td>None</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <h3>Cervical Myelopathy</h3>

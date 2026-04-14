@@ -26,20 +26,20 @@ export default function RadiologyPathologyPage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">🩸</div><h4>Haematology (Group 1)</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Item</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Test</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Common Indications</th>
+              <tr>
+                <th>Item</th>
+                <th>Test</th>
+                <th>Common Indications</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>65070</td><td style={{ padding: '8px 12px' }}>Full blood examination (FBE)</td><td style={{ padding: '8px 12px' }}>Anaemia, infection, thrombocytopenia, general screen</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>65060</td><td style={{ padding: '8px 12px' }}>Haemoglobin</td><td style={{ padding: '8px 12px' }}>Anaemia screening</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>65120</td><td style={{ padding: '8px 12px' }}>ESR</td><td style={{ padding: '8px 12px' }}>Inflammation, temporal arteritis, chronic infection</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>65199</td><td style={{ padding: '8px 12px' }}>INR / Prothrombin time</td><td style={{ padding: '8px 12px' }}>Warfarin monitoring, coagulopathy</td></tr>
+              <tr><td><strong>65070</strong></td><td>Full blood examination (FBE)</td><td>Anaemia, infection, thrombocytopenia, general screen</td></tr>
+              <tr><td><strong>65060</strong></td><td>Haemoglobin</td><td>Anaemia screening</td></tr>
+              <tr><td><strong>65120</strong></td><td>ESR</td><td>Inflammation, temporal arteritis, chronic infection</td></tr>
+              <tr><td><strong>65199</strong></td><td>INR / Prothrombin time</td><td>Warfarin monitoring, coagulopathy</td></tr>
             </tbody>
           </table>
         </div>
@@ -47,30 +47,30 @@ export default function RadiologyPathologyPage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">🧪</div><h4>Chemical Pathology (Group 2) — Commonly Used</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Item</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Test</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Common Indications</th>
+              <tr>
+                <th>Item</th>
+                <th>Test</th>
+                <th>Common Indications</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66500</td><td style={{ padding: '8px 12px' }}>Blood glucose</td><td style={{ padding: '8px 12px' }}>Diabetes screening and monitoring</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66551</td><td style={{ padding: '8px 12px' }}>HbA1c</td><td style={{ padding: '8px 12px' }}>Diabetes diagnosis and monitoring</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66503</td><td style={{ padding: '8px 12px' }}>Urea, electrolytes, creatinine (UEC/EUC)</td><td style={{ padding: '8px 12px' }}>Renal function, electrolytes, medication monitoring</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66512</td><td style={{ padding: '8px 12px' }}>Liver function tests (LFTs)</td><td style={{ padding: '8px 12px' }}>Liver disease, medication monitoring</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66536</td><td style={{ padding: '8px 12px' }}>Lipids (total cholesterol, HDL, LDL, TG)</td><td style={{ padding: '8px 12px' }}>Cardiovascular risk assessment</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66716</td><td style={{ padding: '8px 12px' }}>TSH</td><td style={{ padding: '8px 12px' }}>Thyroid disease screening and monitoring</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66722</td><td style={{ padding: '8px 12px' }}>Free T4</td><td style={{ padding: '8px 12px' }}>Thyroid disease (add to TSH if abnormal)</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66608</td><td style={{ padding: '8px 12px' }}>CRP</td><td style={{ padding: '8px 12px' }}>Infection, inflammation</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66655</td><td style={{ padding: '8px 12px' }}>Ferritin</td><td style={{ padding: '8px 12px' }}>Iron deficiency, iron overload</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66833</td><td style={{ padding: '8px 12px' }}>Vitamin D (25-OH)</td><td style={{ padding: '8px 12px' }}>Deficiency — note: requires clinical indication</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66596</td><td style={{ padding: '8px 12px' }}>PSA</td><td style={{ padding: '8px 12px' }}>Prostate cancer screening (with consent)</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66774</td><td style={{ padding: '8px 12px' }}>High sensitivity troponin</td><td style={{ padding: '8px 12px' }}>ACS rule-in/rule-out</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66755</td><td style={{ padding: '8px 12px' }}>BNP/NT-proBNP</td><td style={{ padding: '8px 12px' }}>Heart failure diagnosis and monitoring</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>66758</td><td style={{ padding: '8px 12px' }}>D-dimer</td><td style={{ padding: '8px 12px' }}>Low probability PE or DVT (Wells ≤4)</td></tr>
+              <tr><td><strong>66500</strong></td><td>Blood glucose</td><td>Diabetes screening and monitoring</td></tr>
+              <tr><td><strong>66551</strong></td><td>HbA1c</td><td>Diabetes diagnosis and monitoring</td></tr>
+              <tr><td><strong>66503</strong></td><td>Urea, electrolytes, creatinine (UEC/EUC)</td><td>Renal function, electrolytes, medication monitoring</td></tr>
+              <tr><td><strong>66512</strong></td><td>Liver function tests (LFTs)</td><td>Liver disease, medication monitoring</td></tr>
+              <tr><td><strong>66536</strong></td><td>Lipids (total cholesterol, HDL, LDL, TG)</td><td>Cardiovascular risk assessment</td></tr>
+              <tr><td><strong>66716</strong></td><td>TSH</td><td>Thyroid disease screening and monitoring</td></tr>
+              <tr><td><strong>66722</strong></td><td>Free T4</td><td>Thyroid disease (add to TSH if abnormal)</td></tr>
+              <tr><td><strong>66608</strong></td><td>CRP</td><td>Infection, inflammation</td></tr>
+              <tr><td><strong>66655</strong></td><td>Ferritin</td><td>Iron deficiency, iron overload</td></tr>
+              <tr><td><strong>66833</strong></td><td>Vitamin D (25-OH)</td><td>Deficiency — note: requires clinical indication</td></tr>
+              <tr><td><strong>66596</strong></td><td>PSA</td><td>Prostate cancer screening (with consent)</td></tr>
+              <tr><td><strong>66774</strong></td><td>High sensitivity troponin</td><td>ACS rule-in/rule-out</td></tr>
+              <tr><td><strong>66755</strong></td><td>BNP/NT-proBNP</td><td>Heart failure diagnosis and monitoring</td></tr>
+              <tr><td><strong>66758</strong></td><td>D-dimer</td><td>Low probability PE or DVT (Wells ≤4)</td></tr>
             </tbody>
           </table>
         </div>
@@ -79,23 +79,23 @@ export default function RadiologyPathologyPage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">🦠</div><h4>Microbiology (Group 4)</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Item</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Test</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Common Indications</th>
+              <tr>
+                <th>Item</th>
+                <th>Test</th>
+                <th>Common Indications</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69303</td><td style={{ padding: '8px 12px' }}>Urine MCS</td><td style={{ padding: '8px 12px' }}>UTI, pyelonephritis</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69300</td><td style={{ padding: '8px 12px' }}>Throat swab MCS</td><td style={{ padding: '8px 12px' }}>Group A Strep, bacterial tonsillitis</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69318</td><td style={{ padding: '8px 12px' }}>Wound swab MCS</td><td style={{ padding: '8px 12px' }}>Infected wounds, cellulitis</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69312</td><td style={{ padding: '8px 12px' }}>Sputum MCS</td><td style={{ padding: '8px 12px' }}>Pneumonia, COPD exacerbation</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69357</td><td style={{ padding: '8px 12px' }}>Blood cultures</td><td style={{ padding: '8px 12px' }}>Sepsis, bacteraemia</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69384</td><td style={{ padding: '8px 12px' }}>COVID-19 PCR</td><td style={{ padding: '8px 12px' }}>COVID diagnosis</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>69375</td><td style={{ padding: '8px 12px' }}>STI screen (chlamydia/gonorrhoea PCR)</td><td style={{ padding: '8px 12px' }}>Sexual health screening</td></tr>
+              <tr><td><strong>69303</strong></td><td>Urine MCS</td><td>UTI, pyelonephritis</td></tr>
+              <tr><td><strong>69300</strong></td><td>Throat swab MCS</td><td>Group A Strep, bacterial tonsillitis</td></tr>
+              <tr><td><strong>69318</strong></td><td>Wound swab MCS</td><td>Infected wounds, cellulitis</td></tr>
+              <tr><td><strong>69312</strong></td><td>Sputum MCS</td><td>Pneumonia, COPD exacerbation</td></tr>
+              <tr><td><strong>69357</strong></td><td>Blood cultures</td><td>Sepsis, bacteraemia</td></tr>
+              <tr><td><strong>69384</strong></td><td>COVID-19 PCR</td><td>COVID diagnosis</td></tr>
+              <tr><td><strong>69375</strong></td><td>STI screen (chlamydia/gonorrhoea PCR)</td><td>Sexual health screening</td></tr>
             </tbody>
           </table>
         </div>
@@ -105,24 +105,24 @@ export default function RadiologyPathologyPage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">🔬</div><h4>Plain X-Ray (Diagnostic Radiology)</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Item</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Study</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Common Indications</th>
+              <tr>
+                <th>Item</th>
+                <th>Study</th>
+                <th>Common Indications</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57504</td><td style={{ padding: '8px 12px' }}>Chest X-ray (1–2 views)</td><td style={{ padding: '8px 12px' }}>Respiratory infection, heart failure, pleural effusion, malignancy</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57530</td><td style={{ padding: '8px 12px' }}>Abdominal X-ray</td><td style={{ padding: '8px 12px' }}>Obstruction, perforation, constipation, kidney stones</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57706</td><td style={{ padding: '8px 12px' }}>Hand / wrist X-ray</td><td style={{ padding: '8px 12px' }}>Fracture, dislocation, arthritis</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57718</td><td style={{ padding: '8px 12px' }}>Ankle / foot X-ray</td><td style={{ padding: '8px 12px' }}>Fracture assessment, Ottawa rules positive</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57712</td><td style={{ padding: '8px 12px' }}>Knee X-ray</td><td style={{ padding: '8px 12px' }}>Fracture, effusion, OA assessment</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57700</td><td style={{ padding: '8px 12px' }}>Shoulder X-ray</td><td style={{ padding: '8px 12px' }}>Dislocation, fracture, AC joint</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57720</td><td style={{ padding: '8px 12px' }}>Lumbar spine X-ray</td><td style={{ padding: '8px 12px' }}>Back pain with red flags</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57554</td><td style={{ padding: '8px 12px' }}>Cervical spine X-ray</td><td style={{ padding: '8px 12px' }}>Neck trauma, red flag neck pain</td></tr>
+              <tr><td><strong>57504</strong></td><td>Chest X-ray (1–2 views)</td><td>Respiratory infection, heart failure, pleural effusion, malignancy</td></tr>
+              <tr><td><strong>57530</strong></td><td>Abdominal X-ray</td><td>Obstruction, perforation, constipation, kidney stones</td></tr>
+              <tr><td><strong>57706</strong></td><td>Hand / wrist X-ray</td><td>Fracture, dislocation, arthritis</td></tr>
+              <tr><td><strong>57718</strong></td><td>Ankle / foot X-ray</td><td>Fracture assessment, Ottawa rules positive</td></tr>
+              <tr><td><strong>57712</strong></td><td>Knee X-ray</td><td>Fracture, effusion, OA assessment</td></tr>
+              <tr><td><strong>57700</strong></td><td>Shoulder X-ray</td><td>Dislocation, fracture, AC joint</td></tr>
+              <tr><td><strong>57720</strong></td><td>Lumbar spine X-ray</td><td>Back pain with red flags</td></tr>
+              <tr><td><strong>57554</strong></td><td>Cervical spine X-ray</td><td>Neck trauma, red flag neck pain</td></tr>
             </tbody>
           </table>
         </div>
@@ -130,25 +130,25 @@ export default function RadiologyPathologyPage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">📡</div><h4>Ultrasound and CT — Commonly Requested</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Item</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Study</th>
-                <th style={{ padding: '8px 12px', textAlign: 'left' }}>Common Indications</th>
+              <tr>
+                <th>Item</th>
+                <th>Study</th>
+                <th>Common Indications</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>55054</td><td style={{ padding: '8px 12px' }}>Abdominal ultrasound</td><td style={{ padding: '8px 12px' }}>RUQ pain, gallstones, liver/renal pathology</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>55068</td><td style={{ padding: '8px 12px' }}>Renal + bladder ultrasound</td><td style={{ padding: '8px 12px' }}>Renal stones, hydronephrosis, bladder pathology</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>55084</td><td style={{ padding: '8px 12px' }}>Pelvic ultrasound (transabdominal)</td><td style={{ padding: '8px 12px' }}>Uterine, ovarian, and pelvic pathology</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>55036</td><td style={{ padding: '8px 12px' }}>Thyroid ultrasound</td><td style={{ padding: '8px 12px' }}>Thyroid nodule, goitre</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>55820</td><td style={{ padding: '8px 12px' }}>DVT ultrasound (lower limb venous)</td><td style={{ padding: '8px 12px' }}>Suspected DVT</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57350</td><td style={{ padding: '8px 12px' }}>CT head</td><td style={{ padding: '8px 12px' }}>Head injury, new headache, stroke</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57360</td><td style={{ padding: '8px 12px' }}>CT chest</td><td style={{ padding: '8px 12px' }}>Pulmonary nodule follow-up, ILD, malignancy</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57362</td><td style={{ padding: '8px 12px' }}>CTPA (CT pulmonary angiogram)</td><td style={{ padding: '8px 12px' }}>Suspected pulmonary embolism</td></tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}><td style={{ padding: '8px 12px', fontWeight: '600' }}>57365</td><td style={{ padding: '8px 12px' }}>CT abdomen and pelvis</td><td style={{ padding: '8px 12px' }}>Abdominal pain, suspected appendicitis, renal colic</td></tr>
+              <tr><td><strong>55054</strong></td><td>Abdominal ultrasound</td><td>RUQ pain, gallstones, liver/renal pathology</td></tr>
+              <tr><td><strong>55068</strong></td><td>Renal + bladder ultrasound</td><td>Renal stones, hydronephrosis, bladder pathology</td></tr>
+              <tr><td><strong>55084</strong></td><td>Pelvic ultrasound (transabdominal)</td><td>Uterine, ovarian, and pelvic pathology</td></tr>
+              <tr><td><strong>55036</strong></td><td>Thyroid ultrasound</td><td>Thyroid nodule, goitre</td></tr>
+              <tr><td><strong>55820</strong></td><td>DVT ultrasound (lower limb venous)</td><td>Suspected DVT</td></tr>
+              <tr><td><strong>57350</strong></td><td>CT head</td><td>Head injury, new headache, stroke</td></tr>
+              <tr><td><strong>57360</strong></td><td>CT chest</td><td>Pulmonary nodule follow-up, ILD, malignancy</td></tr>
+              <tr><td><strong>57362</strong></td><td>CTPA (CT pulmonary angiogram)</td><td>Suspected pulmonary embolism</td></tr>
+              <tr><td><strong>57365</strong></td><td>CT abdomen and pelvis</td><td>Abdominal pain, suspected appendicitis, renal colic</td></tr>
             </tbody>
           </table>
         </div>
@@ -194,6 +194,6 @@ export default function RadiologyPathologyPage() {
 
     </div>
       </>
-    
+
   );
 }

@@ -72,54 +72,56 @@ export default function PaediatricsAssessmentPage() {
 
       <h2>Age-Appropriate Vital Signs</h2>
 
-      <table style={{width:'100%',borderCollapse:'collapse',marginBottom:'1.5rem',fontSize:'0.9rem'}}>
-        <thead>
-          <tr style={{background:'var(--navy)',color:'#fff'}}>
-            <th style={{padding:'10px',textAlign:'left',borderBottom:'2px solid var(--gold)'}}>Age</th>
-            <th style={{padding:'10px',textAlign:'left',borderBottom:'2px solid var(--gold)'}}>RR (breaths/min)</th>
-            <th style={{padding:'10px',textAlign:'left',borderBottom:'2px solid var(--gold)'}}>HR (bpm)</th>
-            <th style={{padding:'10px',textAlign:'left',borderBottom:'2px solid var(--gold)'}}>SBP (mmHg)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style={{background:'var(--off-white)'}}>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>Neonate (0–1 month)</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>30–60</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>100–160</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>60–90</td>
-          </tr>
-          <tr>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>Infant (1–12 months)</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>25–50</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>100–160</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>70–100</td>
-          </tr>
-          <tr style={{background:'var(--off-white)'}}>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>Toddler (1–3 years)</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>20–40</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>90–150</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>80–110</td>
-          </tr>
-          <tr>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>Preschool (3–6 years)</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>20–30</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>70–120</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>80–110</td>
-          </tr>
-          <tr style={{background:'var(--off-white)'}}>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>School age (6–12 years)</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>15–25</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>60–110</td>
-            <td style={{padding:'10px',borderBottom:'1px solid var(--border)'}}>90–120</td>
-          </tr>
-          <tr>
-            <td style={{padding:'10px'}}>Adolescent (12–18 years)</td>
-            <td style={{padding:'10px'}}>12–20</td>
-            <td style={{padding:'10px'}}>55–105</td>
-            <td style={{padding:'10px'}}>100–130</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table className="np-table">
+          <thead>
+            <tr>
+              <th>Age</th>
+              <th>RR (breaths/min)</th>
+              <th>HR (bpm)</th>
+              <th>SBP (mmHg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Neonate (0–1 month)</td>
+              <td>30–60</td>
+              <td>100–160</td>
+              <td>60–90</td>
+            </tr>
+            <tr>
+              <td>Infant (1–12 months)</td>
+              <td>25–50</td>
+              <td>100–160</td>
+              <td>70–100</td>
+            </tr>
+            <tr>
+              <td>Toddler (1–3 years)</td>
+              <td>20–40</td>
+              <td>90–150</td>
+              <td>80–110</td>
+            </tr>
+            <tr>
+              <td>Preschool (3–6 years)</td>
+              <td>20–30</td>
+              <td>70–120</td>
+              <td>80–110</td>
+            </tr>
+            <tr>
+              <td>School age (6–12 years)</td>
+              <td>15–25</td>
+              <td>60–110</td>
+              <td>90–120</td>
+            </tr>
+            <tr>
+              <td>Adolescent (12–18 years)</td>
+              <td>12–20</td>
+              <td>55–105</td>
+              <td>100–130</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Examination</h2>
 

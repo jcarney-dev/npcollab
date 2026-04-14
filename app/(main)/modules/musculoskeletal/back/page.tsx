@@ -51,36 +51,38 @@ export default function MskBackPage() {
 
           <div className="info-box">
             <h4>Neurological Level Localisation</h4>
-            <table style={{width:'100%', borderCollapse:'collapse', fontSize:'0.9rem'}}>
-              <thead>
-                <tr style={{background:'rgba(201,168,76,0.1)'}}>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Level</th>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Motor</th>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Sensory</th>
-                  <th style={{padding:'8px', textAlign:'left', borderBottom:'2px solid var(--gold)'}}>Reflex</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>L3–L4</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Knee extension</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Inner calf / medial lower leg</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Knee jerk ↓</td>
-                </tr>
-                <tr>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>L4–L5</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Ankle dorsiflexion (foot drop)</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>Dorsum of foot / first web space</td>
-                  <td style={{padding:'8px', borderBottom:'1px solid var(--border)'}}>None</td>
-                </tr>
-                <tr>
-                  <td style={{padding:'8px'}}>L5–S1</td>
-                  <td style={{padding:'8px'}}>Plantar flexion</td>
-                  <td style={{padding:'8px'}}>Sole of foot / outer foot</td>
-                  <td style={{padding:'8px'}}>Ankle jerk ↓</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+              <table className="np-table">
+                <thead>
+                  <tr>
+                    <th>Level</th>
+                    <th>Motor</th>
+                    <th>Sensory</th>
+                    <th>Reflex</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>L3–L4</td>
+                    <td>Knee extension</td>
+                    <td>Inner calf / medial lower leg</td>
+                    <td>Knee jerk ↓</td>
+                  </tr>
+                  <tr>
+                    <td>L4–L5</td>
+                    <td>Ankle dorsiflexion (foot drop)</td>
+                    <td>Dorsum of foot / first web space</td>
+                    <td>None</td>
+                  </tr>
+                  <tr>
+                    <td>L5–S1</td>
+                    <td>Plantar flexion</td>
+                    <td>Sole of foot / outer foot</td>
+                    <td>Ankle jerk ↓</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <h3>Lumbar Spinal Stenosis</h3>

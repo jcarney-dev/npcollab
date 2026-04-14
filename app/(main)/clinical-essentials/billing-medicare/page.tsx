@@ -68,40 +68,40 @@ export default function BillingMedicarePage() {
 
       <div className="assessment-card" style={{ marginBottom: '24px' }}>
         <div className="card-header"><div className="icon-circle">🏥</div><h4>Standard Consultation Items (Level B–D equivalent)</h4></div>
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.87rem', marginTop: '8px' }}>
+        <div className="table-scroll" style={{ marginBottom: 0, marginTop: '8px', border: 'none' }}>
+          <table className="np-table">
             <thead>
-              <tr style={{ background: 'var(--navy)', color: 'white' }}>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>Item</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>Description</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>Duration</th>
-                <th style={{ padding: '10px 12px', textAlign: 'left' }}>Schedule Fee</th>
+              <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Duration</th>
+                <th>Schedule Fee</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>82200</td>
-                <td style={{ padding: '10px 12px' }}>Consultation in rooms — level 1 (brief)</td>
-                <td style={{ padding: '10px 12px' }}>&lt;6 min</td>
-                <td style={{ padding: '10px 12px' }}>~$19</td>
+              <tr>
+                <td><strong>82200</strong></td>
+                <td>Consultation in rooms — level 1 (brief)</td>
+                <td>&lt;6 min</td>
+                <td>~$19</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>82205</td>
-                <td style={{ padding: '10px 12px' }}>Consultation in rooms — level 2 (standard)</td>
-                <td style={{ padding: '10px 12px' }}>6–19 min</td>
-                <td style={{ padding: '10px 12px' }}>~$41</td>
+              <tr>
+                <td><strong>82205</strong></td>
+                <td>Consultation in rooms — level 2 (standard)</td>
+                <td>6–19 min</td>
+                <td>~$41</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>82210</td>
-                <td style={{ padding: '10px 12px' }}>Consultation in rooms — level 3 (long)</td>
-                <td style={{ padding: '10px 12px' }}>20–39 min</td>
-                <td style={{ padding: '10px 12px' }}>~$79</td>
+              <tr>
+                <td><strong>82210</strong></td>
+                <td>Consultation in rooms — level 3 (long)</td>
+                <td>20–39 min</td>
+                <td>~$79</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid var(--border)', background: '#f9f9f9' }}>
-                <td style={{ padding: '10px 12px', fontWeight: '600' }}>82215</td>
-                <td style={{ padding: '10px 12px' }}>Consultation in rooms — level 4 (prolonged)</td>
-                <td style={{ padding: '10px 12px' }}>≥40 min</td>
-                <td style={{ padding: '10px 12px' }}>~$115</td>
+              <tr>
+                <td><strong>82215</strong></td>
+                <td>Consultation in rooms — level 4 (prolonged)</td>
+                <td>≥40 min</td>
+                <td>~$115</td>
               </tr>
             </tbody>
           </table>

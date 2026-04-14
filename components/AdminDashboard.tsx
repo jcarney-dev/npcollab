@@ -2364,7 +2364,6 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
       <div className="admin-header">
         <div className="admin-header-inner">
           <div className="admin-logo">
-            <span>⚕</span>
             <span>NPCollab Admin</span>
           </div>
           <a href="/" className="admin-view-site">View site →</a>

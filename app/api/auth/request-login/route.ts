@@ -80,12 +80,7 @@ export async function POST(req: NextRequest) {
           <!-- Header -->
           <tr>
             <td style="background:#0B1829;padding:28px 40px;text-align:center;">
-              <table cellpadding="0" cellspacing="0" style="display:inline-table;">
-                <tr>
-                  <td style="color:#fff;font-size:22px;padding-right:8px;vertical-align:middle;">⚕</td>
-                  <td style="color:#fff;font-size:20px;font-weight:700;letter-spacing:-0.02em;vertical-align:middle;">NPCollab</td>
-                </tr>
-              </table>
+              <span style="color:#fff;font-size:20px;font-weight:700;letter-spacing:-0.02em;">NPCollab</span>
               <div style="color:#C9A84C;font-size:12px;margin-top:4px;font-weight:500;">Australian Nurse Practitioners</div>
             </td>
           </tr>

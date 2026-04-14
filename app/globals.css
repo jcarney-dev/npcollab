@@ -460,6 +460,54 @@ a:hover { color: var(--gold-light); }
 .assessment-card ul li::before { content: '→'; color: var(--gold); font-size: 0.8rem; margin-top: 3px; flex-shrink: 0; }
 .assessment-card ul li:last-child { border-bottom: none; }
 
+/* ── CONTENT TABLES ── */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.np-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  min-width: 480px;
+}
+.np-table th {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--gold);
+  white-space: nowrap;
+}
+.np-table td {
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  line-height: 1.55;
+}
+.np-table tbody tr:nth-child(even) td {
+  background: var(--off-white);
+}
+.np-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.np-table tbody tr:hover td {
+  background: var(--gold-pale);
+}
+.np-table td strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
 /* ── MODULE TABS ── */
 .module-tabs {
   display: flex;
