@@ -36,7 +36,7 @@ export default async function HomePage() {
         <div className="stat-card"><div className="num">24<span>+</span></div><div className="stat-label">Live Modules</div></div>
         <div className="stat-card"><div className="num">480<span>+</span></div><div className="stat-label">Quiz Questions</div></div>
         <div className="stat-card"><div className="num">24<span>+</span></div><div className="stat-label">Example SOAP Notes</div></div>
-        <div className="stat-card"><div className="num">100<span>%</span></div><div className="stat-label">Free, No Ads</div></div>
+        <div className="stat-card"><div className="num">100<span>%</span></div><div className="stat-label">Free to Access</div></div>
       </div>
 
       <div className="label" style={{marginBottom:'14px'}}>Getting Started</div>
@@ -234,6 +234,10 @@ export default async function HomePage() {
       <div className="info-box" style={{marginTop:'32px'}}>
         <p>📚 <strong>New to NP practice?</strong> Start with the <Link href="/intro">Introduction</Link> and <Link href="/metaspecialties">Metaspecialties</Link> pages, then work through <Link href="/scope">Scope of Practice</Link> before diving into clinical modules.</p>
       </div>
+
+      <p style={{ marginTop: '32px', fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+        NPCollab is free to access. To help cover running costs, NPCollab may display occasional tasteful advertising from relevant healthcare companies and sponsors. All advertising is clearly labelled and editorially independent from clinical content.
+      </p>
 
       {homepageSponsor && (
         <div style={{marginTop:'40px'}}>

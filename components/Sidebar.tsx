@@ -239,6 +239,26 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
           ))}
         </nav>
 
+        {/* Share NPCollab — subtle nav footer link */}
+        <Link
+          href="/support"
+          onClick={onClose}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 16px',
+            fontSize: '11px',
+            color: 'rgba(255,255,255,0.3)',
+            textDecoration: 'none',
+            letterSpacing: '0.04em',
+            transition: 'color 0.15s',
+          }}
+        >
+          <span aria-hidden="true">📣</span>
+          Share NPCollab with a colleague
+        </Link>
+
         {sponsor && (
           <div className="sidebar-sponsor-wrap">
             <SidebarSponsorCard sponsor={sponsor} />
