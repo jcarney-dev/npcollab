@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export const metadata: Metadata = {
@@ -41,6 +42,8 @@ export default function EyesSoapPage() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Sample: acute bacterial conjunctivitis in a contact lens wearer. Click each section to expand.</p>
       </div>
       <SoapNote title="Acute Red Eye — Adult Patient" sections={sections} />
+      <ModuleNav moduleId="eyes" />
+
     </>
   );
 }

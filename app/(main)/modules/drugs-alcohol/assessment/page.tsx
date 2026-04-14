@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function DrugsAlcoholAssessmentPage() {
   return (
@@ -158,6 +159,8 @@ export default function DrugsAlcoholAssessmentPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="drugs-alcohol" />
 
     </div>
   );

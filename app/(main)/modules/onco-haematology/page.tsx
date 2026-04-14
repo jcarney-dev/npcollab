@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function OncoHaematologyPage() {
@@ -14,6 +15,8 @@ export default function OncoHaematologyPage() {
 
 
       <div className="content-prose">
+      <p>Oncology and haematology present some of the most high-stakes and rapidly evolving clinical scenarios an NP will encounter. Australian NPs in cancer services, haematology units, and primary care increasingly manage chemotherapy toxicities, cancer-related complications, anaemia, coagulopathies, and patients on complex blood-based therapies. This module covers oncological emergencies, haematological malignancies, cancer screening, and the NP's role in supporting patients through diagnosis, treatment, and palliation — always in close collaboration with oncology and haematology teams.</p>
+
       <div className="highlight-box">
         <h2>🚨 Red Flags — Act Urgently</h2>
         <ul>
@@ -94,6 +97,8 @@ export default function OncoHaematologyPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="onco-haematology" />
 
       <ModuleSponsorSlot moduleSlug="onco-haematology" />
 

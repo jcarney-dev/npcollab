@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'GU & Nephrology' };
@@ -17,6 +18,8 @@ export default function GuNephrologyPage() {
 
 
       <div className="content-prose">
+      <p>Genitourinary and renal presentations are common across primary care, chronic disease, and acute care NP roles in Australia. This module covers urinary tract infections, acute and chronic kidney disease, nephrolithiasis, male genitourinary conditions, and urinary incontinence — conditions that NPs frequently diagnose and manage independently. Understanding eGFR trends, nephrotoxic medication risks, and appropriate investigation pathways is essential, as is knowing when to escalate to nephrology or urology.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Act Urgently</h4>
         <ul>
@@ -62,6 +65,8 @@ export default function GuNephrologyPage() {
       </div>
 
     
+      <ModuleNav moduleId="gu-nephrology" />
+
       <ModuleSponsorSlot moduleSlug="gu-nephrology" />
     </>
   );

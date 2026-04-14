@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'ENT Resources',
@@ -38,6 +39,8 @@ export default function ENTResourcesPage() {
           <div className="r-ext">↗</div>
         </a>
       </div>
+      <ModuleNav moduleId="ent" />
+
     </>
   );
 }

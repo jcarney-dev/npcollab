@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskWristPage() {
@@ -97,6 +98,8 @@ export default function MskWristPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/wrist" />
+
       <ModuleSponsorSlot moduleSlug="musculoskeletal-wrist" />
 
     </div>

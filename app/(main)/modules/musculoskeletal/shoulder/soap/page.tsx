@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'SOAP Note | MSK Shoulder Module',
@@ -121,6 +122,8 @@ export default function MskShoulderSoapPage() {
       <div className="info-box" style={{ marginTop: '24px' }}>
         <p>⚠️ <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Confirm imaging findings before proceeding to injection therapy. Management of rotator cuff pathology should be guided by the specific tear pattern, patient age, activity level, and response to conservative therapy.</p>
       </div>
+      <ModuleNav moduleId="musculoskeletal/shoulder" />
+
     </>
   );
 }

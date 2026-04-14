@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Aged Care — SOAP Note' };
 
@@ -269,6 +270,8 @@ export default function AgedCareSOAPPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Aged Care), Aged Care Quality and Safety Commission Standards.
       </div>
       </div>
+
+      <ModuleNav moduleId="aged-care" />
 
     </>
   );

@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function GeneralMedicalAssessmentPage() {
   return (
@@ -154,6 +155,8 @@ export default function GeneralMedicalAssessmentPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="general-medical" />
 
     </div>
   );

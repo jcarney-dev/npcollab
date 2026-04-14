@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Mental Health' };
@@ -17,6 +18,8 @@ export default function MentalHealthPage() {
 
 
       <div className="content-prose">
+      <p>Mental health presentations are encountered across all Australian NP practice settings, from primary care and community health to emergency departments and correctional facilities. NPs must be competent to assess and manage common mental health conditions including depression, anxiety disorders, psychosis, and acute crisis — recognising the intersection of mental and physical health and the critical importance of safe, trauma-informed care. This module also addresses the NP's role in mental health prescribing, Mental Health Treatment Plans, and collaboration with mental health specialist services.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -88,6 +91,8 @@ export default function MentalHealthPage() {
       </div>
 
     
+      <ModuleNav moduleId="mental-health" />
+
       <ModuleSponsorSlot moduleSlug="mental-health" />
     </>
   );

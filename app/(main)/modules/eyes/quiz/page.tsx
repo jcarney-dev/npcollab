@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import Quiz from '@/components/Quiz';
 import questions from '@/content/modules/eyes/quiz.json';
 
@@ -21,6 +22,8 @@ export default function EyesQuizPage() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Test your knowledge of ophthalmic presentations. Each question includes a detailed explanation.</p>
       </div>
       <Quiz moduleId="eyes" questions={questions} />
+      <ModuleNav moduleId="eyes" />
+
     </>
   );
 }

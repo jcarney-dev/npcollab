@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'Ophthalmology Assessment',
@@ -76,6 +77,8 @@ export default function EyesAssessmentPage() {
           </div>
         </div>
       </div>
+      <ModuleNav moduleId="eyes" />
+
     </>
   );
 }

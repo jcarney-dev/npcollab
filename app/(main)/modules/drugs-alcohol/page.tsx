@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function DrugsAlcoholPage() {
@@ -14,6 +15,8 @@ export default function DrugsAlcoholPage() {
 
 
       <div className="content-prose">
+      <p>Substance use disorders are among the most prevalent and impactful health conditions seen in Australian NP practice, across emergency, primary care, mental health, and community settings. This module covers alcohol use disorder, opioid dependence, stimulant misuse, and cannabis use — including assessment frameworks, withdrawal management, pharmacotherapy (including buprenorphine/naloxone and naltrexone), and the principles of harm minimisation that underpin Australian policy. Brief intervention skills and knowledge of state-specific drug and alcohol services are essential for all NPs.</p>
+
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <strong>Red Flags — Act Urgently</strong>
         <ul>
@@ -123,6 +126,8 @@ export default function DrugsAlcoholPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Therapeutic Guidelines and state/territory alcohol and drug service guidelines for current protocols.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="drugs-alcohol" />
 
       <ModuleSponsorSlot moduleSlug="drugs-alcohol" />
 

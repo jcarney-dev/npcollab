@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function CardiovascularPage() {
@@ -14,6 +15,8 @@ export default function CardiovascularPage() {
 
 
       <div className="content-prose">
+      <p>Cardiovascular disease is one of the leading causes of morbidity and mortality in Australia, and NPs across primary care, chronic disease management, and specialist settings play a central role in its prevention, detection, and ongoing management. This module covers peripheral vascular disease, deep vein thrombosis, cerebrovascular disease, and cardiovascular risk factor management — the vascular presentations that complement the cardiac module. Familiarity with Australian cardiovascular risk calculators, anticoagulation guidelines, and referral thresholds is essential for safe NP practice.</p>
+
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <strong>Red Flags — Act Urgently</strong>
         <ul>
@@ -99,6 +102,8 @@ export default function CardiovascularPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Australian Heart Foundation and Therapeutic Guidelines for current evidence.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="cardiovascular" />
 
       <ModuleSponsorSlot moduleSlug="cardiovascular" />
 

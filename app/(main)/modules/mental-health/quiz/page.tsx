@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import Quiz from '@/components/Quiz';
 import questions from '@/content/modules/mental-health/quiz.json';
 
@@ -20,6 +21,8 @@ export default function MentalHealthQuizPage() {
       <div className="content-prose">
       <Quiz moduleId="mental-health" questions={questions} />
       </div>
+
+      <ModuleNav moduleId="mental-health" />
 
     </>
   );

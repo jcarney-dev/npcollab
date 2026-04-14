@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskKneePage() {
@@ -85,6 +86,8 @@ export default function MskKneePage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/knee" />
+
       <ModuleSponsorSlot moduleSlug="musculoskeletal-knee" />
 
     </div>

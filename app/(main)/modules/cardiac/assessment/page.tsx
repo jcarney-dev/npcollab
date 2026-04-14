@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'Assessment | Cardiac Module',
@@ -164,6 +165,8 @@ export default function CardiacAssessmentPage() {
           </div>
         </div>
       </div>
+      <ModuleNav moduleId="cardiac" />
+
     </>
   );
 }

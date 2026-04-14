@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Palliative Care — Resources' };
 
@@ -74,6 +75,8 @@ export default function PalliativeCareResourcesPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Links were current at time of publication — verify current guidelines before clinical use.
       </div>
       </div>
+
+      <ModuleNav moduleId="palliative-care" />
 
     </>
   );

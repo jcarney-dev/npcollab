@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 const resources = [
   {
@@ -72,6 +73,8 @@ export default function OncoHaematologyResourcesPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="onco-haematology" />
 
     </div>
   );

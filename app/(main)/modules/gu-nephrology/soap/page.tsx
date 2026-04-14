@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export const metadata: Metadata = { title: 'GU & Nephrology — SOAP Note' };
@@ -141,6 +142,8 @@ export default function GuNephrologySoapPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Urinary Tract), Australian STI Management Guidelines.
       </div>
       </div>
+
+      <ModuleNav moduleId="gu-nephrology" />
 
     </>
   );

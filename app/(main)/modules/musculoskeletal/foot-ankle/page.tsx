@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskFootAnklePage() {
@@ -93,6 +94,8 @@ export default function MskFootAnklePage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/foot-ankle" />
+
       <ModuleSponsorSlot moduleSlug="musculoskeletal-foot-ankle" />
 
     </div>

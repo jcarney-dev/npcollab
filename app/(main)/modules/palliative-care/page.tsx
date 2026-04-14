@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Palliative Care' };
@@ -17,6 +18,8 @@ export default function PalliativeCarePage() {
 
 
       <div className="content-prose">
+      <p>Palliative care is a core NP competency area in Australia, encompassing far more than end-of-life management — it is a philosophy of care that prioritises quality of life, dignity, and patient-centred decision-making from the point of serious illness diagnosis. Australian NPs in aged care, oncology, community, and hospital settings regularly lead advance care planning conversations, manage complex symptom burdens, titrate subcutaneous medications, and support families through dying. This module covers the fundamental skills of palliative assessment and symptom management within the Australian framework.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Act Immediately</h4>
         <ul>
@@ -89,6 +92,8 @@ export default function PalliativeCarePage() {
       </div>
 
     
+      <ModuleNav moduleId="palliative-care" />
+
       <ModuleSponsorSlot moduleSlug="palliative-care" />
     </>
   );

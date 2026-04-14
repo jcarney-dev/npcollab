@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: "Women's Health" };
@@ -17,6 +18,8 @@ export default function WomensHealthPage() {
 
 
       <div className="content-prose">
+      <p>Women's health encompasses a broad spectrum of presentations encountered across primary care, community health, sexual health, and specialist NP practice in Australia. NPs in this space manage menstrual and hormonal disorders, contraception, perimenopause and menopause, cervical screening, antenatal and postnatal care, and breast health — often providing continuity of care that is difficult to access through fragmented specialist services. This module covers the core women's health presentations an Australian NP must be competent to assess and manage independently or in collaboration with gynaecology and obstetric teams.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -88,6 +91,8 @@ export default function WomensHealthPage() {
       </div>
 
     
+      <ModuleNav moduleId="womens-health" />
+
       <ModuleSponsorSlot moduleSlug="womens-health" />
     </>
   );

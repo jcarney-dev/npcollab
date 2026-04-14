@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function SurgicalAssessmentPage() {
   return (
@@ -215,6 +216,8 @@ export default function SurgicalAssessmentPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="surgical" />
 
     </div>
   );

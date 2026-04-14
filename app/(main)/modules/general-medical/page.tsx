@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function GeneralMedicalPage() {
@@ -14,6 +15,8 @@ export default function GeneralMedicalPage() {
 
 
       <div className="content-prose">
+      <p>General medical presentations — undifferentiated, multisystem, or not fitting neatly into a single organ system — are the bread and butter of Australian NP practice in primary and urgent care settings. This module covers the common presentations that don't belong to a single specialty: fever, sepsis, anaemia, electrolyte disorders, dehydration, thyroid disease, and adrenal conditions. A structured, systems-based approach to history and examination is critical when the diagnosis is not yet clear.</p>
+
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <strong>Red Flags — Act Urgently</strong>
         <ul>
@@ -114,6 +117,8 @@ export default function GeneralMedicalPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement. Refer to Therapeutic Guidelines (Antibiotic, Rheumatology, Endocrinology) and RACGP guidelines for current protocols.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="general-medical" />
 
       <ModuleSponsorSlot moduleSlug="general-medical" />
 

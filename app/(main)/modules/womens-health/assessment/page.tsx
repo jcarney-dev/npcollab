@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: "Women's Health — Assessment" };
 
@@ -225,6 +226,8 @@ export default function WomensHealthAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: RANZCOG, NCSP, Jean Hailes for Women&apos;s Health, Therapeutic Guidelines.
       </div>
       </div>
+
+      <ModuleNav moduleId="womens-health" />
 
     </>
   );

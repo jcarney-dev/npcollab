@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Aged Care' };
@@ -17,6 +18,8 @@ export default function AgedCarePage() {
 
 
       <div className="content-prose">
+      <p>Aged care medicine is a cornerstone of Australian NP practice, encompassing the assessment and management of older adults across residential, community, and acute settings. NPs in this space manage complex, multi-morbid presentations including cognitive decline, frailty, falls, polypharmacy, and end-of-life care — often coordinating across multidisciplinary teams to maintain function and quality of life. A thorough understanding of geriatric syndromes, advance care planning, and aged care funding frameworks is essential.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -88,6 +91,8 @@ export default function AgedCarePage() {
       </div>
 
     
+      <ModuleNav moduleId="aged-care" />
+
       <ModuleSponsorSlot moduleSlug="aged-care" />
     </>
   );

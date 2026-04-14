@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export default function GeneralMedicalSoapPage() {
@@ -136,6 +137,8 @@ export default function GeneralMedicalSoapPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="general-medical" />
 
     </div>
   );

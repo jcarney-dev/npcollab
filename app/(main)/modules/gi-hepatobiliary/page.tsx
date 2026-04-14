@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'GI & Hepatobiliary' };
@@ -17,6 +18,8 @@ export default function GiHepatobiliaryPage() {
 
 
       <div className="content-prose">
+      <p>Gastrointestinal and hepatobiliary conditions are encountered across virtually every NP practice setting in Australia, from urgent care and primary care to gastroenterology and oncology support roles. This module covers the assessment and management of common presentations including abdominal pain, nausea and vomiting, diarrhoea, constipation, upper and lower GI bleeding, liver disease, and biliary pathology. Understanding when to investigate, when to refer, and how to interpret GI-related pathology and imaging is fundamental to safe NP practice.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Refer Urgently or Call 000</h4>
         <ul>
@@ -74,6 +77,8 @@ export default function GiHepatobiliaryPage() {
       </div>
 
     
+      <ModuleNav moduleId="gi-hepatobiliary" />
+
       <ModuleSponsorSlot moduleSlug="gi-hepatobiliary" />
     </>
   );

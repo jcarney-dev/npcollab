@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Paediatrics — Assessment' };
 
@@ -220,6 +221,8 @@ export default function PaediatricsAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Royal Children&apos;s Hospital Melbourne Clinical Practice Guidelines, Therapeutic Guidelines (Paediatrics).
       </div>
       </div>
+
+      <ModuleNav moduleId="paediatrics" />
 
     </>
   );

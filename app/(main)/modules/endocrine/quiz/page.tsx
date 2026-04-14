@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Quiz from '@/components/Quiz';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import questions from '@/content/modules/endocrine/quiz.json';
 
 export const metadata: Metadata = {
@@ -26,6 +27,8 @@ export default function EndocrineQuizPage() {
       </div>
       <Quiz moduleId="endocrine" questions={questions} />
       </div>
+
+      <ModuleNav moduleId="endocrine" />
 
     </>
   );

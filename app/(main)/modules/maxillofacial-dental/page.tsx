@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MaxillofacialDentalPage() {
@@ -14,6 +15,8 @@ export default function MaxillofacialDentalPage() {
 
 
       <div className="content-prose">
+      <p>Maxillofacial and dental presentations are regularly encountered in Australian urgent care, emergency, and primary care NP settings — particularly in regions with poor access to dental services. NPs must be able to assess and manage dental pain, orofacial infections, oral mucosal conditions, facial trauma, and bleeding complications, as well as recognise early signs of oral malignancy. This module focuses on the NP scope for these presentations and the critical task of identifying which conditions require immediate transfer to emergency or specialist dental care.</p>
+
       <div className="highlight-box">
         <h2>🚨 Red Flags — Act Urgently</h2>
         <ul>
@@ -75,6 +78,8 @@ export default function MaxillofacialDentalPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="maxillofacial-dental" />
 
       <ModuleSponsorSlot moduleSlug="maxillofacial-dental" />
 

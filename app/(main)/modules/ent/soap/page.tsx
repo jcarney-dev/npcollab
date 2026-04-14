@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export const metadata: Metadata = {
@@ -43,6 +44,8 @@ export default function ENTSoapPage() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Sample: acute bacterial tonsillitis in an adult with penicillin allergy working in childcare. Click each section to expand.</p>
       </div>
       <SoapNote title="Acute Sore Throat — Adult Patient" sections={sections} />
+      <ModuleNav moduleId="ent" />
+
     </>
   );
 }

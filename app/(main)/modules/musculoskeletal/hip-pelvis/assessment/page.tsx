@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function MskHipPelvisAssessmentPage() {
   return (
@@ -142,6 +143,8 @@ export default function MskHipPelvisAssessmentPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/hip-pelvis" />
+
     </div>
   );
 }

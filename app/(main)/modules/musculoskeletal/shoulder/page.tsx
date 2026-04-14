@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
@@ -167,12 +168,10 @@ export default function MskShoulderPage() {
             </ul>
           </div>
         </div>
-
-        <div className="info-box">
-          <p>👉 Continue to the <Link href="/modules/musculoskeletal/shoulder/assessment">Assessment tab</Link> for systematic shoulder history, examination, and special tests.</p>
-        </div>
       </div>
     
+      <ModuleNav moduleId="musculoskeletal/shoulder" />
+
       <ModuleSponsorSlot moduleSlug="musculoskeletal-shoulder" />
     </>
   );

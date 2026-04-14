@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 const soapData = {
@@ -193,6 +194,8 @@ export default function MskElbowSoapPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/elbow" />
+
     </div>
   );
 }

@@ -7,17 +7,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* ── SECTION 1: Hero ── */}
-      <div style={{ padding: '48px 0 40px' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: 'var(--navy)', marginBottom: '14px', lineHeight: 1.2 }}>
-          About NPCollab
-        </h1>
-        <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: '560px', margin: 0 }}>
-          A free clinical education platform built by an Australian Nurse Practitioner, for Nurse Practitioners.
-        </p>
+      <div className="page-header">
+        <div className="label">Site</div>
+        <h1>About NPCollab</h1>
+        <p>A free clinical education platform built by an Australian Nurse Practitioner, for Nurse Practitioners.</p>
       </div>
 
-      <div className="content-prose" style={{ paddingTop: 0 }}>
+      <div className="content-prose">
 
         {/* ── SECTION 2: Mission ── */}
         <div style={{ marginBottom: '48px' }}>

@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function SurgicalPage() {
@@ -14,6 +15,8 @@ export default function SurgicalPage() {
 
 
       <div className="content-prose">
+      <p>Surgical presentations and perioperative care are core competencies for Australian NPs working in acute care, surgical wards, pre-admission clinics, and procedural settings. NPs play a key role in pre-operative assessment, identifying patients at risk of post-operative complications, managing wound care and drains, and recognising the early signs of surgical emergencies. This module covers acute abdominal presentations, post-operative complication recognition, wound assessment, and VTE prophylaxis — with reference to current Australian surgical and anaesthetic guidelines.</p>
+
       <div className="highlight-box">
         <h2>🚨 Red Flags — Act Urgently — Call 000</h2>
         <ul>
@@ -107,6 +110,8 @@ export default function SurgicalPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="surgical" />
 
       <ModuleSponsorSlot moduleSlug="surgical" />
 

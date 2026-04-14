@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Paediatrics' };
@@ -17,6 +18,8 @@ export default function PaediatricsPage() {
 
 
       <div className="content-prose">
+      <p>Paediatric assessment requires a fundamentally different approach to the adult consultation — accounting for developmental stage, age-specific vital signs, weight-based medication dosing, and the critical role of the parent or carer as the primary historian. Australian NPs across primary care, community health, emergency, and child health settings regularly manage acute childhood illness, developmental concerns, childhood vaccination, and child health surveillance. This module provides a framework for common paediatric presentations with particular attention to the red flags that differentiate well from unwell children.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Refer Urgently or Call 000</h4>
         <ul>
@@ -80,6 +83,8 @@ export default function PaediatricsPage() {
       </div>
 
     
+      <ModuleNav moduleId="paediatrics" />
+
       <ModuleSponsorSlot moduleSlug="paediatrics" />
     </>
   );

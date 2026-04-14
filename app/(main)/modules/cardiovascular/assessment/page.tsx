@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function CardiovascularAssessmentPage() {
   return (
@@ -133,6 +134,8 @@ export default function CardiovascularAssessmentPage() {
         <p><strong>Educational purposes only.</strong> Always apply your own clinical judgement.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="cardiovascular" />
 
     </div>
   );

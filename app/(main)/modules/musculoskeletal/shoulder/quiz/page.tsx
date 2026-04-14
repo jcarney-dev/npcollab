@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import Quiz from '@/components/Quiz';
 import questions from '@/content/modules/msk-shoulder/quiz.json';
 
@@ -17,6 +18,8 @@ export default function ShoulderQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/shoulder" />
 
       <Quiz moduleId="musculoskeletal/shoulder" questions={questions} />
+      <ModuleNav moduleId="musculoskeletal/shoulder" />
+
     </>
   );
 }

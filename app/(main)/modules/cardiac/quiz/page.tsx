@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Quiz from '@/components/Quiz';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import questions from '@/content/modules/cardiac/quiz.json';
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ export default function CardiacQuizPage() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Mixed difficulty — covers ACS, heart failure, AF, hypertension, and ECG interpretation. Each question includes a detailed explanation.</p>
       </div>
       <Quiz moduleId="cardiac" questions={questions} />
+      <ModuleNav moduleId="cardiac" />
+
     </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import Quiz from '@/components/Quiz';
 import questions from '@/content/modules/respiratory/quiz.json';
 
@@ -22,6 +23,8 @@ export default function RespiratoryQuizPage() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Mixed difficulty — covers asthma, COPD, pneumonia, PE, spirometry, and acute management. Each question includes a detailed explanation.</p>
       </div>
       <Quiz moduleId="respiratory" questions={questions} />
+
+      <ModuleNav moduleId="respiratory" />
           </>
 
   );

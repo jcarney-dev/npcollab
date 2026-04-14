@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: "Women's Health — SOAP Note" };
 
@@ -189,6 +190,8 @@ export default function WomensHealthSOAPPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: RANZCOG, Jean Hailes, Therapeutic Guidelines, NCSP.
       </div>
       </div>
+
+      <ModuleNav moduleId="womens-health" />
 
     </>
   );

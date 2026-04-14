@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Quiz from '@/components/Quiz';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import questions from '@/content/modules/mens-health/quiz.json';
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ export default function MensHealthQuizPage() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Mixed difficulty — covers erectile dysfunction, testosterone deficiency, BPH, prostate cancer screening, male mental health, sexual health, and cardiovascular risk. Each question includes a detailed explanation.</p>
       </div>
       <Quiz moduleId="mens-health" questions={questions} />
+      <ModuleNav moduleId="mens-health" />
+
     </>
   );
 }

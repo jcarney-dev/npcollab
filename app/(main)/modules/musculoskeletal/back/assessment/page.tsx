@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function MskBackAssessmentPage() {
   return (
@@ -182,6 +183,8 @@ export default function MskBackAssessmentPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/back" />
+
     </div>
   );
 }

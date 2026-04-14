@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Integumentary (Dermatology)' };
@@ -17,6 +18,8 @@ export default function IntegumentaryPage() {
 
 
       <div className="content-prose">
+      <p>Skin conditions are among the most commonly encountered presentations in Australian primary care and urgent care NP practice, and the integumentary system also provides critical diagnostic clues across almost every body system. This module covers common dermatological conditions including infections, inflammatory dermatoses, skin malignancy, and wound assessment — with an Australian focus on the high burden of skin cancer, sun-related damage, and tropical dermatoses. Dermoscopy skills and referral pathways for suspicious lesions are particularly important for NPs practising in primary care.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Act Urgently</h4>
         <ul>
@@ -76,6 +79,8 @@ export default function IntegumentaryPage() {
       </div>
 
     
+      <ModuleNav moduleId="integumentary" />
+
       <ModuleSponsorSlot moduleSlug="integumentary" />
     </>
   );

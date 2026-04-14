@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Aged Care — Assessment' };
 
@@ -256,6 +257,8 @@ export default function AgedCareAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Aged Care Quality and Safety Commission, Therapeutic Guidelines (Aged Care), Australian Commission on Safety and Quality in Health Care.
       </div>
       </div>
+
+      <ModuleNav moduleId="aged-care" />
 
     </>
   );

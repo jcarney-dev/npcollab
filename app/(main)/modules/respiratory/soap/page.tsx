@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export const metadata: Metadata = {
@@ -117,6 +118,8 @@ export default function RespiratorySOAPPage() {
       <div className="info-box" style={{ marginTop: '24px' }}>
         <p>⚠️ <strong>Oxygen target in COPD:</strong> Always target SpO2 88–92% in known COPD — excessive oxygen can suppress hypoxic drive and worsen hypercapnia. Document the target on transfer paperwork.</p>
       </div>
+
+      <ModuleNav moduleId="respiratory" />
           </>
 
   );

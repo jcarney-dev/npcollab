@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Palliative Care — Assessment' };
 
@@ -130,6 +131,8 @@ export default function PalliativeCareAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: CareSearch Palliative Care Knowledge Network, Therapeutic Guidelines (Palliative Care), Palliative Care Australia.
       </div>
       </div>
+
+      <ModuleNav moduleId="palliative-care" />
 
     </>
   );

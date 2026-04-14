@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskChestPage() {
@@ -102,6 +103,8 @@ export default function MskChestPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/chest" />
+
       <ModuleSponsorSlot moduleSlug="musculoskeletal-chest" />
 
     </div>

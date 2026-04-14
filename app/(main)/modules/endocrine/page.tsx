@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
@@ -168,12 +169,10 @@ export default function EndocrinePage() {
             </ul>
           </div>
         </div>
-
-        <div className="info-box">
-          <p>👉 Continue to the <Link href="/modules/endocrine/assessment">Assessment tab</Link> for targeted endocrine history, examination, and investigation steps.</p>
-        </div>
       </div>
     
+      <ModuleNav moduleId="endocrine" />
+
       <ModuleSponsorSlot moduleSlug="endocrine" />
     </>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: "SOAP Note | Men's Health Module",
@@ -136,6 +137,8 @@ export default function MensHealthSoapPage() {
       <div className="info-box" style={{ marginTop: '24px' }}>
         <p>⚠️ <strong>Disclaimer:</strong> This SOAP note is provided for educational purposes only. Always apply your own clinical judgement and consult current Australian guidelines (Therapeutic Guidelines, Endocrine Society of Australia) when managing testosterone deficiency and erectile dysfunction.</p>
       </div>
+      <ModuleNav moduleId="mens-health" />
+
     </>
   );
 }

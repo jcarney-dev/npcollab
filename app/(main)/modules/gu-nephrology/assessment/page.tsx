@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'GU & Nephrology — Assessment' };
 
@@ -122,6 +123,8 @@ export default function GuNephrologyAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Urinary Tract), CARI Guidelines, Kidney Health Australia.
       </div>
       </div>
+
+      <ModuleNav moduleId="gu-nephrology" />
 
     </>
   );

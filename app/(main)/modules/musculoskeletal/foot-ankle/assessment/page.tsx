@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function MskFootAnkleAssessmentPage() {
   return (
@@ -129,6 +130,8 @@ export default function MskFootAnkleAssessmentPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/foot-ankle" />
+
     </div>
   );
 }

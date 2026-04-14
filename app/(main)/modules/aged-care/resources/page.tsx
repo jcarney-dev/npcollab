@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Aged Care — Resources' };
 
@@ -124,6 +125,8 @@ export default function AgedCareResourcesPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Resources current as of 2025 — verify currency before clinical use.
       </div>
       </div>
+
+      <ModuleNav moduleId="aged-care" />
 
     </>
   );

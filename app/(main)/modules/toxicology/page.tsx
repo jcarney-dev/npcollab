@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function ToxicologyPage() {
@@ -14,6 +15,8 @@ export default function ToxicologyPage() {
 
 
       <div className="content-prose">
+      <p>Toxicological presentations are high-stakes scenarios that require rapid systematic assessment and a clear understanding of common toxidromes. Australian NPs in emergency, urgent care, and mental health settings regularly encounter intentional overdose, accidental poisoning, and iatrogenic drug toxicity. This module covers toxidrome recognition, antidote use, decontamination principles, and the NP's role in the acute management of poisoning — always in conjunction with Poisons Information Centre (13 11 26) guidance and emergency physician support where available.</p>
+
       <div className="highlight-box">
         <h2>🚨 Red Flags — Act Urgently — Call 000</h2>
         <ul>
@@ -104,6 +107,8 @@ export default function ToxicologyPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="toxicology" />
 
       <ModuleSponsorSlot moduleSlug="toxicology" />
 

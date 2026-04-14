@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'Resources | MSK Shoulder Module',
@@ -55,6 +56,8 @@ export default function MskShoulderResourcesPage() {
           <div className="r-ext">↗</div>
         </a>
       </div>
+      <ModuleNav moduleId="musculoskeletal/shoulder" />
+
     </>
   );
 }

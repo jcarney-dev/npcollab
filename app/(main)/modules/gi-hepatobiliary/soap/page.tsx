@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export const metadata: Metadata = { title: 'GI & Hepatobiliary — SOAP Note' };
@@ -166,6 +167,8 @@ export default function GiSoapPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Gastrointestinal).
       </div>
       </div>
+
+      <ModuleNav moduleId="gi-hepatobiliary" />
 
     </>
   );

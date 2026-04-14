@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'SOAP Note | Cardiac Module',
@@ -113,6 +114,8 @@ export default function CardiacSoapPage() {
       <div className="info-box" style={{ marginTop: '24px' }}>
         <p>⚠️ <strong>Important:</strong> This SOAP note demonstrates assessment and initial management only. In a real ACS presentation, the priority is immediate 000 activation and transfer — documentation should not delay emergency care.</p>
       </div>
+      <ModuleNav moduleId="cardiac" />
+
     </>
   );
 }

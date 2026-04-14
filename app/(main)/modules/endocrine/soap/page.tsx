@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'SOAP Note | Endocrine Module',
@@ -120,6 +121,8 @@ export default function EndocrineSoapPage() {
         <p>⚠️ <strong>Educational purposes only.</strong> Always apply your own clinical judgement and refer to current RACGP and Diabetes Australia guidelines. Medication decisions should account for individual patient factors including renal function, contraindications, and patient preferences.</p>
       </div>
       </div>
+
+      <ModuleNav moduleId="endocrine" />
 
     </>
   );

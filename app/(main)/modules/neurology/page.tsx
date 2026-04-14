@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = { title: 'Neurology' };
@@ -17,6 +18,8 @@ export default function NeurologyPage() {
 
 
       <div className="content-prose">
+      <p>Neurological presentations range from the very common — headache, dizziness, and peripheral neuropathy — to the life-threatening emergencies of stroke, seizure, and raised intracranial pressure. Australian NPs across primary care, aged care, neurology, and emergency settings need a structured approach to neurological assessment, a clear understanding of stroke recognition and referral pathways, and confidence managing chronic neurological conditions such as epilepsy, Parkinson's disease, and migraine. This module provides a framework for common neurological presentations encountered in NP practice.</p>
+
       <div className="highlight-box">
         <h4>⚠️ Red Flags — Immediate Action Required</h4>
         <ul>
@@ -92,6 +95,8 @@ export default function NeurologyPage() {
       </div>
 
     
+      <ModuleNav moduleId="neurology" />
+
       <ModuleSponsorSlot moduleSlug="neurology" />
     </>
   );

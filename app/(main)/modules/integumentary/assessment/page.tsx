@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Integumentary — Assessment' };
 
@@ -126,6 +127,8 @@ export default function IntegumentaryAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Dermatology), Australasian College of Dermatologists, Wounds Australia.
       </div>
       </div>
+
+      <ModuleNav moduleId="integumentary" />
 
     </>
   );

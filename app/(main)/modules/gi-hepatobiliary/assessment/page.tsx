@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'GI & Hepatobiliary — Assessment' };
 
@@ -125,6 +126,8 @@ export default function GiAssessmentPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: Therapeutic Guidelines (Gastrointestinal), GESA Clinical Practice Guidelines.
       </div>
       </div>
+
+      <ModuleNav moduleId="gi-hepatobiliary" />
 
     </>
   );

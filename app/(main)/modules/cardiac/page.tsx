@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
@@ -204,12 +205,10 @@ export default function CardiacOverviewPage() {
             </ul>
           </div>
         </div>
-
-        <div className="info-box">
-          <p>👉 Continue to the <Link href="/modules/cardiac/assessment/">Assessment tab</Link> for targeted cardiac history and examination steps.</p>
-        </div>
       </div>
     
+      <ModuleNav moduleId="cardiac" />
+
       <ModuleSponsorSlot moduleSlug="cardiac" />
     </>
   );

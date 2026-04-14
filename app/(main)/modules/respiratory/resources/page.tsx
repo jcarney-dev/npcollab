@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = {
   title: 'Respiratory - Resources',
@@ -59,6 +60,8 @@ export default function RespiratoryResourcesPage() {
           <div className="r-ext">↗</div>
         </a>
       </div>
+
+      <ModuleNav moduleId="respiratory" />
           </>
 
   );

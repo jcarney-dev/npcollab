@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function ToxicologyAssessmentPage() {
   return (
@@ -177,6 +178,8 @@ export default function ToxicologyAssessmentPage() {
 
       <p className="disclaimer">⚠️ Educational purposes only. Always apply your own clinical judgement.</p>
       </div>
+
+      <ModuleNav moduleId="toxicology" />
 
     </div>
   );

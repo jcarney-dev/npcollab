@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export default function MaxillofacialDentalAssessmentPage() {
   return (
@@ -186,6 +187,8 @@ export default function MaxillofacialDentalAssessmentPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="maxillofacial-dental" />
+
     </div>
   );
 }

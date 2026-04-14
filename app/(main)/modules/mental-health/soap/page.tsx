@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SoapNote from '@/components/SoapNote';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 
 export const metadata: Metadata = { title: 'Mental Health — SOAP Note' };
 
@@ -194,6 +195,8 @@ export default function MentalHealthSOAPPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. References: DSM-5, Therapeutic Guidelines (Psychotropic), RANZCP clinical practice guidelines.
       </div>
       </div>
+
+      <ModuleNav moduleId="mental-health" />
 
     </>
   );

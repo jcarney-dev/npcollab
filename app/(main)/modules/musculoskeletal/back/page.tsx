@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export default function MskBackPage() {
@@ -121,6 +122,8 @@ export default function MskBackPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/back" />
+
       <ModuleSponsorSlot moduleSlug="musculoskeletal-back" />
 
     </div>

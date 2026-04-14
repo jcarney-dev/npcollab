@@ -1,4 +1,5 @@
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import Quiz from '@/components/Quiz';
 import quizData from '@/content/modules/msk-back/quiz.json';
 
@@ -18,6 +19,8 @@ export default function MskBackQuizPage() {
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
+      <ModuleNav moduleId="musculoskeletal/back" />
+
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
+import ModuleNav from '@/components/ModuleNav';
 import SoapNote from '@/components/SoapNote';
 
 export const metadata: Metadata = { title: 'Paediatrics — SOAP Note' };
@@ -172,6 +173,8 @@ export default function PaediatricsSoapPage() {
         <strong>Educational purposes only.</strong> Always apply your own clinical judgement. Weight-based dosing must be calculated individually for each patient.
       </div>
       </div>
+
+      <ModuleNav moduleId="paediatrics" />
 
     </>
   );
