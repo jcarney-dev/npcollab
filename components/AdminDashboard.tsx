@@ -2145,9 +2145,15 @@ function SettingsSection({ initialSettings }: { initialSettings: Record<string, 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ key, value }),
       });
-      if (!res.ok) { notify('Failed to save setting.', 'error'); return; }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        notify(`[${res.status}] Failed to save setting${data.detail ? ': ' + data.detail : ''}`, 'error');
+        return;
+      }
       notify('Setting saved.');
-    } catch { notify('Network error.', 'error'); }
+    } catch (err) {
+      notify(`Network error: ${err instanceof Error ? err.message : String(err)}`, 'error');
+    }
     finally { setSaving(null); }
   }
 
@@ -2327,7 +2333,7 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
         setContributors(prev => prev.filter(c => c.id !== id));
       } else {
         const data = await res.json().catch(() => ({}));
-        setError(`Failed to delete contributor${data.detail ? ': ' + data.detail : ''}`);
+        setError(`[${res.status}] Failed to delete contributor${data.detail ? ': ' + data.detail : ''}`);
       }
     });
   }
@@ -2345,7 +2351,7 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
         setEditingId(null);
       } else {
         const data = await res.json().catch(() => ({}));
-        setError(`Failed to save changes${data.detail ? ': ' + data.detail : ''}`);
+        setError(`[${res.status}] Failed to save changes${data.detail ? ': ' + data.detail : ''}`);
       }
     });
   }
@@ -2366,7 +2372,7 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
         setShowAdd(false);
       } else {
         const data = await res.json().catch(() => ({}));
-        setError(`Failed to add contributor${data.detail ? ': ' + data.detail : ''}`);
+        setError(`[${res.status}] Failed to add contributor${data.detail ? ': ' + data.detail : ''}`);
       }
     });
   }

@@ -5,11 +5,14 @@ import { NextRequest } from 'next/server';
 
 function isAdmin(req: NextRequest): boolean {
   const adminCookie = req.cookies.get('npcollab_admin');
+  const cookieVal = adminCookie?.value ?? '(missing)';
+  const envSet = process.env.ADMIN_PASSWORD ? '(set)' : '(NOT SET)';
+  console.log(`[contributors isAdmin] cookie="${cookieVal.substring(0, 4)}..." env=${envSet} match=${cookieVal === process.env.ADMIN_PASSWORD}`);
   return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
 }
 
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised', detail: 'Admin cookie missing or invalid' }, { status: 401 });
 
   try {
     const rows = await db
@@ -19,13 +22,14 @@ export async function GET(req: NextRequest) {
     return Response.json(rows);
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
-    console.error('[contributors GET]', msg);
-    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
+    const stack = error instanceof Error ? error.stack : undefined;
+    console.error('[contributors GET]', msg, stack);
+    return Response.json({ error: 'Database error', detail: msg, stack }, { status: 500 });
   }
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised', detail: 'Admin cookie missing or invalid' }, { status: 401 });
 
   try {
     const body = await req.json();
@@ -51,7 +55,8 @@ export async function POST(req: NextRequest) {
     return Response.json({ contributor: result[0] });
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
-    console.error('[contributors POST]', msg);
-    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
+    const stack = error instanceof Error ? error.stack : undefined;
+    console.error('[contributors POST]', msg, stack);
+    return Response.json({ error: 'Database error', detail: msg, stack }, { status: 500 });
   }
 }
