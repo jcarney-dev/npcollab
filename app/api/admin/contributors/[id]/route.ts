@@ -9,13 +9,13 @@ function isAdmin(req: NextRequest): boolean {
   return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   try {
     const body = await req.json();
     const { moduleSlug, name, title, credentials, bio, avatarInitials, displayOrder } = body;
-    const id = params.id;
+    const { id } = await params;
 
     const result = await db
       .update(moduleContributors)
@@ -41,11 +41,11 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   try {
-    const id = params.id;
+    const { id } = await params;
     const result = await db
       .delete(moduleContributors)
       .where(eq(moduleContributors.id, id))

@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS "module_contributors" (
   "created_at"        timestamp NOT NULL DEFAULT now()
 );
 
-CREATE INDEX IF NOT EXISTS "module_contributors_module_slug_idx" ON "module_contributors" ("module_slug");
+CREATE INDEX IF NOT EXISTS "module_contributors_module_slug_idx" ON "module_contributors" ("
