@@ -3,10 +3,10 @@ import SupportPageClient from './SupportPageClient';
 
 export const metadata: Metadata = {
   title: 'Support NPCollab',
-  description: 'Support NPCollab — a free clinical education platform built by Australian NPs for NPs. Help keep it free and independent.',
+  description: 'Support NPCollab — the Australian NP platform built by NPs for NPs. Help keep it free and independent.',
   openGraph: {
     title: 'Support NPCollab | NPCollab',
-    description: 'Support NPCollab — a free clinical education platform built by Australian NPs for NPs. Help keep it free and independent.',
+    description: 'Support NPCollab — the Australian NP platform built by NPs for NPs. Help keep it free and independent.',
     url: 'https://npcollab.com/support',
   },
   alternates: {

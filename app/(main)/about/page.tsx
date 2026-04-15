@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About NPCollab',
-  description: 'NPCollab was built by Jason Carney, an Australian Nurse Practitioner, to provide free clinical education for NPs across Australia.',
+  description: 'NPCollab was built by Jason Carney, an Australian Nurse Practitioner, as the go-to platform for NPs across Australia.',
   openGraph: {
     title: 'About NPCollab | NPCollab',
-    description: 'NPCollab was built by Jason Carney, an Australian Nurse Practitioner, to provide free clinical education for NPs across Australia.',
+    description: 'NPCollab was built by Jason Carney, an Australian Nurse Practitioner, as the go-to platform for NPs across Australia.',
     url: 'https://npcollab.com/about',
   },
   alternates: {
@@ -19,7 +19,7 @@ export default function AboutPage() {
       <div className="page-header">
         <div className="label">Site</div>
         <h1>About NPCollab</h1>
-        <p>A free clinical education platform built by an Australian Nurse Practitioner, for Nurse Practitioners.</p>
+        <p>The Australian platform for Nurse Practitioners — built by an NP, for NPs.</p>
       </div>
 
       <div className="content-prose">

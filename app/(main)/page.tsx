@@ -4,11 +4,11 @@ import { getActiveSponsor, isAdPreviewMode } from '@/lib/sponsors';
 import { HomepageSponsorCard } from '@/components/SponsorCard';
 
 export const metadata: Metadata = {
-  title: 'Free Clinical Education for Australian Nurse Practitioners',
-  description: 'Free clinical modules, CPD resources, job board, and community for Australian Nurse Practitioners, Transitional NPs, and NP candidates.',
+  title: 'NPCollab — The Australian Nurse Practitioner Platform',
+  description: 'NPCollab is the free Australian platform for Nurse Practitioners and NP candidates. Clinical modules, CPD tracking, NP jobs, education courses, news, and community — all in one place.',
   openGraph: {
-    title: 'Free Clinical Education for Australian Nurse Practitioners | NPCollab',
-    description: 'Free clinical modules, CPD resources, job board, and community for Australian Nurse Practitioners, Transitional NPs, and NP candidates.',
+    title: 'NPCollab — The Australian Nurse Practitioner Platform',
+    description: 'NPCollab is the free Australian platform for Nurse Practitioners and NP candidates. Clinical modules, CPD tracking, NP jobs, education courses, news, and community — all in one place.',
     url: 'https://npcollab.com/',
   },
   alternates: {
@@ -40,7 +40,7 @@ export default async function HomePage() {
         name: 'NPCollab',
         url: 'https://npcollab.com',
         description:
-          'NPCollab is a free clinical education platform for Australian Nurse Practitioners, Transitional NPs, and NP candidates. Clinical modules, CPD resources, job board, and community — built by NPs, for NPs.',
+          'NPCollab is the Australian platform for Nurse Practitioners, Transitional NPs, and NP candidates. Clinical modules, CPD resources, job board, courses, and community — built by NPs, for NPs.',
         founder: {
           '@type': 'Person',
           name: 'Jason Carney',

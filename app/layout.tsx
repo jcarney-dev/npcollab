@@ -5,13 +5,13 @@ import './globals.css';
 const SITE_URL = 'https://npcollab.com';
 const SITE_NAME = 'NPCollab';
 const DEFAULT_DESCRIPTION =
-  'NPCollab is a free clinical education platform for Australian Nurse Practitioners, Transitional NPs, and NP candidates. Clinical modules, CPD resources, job board, and community — built by NPs, for NPs.';
+  'NPCollab is the Australian platform for Nurse Practitioners, Transitional NPs, and NP candidates. Clinical modules, CPD resources, job board, courses, and community — built by NPs, for NPs.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    template: `%s | ${SITE_NAME} — Australian NP Education`,
-    default: `${SITE_NAME} — Free Clinical Education for Australian Nurse Practitioners`,
+    template: `%s | ${SITE_NAME} — The Australian NP Platform`,
+    default: `${SITE_NAME} — The Australian Nurse Practitioner Platform`,
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
@@ -44,20 +44,20 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Free Clinical Education for Australian Nurse Practitioners`,
+    title: `${SITE_NAME} — The Australian Nurse Practitioner Platform`,
     description: DEFAULT_DESCRIPTION,
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'NPCollab — Australian NP Education',
+        alt: 'NPCollab — The Australian NP Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} — Free Clinical Education for Australian Nurse Practitioners`,
+    title: `${SITE_NAME} — The Australian Nurse Practitioner Platform`,
     description: DEFAULT_DESCRIPTION,
     images: ['/og-image.png'],
   },
