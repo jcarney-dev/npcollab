@@ -1,74 +1,119 @@
-import React from 'react';
+import { db } from '@/lib/db';
+import { moduleContributors, ModuleContributor } from '@/lib/schema';
+import { eq } from 'drizzle-orm';
 
-export interface ContributorCardProps {
-  name: string;
-  title: string;
-  credentials?: string;
-  bio: string;
-  /** Two-letter initials shown in the avatar circle — defaults to first letters of name */
-  initials?: string;
+interface Props {
+  moduleSlug: string;
 }
 
-/**
- * Reusable contributor card for module pages and the about page.
- * Renders only when a contributor has been assigned.
- */
-export default function ContributorCard({ name, title, credentials, bio, initials }: ContributorCardProps) {
-  const avatarText = initials ?? name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+export default async function ContributorCard({ moduleSlug }: Props) {
+  let contributors: ModuleContributor[] = [];
+  try {
+    contributors = await db
+      .select()
+      .from(moduleContributors)
+      .where(eq(moduleContributors.moduleSlug, moduleSlug))
+      .orderBy(moduleContributors.displayOrder);
+  } catch {
+    // Fail silently if table doesn't exist yet
+  }
+
+  if (contributors.length === 0) return null;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '16px',
-        alignItems: 'flex-start',
-        background: 'var(--off-white)',
-        border: '1px solid var(--border)',
-        borderRadius: '10px',
-        padding: '18px 20px',
-        marginTop: '24px',
-        marginBottom: '8px',
-      }}
-    >
-      <div
-        style={{
-          width: '52px',
-          height: '52px',
-          borderRadius: '50%',
-          background: 'var(--navy)',
-          color: 'var(--gold)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.1rem',
-          fontWeight: 700,
-          flexShrink: 0,
-          letterSpacing: '0.02em',
-        }}
-        aria-hidden="true"
-      >
-        {avatarText}
+    <div style={{
+      background: 'var(--white)',
+      border: '1px solid var(--border)',
+      borderRadius: 'var(--radius)',
+      padding: '24px',
+      marginTop: '32px',
+    }}>
+      <div style={{
+        fontSize: '0.72rem',
+        fontWeight: 600,
+        letterSpacing: '0.14em',
+        textTransform: 'uppercase',
+        color: 'var(--text-muted)',
+        marginBottom: '20px',
+      }}>
+        Content
       </div>
 
-      <div style={{ flex: 1 }}>
-        <div style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '4px' }}>
-          Module Contributor
-        </div>
-        <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text)', marginBottom: '1px' }}>
-          {name}
-        </div>
-        <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: credentials ? '2px' : '8px' }}>
-          {title}
-        </div>
-        {credentials && (
-          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
-            {credentials}
+      {contributors.map((contributor, idx) => (
+        <div
+          key={contributor.id}
+          style={{
+            display: 'flex',
+            gap: '16px',
+            alignItems: 'flex-start',
+            marginBottom: idx < contributors.length - 1 ? '20px' : 0,
+            paddingBottom: idx < contributors.length - 1 ? '20px' : 0,
+            borderBottom: idx < contributors.length - 1 ? '1px solid var(--border)' : 'none',
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '48px',
+            height: '48px',
+            minWidth: '48px',
+            borderRadius: '50%',
+            background: 'var(--navy)',
+            fontSize: '14px',
+            fontWeight: 700,
+            color: 'var(--gold)',
+          }}>
+            {contributor.avatarInitials}
           </div>
-        )}
-        <p style={{ margin: 0, fontSize: '0.88rem', lineHeight: 1.65, color: 'var(--text)' }}>
-          {bio}
-        </p>
-      </div>
+
+          <div style={{ flex: 1 }}>
+            <div style={{
+              fontWeight: 700,
+              color: 'var(--text)',
+              marginBottom: '2px',
+              fontSize: '0.95rem',
+            }}>
+              {contributor.name}
+            </div>
+
+            {contributor.title && (
+              <div style={{
+                color: 'var(--gold)',
+                fontSize: '0.85rem',
+                marginBottom: '4px',
+                fontWeight: 600,
+              }}>
+                {contributor.title}
+              </div>
+            )}
+
+            {contributor.credentials && (
+              <div style={{
+                color: 'var(--text-muted)',
+                fontSize: '0.8rem',
+                marginBottom: '6px',
+              }}>
+                {contributor.credentials}
+              </div>
+            )}
+
+            {contributor.bio && (
+              <div style={{
+                color: 'var(--text-muted)',
+                fontSize: '0.85rem',
+                lineHeight: '1.4',
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }}>
+                {contributor.bio}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

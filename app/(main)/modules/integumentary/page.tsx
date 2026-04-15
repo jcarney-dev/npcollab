@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Integumentary Clinical Module',
@@ -92,6 +93,7 @@ export default function IntegumentaryPage() {
     
       <ModuleNav moduleId="integumentary" />
 
+      <ContributorCard moduleSlug="integumentary" />
       <ModuleSponsorSlot moduleSlug="integumentary" />
     </>
   );

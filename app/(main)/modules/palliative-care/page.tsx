@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Palliative Care Clinical Module',
@@ -105,6 +106,7 @@ export default function PalliativeCarePage() {
     
       <ModuleNav moduleId="palliative-care" />
 
+      <ContributorCard moduleSlug="palliative-care" />
       <ModuleSponsorSlot moduleSlug="palliative-care" />
     </>
   );

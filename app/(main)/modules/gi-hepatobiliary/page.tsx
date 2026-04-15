@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'GI and Hepatobiliary Clinical Module',
@@ -90,6 +91,7 @@ export default function GiHepatobiliaryPage() {
     
       <ModuleNav moduleId="gi-hepatobiliary" />
 
+      <ContributorCard moduleSlug="gi-hepatobiliary" />
       <ModuleSponsorSlot moduleSlug="gi-hepatobiliary" />
     </>
   );

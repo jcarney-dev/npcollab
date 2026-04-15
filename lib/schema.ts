@@ -179,6 +179,20 @@ export const siteSettings = pgTable('site_settings', {
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
 
+// ── module_contributors ────────────────────────────────────────────────────
+// Stores contributors (authors) for clinical module overview pages
+export const moduleContributors = pgTable('module_contributors', {
+  id:              uuid('id').primaryKey().defaultRandom(),
+  moduleSlug:      text('module_slug').notNull(),
+  name:            text('name').notNull(),
+  title:           text('title').notNull(),
+  credentials:     text('credentials'),
+  bio:             text('bio'),
+  avatarInitials:  text('avatar_initials').notNull(),
+  displayOrder:    integer('display_order').notNull().default(0),
+  createdAt:       timestamp('created_at').notNull().defaultNow(),
+});
+
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;
 export type NewAccessRequest      = typeof accessRequests.$inferInsert;
@@ -204,3 +218,5 @@ export type AdminAction           = typeof adminActions.$inferSelect;
 export type NewAdminAction        = typeof adminActions.$inferInsert;
 export type SiteSetting           = typeof siteSettings.$inferSelect;
 export type NewSiteSetting        = typeof siteSettings.$inferInsert;
+export type ModuleContributor     = typeof moduleContributors.$inferSelect;
+export type NewModuleContributor  = typeof moduleContributors.$inferInsert;

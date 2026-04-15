@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'MSK — Foot and Ankle Clinical Module',
@@ -112,6 +113,7 @@ export default function MskFootAnklePage() {
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
       <ModuleNav moduleId="musculoskeletal/foot-ankle" />
 
+      <ContributorCard moduleSlug="musculoskeletal-foot-ankle" />
       <ModuleSponsorSlot moduleSlug="musculoskeletal-foot-ankle" />
 
     </div>

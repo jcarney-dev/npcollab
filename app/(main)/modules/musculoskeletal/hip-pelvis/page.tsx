@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'MSK — Hip and Pelvis Clinical Module',
@@ -101,6 +102,7 @@ export default function MskHipPelvisPage() {
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
       <ModuleNav moduleId="musculoskeletal/hip-pelvis" />
 
+      <ContributorCard moduleSlug="musculoskeletal-hip-pelvis" />
       <ModuleSponsorSlot moduleSlug="musculoskeletal-hip-pelvis" />
 
     </div>

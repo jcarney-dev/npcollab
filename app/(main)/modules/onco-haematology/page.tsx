@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Oncology and Haematology Clinical Module',
@@ -114,6 +115,7 @@ export default function OncoHaematologyPage() {
 
       <ModuleNav moduleId="onco-haematology" />
 
+      <ContributorCard moduleSlug="onco-haematology" />
       <ModuleSponsorSlot moduleSlug="onco-haematology" />
 
     </div>

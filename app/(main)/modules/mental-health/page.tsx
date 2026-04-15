@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Mental Health Clinical Module',
@@ -104,6 +105,7 @@ export default function MentalHealthPage() {
     
       <ModuleNav moduleId="mental-health" />
 
+      <ContributorCard moduleSlug="mental-health" />
       <ModuleSponsorSlot moduleSlug="mental-health" />
     </>
   );

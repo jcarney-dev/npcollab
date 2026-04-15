@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Neurology Clinical Module',
@@ -108,6 +109,7 @@ export default function NeurologyPage() {
     
       <ModuleNav moduleId="neurology" />
 
+      <ContributorCard moduleSlug="neurology" />
       <ModuleSponsorSlot moduleSlug="neurology" />
     </>
   );

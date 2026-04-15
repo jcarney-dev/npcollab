@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Cardiac Clinical Module',
@@ -216,6 +217,7 @@ export default function CardiacOverviewPage() {
     
       <ModuleNav moduleId="cardiac" />
 
+      <ContributorCard moduleSlug="cardiac" />
       <ModuleSponsorSlot moduleSlug="cardiac" />
     </>
   );

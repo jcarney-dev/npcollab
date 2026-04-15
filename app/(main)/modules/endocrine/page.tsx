@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Endocrine Clinical Module',
@@ -180,6 +181,7 @@ export default function EndocrinePage() {
     
       <ModuleNav moduleId="endocrine" />
 
+      <ContributorCard moduleSlug="endocrine" />
       <ModuleSponsorSlot moduleSlug="endocrine" />
     </>
   );

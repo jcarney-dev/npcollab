@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Alcohol and Other Drugs Clinical Module',
@@ -143,6 +144,7 @@ export default function DrugsAlcoholPage() {
 
       <ModuleNav moduleId="drugs-alcohol" />
 
+      <ContributorCard moduleSlug="drugs-alcohol" />
       <ModuleSponsorSlot moduleSlug="drugs-alcohol" />
 
     </div>

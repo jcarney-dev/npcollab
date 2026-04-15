@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'MSK — Wrist and Hand Clinical Module',
@@ -116,6 +117,7 @@ export default function MskWristPage() {
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
       <ModuleNav moduleId="musculoskeletal/wrist" />
 
+      <ContributorCard moduleSlug="musculoskeletal-wrist-hand" />
       <ModuleSponsorSlot moduleSlug="musculoskeletal-wrist" />
 
     </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'GU and Nephrology Clinical Module',
@@ -78,6 +79,7 @@ export default function GuNephrologyPage() {
     
       <ModuleNav moduleId="gu-nephrology" />
 
+      <ContributorCard moduleSlug="gu-nephrology" />
       <ModuleSponsorSlot moduleSlug="gu-nephrology" />
     </>
   );

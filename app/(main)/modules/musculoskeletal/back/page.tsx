@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'MSK — Back Pain Clinical Module',
@@ -140,6 +141,7 @@ export default function MskBackPage() {
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
       <ModuleNav moduleId="musculoskeletal/back" />
 
+      <ContributorCard moduleSlug="musculoskeletal-back" />
       <ModuleSponsorSlot moduleSlug="musculoskeletal-back" />
 
     </div>

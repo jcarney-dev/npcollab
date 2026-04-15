@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Men\'s Health Clinical Module',
@@ -182,6 +183,7 @@ export default function MensHealthOverviewPage() {
 
       <ModuleNav moduleId="mens-health" />
 
+      <ContributorCard moduleSlug="mens-health" />
       <ModuleSponsorSlot moduleSlug="mens-health" />
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'MSK — Elbow Clinical Module',
@@ -102,6 +103,7 @@ export default function MskElbowPage() {
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>
       <ModuleNav moduleId="musculoskeletal/elbow" />
 
+      <ContributorCard moduleSlug="musculoskeletal-elbow" />
       <ModuleSponsorSlot moduleSlug="musculoskeletal-elbow" />
 
     </div>

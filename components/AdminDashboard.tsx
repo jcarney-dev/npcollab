@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2 } from '@/lib/schema';
+import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor } from '@/lib/schema';
 
 interface Props {
   pendingRequests: AccessRequest[];
@@ -13,6 +13,7 @@ interface Props {
   jobListings: JobListing[];
   courses: Course[];
   registrations: UserV2[];
+  contributors: ModuleContributor[];
   siteSettings: Record<string, string>;
   stats: { pending: number; active: number; disabled: number; total: number };
 }

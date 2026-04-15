@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+import ContributorCard from '@/components/ContributorCard';
 
 export const metadata: Metadata = {
   title: 'Maxillofacial and Dental Clinical Module',
@@ -95,6 +96,7 @@ export default function MaxillofacialDentalPage() {
 
       <ModuleNav moduleId="maxillofacial-dental" />
 
+      <ContributorCard moduleSlug="maxillofacial-dental" />
       <ModuleSponsorSlot moduleSlug="maxillofacial-dental" />
 
     </div>
