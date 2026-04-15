@@ -1,7 +1,6 @@
 import { db } from '@/lib/db';
 import { moduleContributors } from '@/lib/schema';
 import { desc } from 'drizzle-orm';
-import { cookies } from 'next/headers';
 import { NextRequest } from 'next/server';
 
 function isAdmin(req: NextRequest): boolean {

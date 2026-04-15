@@ -2305,6 +2305,183 @@ function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
   );
 }
 
+// ── Contributors section ────────────────────────────────────────────────────
+
+function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
+  const [contributors, setContributors] = useState<ModuleContributor[]>(initial);
+  const [isPending, startTransition] = useTransition();
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editForm, setEditForm] = useState<Partial<ModuleContributor>>({});
+  const [addForm, setAddForm] = useState({ moduleSlug: '', name: '', title: '', credentials: '', bio: '', avatarInitials: '' });
+  const [showAdd, setShowAdd] = useState(false);
+  const [error, setError] = useState('');
+
+  const fieldStyle: React.CSSProperties = { width: '100%', padding: '7px 10px', border: '1px solid var(--border)', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'var(--font-body)' };
+  const labelStyle: React.CSSProperties = { display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' };
+
+  async function handleDelete(id: string) {
+    if (!confirm('Remove this contributor?')) return;
+    startTransition(async () => {
+      const res = await fetch(`/api/admin/contributors/${id}`, { method: 'DELETE' });
+      if (res.ok) setContributors(prev => prev.filter(c => c.id !== id));
+      else setError('Failed to delete contributor');
+    });
+  }
+
+  async function handleSaveEdit(id: string) {
+    startTransition(async () => {
+      const res = await fetch(`/api/admin/contributors/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(editForm),
+      });
+      if (res.ok) {
+        const { contributor } = await res.json();
+        setContributors(prev => prev.map(c => c.id === id ? contributor : c));
+        setEditingId(null);
+      } else setError('Failed to save changes');
+    });
+  }
+
+  async function handleAdd(e: React.FormEvent) {
+    e.preventDefault();
+    setError('');
+    startTransition(async () => {
+      const res = await fetch('/api/admin/contributors', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(addForm),
+      });
+      if (res.ok) {
+        const { contributor } = await res.json();
+        setContributors(prev => [contributor, ...prev]);
+        setAddForm({ moduleSlug: '', name: '', title: '', credentials: '', bio: '', avatarInitials: '' });
+        setShowAdd(false);
+      } else setError('Failed to add contributor');
+    });
+  }
+
+  // Group by module slug for display
+  const bySlug: Record<string, ModuleContributor[]> = {};
+  for (const c of contributors) {
+    if (!bySlug[c.moduleSlug]) bySlug[c.moduleSlug] = [];
+    bySlug[c.moduleSlug].push(c);
+  }
+
+  return (
+    <div className="admin-section">
+      <div className="admin-section-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <span>✍️ Module Contributors</span>
+        <button className="btn-admin-sm" onClick={() => setShowAdd(v => !v)} style={{ background: 'var(--gold)', color: 'var(--navy)', border: 'none', borderRadius: '6px', padding: '8px 16px', fontWeight: 600, cursor: 'pointer', fontSize: '0.85rem' }}>
+          {showAdd ? 'Cancel' : '+ Add Contributor'}
+        </button>
+      </div>
+
+      {error && <div style={{ color: 'var(--error)', marginBottom: '12px', fontSize: '0.85rem' }}>{error}</div>}
+
+      {showAdd && (
+        <form onSubmit={handleAdd} style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '20px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
+            <div>
+              <label style={labelStyle}>Module Slug *</label>
+              <input style={fieldStyle} value={addForm.moduleSlug} onChange={e => setAddForm(f => ({ ...f, moduleSlug: e.target.value }))} placeholder="e.g. cardiac" required />
+            </div>
+            <div>
+              <label style={labelStyle}>Avatar Initials *</label>
+              <input style={fieldStyle} value={addForm.avatarInitials} onChange={e => setAddForm(f => ({ ...f, avatarInitials: e.target.value }))} placeholder="e.g. JC" maxLength={3} required />
+            </div>
+            <div>
+              <label style={labelStyle}>Name *</label>
+              <input style={fieldStyle} value={addForm.name} onChange={e => setAddForm(f => ({ ...f, name: e.target.value }))} placeholder="Full name" required />
+            </div>
+            <div>
+              <label style={labelStyle}>Title *</label>
+              <input style={fieldStyle} value={addForm.title} onChange={e => setAddForm(f => ({ ...f, title: e.target.value }))} placeholder="Role / title" required />
+            </div>
+            <div>
+              <label style={labelStyle}>Credentials</label>
+              <input style={fieldStyle} value={addForm.credentials} onChange={e => setAddForm(f => ({ ...f, credentials: e.target.value }))} placeholder="e.g. NP, MNP, BN" />
+            </div>
+          </div>
+          <div style={{ marginBottom: '12px' }}>
+            <label style={labelStyle}>Bio</label>
+            <textarea style={{ ...fieldStyle, minHeight: '70px', resize: 'vertical' }} value={addForm.bio} onChange={e => setAddForm(f => ({ ...f, bio: e.target.value }))} />
+          </div>
+          <button type="submit" disabled={isPending} style={{ background: 'var(--navy)', color: 'var(--white)', border: 'none', borderRadius: '6px', padding: '9px 20px', fontWeight: 600, cursor: 'pointer', fontSize: '0.85rem' }}>
+            {isPending ? 'Saving…' : 'Add Contributor'}
+          </button>
+        </form>
+      )}
+
+      <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
+        {contributors.length} contributor assignment{contributors.length !== 1 ? 's' : ''} across {Object.keys(bySlug).length} module{Object.keys(bySlug).length !== 1 ? 's' : ''}
+      </div>
+
+      <div className="admin-table-wrap">
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Name</th>
+              <th>Title / Credentials</th>
+              <th>Module Slug</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contributors.map(c => (
+              <tr key={c.id}>
+                {editingId === c.id ? (
+                  <>
+                    <td>
+                      <input style={{ ...fieldStyle, width: '60px' }} value={editForm.avatarInitials ?? c.avatarInitials} onChange={e => setEditForm(f => ({ ...f, avatarInitials: e.target.value }))} maxLength={3} />
+                    </td>
+                    <td>
+                      <input style={fieldStyle} value={editForm.name ?? c.name} onChange={e => setEditForm(f => ({ ...f, name: e.target.value }))} />
+                    </td>
+                    <td>
+                      <input style={{ ...fieldStyle, marginBottom: '4px' }} value={editForm.title ?? c.title} onChange={e => setEditForm(f => ({ ...f, title: e.target.value }))} placeholder="Title" />
+                      <input style={fieldStyle} value={editForm.credentials ?? c.credentials ?? ''} onChange={e => setEditForm(f => ({ ...f, credentials: e.target.value }))} placeholder="Credentials" />
+                    </td>
+                    <td>
+                      <input style={fieldStyle} value={editForm.moduleSlug ?? c.moduleSlug} onChange={e => setEditForm(f => ({ ...f, moduleSlug: e.target.value }))} />
+                    </td>
+                    <td style={{ whiteSpace: 'nowrap' }}>
+                      <button onClick={() => handleSaveEdit(c.id)} disabled={isPending} style={{ marginRight: '6px', background: 'var(--success)', color: '#fff', border: 'none', borderRadius: '4px', padding: '5px 10px', cursor: 'pointer', fontSize: '0.8rem' }}>Save</button>
+                      <button onClick={() => setEditingId(null)} style={{ background: 'var(--border)', color: 'var(--text)', border: 'none', borderRadius: '4px', padding: '5px 10px', cursor: 'pointer', fontSize: '0.8rem' }}>Cancel</button>
+                    </td>
+                  </>
+                ) : (
+                  <>
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: 'var(--navy)', color: 'var(--gold)', fontWeight: 700, fontSize: '12px' }}>
+                        {c.avatarInitials}
+                      </div>
+                    </td>
+                    <td style={{ fontWeight: 600 }}>{c.name}</td>
+                    <td>
+                      <div style={{ color: 'var(--text)', fontSize: '0.85rem' }}>{c.title}</div>
+                      {c.credentials && <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem' }}>{c.credentials}</div>}
+                    </td>
+                    <td><code style={{ fontSize: '0.8rem', background: 'var(--off-white)', padding: '2px 6px', borderRadius: '4px' }}>{c.moduleSlug}</code></td>
+                    <td style={{ whiteSpace: 'nowrap' }}>
+                      <button onClick={() => { setEditingId(c.id); setEditForm({ name: c.name, title: c.title, credentials: c.credentials, bio: c.bio, avatarInitials: c.avatarInitials, moduleSlug: c.moduleSlug }); }} style={{ marginRight: '6px', background: 'var(--navy-light)', color: 'var(--white)', border: 'none', borderRadius: '4px', padding: '5px 10px', cursor: 'pointer', fontSize: '0.8rem' }}>Edit</button>
+                      <button onClick={() => handleDelete(c.id)} disabled={isPending} style={{ background: 'var(--error)', color: '#fff', border: 'none', borderRadius: '4px', padding: '5px 10px', cursor: 'pointer', fontSize: '0.8rem' }}>Delete</button>
+                    </td>
+                  </>
+                )}
+              </tr>
+            ))}
+            {contributors.length === 0 && (
+              <tr><td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '32px' }}>No contributors yet. Add one above.</td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
 export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, siteSettings, stats: initialStats }: Props) {
@@ -2313,7 +2490,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'registrations' | 'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'analytics' | 'settings'>('registrations');
+  const [activeTab, setActiveTab] = useState<'registrations' | 'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'analytics' | 'settings'>('registrations');
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
@@ -2441,8 +2618,9 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             { key: 'podcast',   label: '🎙️ Podcast',      badge: 0 },
             { key: 'jobs',      label: '💼 Job Board',    badge: pendingJobCount },
             { key: 'courses',   label: '🎓 Courses',       badge: 0 },
-            { key: 'news',      label: '📰 News',          badge: pendingNewsCount },
-            { key: 'analytics', label: 'Analytics',       badge: 0 },
+            { key: 'news',         label: '📰 News',          badge: pendingNewsCount },
+            { key: 'contributors', label: '✍️ Contributors',  badge: 0 },
+            { key: 'analytics',    label: 'Analytics',        badge: 0 },
             { key: 'settings',  label: '⚙️ Settings',     badge: 0 },
           ] as const).map(tab => (
             <button
@@ -2532,6 +2710,11 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
 
         {/* News */}
         {activeTab === 'news' && <NewsSection initial={initialNews} />}
+
+        {/* Contributors */}
+        {activeTab === 'contributors' && (
+          <ContributorsSection initial={contributors} />
+        )}
 
         {/* Analytics */}
         {activeTab === 'analytics' && (
