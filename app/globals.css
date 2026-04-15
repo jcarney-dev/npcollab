@@ -1633,3 +1633,81 @@ a:hover { color: var(--gold-light); }
 
 /* ─── Podcast Signup Form ────────────────────────────────── */
 .podcast-signup-form {
+  margin-top: 8px;
+}
+.podcast-signup-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.podcast-signup-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.podcast-signup-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.podcast-signup-input:focus { border-color: var(--gold); }
+.podcast-signup-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: var(--gold);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.podcast-signup-btn:hover:not(:disabled) { background: var(--gold-light); }
+.podcast-signup-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.podcast-signup-error {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--error);
+}
+.podcast-signup-success {
+  padding: 20px 24px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+.podcast-signup-success-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.podcast-signup-success h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: #166534;
+}
+.podcast-signup-success p {
+  margin: 0;
+  font-size: 13px;
+  color: #166534;
+}
