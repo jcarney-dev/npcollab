@@ -2484,7 +2484,7 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
 
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, siteSettings, stats: initialStats }: Props) {
+export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats }: Props) {
   const [pending, setPending] = useState(initial);
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
@@ -2713,7 +2713,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
 
         {/* Contributors */}
         {activeTab === 'contributors' && (
-          <ContributorsSection initial={contributors} />
+          <ContributorsSection initial={initialContributors} />
         )}
 
         {/* Analytics */}
