@@ -5,6 +5,7 @@ import {
   boolean,
   timestamp,
   integer,
+  unique,
 } from 'drizzle-orm/pg-core';
 
 // ── access_requests ────────────────────────────────────────────────────────
@@ -191,7 +192,9 @@ export const moduleContributors = pgTable('module_contributors', {
   avatarInitials:  text('avatar_initials').notNull(),
   displayOrder:    integer('display_order').notNull().default(0),
   createdAt:       timestamp('created_at').notNull().defaultNow(),
-});
+}, (t) => [
+  unique('module_contributors_module_slug_name_unique').on(t.moduleSlug, t.name),
+]);
 
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;

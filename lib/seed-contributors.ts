@@ -3,7 +3,7 @@ dotenv.config({ path: '.env.local' });
 
 import { db } from './db';
 import { moduleContributors } from './schema';
-import { eq, and } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
 
 const CONTRIBUTORS = [
   {
@@ -54,20 +54,10 @@ async function seedContributors() {
 
   for (const contributor of CONTRIBUTORS) {
     for (const moduleSlug of MODULE_SLUGS) {
-      // Check if this contributor already exists for this module
-      const existing = await db
-        .select()
-        .from(moduleContributors)
-        .where(
-          and(
-            eq(moduleContributors.moduleSlug, moduleSlug),
-            eq(moduleContributors.name, contributor.name)
-          )
-        )
-        .limit(1);
-
-      if (existing.length === 0) {
-        await db.insert(moduleContributors).values({
+      // Use INSERT ... ON CONFLICT DO NOTHING to safely skip duplicates
+      const result = await db
+        .insert(moduleContributors)
+        .values({
           moduleSlug,
           name: contributor.name,
           title: contributor.title,
@@ -75,10 +65,14 @@ async function seedContributors() {
           bio: contributor.bio,
           avatarInitials: contributor.avatarInitials,
           displayOrder: 0,
-        });
+        })
+        .onConflictDoNothing()
+        .returning();
+
+      if (result.length > 0) {
         console.log(`✓ Added ${contributor.name} to ${moduleSlug}`);
       } else {
-        console.log(`✓ ${contributor.name} already exists for ${moduleSlug}`);
+        console.log(`  ${contributor.name} already exists for ${moduleSlug} — skipped`);
       }
     }
   }
