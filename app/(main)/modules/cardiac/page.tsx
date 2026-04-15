@@ -20,7 +20,6 @@ export default function CardiacOverviewPage() {
       <ModuleTabs moduleId="cardiac" />
 
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>Cardiac presentations range from benign musculoskeletal chest wall pain to immediately life-threatening acute coronary syndromes. As a Nurse Practitioner, your primary role is rapid risk stratification — identifying who needs immediate emergency transfer, who needs same-day cardiology review, and who can be safely managed in primary care.</p>
 
         <div className="highlight-box">

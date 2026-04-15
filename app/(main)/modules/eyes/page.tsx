@@ -18,7 +18,6 @@ export default function EyesPage() {
       </div>
       <ModuleTabs moduleId="eyes" />
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>Ophthalmic presentations are common in primary care. As a Nurse Practitioner, you must distinguish <strong>benign self-limiting conditions</strong> (e.g. viral conjunctivitis) from <strong>urgent sight-threatening emergencies</strong> (e.g. acute angle-closure glaucoma) requiring immediate referral.</p>
         <div className="highlight-box">
           <h4>⚠️ Red Flags — Refer Urgently</h4>

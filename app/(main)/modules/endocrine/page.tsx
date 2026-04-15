@@ -20,7 +20,6 @@ export default function EndocrinePage() {
       <ModuleTabs moduleId="endocrine" />
 
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>Endocrine presentations are among the most common in NP practice. Diabetes mellitus, thyroid disease, and metabolic syndrome collectively affect millions of Australians. NPs play a central role in initiation and titration of pharmacotherapy, education, monitoring, and complication prevention — often as the primary long-term manager of these chronic conditions.</p>
 
         <div className="highlight-box">

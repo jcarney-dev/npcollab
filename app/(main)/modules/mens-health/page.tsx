@@ -20,7 +20,6 @@ export default function MensHealthOverviewPage() {
       <ModuleTabs moduleId="mens-health" />
 
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>Men&apos;s health encompasses a broad range of conditions that disproportionately affect male patients — many of whom are less likely to present for healthcare. Nurse Practitioners play a central role in proactive men&apos;s health, including cardiovascular risk reduction, sexual health, prostate health, and mental health screening. Australian men have a life expectancy approximately 4 years shorter than women, driven largely by preventable conditions.</p>
 
         <div className="highlight-box">

@@ -19,7 +19,6 @@ export default function RespiratoryPage() {
         <ModuleTabs moduleId="respiratory" />
 
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>Respiratory presentations range from acute life-threatening emergencies to chronic disease management. As a Nurse Practitioner, your core skills are rapid assessment of respiratory distress, differentiating obstructive from restrictive and infective pathology, and knowing when to escalate versus manage in primary care.</p>
 
         <div className="highlight-box">

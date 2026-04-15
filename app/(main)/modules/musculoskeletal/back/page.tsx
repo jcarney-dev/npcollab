@@ -15,6 +15,8 @@ export default function MskBackPage() {
 
       <div className="content-prose">
 
+        <p>Back pain is the most common musculoskeletal presentation in Australian primary care and one of the leading causes of disability worldwide. The vast majority of acute low back pain episodes are non-specific and self-limiting — however, NPs must systematically screen for serious pathology including cauda equina syndrome, vertebral fracture, malignancy, and infection before initiating conservative management. A structured approach to red flag screening, neurological examination, and judicious use of imaging underpins safe and effective NP management of back pain.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

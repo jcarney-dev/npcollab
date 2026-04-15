@@ -15,6 +15,8 @@ export default function MskElbowPage() {
 
       <div className="content-prose">
 
+        <p>Elbow pain is a common presentation in primary care, most frequently due to lateral and medial epicondylitis in working-age adults, but also including acute injuries, entrapment neuropathies, and inflammatory arthropathies. NPs must distinguish lateral from medial epicondylitis, identify nerve entrapment syndromes, and recognise red flags including fractures and septic arthritis. A thorough history of activity and occupation, combined with targeted physical examination, guides accurate diagnosis and effective conservative management.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

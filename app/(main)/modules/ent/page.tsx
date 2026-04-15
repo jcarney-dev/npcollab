@@ -18,7 +18,6 @@ export default function ENTPage() {
       </div>
       <ModuleTabs moduleId="ent" />
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>ENT presentations are among the most frequent in primary care. NPs must be confident in differentiating viral from bacterial illness, managing common conditions independently, and identifying serious presentations requiring urgent referral.</p>
         <div className="highlight-box">
           <h4>⚠️ Red Flags — Refer Urgently</h4>

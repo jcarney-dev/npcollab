@@ -15,6 +15,8 @@ export default function MskKneePage() {
 
       <div className="content-prose">
 
+        <p>Knee pain is one of the most frequent musculoskeletal presentations in Australian primary care, spanning acute injuries, degenerative conditions, and inflammatory arthropathies. NPs must be able to differentiate structural injuries requiring orthopaedic referral — such as ACL tears, meniscal injuries, and fractures — from conditions amenable to conservative management in primary care. A systematic examination approach combined with appropriate use of imaging allows for accurate diagnosis and effective management across the spectrum of knee pathology.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

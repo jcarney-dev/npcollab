@@ -15,6 +15,8 @@ export default function MskFootAnklePage() {
 
       <div className="content-prose">
 
+        <p>Foot and ankle presentations are among the most common musculoskeletal complaints in Australian primary care, ranging from acute sprains and fractures to chronic overuse conditions and inflammatory arthropathies. NPs must be confident applying the Ottawa Ankle Rules to guide imaging decisions, identifying conditions requiring urgent orthopaedic referral, and managing the broad range of soft tissue, bony, and neuropathic foot presentations. Systematic examination combined with knowledge of common clinical syndromes enables accurate diagnosis and effective management.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

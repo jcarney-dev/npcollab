@@ -15,6 +15,8 @@ export default function MskChestPage() {
 
       <div className="content-prose">
 
+        <p>Musculoskeletal chest wall pain is common and frequently misdiagnosed, but it remains a diagnosis of exclusion — life-threatening cardiac and pulmonary causes must be systematically excluded before attributing chest pain to an MSK source. In Australian NP practice, the most common MSK chest wall diagnoses include costochondritis, Tietze syndrome, rib fractures, and intercostal muscle strains, often following cough, trauma, or physical exertion. A structured approach beginning with ECG, vital signs, and targeted history guides safe differentiation of MSK from non-MSK chest pain.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Always Exclude Before Diagnosing MSK Chest Pain</h3>
           <ul>

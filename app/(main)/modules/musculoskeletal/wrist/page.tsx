@@ -15,6 +15,8 @@ export default function MskWristPage() {
 
       <div className="content-prose">
 
+        <p>Wrist and hand pain is a frequent primary care presentation encompassing acute injuries, overuse syndromes, and inflammatory conditions. NPs must be confident in identifying fractures — particularly scaphoid fractures, which may have normal initial X-rays despite significant injury — as well as common conditions including carpal tunnel syndrome, de Quervain tenosynovitis, and trigger finger. Accurate anatomical localisation and knowledge of high-risk injuries ensures safe management and appropriate specialist referral.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

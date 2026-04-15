@@ -15,6 +15,8 @@ export default function MskNeckPage() {
 
       <div className="content-prose">
 
+        <p>Neck pain is among the most common musculoskeletal complaints seen in Australian primary care, affecting up to 50% of adults at some point in their lives. Most presentations are mechanical in origin and self-limiting — however, NPs must systematically exclude serious pathology including cervical myelopathy, vertebral artery dissection, and metastatic disease before initiating conservative management. Careful neurological examination and clear criteria for imaging and specialist referral are essential to safe NP practice.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

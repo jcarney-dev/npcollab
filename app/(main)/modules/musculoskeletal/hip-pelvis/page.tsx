@@ -15,6 +15,8 @@ export default function MskHipPelvisPage() {
 
       <div className="content-prose">
 
+        <p>Hip and pelvis pain encompasses a broad range of pathology — from osteoarthritis and greater trochanteric pain syndrome in older adults to stress fractures and labral tears in younger, active patients. NPs must confidently distinguish mechanical hip pain from referred pain originating in the lumbar spine or from serious pathology including avascular necrosis, occult fracture, and septic arthritis. Accurate anatomical localisation of the pain source and a systematic examination approach guide appropriate investigation and timely specialist referral.</p>
+
         <div className="highlight-box">
           <h3>🚨 Red Flags — Act Immediately</h3>
           <ul>

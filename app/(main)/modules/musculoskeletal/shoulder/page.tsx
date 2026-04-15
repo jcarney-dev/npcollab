@@ -20,7 +20,6 @@ export default function MskShoulderPage() {
       <ModuleTabs moduleId="musculoskeletal/shoulder" />
 
       <div className="content-prose">
-        <h2>Clinical Overview</h2>
         <p>Shoulder pain is one of the most common musculoskeletal presentations in primary care, accounting for approximately 16% of all MSK consultations. The shoulder complex has the greatest range of motion of any joint — this mobility comes at the cost of inherent instability, making it susceptible to a wide range of pathology. Accurate diagnosis guides appropriate management and avoids unnecessary imaging and referral.</p>
 
         <div className="highlight-box">
