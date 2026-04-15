@@ -18,7 +18,9 @@ export async function GET(req: NextRequest) {
       .orderBy(desc(moduleContributors.createdAt));
     return Response.json(rows);
   } catch (error) {
-    return Response.json({ error: 'Database error' }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[contributors GET]', msg);
+    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
   }
 }
 
@@ -30,7 +32,7 @@ export async function POST(req: NextRequest) {
     const { moduleSlug, name, title, credentials, bio, avatarInitials } = body;
 
     if (!moduleSlug || !name || !title || !avatarInitials) {
-      return Response.json({ error: 'Missing required fields' }, { status: 400 });
+      return Response.json({ error: 'Missing required fields: moduleSlug, name, title, avatarInitials are all required.' }, { status: 400 });
     }
 
     const result = await db
@@ -48,6 +50,8 @@ export async function POST(req: NextRequest) {
 
     return Response.json({ contributor: result[0] });
   } catch (error) {
-    return Response.json({ error: 'Database error' }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[contributors POST]', msg);
+    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
   }
 }

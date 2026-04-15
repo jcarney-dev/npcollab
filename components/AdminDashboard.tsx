@@ -2323,8 +2323,12 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
     if (!confirm('Remove this contributor?')) return;
     startTransition(async () => {
       const res = await fetch(`/api/admin/contributors/${id}`, { method: 'DELETE' });
-      if (res.ok) setContributors(prev => prev.filter(c => c.id !== id));
-      else setError('Failed to delete contributor');
+      if (res.ok) {
+        setContributors(prev => prev.filter(c => c.id !== id));
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(`Failed to delete contributor${data.detail ? ': ' + data.detail : ''}`);
+      }
     });
   }
 
@@ -2339,7 +2343,10 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
         const { contributor } = await res.json();
         setContributors(prev => prev.map(c => c.id === id ? contributor : c));
         setEditingId(null);
-      } else setError('Failed to save changes');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(`Failed to save changes${data.detail ? ': ' + data.detail : ''}`);
+      }
     });
   }
 
@@ -2357,7 +2364,10 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
         setContributors(prev => [contributor, ...prev]);
         setAddForm({ moduleSlug: '', name: '', title: '', credentials: '', bio: '', avatarInitials: '' });
         setShowAdd(false);
-      } else setError('Failed to add contributor');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(`Failed to add contributor${data.detail ? ': ' + data.detail : ''}`);
+      }
     });
   }
 
@@ -2609,30 +2619,51 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         </div>
 
         {/* Tab nav */}
-        <div className="admin-tabs">
-          {([
+        {(() => {
+          const TABS = [
             { key: 'registrations', label: '🆕 Registrations',  badge: pendingRegCount },
-            { key: 'requests',  label: 'Access Requests', badge: stats.pending },
-            { key: 'users',     label: 'Users',           badge: 0 },
-            { key: 'sponsors',  label: 'Sponsors',        badge: 0 },
-            { key: 'podcast',   label: '🎙️ Podcast',      badge: 0 },
-            { key: 'jobs',      label: '💼 Job Board',    badge: pendingJobCount },
-            { key: 'courses',   label: '🎓 Courses',       badge: 0 },
-            { key: 'news',         label: '📰 News',          badge: pendingNewsCount },
-            { key: 'contributors', label: '✍️ Contributors',  badge: 0 },
-            { key: 'analytics',    label: 'Analytics',        badge: 0 },
-            { key: 'settings',  label: '⚙️ Settings',     badge: 0 },
-          ] as const).map(tab => (
-            <button
-              key={tab.key}
-              className={`admin-tab${activeTab === tab.key ? ' admin-tab--active' : ''}`}
-              onClick={() => setActiveTab(tab.key)}
-            >
-              {tab.label}
-              {tab.badge > 0 ? <span className="admin-badge" style={{marginLeft:'6px'}}>{tab.badge}</span> : null}
-            </button>
-          ))}
-        </div>
+            { key: 'requests',      label: 'Access Requests',    badge: stats.pending },
+            { key: 'users',         label: 'Users',              badge: 0 },
+            { key: 'sponsors',      label: 'Sponsors',           badge: 0 },
+            { key: 'podcast',       label: '🎙️ Podcast',         badge: 0 },
+            { key: 'jobs',          label: '💼 Job Board',       badge: pendingJobCount },
+            { key: 'courses',       label: '🎓 Courses',          badge: 0 },
+            { key: 'news',          label: '📰 News',             badge: pendingNewsCount },
+            { key: 'contributors',  label: '✍️ Contributors',    badge: 0 },
+            { key: 'analytics',     label: 'Analytics',          badge: 0 },
+            { key: 'settings',      label: '⚙️ Settings',        badge: 0 },
+          ] as const;
+          return (
+            <>
+              {/* Desktop: scrollable tab bar */}
+              <div className="admin-tabs">
+                {TABS.map(tab => (
+                  <button
+                    key={tab.key}
+                    className={`admin-tab${activeTab === tab.key ? ' admin-tab--active' : ''}`}
+                    onClick={() => setActiveTab(tab.key)}
+                  >
+                    {tab.label}
+                    {tab.badge > 0 ? <span className="admin-badge" style={{marginLeft:'6px'}}>{tab.badge}</span> : null}
+                  </button>
+                ))}
+              </div>
+              {/* Mobile: dropdown selector */}
+              <div className="admin-tabs-mobile">
+                <select
+                  value={activeTab}
+                  onChange={e => setActiveTab(e.target.value as typeof activeTab)}
+                >
+                  {TABS.map(tab => (
+                    <option key={tab.key} value={tab.key}>
+                      {tab.label}{tab.badge > 0 ? ` (${tab.badge})` : ''}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </>
+          );
+        })()}
 
         {/* Registrations (users_v2) */}
         {activeTab === 'registrations' && (

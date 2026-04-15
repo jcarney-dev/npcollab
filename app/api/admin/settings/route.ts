@@ -12,39 +12,56 @@ function isAdmin(req: NextRequest): boolean {
 export async function GET(req: NextRequest) {
   if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
-  const rows = await db.select().from(siteSettings);
-  const map: Record<string, string> = {};
-  for (const row of rows) {
-    map[row.key] = row.value;
+  try {
+    const rows = await db.select().from(siteSettings);
+    const map: Record<string, string> = {};
+    for (const row of rows) {
+      map[row.key] = row.value;
+    }
+    return Response.json(map);
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[settings GET]', msg);
+    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
   }
-  return Response.json(map);
 }
 
 // POST — upsert a setting by key
 export async function POST(req: NextRequest) {
   if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
-  const body = await req.json();
-  const { key, value } = body;
+  try {
+    const body = await req.json();
+    const { key, value } = body;
 
-  if (!key?.trim()) {
-    return Response.json({ error: 'Key is required.' }, { status: 400 });
+    if (!key?.trim()) {
+      return Response.json({ error: 'Key is required.' }, { status: 400 });
+    }
+
+    const existing = await db.select().from(siteSettings).where(eq(siteSettings.key, key));
+
+    if (existing.length > 0) {
+      const [updated] = await db
+        .update(siteSettings)
+        .set({ value: value ?? '', updatedAt: new Date() })
+        .where(eq(siteSettings.key, key))
+        .returning();
+      return Response.json(updated);
+    } else {
+      const [created] = await db
+        .insert(siteSettings)
+        .values({ key, value: value ?? '' })
+        .returning();
+      return Response.json(created);
+    }
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[settings POST]', msg);
+    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
   }
+}
 
-  const existing = await db.select().from(siteSettings).where(eq(siteSettings.key, key));
-
-  if (existing.length > 0) {
-    const [updated] = await db
-      .update(siteSettings)
-      .set({ value: value ?? '', updatedAt: new Date() })
-      .where(eq(siteSettings.key, key))
-      .returning();
-    return Response.json(updated);
-  } else {
-    const [created] = await db
-      .insert(siteSettings)
-      .values({ key, value: value ?? '' })
-      .returning();
-    return Response.json(created);
-  }
+// PATCH — alias for POST (upsert)
+export async function PATCH(req: NextRequest) {
+  return POST(req);
 }

@@ -36,7 +36,9 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
     return Response.json({ contributor: result[0] });
   } catch (error) {
-    return Response.json({ error: 'Database error' }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[contributors PATCH]', msg);
+    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
   }
 }
 
@@ -56,6 +58,8 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
 
     return Response.json({ success: true });
   } catch (error) {
-    return Response.json({ error: 'Database error' }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[contributors DELETE]', msg);
+    return Response.json({ error: 'Database error', detail: msg }, { status: 500 });
   }
 }
