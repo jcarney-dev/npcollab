@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Getting Started in Research',
+  title: 'Getting Started in NP Research',
+  description: 'Introduction to clinical research for Australian Nurse Practitioners — evidence-based practice, research literacy, and getting started with NP research.',
+  openGraph: {
+    title: 'Getting Started in NP Research | NPCollab',
+    description: 'Introduction to clinical research for Australian Nurse Practitioners — evidence-based practice, research literacy, and getting started with NP research.',
+    url: 'https://npcollab.com/research/getting-started',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/research/getting-started',
+  },
 };
 
 export default function GettingStartedResearchPage() {

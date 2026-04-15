@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Back Pain Clinical Module',
+  description: 'Australian NP back pain module — low back pain, lumbar radiculopathy, cauda equina, spinal stenosis, and serious spinal pathology. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Back Pain Clinical Module | NPCollab',
+    description: 'Australian NP back pain module — low back pain, lumbar radiculopathy, cauda equina, spinal stenosis, and serious spinal pathology. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/back',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/back',
+  },
+};
 
 export default function MskBackPage() {
   return (

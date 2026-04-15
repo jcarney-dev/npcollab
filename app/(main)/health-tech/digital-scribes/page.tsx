@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Digital Scribes',
+  title: 'AI Digital Scribes',
+  description: 'Ambient AI scribes for Australian NPs — comparison of Heidi Health, Lyrebird Health, Nabla, and other transcription tools for clinical documentation.',
+  openGraph: {
+    title: 'AI Digital Scribes | NPCollab',
+    description: 'Ambient AI scribes for Australian NPs — comparison of Heidi Health, Lyrebird Health, Nabla, and other transcription tools for clinical documentation.',
+    url: 'https://npcollab.com/health-tech/digital-scribes',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/health-tech/digital-scribes',
+  },
 };
 
 export default function DigitalScribesPage() {

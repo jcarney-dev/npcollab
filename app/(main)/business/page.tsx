@@ -2,7 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Starting Your Own Business',
+  title: 'Starting Your Own NP Practice',
+  description: 'Guide to starting an independent Nurse Practitioner practice in Australia — business setup, Medicare billing, insurance, and legal requirements.',
+  openGraph: {
+    title: 'Starting Your Own NP Practice | NPCollab',
+    description: 'Guide to starting an independent Nurse Practitioner practice in Australia — business setup, Medicare billing, insurance, and legal requirements.',
+    url: 'https://npcollab.com/business',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/business',
+  },
 };
 
 export default function BusinessPage() {

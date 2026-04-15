@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'Surgical Clinical Module',
+  description: 'Australian NP surgical module — post-operative care, wound management, surgical emergencies, and when to refer to surgery. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Surgical Clinical Module | NPCollab',
+    description: 'Australian NP surgical module — post-operative care, wound management, surgical emergencies, and when to refer to surgery. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/surgical',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/surgical',
+  },
+};
 
 export default function SurgicalPage() {
   return (

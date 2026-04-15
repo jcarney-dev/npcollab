@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'Palliative Care' };
+export const metadata: Metadata = {
+  title: 'Palliative Care Clinical Module',
+  description: 'Australian NP palliative care module — symptom management, goals of care, advance care planning, and end-of-life prescribing. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Palliative Care Clinical Module | NPCollab',
+    description: 'Australian NP palliative care module — symptom management, goals of care, advance care planning, and end-of-life prescribing. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/palliative-care',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/palliative-care',
+  },
+};
 
 export default function PalliativeCarePage() {
   return (

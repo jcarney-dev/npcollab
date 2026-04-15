@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Elbow Clinical Module',
+  description: 'Australian NP elbow module — lateral and medial epicondylitis, olecranon bursitis, nerve entrapment, and elbow fractures. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Elbow Clinical Module | NPCollab',
+    description: 'Australian NP elbow module — lateral and medial epicondylitis, olecranon bursitis, nerve entrapment, and elbow fractures. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/elbow',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/elbow',
+  },
+};
 
 export default function MskElbowPage() {
   return (

@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'Cardiovascular Clinical Module',
+  description: 'Australian NP cardiovascular module — peripheral vascular disease, venous disease, and cardiovascular risk management. Assessment, SOAP notes, and quiz.',
+  openGraph: {
+    title: 'Cardiovascular Clinical Module | NPCollab',
+    description: 'Australian NP cardiovascular module — peripheral vascular disease, venous disease, and cardiovascular risk management. Assessment, SOAP notes, and quiz.',
+    url: 'https://npcollab.com/modules/cardiovascular',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/cardiovascular',
+  },
+};
 
 export default function CardiovascularPage() {
   return (

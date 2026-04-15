@@ -5,8 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: 'Cardiac | Clinical Modules',
-  description: 'Chest pain differentials, ACS, heart failure, arrhythmias, hypertension, and ECG basics',
+  title: 'Cardiac Clinical Module',
+  description: 'Australian NP cardiac clinical module — chest pain, ACS, heart failure, arrhythmias, hypertension, and ECG basics. Assessment, SOAP notes, resources, and 20-question quiz.',
+  openGraph: {
+    title: 'Cardiac Clinical Module | NPCollab',
+    description: 'Australian NP cardiac clinical module — chest pain, ACS, heart failure, arrhythmias, hypertension, and ECG basics. Assessment, SOAP notes, resources, and 20-question quiz.',
+    url: 'https://npcollab.com/modules/cardiac',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/cardiac',
+  },
 };
 
 export default function CardiacOverviewPage() {

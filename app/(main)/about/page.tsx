@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About NPCollab',
+  description: 'NPCollab was built by Jason Carney, an Australian Nurse Practitioner, to provide free clinical education for NPs across Australia.',
+  openGraph: {
+    title: 'About NPCollab | NPCollab',
+    description: 'NPCollab was built by Jason Carney, an Australian Nurse Practitioner, to provide free clinical education for NPs across Australia.',
+    url: 'https://npcollab.com/about',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/about',
+  },
 };
 
 export default function AboutPage() {

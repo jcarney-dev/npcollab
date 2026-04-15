@@ -2,7 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Billing Medicare',
+  title: 'Billing Medicare as an NP',
+  description: 'Medicare billing guide for Australian Nurse Practitioners — MBS item numbers, bulk billing, enhanced primary care items, and chronic disease management.',
+  openGraph: {
+    title: 'Billing Medicare as an NP | NPCollab',
+    description: 'Medicare billing guide for Australian Nurse Practitioners — MBS item numbers, bulk billing, enhanced primary care items, and chronic disease management.',
+    url: 'https://npcollab.com/clinical-essentials/billing-medicare',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/clinical-essentials/billing-medicare',
+  },
 };
 
 export default function BillingMedicarePage() {

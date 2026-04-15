@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Research Funding',
+  title: 'NP Research Funding',
+  description: 'Research funding opportunities for Australian Nurse Practitioners — grants, fellowships, and funding bodies supporting NP research and CPD.',
+  openGraph: {
+    title: 'NP Research Funding | NPCollab',
+    description: 'Research funding opportunities for Australian Nurse Practitioners — grants, fellowships, and funding bodies supporting NP research and CPD.',
+    url: 'https://npcollab.com/research/funding',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/research/funding',
+  },
 };
 
 export default function ResearchFundingPage() {

@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Hip and Pelvis Clinical Module',
+  description: 'Australian NP hip and pelvis module — osteoarthritis, GTPS, labral tears, stress fractures, and septic arthritis. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Hip and Pelvis Clinical Module | NPCollab',
+    description: 'Australian NP hip and pelvis module — osteoarthritis, GTPS, labral tears, stress fractures, and septic arthritis. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/hip-pelvis',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/hip-pelvis',
+  },
+};
 
 export default function MskHipPelvisPage() {
   return (

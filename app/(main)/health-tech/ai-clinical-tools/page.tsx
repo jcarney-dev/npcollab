@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AI Clinical Tools',
+  title: 'AI Clinical Tools for NPs',
+  description: 'AI tools for Australian Nurse Practitioners — clinical decision support, differential diagnosis, documentation AI, and evidence-based practice tools.',
+  openGraph: {
+    title: 'AI Clinical Tools for NPs | NPCollab',
+    description: 'AI tools for Australian Nurse Practitioners — clinical decision support, differential diagnosis, documentation AI, and evidence-based practice tools.',
+    url: 'https://npcollab.com/health-tech/ai-clinical-tools',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/health-tech/ai-clinical-tools',
+  },
 };
 
 export default function AIClinicalToolsPage() {

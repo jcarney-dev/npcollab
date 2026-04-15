@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'General Medical Clinical Module',
+  description: 'Australian NP general medical module — common acute and chronic presentations in primary care. Assessment frameworks, SOAP notes, resources, and quiz.',
+  openGraph: {
+    title: 'General Medical Clinical Module | NPCollab',
+    description: 'Australian NP general medical module — common acute and chronic presentations in primary care. Assessment frameworks, SOAP notes, resources, and quiz.',
+    url: 'https://npcollab.com/modules/general-medical',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/general-medical',
+  },
+};
 
 export default function GeneralMedicalPage() {
   return (

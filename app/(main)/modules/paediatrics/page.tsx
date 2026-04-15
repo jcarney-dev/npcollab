@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'Paediatrics' };
+export const metadata: Metadata = {
+  title: 'Paediatrics Clinical Module',
+  description: 'Australian NP paediatrics module — assessment of the unwell child, common paediatric presentations, developmental concerns, and emergency recognition. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Paediatrics Clinical Module | NPCollab',
+    description: 'Australian NP paediatrics module — assessment of the unwell child, common paediatric presentations, developmental concerns, and emergency recognition. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/paediatrics',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/paediatrics',
+  },
+};
 
 export default function PaediatricsPage() {
   return (

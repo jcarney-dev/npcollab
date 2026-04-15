@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'Aged Care' };
+export const metadata: Metadata = {
+  title: 'Aged Care Clinical Module',
+  description: 'Australian NP aged care module — frailty, falls, delirium, dementia, polypharmacy, and end-of-life care. Assessment frameworks, SOAP notes, and quiz.',
+  openGraph: {
+    title: 'Aged Care Clinical Module | NPCollab',
+    description: 'Australian NP aged care module — frailty, falls, delirium, dementia, polypharmacy, and end-of-life care. Assessment frameworks, SOAP notes, and quiz.',
+    url: 'https://npcollab.com/modules/aged-care',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/aged-care',
+  },
+};
 
 export default function AgedCarePage() {
   return (

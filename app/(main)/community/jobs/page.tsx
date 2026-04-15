@@ -6,8 +6,16 @@ import { eq, and, gt } from 'drizzle-orm';
 import JobBoardClient from './JobBoardClient';
 
 export const metadata: Metadata = {
-  title: 'Job Board — NPCollab',
-  description: 'Nurse Practitioner and NP-adjacent positions across Australia.',
+  title: 'NP Jobs Australia',
+  description: 'Nurse Practitioner job listings across Australia. Browse current NP positions in primary care, emergency, mental health, aged care, and more.',
+  openGraph: {
+    title: 'NP Jobs Australia | NPCollab',
+    description: 'Nurse Practitioner job listings across Australia. Browse current NP positions in primary care, emergency, mental health, aged care, and more.',
+    url: 'https://npcollab.com/community/jobs',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/community/jobs',
+  },
 };
 
 export const dynamic = 'force-dynamic';

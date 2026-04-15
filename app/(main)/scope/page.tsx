@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Scope of Practice' };
+export const metadata: Metadata = {
+  title: 'NP Scope of Practice',
+  description: 'Understanding Nurse Practitioner scope of practice in Australia — collaborative arrangements, prescribing authority, and NMBA standards.',
+  openGraph: {
+    title: 'NP Scope of Practice | NPCollab',
+    description: 'Understanding Nurse Practitioner scope of practice in Australia — collaborative arrangements, prescribing authority, and NMBA standards.',
+    url: 'https://npcollab.com/scope',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/scope',
+  },
+};
 
 export default function ScopePage() {
   return (

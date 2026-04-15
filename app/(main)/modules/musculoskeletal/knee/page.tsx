@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Knee Clinical Module',
+  description: 'Australian NP knee module — ACL tears, meniscal injuries, patellofemoral syndrome, osteoarthritis, and Ottawa knee rules. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Knee Clinical Module | NPCollab',
+    description: 'Australian NP knee module — ACL tears, meniscal injuries, patellofemoral syndrome, osteoarthritis, and Ottawa knee rules. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/knee',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/knee',
+  },
+};
 
 export default function MskKneePage() {
   return (

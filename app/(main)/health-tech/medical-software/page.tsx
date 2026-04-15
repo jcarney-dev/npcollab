@@ -2,7 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Medical Software',
+  title: 'Medical Software for NPs',
+  description: 'EMR and practice management software for Australian Nurse Practitioners — Best Practice, MedicalDirector, Clinic to Cloud, and NP-specific tools.',
+  openGraph: {
+    title: 'Medical Software for NPs | NPCollab',
+    description: 'EMR and practice management software for Australian Nurse Practitioners — Best Practice, MedicalDirector, Clinic to Cloud, and NP-specific tools.',
+    url: 'https://npcollab.com/health-tech/medical-software',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/health-tech/medical-software',
+  },
 };
 
 export default function MedicalSoftwarePage() {

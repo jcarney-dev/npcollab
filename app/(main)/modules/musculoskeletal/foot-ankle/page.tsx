@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Foot and Ankle Clinical Module',
+  description: 'Australian NP foot and ankle module — ankle sprains, Ottawa rules, plantar fasciitis, Achilles tendinopathy, and fractures. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Foot and Ankle Clinical Module | NPCollab',
+    description: 'Australian NP foot and ankle module — ankle sprains, Ottawa rules, plantar fasciitis, Achilles tendinopathy, and fractures. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/foot-ankle',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/foot-ankle',
+  },
+};
 
 export default function MskFootAnklePage() {
   return (

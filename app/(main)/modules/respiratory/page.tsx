@@ -5,7 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: 'Respiratory',
+  title: 'Respiratory Clinical Module',
+  description: 'Australian NP respiratory module — asthma, COPD, pneumonia, pleural disease, and dyspnoea assessment. Evidence-based management, SOAP notes, and quiz.',
+  openGraph: {
+    title: 'Respiratory Clinical Module | NPCollab',
+    description: 'Australian NP respiratory module — asthma, COPD, pneumonia, pleural disease, and dyspnoea assessment. Evidence-based management, SOAP notes, and quiz.',
+    url: 'https://npcollab.com/modules/respiratory',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/respiratory',
+  },
 };
 
 export default function RespiratoryPage() {

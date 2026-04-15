@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Radiology & Pathology',
+  title: 'Radiology and Pathology Ordering',
+  description: 'Guide to ordering radiology and pathology as an Australian Nurse Practitioner — MBS eligibility, Medicare requirements, and clinical indications.',
+  openGraph: {
+    title: 'Radiology and Pathology Ordering | NPCollab',
+    description: 'Guide to ordering radiology and pathology as an Australian Nurse Practitioner — MBS eligibility, Medicare requirements, and clinical indications.',
+    url: 'https://npcollab.com/clinical-essentials/radiology-pathology',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/clinical-essentials/radiology-pathology',
+  },
 };
 
 export default function RadiologyPathologyPage() {

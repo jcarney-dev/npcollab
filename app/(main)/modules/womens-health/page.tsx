@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: "Women's Health" };
+export const metadata: Metadata = {
+  title: 'Women\'s Health Clinical Module',
+  description: 'Australian NP women\'s health module — contraception, menopause, cervical screening, pregnancy complications, and gynaecological presentations. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Women\'s Health Clinical Module | NPCollab',
+    description: 'Australian NP women\'s health module — contraception, menopause, cervical screening, pregnancy complications, and gynaecological presentations. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/womens-health',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/womens-health',
+  },
+};
 
 export default function WomensHealthPage() {
   return (

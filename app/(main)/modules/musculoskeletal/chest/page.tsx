@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Chest Wall Clinical Module',
+  description: 'Australian NP chest wall pain module — costochondritis, rib fractures, Tietze syndrome, and exclusion of cardiac and pulmonary causes. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Chest Wall Clinical Module | NPCollab',
+    description: 'Australian NP chest wall pain module — costochondritis, rib fractures, Tietze syndrome, and exclusion of cardiac and pulmonary causes. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/chest',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/chest',
+  },
+};
 
 export default function MskChestPage() {
   return (

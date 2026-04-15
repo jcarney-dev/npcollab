@@ -5,8 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: 'Endocrine | Clinical Modules',
-  description: 'Diabetes, thyroid disease, adrenal disorders, and metabolic conditions for Australian Nurse Practitioners',
+  title: 'Endocrine Clinical Module',
+  description: 'Australian NP endocrine module — diabetes management, thyroid disease, adrenal disorders, and metabolic conditions. Assessment, SOAP notes, and quiz.',
+  openGraph: {
+    title: 'Endocrine Clinical Module | NPCollab',
+    description: 'Australian NP endocrine module — diabetes management, thyroid disease, adrenal disorders, and metabolic conditions. Assessment, SOAP notes, and quiz.',
+    url: 'https://npcollab.com/modules/endocrine',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/endocrine',
+  },
 };
 
 export default function EndocrinePage() {

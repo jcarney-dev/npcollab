@@ -5,8 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: 'MSK — Shoulder | Clinical Modules',
-  description: 'Shoulder pain assessment, rotator cuff disease, impingement, AC joint injuries, and instability for Australian Nurse Practitioners',
+  title: 'MSK — Shoulder Clinical Module',
+  description: 'Australian NP shoulder module — rotator cuff disease, impingement, frozen shoulder, AC joint injuries, and shoulder instability. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Shoulder Clinical Module | NPCollab',
+    description: 'Australian NP shoulder module — rotator cuff disease, impingement, frozen shoulder, AC joint injuries, and shoulder instability. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/shoulder',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/shoulder',
+  },
 };
 
 export default function MskShoulderPage() {

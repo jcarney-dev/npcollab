@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'GU & Nephrology' };
+export const metadata: Metadata = {
+  title: 'GU and Nephrology Clinical Module',
+  description: 'Australian NP genitourinary and nephrology module — UTI, CKD, haematuria, renal colic, and sexually transmitted infections. SOAP notes and quiz.',
+  openGraph: {
+    title: 'GU and Nephrology Clinical Module | NPCollab',
+    description: 'Australian NP genitourinary and nephrology module — UTI, CKD, haematuria, renal colic, and sexually transmitted infections. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/gu-nephrology',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/gu-nephrology',
+  },
+};
 
 export default function GuNephrologyPage() {
   return (

@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'Toxicology Clinical Module',
+  description: 'Australian NP toxicology module — overdose management, toxic ingestions, envenomation, and poison centre guidance. Assessment, SOAP notes, and quiz.',
+  openGraph: {
+    title: 'Toxicology Clinical Module | NPCollab',
+    description: 'Australian NP toxicology module — overdose management, toxic ingestions, envenomation, and poison centre guidance. Assessment, SOAP notes, and quiz.',
+    url: 'https://npcollab.com/modules/toxicology',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/toxicology',
+  },
+};
 
 export default function ToxicologyPage() {
   return (

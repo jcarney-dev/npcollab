@@ -1,7 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = { title: 'Musculoskeletal' };
+export const metadata: Metadata = {
+  title: 'Musculoskeletal Clinical Modules',
+  description: 'Australian NP musculoskeletal modules — back, neck, shoulder, knee, hip, elbow, wrist, foot, and chest wall. Assessment, SOAP notes, and quizzes.',
+  openGraph: {
+    title: 'Musculoskeletal Clinical Modules | NPCollab',
+    description: 'Australian NP musculoskeletal modules — back, neck, shoulder, knee, hip, elbow, wrist, foot, and chest wall. Assessment, SOAP notes, and quizzes.',
+    url: 'https://npcollab.com/modules/musculoskeletal',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal',
+  },
+};
 
 export default function MusculoskeletalPage() {
   const subPages = [

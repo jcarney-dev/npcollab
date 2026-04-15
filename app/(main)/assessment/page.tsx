@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Patient Assessment' };
+export const metadata: Metadata = {
+  title: 'Patient Assessment Frameworks',
+  description: 'Clinical assessment frameworks for Australian Nurse Practitioners — OLDCARTS, systematic history-taking, and examination approaches.',
+  openGraph: {
+    title: 'Patient Assessment Frameworks | NPCollab',
+    description: 'Clinical assessment frameworks for Australian Nurse Practitioners — OLDCARTS, systematic history-taking, and examination approaches.',
+    url: 'https://npcollab.com/assessment',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/assessment',
+  },
+};
 
 export default function AssessmentPage() {
   return (

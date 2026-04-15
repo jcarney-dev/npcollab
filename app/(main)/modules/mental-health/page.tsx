@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'Mental Health' };
+export const metadata: Metadata = {
+  title: 'Mental Health Clinical Module',
+  description: 'Australian NP mental health module — depression, anxiety, psychosis, suicide risk assessment, and mental health prescribing. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Mental Health Clinical Module | NPCollab',
+    description: 'Australian NP mental health module — depression, anxiety, psychosis, suicide risk assessment, and mental health prescribing. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/mental-health',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/mental-health',
+  },
+};
 
 export default function MentalHealthPage() {
   return (

@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'Maxillofacial and Dental Clinical Module',
+  description: 'Australian NP maxillofacial and dental module — dental pain, oral infections, facial trauma, and dental emergencies in primary care. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Maxillofacial and Dental Clinical Module | NPCollab',
+    description: 'Australian NP maxillofacial and dental module — dental pain, oral infections, facial trauma, and dental emergencies in primary care. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/maxillofacial-dental',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/maxillofacial-dental',
+  },
+};
 
 export default function MaxillofacialDentalPage() {
   return (

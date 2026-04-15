@@ -7,8 +7,16 @@ import { getSession } from '@/lib/session';
 import NewsClient from './NewsClient';
 
 export const metadata: Metadata = {
-  title: 'News — NPCollab',
-  description: 'Updates, policy changes, and announcements relevant to Australian Nurse Practitioners.',
+  title: 'NP News Australia',
+  description: 'Latest news and updates for Australian Nurse Practitioners — AHPRA, NMBA, policy changes, and NP sector developments.',
+  openGraph: {
+    title: 'NP News Australia | NPCollab',
+    description: 'Latest news and updates for Australian Nurse Practitioners — AHPRA, NMBA, policy changes, and NP sector developments.',
+    url: 'https://npcollab.com/community/news',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/community/news',
+  },
 };
 
 export const dynamic = 'force-dynamic';

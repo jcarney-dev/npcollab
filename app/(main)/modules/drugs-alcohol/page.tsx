@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'Alcohol and Other Drugs Clinical Module',
+  description: 'Australian NP drugs and alcohol module — alcohol use disorder, substance dependence, brief intervention, and harm reduction. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Alcohol and Other Drugs Clinical Module | NPCollab',
+    description: 'Australian NP drugs and alcohol module — alcohol use disorder, substance dependence, brief intervention, and harm reduction. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/drugs-alcohol',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/drugs-alcohol',
+  },
+};
 
 export default function DrugsAlcoholPage() {
   return (

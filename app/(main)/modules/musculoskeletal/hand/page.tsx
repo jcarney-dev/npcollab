@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'MSK — Hand' };
+export const metadata: Metadata = {
+  title: 'MSK — Hand and Wrist Clinical Module',
+  description: 'Australian NP hand module — scaphoid fractures, carpal tunnel syndrome, trigger finger, and hand injuries. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Hand and Wrist Clinical Module | NPCollab',
+    description: 'Australian NP hand module — scaphoid fractures, carpal tunnel syndrome, trigger finger, and hand injuries. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/hand',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/hand',
+  },
+};
 
 export default function MskhandPage() {
   return (

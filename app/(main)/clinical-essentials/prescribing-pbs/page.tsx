@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Prescribing & the PBS',
+  title: 'Prescribing and PBS',
+  description: 'NP prescribing guide for Australia — PBS access, Schedule 4 and 8 medications, collaborative arrangements, and prescribing authority.',
+  openGraph: {
+    title: 'Prescribing and PBS | NPCollab',
+    description: 'NP prescribing guide for Australia — PBS access, Schedule 4 and 8 medications, collaborative arrangements, and prescribing authority.',
+    url: 'https://npcollab.com/clinical-essentials/prescribing-pbs',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/clinical-essentials/prescribing-pbs',
+  },
 };
 
 export default function PrescribingPBSPage() {

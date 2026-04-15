@@ -1,7 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = { title: 'Introduction' };
+export const metadata: Metadata = {
+  title: 'Introduction to NP Practice',
+  description: 'Getting started as an Australian Nurse Practitioner — understanding your scope, endorsement pathways, and first steps in NP practice.',
+  openGraph: {
+    title: 'Introduction to NP Practice | NPCollab',
+    description: 'Getting started as an Australian Nurse Practitioner — understanding your scope, endorsement pathways, and first steps in NP practice.',
+    url: 'https://npcollab.com/intro',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/intro',
+  },
+};
 
 export default function IntroPage() {
   return (

@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Research Networks',
+  title: 'NP Research Networks',
+  description: 'Australian Nurse Practitioner research networks, professional associations, and communities supporting NP research and practice development.',
+  openGraph: {
+    title: 'NP Research Networks | NPCollab',
+    description: 'Australian Nurse Practitioner research networks, professional associations, and communities supporting NP research and practice development.',
+    url: 'https://npcollab.com/research/networks',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/research/networks',
+  },
 };
 
 export default function ResearchNetworksPage() {

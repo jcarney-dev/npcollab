@@ -3,7 +3,18 @@ import Link from 'next/link';
 import { getActiveSponsor, isAdPreviewMode } from '@/lib/sponsors';
 import { HomepageSponsorCard } from '@/components/SponsorCard';
 
-export const metadata: Metadata = { title: 'Home' };
+export const metadata: Metadata = {
+  title: 'Free Clinical Education for Australian Nurse Practitioners',
+  description: 'Free clinical modules, CPD resources, job board, and community for Australian Nurse Practitioners, Transitional NPs, and NP candidates.',
+  openGraph: {
+    title: 'Free Clinical Education for Australian Nurse Practitioners | NPCollab',
+    description: 'Free clinical modules, CPD resources, job board, and community for Australian Nurse Practitioners, Transitional NPs, and NP candidates.',
+    url: 'https://npcollab.com/',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/',
+  },
+};
 
 // Force dynamic so ad preview mode is read from DB on every request
 export const dynamic = 'force-dynamic';
@@ -20,8 +31,59 @@ export default async function HomePage() {
     // Fail silently at build time
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['Organization', 'EducationalOrganization'],
+        '@id': 'https://npcollab.com/#organization',
+        name: 'NPCollab',
+        url: 'https://npcollab.com',
+        description:
+          'NPCollab is a free clinical education platform for Australian Nurse Practitioners, Transitional NPs, and NP candidates. Clinical modules, CPD resources, job board, and community — built by NPs, for NPs.',
+        founder: {
+          '@type': 'Person',
+          name: 'Jason Carney',
+          jobTitle: 'Nurse Practitioner',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Newcastle',
+            addressRegion: 'NSW',
+            addressCountry: 'AU',
+          },
+        },
+        areaServed: {
+          '@type': 'Country',
+          name: 'Australia',
+        },
+        audience: {
+          '@type': 'Audience',
+          audienceType: 'Nurse Practitioners, Transitional Nurse Practitioners, NP candidates',
+        },
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://npcollab.com/og-image.png',
+          width: 1200,
+          height: 630,
+        },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://npcollab.com/#website',
+        url: 'https://npcollab.com',
+        name: 'NPCollab',
+        publisher: { '@id': 'https://npcollab.com/#organization' },
+        inLanguage: 'en-AU',
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="hero">
         <div className="label">🩺 Australian Nurse Practitioner Hub</div>
         <h1>Clinical knowledge,<br /><em>built by NPs</em><br />for NPs.</h1>

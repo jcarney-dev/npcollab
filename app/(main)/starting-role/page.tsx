@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Starting Your Role' };
+export const metadata: Metadata = {
+  title: 'Starting Your NP Role',
+  description: 'TNP vs NP explained, the AHPRA endorsement pathway, finding a mentor, job tips, and practical first steps in your NP role.',
+  openGraph: {
+    title: 'Starting Your NP Role | NPCollab',
+    description: 'TNP vs NP explained, the AHPRA endorsement pathway, finding a mentor, job tips, and practical first steps in your NP role.',
+    url: 'https://npcollab.com/starting-role',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/starting-role',
+  },
+};
 
 export default function StartingRolePage() {
   return (

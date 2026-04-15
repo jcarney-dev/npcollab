@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'Integumentary (Dermatology)' };
+export const metadata: Metadata = {
+  title: 'Integumentary Clinical Module',
+  description: 'Australian NP integumentary module — skin conditions, dermatology assessment, wound management, and skin cancer recognition. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Integumentary Clinical Module | NPCollab',
+    description: 'Australian NP integumentary module — skin conditions, dermatology assessment, wound management, and skin cancer recognition. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/integumentary',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/integumentary',
+  },
+};
 
 export default function IntegumentaryPage() {
   return (

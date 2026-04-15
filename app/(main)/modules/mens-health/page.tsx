@@ -5,8 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: "Men's Health | Clinical Modules",
-  description: "Men's health for Nurse Practitioners — erectile dysfunction, testosterone deficiency, BPH, prostate cancer screening, male mental health, STIs, and cardiovascular risk",
+  title: 'Men\'s Health Clinical Module',
+  description: 'Australian NP men\'s health module — prostate disease, erectile dysfunction, testosterone, mental health in men, and preventive care. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Men\'s Health Clinical Module | NPCollab',
+    description: 'Australian NP men\'s health module — prostate disease, erectile dysfunction, testosterone, mental health in men, and preventive care. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/mens-health',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/mens-health',
+  },
 };
 
 export default function MensHealthOverviewPage() {

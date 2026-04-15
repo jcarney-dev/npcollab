@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'GI & Hepatobiliary' };
+export const metadata: Metadata = {
+  title: 'GI and Hepatobiliary Clinical Module',
+  description: 'Australian NP gastrointestinal and hepatobiliary module — abdominal pain, liver disease, IBD, and GI emergencies. SOAP notes, resources, and quiz.',
+  openGraph: {
+    title: 'GI and Hepatobiliary Clinical Module | NPCollab',
+    description: 'Australian NP gastrointestinal and hepatobiliary module — abdominal pain, liver disease, IBD, and GI emergencies. SOAP notes, resources, and quiz.',
+    url: 'https://npcollab.com/modules/gi-hepatobiliary',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/gi-hepatobiliary',
+  },
+};
 
 export default function GiHepatobiliaryPage() {
   return (

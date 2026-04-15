@@ -5,7 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: 'ENT (Ears, Nose & Throat)',
+  title: 'ENT Clinical Module',
+  description: 'Australian NP ENT clinical module — ear, nose, and throat presentations including otitis media, sinusitis, pharyngitis, and referral criteria. SOAP notes, resources, and quiz.',
+  openGraph: {
+    title: 'ENT Clinical Module | NPCollab',
+    description: 'Australian NP ENT clinical module — ear, nose, and throat presentations including otitis media, sinusitis, pharyngitis, and referral criteria. SOAP notes, resources, and quiz.',
+    url: 'https://npcollab.com/modules/ent',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/ent',
+  },
 };
 
 export default function ENTPage() {

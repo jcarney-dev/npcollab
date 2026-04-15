@@ -2,12 +2,68 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 
+const SITE_URL = 'https://npcollab.com';
+const SITE_NAME = 'NPCollab';
+const DEFAULT_DESCRIPTION =
+  'NPCollab is a free clinical education platform for Australian Nurse Practitioners, Transitional NPs, and NP candidates. Clinical modules, CPD resources, job board, and community — built by NPs, for NPs.';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    template: '%s — NPCollab',
-    default: 'NPCollab — Australian Nurse Practitioner Resources',
+    template: `%s | ${SITE_NAME} — Australian NP Education`,
+    default: `${SITE_NAME} — Free Clinical Education for Australian Nurse Practitioners`,
   },
-  description: 'NPCollab - A free collaborative clinical learning resource for Australian Nurse Practitioners and NP students.',
+  description: DEFAULT_DESCRIPTION,
+  keywords: [
+    'Australian nurse practitioner education',
+    'nurse practitioner resources Australia',
+    'transitional nurse practitioner',
+    'nurse practitioner candidate Australia',
+    'NP clinical modules Australia',
+    'Australian NP CPD',
+    'AHPRA nurse practitioner',
+    'NP endorsement Australia',
+    'nurse practitioner scope of practice',
+  ],
+  authors: [{ name: 'Jason Carney', url: SITE_URL }],
+  creator: 'Jason Carney',
+  publisher: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Free Clinical Education for Australian Nurse Practitioners`,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'NPCollab — Australian NP Education',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_NAME} — Free Clinical Education for Australian Nurse Practitioners`,
+    description: DEFAULT_DESCRIPTION,
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

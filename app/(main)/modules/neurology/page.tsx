@@ -3,7 +3,18 @@ import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
-export const metadata: Metadata = { title: 'Neurology' };
+export const metadata: Metadata = {
+  title: 'Neurology Clinical Module',
+  description: 'Australian NP neurology module — headache, stroke, seizure, peripheral neuropathy, and neurological emergencies. Assessment, SOAP notes, and quiz.',
+  openGraph: {
+    title: 'Neurology Clinical Module | NPCollab',
+    description: 'Australian NP neurology module — headache, stroke, seizure, peripheral neuropathy, and neurological emergencies. Assessment, SOAP notes, and quiz.',
+    url: 'https://npcollab.com/modules/neurology',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/neurology',
+  },
+};
 
 export default function NeurologyPage() {
   return (

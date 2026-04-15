@@ -5,7 +5,7 @@ export default function JobPostSuccessPage() {
     <div className="content-prose">
       <div className="public-success">
         <div className="public-success-icon">✓</div>
-        <h2>Payment received</h2>
+        <h1>Payment received</h1>
         <p>
           Thank you — your payment of $99 AUD has been received. Your job listing will be reviewed and published within 1 business day. You&rsquo;ll receive a confirmation email once it&rsquo;s live.
         </p>

@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Neck Pain Clinical Module',
+  description: 'Australian NP neck pain module — mechanical neck pain, cervical radiculopathy, myelopathy, and serious cervical pathology. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Neck Pain Clinical Module | NPCollab',
+    description: 'Australian NP neck pain module — mechanical neck pain, cervical radiculopathy, myelopathy, and serious cervical pathology. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/neck',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/neck',
+  },
+};
 
 export default function MskNeckPage() {
   return (

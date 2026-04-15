@@ -1,6 +1,20 @@
+import type { Metadata } from 'next';
 import ModuleTabs from '@/components/ModuleTabs';
 import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
+
+export const metadata: Metadata = {
+  title: 'MSK — Wrist and Hand Clinical Module',
+  description: 'Australian NP wrist module — scaphoid fractures, carpal tunnel syndrome, de Quervain tenosynovitis, and wrist sprains. SOAP notes and quiz.',
+  openGraph: {
+    title: 'MSK — Wrist and Hand Clinical Module | NPCollab',
+    description: 'Australian NP wrist module — scaphoid fractures, carpal tunnel syndrome, de Quervain tenosynovitis, and wrist sprains. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/musculoskeletal/wrist',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/musculoskeletal/wrist',
+  },
+};
 
 export default function MskWristPage() {
   return (

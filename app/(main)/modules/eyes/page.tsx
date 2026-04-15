@@ -5,7 +5,16 @@ import ModuleNav from '@/components/ModuleNav';
 import ModuleSponsorSlot from '@/components/ModuleSponsorSlot';
 
 export const metadata: Metadata = {
-  title: 'Ophthalmology',
+  title: 'Ophthalmology Clinical Module',
+  description: 'Australian NP ophthalmology module — acute and chronic eye presentations, red eye differentials, visual disturbance, and urgent referral criteria. SOAP notes and quiz.',
+  openGraph: {
+    title: 'Ophthalmology Clinical Module | NPCollab',
+    description: 'Australian NP ophthalmology module — acute and chronic eye presentations, red eye differentials, visual disturbance, and urgent referral criteria. SOAP notes and quiz.',
+    url: 'https://npcollab.com/modules/eyes',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/modules/eyes',
+  },
 };
 
 export default function EyesPage() {

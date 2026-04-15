@@ -1,7 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata: Metadata = { title: 'NP Metaspecialties' };
+export const metadata: Metadata = {
+  title: 'NP Metaspecialties',
+  description: 'Overview of all Nurse Practitioner practice areas in Australia — from primary care to mental health, aged care, emergency, and beyond.',
+  openGraph: {
+    title: 'NP Metaspecialties | NPCollab',
+    description: 'Overview of all Nurse Practitioner practice areas in Australia — from primary care to mental health, aged care, emergency, and beyond.',
+    url: 'https://npcollab.com/metaspecialties',
+  },
+  alternates: {
+    canonical: 'https://npcollab.com/metaspecialties',
+  },
+};
 
 export default function MetaspecialtiesPage() {
   return (

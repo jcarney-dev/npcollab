@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { db } from '@/lib/db';
 import { courses } from '@/lib/schema';
 import { eq, gte, and } from 'drizzle-orm';
