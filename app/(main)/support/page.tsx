@@ -14,7 +14,7 @@ export default function SupportPage() {
   return (
     <>
       <div className="page-header">
-        <div className="label">Community</div>
+        <div className="label">Site</div>
         <h1>Support NPCollab</h1>
         <p>NPCollab is free to access and will always remain so. Help us keep it running.</p>
       </div>

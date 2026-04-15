@@ -1395,13 +1395,95 @@ a:hover { color: var(--gold-light); }
   .admin-section { padding: 20px; }
 }
 
+@media (max-width: 768px) {
+  /* Body */
+  .admin-body { padding: 12px; }
+  .admin-section { padding: 16px; margin-bottom: 16px; }
+  .admin-header-inner { padding: 0 16px; }
+
+  /* Stats: single column on mobile */
+  .admin-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  .admin-stat { padding: 14px 16px; }
+  .admin-stat-value { font-size: 24px; }
+
+  /* Tables: ensure horizontal scroll */
+  .admin-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+  .admin-table { min-width: 600px; }
+
+  /* Request cards: stack on mobile */
+  .admin-request-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .admin-request-actions {
+    flex-direction: row;
+    width: 100%;
+  }
+  .btn-approve, .btn-deny {
+    flex: 1;
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+
+  /* Form inputs: full width, touch-friendly */
+  .form-input {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 44px;
+    font-size: 16px; /* prevents iOS zoom */
+  }
+
+  /* Analytics iframe */
+  .admin-analytics-iframe-wrap {
+    border-radius: 0;
+    margin: 0 -16px;
+  }
+  .admin-analytics-iframe { min-height: 500px; }
+
+  /* Action button rows: wrap on mobile */
+  .admin-action-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .admin-action-row button {
+    min-height: 36px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stats: 1 column on very small screens */
+  .admin-stats { grid-template-columns: repeat(2, 1fr); }
+  .admin-stat-value { font-size: 22px; }
+
+  /* Section title wraps */
+  .admin-section-title { flex-wrap: wrap; font-size: 16px; }
+
+  /* Buttons: minimum touch target */
+  .btn-approve, .btn-deny, .btn-disable, .btn-enable, .admin-copy-btn {
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+}
+
 /* ─── Admin Tabs ─────────────────────────────────────────── */
 .admin-tabs {
   display: flex;
   gap: 4px;
   border-bottom: 2px solid var(--border);
   margin-bottom: 28px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.admin-tabs::-webkit-scrollbar { display: none; }
 .admin-tab {
   padding: 10px 18px;
   font-size: 14px;
@@ -1413,12 +1495,23 @@ a:hover { color: var(--gold-light); }
   margin-bottom: -2px;
   cursor: pointer;
   transition: color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .admin-tab:hover { color: var(--text); }
 .admin-tab--active {
   color: var(--navy);
   font-weight: 600;
   border-bottom-color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .admin-tabs {
+    margin: 0 -12px 20px;
+    padding: 0 12px;
+    border-bottom-width: 1px;
+  }
+  .admin-tab { padding: 10px 14px; font-size: 13px; }
 }
 
 /* ─── Sidebar Sponsor Card ───────────────────────────────── */

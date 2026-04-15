@@ -2234,16 +2234,40 @@ function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
     return (
       <section className="admin-section">
         <h2 className="admin-section-title">📊 Analytics</h2>
-        <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>
-          Live Umami analytics dashboard. Use the Umami interface to filter by date, page, and device.
-        </p>
-        <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
+          <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>
+            Live Umami analytics dashboard. Use the Umami interface to filter by date, page, and device.
+          </p>
+          <a
+            href={umamiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'var(--gold)',
+              color: 'var(--navy)',
+              fontWeight: 600,
+              fontSize: '13px',
+              padding: '8px 16px',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              flexShrink: 0,
+              minHeight: '36px',
+            }}
+          >
+            Open Analytics Dashboard ↗
+          </a>
+        </div>
+        <div className="admin-analytics-iframe-wrap" style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
           <iframe
             src={umamiUrl}
             width="100%"
             height="800"
             frameBorder="0"
-            style={{ display: 'block' }}
+            className="admin-analytics-iframe"
+            style={{ display: 'block', minHeight: '500px' }}
             title="Umami Analytics Dashboard"
           />
         </div>
@@ -2253,17 +2277,25 @@ function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
   return (
     <section className="admin-section">
       <h2 className="admin-section-title">📊 Analytics</h2>
-      <div style={{ padding: '40px 32px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', textAlign: 'center' }}>
-        <p style={{ fontSize: '32px', marginBottom: '12px' }}>📊</p>
-        <h3 style={{ color: 'var(--navy)', marginBottom: '8px', fontFamily: 'var(--font-body)', fontWeight: 600 }}>Analytics powered by Umami</h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '480px', margin: '0 auto 16px', lineHeight: 1.6 }}>
-          Paste your Umami dashboard URL in Settings to enable analytics here.
+      <div style={{ padding: '48px 32px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', textAlign: 'center' }}>
+        <p style={{ fontSize: '40px', marginBottom: '16px', lineHeight: 1 }}>📊</p>
+        <h3 style={{ color: 'var(--navy)', marginBottom: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '17px' }}>Analytics powered by Umami</h3>
+        <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '480px', margin: '0 auto 20px', lineHeight: 1.6 }}>
+          Paste your Umami dashboard URL in Settings to enable the analytics dashboard here. The iframe will load automatically.
         </p>
         <a
           href="https://umami.is"
           target="_blank"
           rel="noopener"
-          style={{ fontSize: '13px', color: 'var(--gold)', textDecoration: 'underline' }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            fontSize: '13px',
+            color: 'var(--gold)',
+            textDecoration: 'underline',
+            fontWeight: 500,
+          }}
         >
           Learn about Umami →
         </a>

@@ -119,7 +119,7 @@ export default function AIClinicalToolsPage() {
       </div>
 
       <div className="info-box">
-        <p>🚀 <strong>This space is moving fast.</strong> The AI tools available to clinicians in 2025 look very different to those available in 2023. Staying informed about new tools, their evidence base, and regulatory developments is increasingly part of professional practice for Australian NPs.</p>
+        <p>🚀 <strong>This space is moving fast.</strong> The AI tools available to clinicians in 2026 look very different to those available in 2024. Staying informed about new tools, their evidence base, and regulatory developments is increasingly part of professional practice for Australian NPs.</p>
       </div>
 
     </div>

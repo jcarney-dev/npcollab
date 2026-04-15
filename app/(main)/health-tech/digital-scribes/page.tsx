@@ -24,7 +24,7 @@ export default function DigitalScribesPage() {
         <p>For NPs who spend significant time on documentation, AI scribes represent one of the most meaningful productivity improvements currently available. Less time on notes means more time with patients, less moral injury from administrative burden, and a better work-life balance. The technology has matured considerably since 2022 — it is worth trying.</p>
       </div>
 
-      <h2>Leading AI Scribe Tools (2025)</h2>
+      <h2>Leading AI Scribe Tools (2026)</h2>
 
       <div className="assessment-card" style={{ marginBottom: '20px' }}>
         <div className="card-header"><div className="icon-circle">🎙️</div><h4>Heidi Health</h4></div>
