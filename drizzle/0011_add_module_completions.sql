@@ -18,4 +18,4 @@ CREATE INDEX IF NOT EXISTS "module_completions_user_id_idx"
 
 -- Index for deduplication checks (user + slug)
 CREATE INDEX IF NOT EXISTS "module_completions_user_slug_idx"
-  ON "module_completions"("user_i
+  ON "module_completions"("user_id", "module_slug");
