@@ -1018,8 +1018,8 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
               <thead><tr><th>Job title</th><th>Employer</th><th>Location</th><th>Specialty</th><th>Imported</th><th></th></tr></thead>
               <tbody>
                 {importedDraft.map(l => (
-                  <>
-                    <tr key={l.id}>
+                  <React.Fragment key={l.id}>
+                    <tr>
                       <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
                       <td>{l.employerName}</td>
                       <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
@@ -1032,7 +1032,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                       </td>
                     </tr>
                     {editingId === l.id && <EditRow key={`${l.id}-edit`} colSpan={6} />}
-                  </>
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>
@@ -1051,8 +1051,8 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
               </thead>
               <tbody>
                 {liveListings.map(l => (
-                  <>
-                    <tr key={l.id}>
+                  <React.Fragment key={l.id}>
+                    <tr>
                       <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
                       <td>{l.employerName}</td>
                       <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
@@ -1069,7 +1069,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                       </td>
                     </tr>
                     {editingId === l.id && <EditRow key={`${l.id}-edit`} colSpan={9} />}
-                  </>
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>
@@ -1088,8 +1088,8 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
               </thead>
               <tbody>
                 {expiredListings.map(l => (
-                  <>
-                    <tr key={l.id}>
+                  <React.Fragment key={l.id}>
+                    <tr>
                       <td style={{ fontWeight: 500 }}>{l.jobTitle}</td>
                       <td>{l.employerName}</td>
                       <td style={{ color: 'var(--text-muted)' }}>{l.location}</td>
@@ -1103,7 +1103,7 @@ function JobBoardSection({ initial }: { initial: JobListing[] }) {
                       </td>
                     </tr>
                     {editingId === l.id && <EditRow key={`${l.id}-edit`} colSpan={7} />}
-                  </>
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>
@@ -1312,8 +1312,8 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
             </thead>
             <tbody>
               {items.map(item => (
-                <>
-                  <tr key={item.id}>
+                <React.Fragment key={item.id}>
+                  <tr>
                     <td style={{ fontWeight: 500 }}>{item.title}</td>
                     <td style={{ textTransform: 'capitalize' }}>{item.type}</td>
                     <td style={{ color: 'var(--text-muted)' }}>{item.sourceName || '—'}</td>
@@ -1329,7 +1329,7 @@ function NewsSection({ initial }: { initial: NewsItem[] }) {
                       <NewsFormComponent form={form} setForm={setForm} saving={saving} isNew={false} onSave={() => save(false)} onCancel={cancel} />
                     </td></tr>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>
@@ -1548,8 +1548,8 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
             </thead>
             <tbody>
               {filtered.map(u => (
-                <>
-                  <tr key={u.id} style={{ background: expandedId === u.id ? 'var(--off-white)' : '#fff' }}>
+                <React.Fragment key={u.id}>
+                  <tr style={{ background: expandedId === u.id ? 'var(--off-white)' : '#fff' }}>
                     <td style={tdStyle}>
                       <span style={{ fontWeight: 600 }}>{u.name}</span>
                       {u.role === 'admin' && (
@@ -1686,7 +1686,7 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
                       </td>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>
