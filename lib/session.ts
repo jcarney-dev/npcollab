@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
+import type { NextRequest } from 'next/server';
 
 const SESSION_COOKIE = 'npcollab_session';
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7; // 7 days in seconds
@@ -54,3 +55,20 @@ export function sessionCookieOptions(token: string) {
 }
 
 export const SESSION_COOKIE_NAME = SESSION_COOKIE;
+
+/**
+ * Shared admin auth helper for API route handlers.
+ * Checks npcollab_session JWT (role === 'admin') first.
+ * Falls back to npcollab_admin cookie for backwards compatibility.
+ */
+export async function requireAdmin(req: NextRequest): Promise<boolean> {
+  // Primary: JWT session cookie
+  const sessionToken = req.cookies.get(SESSION_COOKIE)?.value;
+  if (sessionToken) {
+    const session = await verifySessionToken(sessionToken);
+    if (session?.role === 'admin') return true;
+  }
+  // Fallback: legacy password cookie
+  const adminCookie = req.cookies.get('npcollab_admin');
+  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
+}

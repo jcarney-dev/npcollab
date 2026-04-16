@@ -2,22 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { courses } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
+import { requireAdmin } from '@/lib/session';
 
-function isAdmin(req: NextRequest) {
-  const cookie = req.cookies.get('npcollab_admin');
-  return !!(cookie?.value && cookie.value === process.env.ADMIN_PASSWORD);
-}
 
-// GET /api/admin/courses — fetch all courses
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   const all = await db.select().from(courses).orderBy(courses.createdAt);
   return NextResponse.json(all);
 }
 
 // POST /api/admin/courses — create a single course manually
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   let body: Record<string, string | null>;
   try { body = await req.json(); } catch { return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 }); }
 
@@ -59,7 +55,7 @@ export async function POST(req: NextRequest) {
 
 // PUT /api/admin/courses — update status or fields
 export async function PUT(req: NextRequest) {
-  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   let body: Record<string, string | null>;
   try { body = await req.json(); } catch { return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 }); }
 
@@ -92,7 +88,7 @@ export async function PUT(req: NextRequest) {
 
 // DELETE /api/admin/courses?id=xxx
 export async function DELETE(req: NextRequest) {
-  if (!isAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   const id = req.nextUrl.searchParams.get('id');
   if (!id) return NextResponse.json({ error: 'Missing id' }, { status: 400 });
   try {

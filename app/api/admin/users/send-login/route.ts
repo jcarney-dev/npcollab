@@ -4,19 +4,10 @@ import { usersV2, magicLinks } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import { randomBytes } from 'crypto';
 import { Resend } from 'resend';
-import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
+import { verifySessionToken, SESSION_COOKIE_NAME, requireAdmin} from '@/lib/session';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function isAdmin(req: NextRequest): Promise<boolean> {
-  const sessionToken = req.cookies.get(SESSION_COOKIE_NAME)?.value;
-  if (sessionToken) {
-    const session = await verifySessionToken(sessionToken);
-    if (session?.role === 'admin') return true;
-  }
-  const adminCookie = req.cookies.get('npcollab_admin');
-  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
-}
 
 function loginEmailHtml(name: string, loginUrl: string, year: number): string {
   return `<!DOCTYPE html>
@@ -67,7 +58,7 @@ function loginEmailHtml(name: string, loginUrl: string, year: number): string {
 
 // POST /api/admin/users/send-login — generate and email a magic link for a user
 export async function POST(req: NextRequest) {
-  if (!await isAdmin(req)) {
+  if (!await requireAdmin(req)) {
     return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   }
 

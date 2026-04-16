@@ -3,24 +3,21 @@ import { jobListings } from '@/lib/schema';
 import { desc, eq, inArray } from 'drizzle-orm';
 import { NextRequest } from 'next/server';
 import { Resend } from 'resend';
+import { requireAdmin } from '@/lib/session';
 
-function isAdmin(req: NextRequest): boolean {
-  const adminCookie = req.cookies.get('npcollab_admin');
-  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
-}
 
 const FROM = process.env.RESEND_FROM_EMAIL || 'noreply@contact.npcollab.com.au';
 
 // GET — all job listings
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
   const rows = await db.select().from(jobListings).orderBy(desc(jobListings.createdAt));
   return Response.json(rows);
 }
 
 // POST — manual admin entry OR bulk CSV import
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const body = await req.json();
 
@@ -86,7 +83,7 @@ export async function POST(req: NextRequest) {
 
 // PUT — approve, reject, bulk-approve, close, reopen, extend, or generic update
 export async function PUT(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const body = await req.json();
   const { action } = body;
@@ -242,7 +239,7 @@ export async function PUT(req: NextRequest) {
 
 // DELETE — remove a listing
 export async function DELETE(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
   const body = await req.json();
   const { id } = body;
   if (!id) return Response.json({ error: 'ID is required.' }, { status: 400 });

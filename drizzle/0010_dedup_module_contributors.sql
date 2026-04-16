@@ -11,4 +11,4 @@ WHERE "id" NOT IN (
 
 ALTER TABLE "module_contributors"
   ADD CONSTRAINT "module_contributors_module_slug_name_unique"
-  UNIQUE ("module_slug", "name");
+  UNIQUE ("module_slu

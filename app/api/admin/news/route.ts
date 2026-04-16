@@ -2,15 +2,12 @@ import { db } from '@/lib/db';
 import { newsItems } from '@/lib/schema';
 import { desc, eq } from 'drizzle-orm';
 import { NextRequest } from 'next/server';
+import { requireAdmin } from '@/lib/session';
 
-function isAdmin(req: NextRequest): boolean {
-  const adminCookie = req.cookies.get('npcollab_admin');
-  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
-}
 
 // GET all news items
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const rows = await db.select().from(newsItems).orderBy(desc(newsItems.createdAt));
   return Response.json(rows);
@@ -18,7 +15,7 @@ export async function GET(req: NextRequest) {
 
 // POST — create new news item
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const body = await req.json();
   const { title, summary, url, type, sourceName, status, publishedAt } = body;
@@ -42,7 +39,7 @@ export async function POST(req: NextRequest) {
 
 // DELETE — remove a news item
 export async function DELETE(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const body = await req.json();
   const { id } = body;
@@ -56,7 +53,7 @@ export async function DELETE(req: NextRequest) {
 
 // PUT — update existing news item
 export async function PUT(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const body = await req.json();
   const { id, title, summary, url, type, sourceName, status, publishedAt } = body;

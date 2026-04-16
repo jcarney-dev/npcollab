@@ -2,14 +2,11 @@ import { db } from '@/lib/db';
 import { podcastSubscribers } from '@/lib/schema';
 import { asc } from 'drizzle-orm';
 import { NextRequest } from 'next/server';
+import { requireAdmin } from '@/lib/session';
 
-function isAdmin(req: NextRequest): boolean {
-  const adminCookie = req.cookies.get('npcollab_admin');
-  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
-}
 
 export async function GET(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const rows = await db
     .select()
@@ -21,7 +18,7 @@ export async function GET(req: NextRequest) {
 
 // Export as CSV
 export async function POST(req: NextRequest) {
-  if (!isAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
+  if (!await requireAdmin(req)) return Response.json({ error: 'Unauthorised' }, { status: 401 });
 
   const rows = await db
     .select()

@@ -80,7 +80,4 @@ async function seedContributors() {
   console.log('Seeding complete!');
 }
 
-seedContributors().catch(err => {
-  console.error('Seeding failed:', err);
-  process.exit(1);
-});
+seedContributors

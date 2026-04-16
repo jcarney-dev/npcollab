@@ -2,14 +2,11 @@ import { db } from '@/lib/db';
 import { accessRequests } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import { NextRequest } from 'next/server';
+import { requireAdmin } from '@/lib/session';
 
-function requireAdmin(req: NextRequest): boolean {
-  const cookie = req.cookies.get('npcollab_admin');
-  return !!(cookie?.value && cookie.value === process.env.ADMIN_PASSWORD);
-}
 
 export async function POST(req: NextRequest) {
-  if (!requireAdmin(req)) {
+  if (!await requireAdmin(req)) {
     return Response.json({ error: 'Unauthorised.' }, { status: 401 });
   }
 

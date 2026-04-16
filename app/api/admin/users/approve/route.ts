@@ -3,19 +3,10 @@ import { db } from '@/lib/db';
 import { usersV2, adminActions } from '@/lib/schema';
 import { eq, and, gt } from 'drizzle-orm';
 import { Resend } from 'resend';
-import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
+import { requireAdmin } from '@/lib/session';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function isAdmin(req: NextRequest): Promise<boolean> {
-  const sessionToken = req.cookies.get(SESSION_COOKIE_NAME)?.value;
-  if (sessionToken) {
-    const session = await verifySessionToken(sessionToken);
-    if (session?.role === 'admin') return true;
-  }
-  const adminCookie = req.cookies.get('npcollab_admin');
-  return !!(adminCookie?.value && adminCookie.value === process.env.ADMIN_PASSWORD);
-}
 
 function htmlPage(title: string, body: string): NextResponse {
   return new NextResponse(
@@ -162,7 +153,7 @@ export async function GET(req: NextRequest) {
 
 // POST /api/admin/users/approve — admin panel action (JSON, uses admin cookie)
 export async function POST(req: NextRequest) {
-  if (!await isAdmin(req)) {
+  if (!await requireAdmin(req)) {
     return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   }
 
