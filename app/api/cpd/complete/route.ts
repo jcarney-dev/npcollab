@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { moduleCompletions } from '@/lib/schema';
 import { getSession } from '@/lib/session';
-import { and, eq } from 'drizzle-orm';
+import { and, eq, desc } from 'drizzle-orm';
 
 export async function POST(req: NextRequest) {
   // Validate session
@@ -46,26 +46,37 @@ export async function POST(req: NextRequest) {
         eq(moduleCompletions.passed, true)
       )
     )
+    .orderBy(desc(moduleCompletions.completedAt))
     .limit(1);
 
   const alreadyPassed = existing.length > 0;
+  const existingCompletionId = alreadyPassed ? existing[0].id : null;
 
-  // Always record the attempt — only skip if already passed and this attempt also passes
-  // (i.e. don't create duplicate "passed" completions, but still record failed attempts)
+  // Record the attempt — skip if already passed and this attempt also passes
+  // (don't create duplicate "passed" completions; still record failed attempts)
+  let newCompletionId: string | null = null;
   if (!alreadyPassed || !passed) {
-    await db.insert(moduleCompletions).values({
-      userId,
-      moduleSlug: module_slug,
-      moduleName: module_name,
-      quizScore: quiz_score,
-      passed,
-      cpdHours: '1.00',
-    });
+    const inserted = await db
+      .insert(moduleCompletions)
+      .values({
+        userId,
+        moduleSlug: module_slug,
+        moduleName: module_name,
+        quizScore: quiz_score,
+        passed,
+        cpdHours: '1.00',
+      })
+      .returning({ id: moduleCompletions.id });
+    newCompletionId = inserted[0]?.id ?? null;
   }
+
+  // completionId for certificate: use new record if first pass, else existing pass record
+  const completionId = passed ? (newCompletionId ?? existingCompletionId) : null;
 
   return NextResponse.json({
     success: true,
     passed,
     firstCompletion: passed && !alreadyPassed,
+    completionId,
   });
 }

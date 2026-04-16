@@ -33,6 +33,7 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
   });
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [firstCompletion, setFirstCompletion] = useState(false);
+  const [completionId, setCompletionId] = useState<string | null>(null);
 
   const total = questions.length;
   const q = questions[state.current];
@@ -47,27 +48,6 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
       score: selected === questions[prev.current].correct ? prev.score + 1 : prev.score,
     }));
   }, [state.answers, state.current, questions]);
-
-  const goNext = () => {
-    if (state.current < total - 1) {
-      setState(prev => ({ ...prev, current: prev.current + 1 }));
-    } else {
-      setState(prev => ({ ...prev, done: true }));
-      // Submit score to API
-      const finalScore = state.score + (state.answers[state.current] === undefined ? 0 : 0);
-      // score is already updated in state via selectAnswer — use it after setState is applied
-    }
-  };
-
-  const finishQuiz = (finalScore: number) => {
-    setState(prev => {
-      const newState = { ...prev, done: true };
-      // Submit CPD completion after state settles
-      const pct = Math.round((finalScore / total) * 100);
-      submitCompletion(pct);
-      return newState;
-    });
-  };
 
   const submitCompletion = async (pct: number) => {
     setSubmitState('submitting');
@@ -84,6 +64,7 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
       if (res.ok) {
         const data = await res.json();
         setFirstCompletion(!!data.firstCompletion);
+        setCompletionId(data.completionId ?? null);
         setSubmitState('done');
       } else {
         setSubmitState('error');
@@ -103,11 +84,26 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
     setState({ current: 0, answers: {}, score: 0, done: false });
     setSubmitState('idle');
     setFirstCompletion(false);
+    setCompletionId(null);
+  };
+
+  const handleFinish = () => {
+    const finalScore = state.score;
+    const pct = Math.round((finalScore / total) * 100);
+    setState(prev => ({ ...prev, done: true }));
+    submitCompletion(pct);
+  };
+
+  const goNext = () => {
+    if (state.current < total - 1) {
+      setState(prev => ({ ...prev, current: prev.current + 1 }));
+    }
   };
 
   if (state.done) {
     const pct = Math.round((state.score / total) * 100);
     const passed = pct >= 80;
+    const certHref = completionId ? `/api/cpd/certificate/${completionId}` : null;
 
     return (
       <div className="quiz-wrapper">
@@ -142,25 +138,51 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
               }}>
                 Congratulations — you passed!
               </div>
-              <div style={{ fontSize: '14px', color: '#2A7D4F', lineHeight: 1.6, marginBottom: '10px' }}>
+              <div style={{ fontSize: '14px', color: '#2A7D4F', lineHeight: 1.6, marginBottom: '12px' }}>
                 You scored <strong>{pct}%</strong> and have earned <strong>1 CPD hour</strong> for this module.
               </div>
-              {submitState === 'done' && firstCompletion && (
-                <div style={{ fontSize: '13px', color: '#1b5e35', marginBottom: '12px' }}>
-                  ✅ Your CPD record has been saved.{' '}
-                  <a href="/dashboard/cpd" style={{ color: '#2A7D4F', fontWeight: 600 }}>
-                    View your CPD record →
+
+              {/* Certificate download — first completion */}
+              {submitState === 'done' && firstCompletion && certHref && (
+                <div>
+                  <div style={{ fontSize: '13px', color: '#1b5e35', marginBottom: '12px' }}>
+                    ✅ Your CPD record has been saved.{' '}
+                    <a href="/dashboard/cpd" style={{ color: '#2A7D4F', fontWeight: 600 }}>
+                      View your CPD record →
+                    </a>
+                  </div>
+                  <a
+                    href={certHref}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '10px 20px',
+                      background: 'var(--gold)',
+                      color: 'var(--navy)',
+                      borderRadius: '7px',
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      marginBottom: '8px',
+                    }}
+                  >
+                    📄 Download Your CPD Certificate
                   </a>
                 </div>
               )}
+
+              {/* Already completed — point to dashboard */}
               {submitState === 'done' && !firstCompletion && (
                 <div style={{ fontSize: '13px', color: '#2A7D4F', marginBottom: '12px' }}>
-                  ✅ Well done — you&apos;ve completed this module before. Your CPD record is up to date.{' '}
-                  <a href="/dashboard/cpd" style={{ color: '#2A7D4F', fontWeight: 600 }}>
-                    View your CPD record →
-                  </a>
+                  You have already completed this module. Visit your{' '}
+                  <a href="/dashboard/cpd" style={{ color: '#2A7D4F', fontWeight: 700, textDecoration: 'underline' }}>
+                    CPD dashboard
+                  </a>{' '}
+                  to download your certificate.
                 </div>
               )}
+
               {submitState === 'submitting' && (
                 <div style={{ fontSize: '13px', color: '#2A7D4F', marginBottom: '12px' }}>
                   Saving your CPD record…
@@ -235,13 +257,6 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
   }
 
   // ── In-progress quiz ──────────────────────────────────────────────────────
-  const handleFinish = () => {
-    const finalScore = state.score;
-    const pct = Math.round((finalScore / total) * 100);
-    setState(prev => ({ ...prev, done: true }));
-    submitCompletion(pct);
-  };
-
   return (
     <div className="quiz-wrapper" id={`quiz-${moduleId}`}>
       <div className="quiz-progress-bar">
