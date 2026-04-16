@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import React, { useState, useTransition } from 'react';
 import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor } from '@/lib/schema';
 
 interface Props {
@@ -153,8 +153,8 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
             </thead>
             <tbody>
               {sponsorList.map(s => (
-                <>
-                  <tr key={s.id} className={s.active ? '' : 'admin-row--disabled'}>
+                <React.Fragment key={s.id}>
+                  <tr className={s.active ? '' : 'admin-row--disabled'}>
                     <td className="admin-td-name">
                       {s.companyName}
                       {s.websiteUrl && (
@@ -234,7 +234,7 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
                   </tr>
 
                   {editing === s.id && (
-                    <tr key={`${s.id}-edit`}>
+                    <tr>
                       <td colSpan={7} style={{background:'var(--off-white)',padding:'16px 20px'}}>
                         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))',gap:'12px',marginBottom:'12px'}}>
                           <div>
@@ -316,7 +316,7 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
                       </td>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>

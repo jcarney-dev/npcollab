@@ -12,8 +12,8 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic';
 
-// 20 non-MSK modules + 9 MSK sub-modules = 29 total trackable modules
-const TOTAL_MODULES = 29;
+// 22 non-MSK modules + 9 MSK sub-modules = 31 total trackable modules
+const TOTAL_MODULES = 31;
 
 // All trackable clinical modules — slug matches module_completions.module_slug
 const ALL_MODULES = [
@@ -47,6 +47,8 @@ const ALL_MODULES = [
   { slug: 'paediatrics',                 name: 'Paediatrics',            emoji: '👶', path: '/modules/paediatrics' },
   { slug: 'palliative-care',             name: 'Palliative Care',        emoji: '🕊️', path: '/modules/palliative-care' },
   { slug: 'respiratory',                 name: 'Respiratory',            emoji: '🫀', path: '/modules/respiratory' },
+  { slug: 'surgical',                    name: 'Surgical',               emoji: '🔪', path: '/modules/surgical' },
+  { slug: 'toxicology',                  name: 'Toxicology',             emoji: '☠️', path: '/modules/toxicology' },
   { slug: "womens-health",               name: "Women's Health",         emoji: '🌸', path: '/modules/womens-health' },
 ] as const;
 
