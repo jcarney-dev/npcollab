@@ -101,7 +101,7 @@ const navGroups: NavGroup[] = [
   {
     label: 'Business',
     items: [
-      { label: 'Starting Your Own Practice', href: '/business', icon: '🏢', disabled: true, coming: true },
+      { label: 'Starting Your Own Practice', href: '/business/starting-your-own-practice', icon: '🏢' },
     ]
   },
   {
