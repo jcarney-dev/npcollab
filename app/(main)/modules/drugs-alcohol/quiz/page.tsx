@@ -13,9 +13,7 @@ export default function DrugsAlcoholQuizPage() {
       </div>
       <ModuleTabs moduleId="drugs-alcohol" />
 
-      <Quiz
-        moduleId="drugs-alcohol"
-        questions={questions}
+      <Quiz moduleId="drugs-alcohol" moduleName="Drugs & Alcohol" questions={questions}
       />
 
       <ModuleNav moduleId="drugs-alcohol" />

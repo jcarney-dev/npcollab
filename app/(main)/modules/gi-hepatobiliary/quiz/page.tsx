@@ -19,7 +19,7 @@ export default function GiQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="gi-hepatobiliary" questions={questions} />
+      <Quiz moduleId="gi-hepatobiliary" moduleName="GI & Hepatobiliary" questions={questions} />
       </div>
 
       <ModuleNav moduleId="gi-hepatobiliary" />

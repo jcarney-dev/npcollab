@@ -13,9 +13,7 @@ export default function GUNephrologyQuizPage() {
       </div>
       <ModuleTabs moduleId="gu-nephrology" />
 
-      <Quiz
-        moduleId="gu-nephrology"
-        questions={questions}
+      <Quiz moduleId="gu-nephrology" moduleName="GU & Nephrology" questions={questions}
       />
 
       <ModuleNav moduleId="gu-nephrology" />

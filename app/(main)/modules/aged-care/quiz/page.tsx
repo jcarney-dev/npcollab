@@ -19,7 +19,7 @@ export default function AgedCareQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="aged-care" questions={questions} />
+      <Quiz moduleId="aged-care" moduleName="Aged Care" questions={questions} />
       </div>
 
       <ModuleNav moduleId="aged-care" />

@@ -13,9 +13,7 @@ export default function SurgicalQuizPage() {
       </div>
       <ModuleTabs moduleId="surgical" />
 
-      <Quiz
-        moduleId="surgical"
-        questions={questions}
+      <Quiz moduleId="surgical" moduleName="Surgical" questions={questions}
       />
 
       <ModuleNav moduleId="surgical" />

@@ -19,7 +19,7 @@ export default function WomensHealthQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="womens-health" questions={questions} />
+      <Quiz moduleId="womens-health" moduleName="Women's Health" questions={questions} />
       </div>
 
       <ModuleNav moduleId="womens-health" />

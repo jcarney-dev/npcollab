@@ -19,7 +19,7 @@ export default function MentalHealthQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="mental-health" questions={questions} />
+      <Quiz moduleId="mental-health" moduleName="Mental Health" questions={questions} />
       </div>
 
       <ModuleNav moduleId="mental-health" />

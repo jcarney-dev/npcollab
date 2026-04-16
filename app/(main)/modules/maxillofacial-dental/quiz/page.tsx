@@ -15,7 +15,7 @@ export default function MaxillofacialDentalQuizPage() {
       <ModuleTabs moduleId="maxillofacial-dental" />
 
       <div className="content-prose">
-        <Quiz moduleId="maxillofacial-dental" questions={quizData} />
+        <Quiz moduleId="maxillofacial-dental" moduleName="Maxillofacial & Dental" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

@@ -15,7 +15,7 @@ export default function MskChestQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/chest" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/chest" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/chest" moduleName="MSK — Chest" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

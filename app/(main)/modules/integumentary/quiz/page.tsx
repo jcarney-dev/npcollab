@@ -19,7 +19,7 @@ export default function IntegumentaryQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="integumentary" questions={questions} />
+      <Quiz moduleId="integumentary" moduleName="Integumentary" questions={questions} />
       </div>
 
       <ModuleNav moduleId="integumentary" />

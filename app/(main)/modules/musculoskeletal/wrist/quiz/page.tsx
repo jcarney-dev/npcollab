@@ -15,7 +15,7 @@ export default function MskWristQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/wrist" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/wrist" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/wrist" moduleName="MSK — Wrist" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

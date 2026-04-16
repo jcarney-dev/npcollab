@@ -19,7 +19,7 @@ export default function NeurologyQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="neurology" questions={questions} />
+      <Quiz moduleId="neurology" moduleName="Neurology" questions={questions} />
       </div>
 
       <ModuleNav moduleId="neurology" />

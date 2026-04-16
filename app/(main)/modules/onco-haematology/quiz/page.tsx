@@ -13,9 +13,7 @@ export default function OncoHaematologyQuizPage() {
       </div>
       <ModuleTabs moduleId="onco-haematology" />
 
-      <Quiz
-        moduleId="onco-haematology"
-        questions={questions}
+      <Quiz moduleId="onco-haematology" moduleName="Oncology & Haematology" questions={questions}
       />
 
       <ModuleNav moduleId="onco-haematology" />

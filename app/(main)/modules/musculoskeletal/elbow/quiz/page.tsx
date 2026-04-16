@@ -15,7 +15,7 @@ export default function MskElbowQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/elbow" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/elbow" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/elbow" moduleName="MSK — Elbow" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

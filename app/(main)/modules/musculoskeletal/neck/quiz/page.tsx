@@ -15,7 +15,7 @@ export default function MskNeckQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/neck" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/neck" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/neck" moduleName="MSK — Neck" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

@@ -21,7 +21,7 @@ export default function ENTQuizPage() {
         <h3 style={{ color: 'var(--navy)', marginBottom: '6px', fontFamily: 'var(--font-body)' }}>ENT Quiz — 20 Questions</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Test your knowledge of ENT presentations. Each question includes a detailed explanation.</p>
       </div>
-      <Quiz moduleId="ent" questions={questions} />
+      <Quiz moduleId="ent" moduleName="ENT" questions={questions} />
       <ModuleNav moduleId="ent" />
 
     </>

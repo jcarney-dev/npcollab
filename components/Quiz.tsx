@@ -11,6 +11,7 @@ interface Question {
 
 interface QuizProps {
   moduleId: string;
+  moduleName: string;
   questions: Question[];
 }
 
@@ -21,13 +22,17 @@ interface QuizState {
   done: boolean;
 }
 
-export default function Quiz({ moduleId, questions }: QuizProps) {
+type SubmitState = 'idle' | 'submitting' | 'done' | 'error';
+
+export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
   const [state, setState] = useState<QuizState>({
     current: 0,
     answers: {},
     score: 0,
     done: false,
   });
+  const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [firstCompletion, setFirstCompletion] = useState(false);
 
   const total = questions.length;
   const q = questions[state.current];
@@ -48,6 +53,43 @@ export default function Quiz({ moduleId, questions }: QuizProps) {
       setState(prev => ({ ...prev, current: prev.current + 1 }));
     } else {
       setState(prev => ({ ...prev, done: true }));
+      // Submit score to API
+      const finalScore = state.score + (state.answers[state.current] === undefined ? 0 : 0);
+      // score is already updated in state via selectAnswer — use it after setState is applied
+    }
+  };
+
+  const finishQuiz = (finalScore: number) => {
+    setState(prev => {
+      const newState = { ...prev, done: true };
+      // Submit CPD completion after state settles
+      const pct = Math.round((finalScore / total) * 100);
+      submitCompletion(pct);
+      return newState;
+    });
+  };
+
+  const submitCompletion = async (pct: number) => {
+    setSubmitState('submitting');
+    try {
+      const res = await fetch('/api/cpd/complete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          module_slug: moduleId,
+          module_name: moduleName,
+          quiz_score: pct,
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setFirstCompletion(!!data.firstCompletion);
+        setSubmitState('done');
+      } else {
+        setSubmitState('error');
+      }
+    } catch {
+      setSubmitState('error');
     }
   };
 
@@ -59,15 +101,13 @@ export default function Quiz({ moduleId, questions }: QuizProps) {
 
   const retry = () => {
     setState({ current: 0, answers: {}, score: 0, done: false });
+    setSubmitState('idle');
+    setFirstCompletion(false);
   };
 
   if (state.done) {
     const pct = Math.round((state.score / total) * 100);
-    const msg = pct >= 80
-      ? '🎉 Excellent work!'
-      : pct >= 60
-        ? '👍 Good effort — review the areas you missed.'
-        : '📚 Keep studying — review the module content and retry.';
+    const passed = pct >= 80;
 
     return (
       <div className="quiz-wrapper">
@@ -75,25 +115,132 @@ export default function Quiz({ moduleId, questions }: QuizProps) {
           <div className="quiz-progress-fill" style={{ width: '100%' }} />
         </div>
         <div className="quiz-counter">Quiz complete</div>
+
         <div className="quiz-results">
           <div className="score-circle">
             <span className="score-num">{state.score}</span>
             <span className="score-denom">/ {total}</span>
           </div>
-          <h3>{msg}</h3>
-          <p>You scored {pct}% — {state.score} correct out of {total} questions.</p>
-          <button
-            className="btn-quiz-nav gold"
-            style={{ margin: '0 auto', display: 'flex' }}
-            type="button"
-            onClick={retry}
-          >
-            ↺ Retry Quiz
-          </button>
+
+          {passed ? (
+            /* ── Pass card ── */
+            <div style={{
+              background: '#f0faf4',
+              border: '1.5px solid #2A7D4F',
+              borderRadius: '12px',
+              padding: '20px 24px',
+              marginTop: '20px',
+              textAlign: 'left',
+            }}>
+              <div style={{ fontSize: '22px', marginBottom: '8px' }}>🎉</div>
+              <div style={{
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 700,
+                fontSize: '17px',
+                color: '#1b5e35',
+                marginBottom: '6px',
+              }}>
+                Congratulations — you passed!
+              </div>
+              <div style={{ fontSize: '14px', color: '#2A7D4F', lineHeight: 1.6, marginBottom: '10px' }}>
+                You scored <strong>{pct}%</strong> and have earned <strong>1 CPD hour</strong> for this module.
+              </div>
+              {submitState === 'done' && firstCompletion && (
+                <div style={{ fontSize: '13px', color: '#1b5e35', marginBottom: '12px' }}>
+                  ✅ Your CPD record has been saved.{' '}
+                  <a href="/dashboard/cpd" style={{ color: '#2A7D4F', fontWeight: 600 }}>
+                    View your CPD record →
+                  </a>
+                </div>
+              )}
+              {submitState === 'done' && !firstCompletion && (
+                <div style={{ fontSize: '13px', color: '#2A7D4F', marginBottom: '12px' }}>
+                  ✅ Well done — you&apos;ve completed this module before. Your CPD record is up to date.{' '}
+                  <a href="/dashboard/cpd" style={{ color: '#2A7D4F', fontWeight: 600 }}>
+                    View your CPD record →
+                  </a>
+                </div>
+              )}
+              {submitState === 'submitting' && (
+                <div style={{ fontSize: '13px', color: '#2A7D4F', marginBottom: '12px' }}>
+                  Saving your CPD record…
+                </div>
+              )}
+              {submitState === 'error' && (
+                <div style={{ fontSize: '13px', color: 'var(--error)', marginBottom: '12px' }}>
+                  CPD record could not be saved — please{' '}
+                  <a href="/login" style={{ color: 'var(--error)', fontWeight: 600 }}>log in</a>{' '}
+                  and retry.
+                </div>
+              )}
+            </div>
+          ) : (
+            /* ── Fail card ── */
+            <div style={{
+              background: 'var(--navy)',
+              border: '1.5px solid var(--navy-light)',
+              borderRadius: '12px',
+              padding: '20px 24px',
+              marginTop: '20px',
+              textAlign: 'left',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 700,
+                fontSize: '17px',
+                color: '#fff',
+                marginBottom: '6px',
+              }}>
+                Not quite — you scored {pct}%
+              </div>
+              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6 }}>
+                You need <strong style={{ color: '#fff' }}>80%</strong> to earn your CPD certificate.
+                Review the module content and try again.
+              </div>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '20px', flexWrap: 'wrap' }}>
+            <button
+              className="btn-quiz-nav gold"
+              style={{ margin: 0 }}
+              type="button"
+              onClick={retry}
+            >
+              ↺ Retry Quiz
+            </button>
+            {passed && (
+              <a
+                href={`/modules/${moduleId}`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '10px 20px',
+                  background: 'var(--navy)',
+                  color: '#fff',
+                  borderRadius: '7px',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  border: '1.5px solid var(--navy-light)',
+                }}
+              >
+                Back to Module
+              </a>
+            )}
+          </div>
         </div>
       </div>
     );
   }
+
+  // ── In-progress quiz ──────────────────────────────────────────────────────
+  const handleFinish = () => {
+    const finalScore = state.score;
+    const pct = Math.round((finalScore / total) * 100);
+    setState(prev => ({ ...prev, done: true }));
+    submitCompletion(pct);
+  };
 
   return (
     <div className="quiz-wrapper" id={`quiz-${moduleId}`}>
@@ -139,13 +286,23 @@ export default function Quiz({ moduleId, questions }: QuizProps) {
         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           {Object.keys(state.answers).length}/{total} answered
         </span>
-        <button
-          className="btn-quiz-nav gold"
-          type="button"
-          onClick={goNext}
-        >
-          {state.current < total - 1 ? 'Next →' : 'Finish Quiz'}
-        </button>
+        {state.current < total - 1 ? (
+          <button
+            className="btn-quiz-nav gold"
+            type="button"
+            onClick={goNext}
+          >
+            Next →
+          </button>
+        ) : (
+          <button
+            className="btn-quiz-nav gold"
+            type="button"
+            onClick={handleFinish}
+          >
+            Finish Quiz
+          </button>
+        )}
       </div>
     </div>
   );

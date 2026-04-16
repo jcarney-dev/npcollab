@@ -15,7 +15,7 @@ export default function MskHipPelvisQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/hip-pelvis" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/hip-pelvis" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/hip-pelvis" moduleName="MSK — Hip & Pelvis" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

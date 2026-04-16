@@ -15,7 +15,7 @@ export default function MskBackQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/back" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/back" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/back" moduleName="MSK — Back" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

@@ -22,7 +22,7 @@ export default function RespiratoryQuizPage() {
         <h3 style={{ color: 'var(--navy)', marginBottom: '6px', fontFamily: 'var(--font-body)' }}>Respiratory Quiz — 20 Questions</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Mixed difficulty — covers asthma, COPD, pneumonia, PE, spirometry, and acute management. Each question includes a detailed explanation.</p>
       </div>
-      <Quiz moduleId="respiratory" questions={questions} />
+      <Quiz moduleId="respiratory" moduleName="Respiratory" questions={questions} />
 
       <ModuleNav moduleId="respiratory" />
           </>

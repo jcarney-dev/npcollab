@@ -15,7 +15,7 @@ export default function MskFootAnkleQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/foot-ankle" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/foot-ankle" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/foot-ankle" moduleName="MSK — Foot & Ankle" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

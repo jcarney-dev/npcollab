@@ -19,7 +19,7 @@ export default function PalliativeCareQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="palliative-care" questions={questions} />
+      <Quiz moduleId="palliative-care" moduleName="Palliative Care" questions={questions} />
       </div>
 
       <ModuleNav moduleId="palliative-care" />

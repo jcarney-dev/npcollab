@@ -15,7 +15,7 @@ export default function MskKneeQuizPage() {
       <ModuleTabs moduleId="musculoskeletal/knee" />
 
       <div className="content-prose">
-        <Quiz moduleId="musculoskeletal/knee" questions={quizData} />
+        <Quiz moduleId="musculoskeletal/knee" moduleName="MSK — Knee" questions={quizData} />
       </div>
 
       <p className="disclaimer">Educational purposes only. Always apply your own clinical judgement.</p>

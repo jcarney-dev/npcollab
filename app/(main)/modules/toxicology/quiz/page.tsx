@@ -13,9 +13,7 @@ export default function ToxicologyQuizPage() {
       </div>
       <ModuleTabs moduleId="toxicology" />
 
-      <Quiz
-        moduleId="toxicology"
-        questions={questions}
+      <Quiz moduleId="toxicology" moduleName="Toxicology" questions={questions}
       />
 
       <ModuleNav moduleId="toxicology" />

@@ -6,6 +6,7 @@ import {
   timestamp,
   integer,
   unique,
+  numeric,
 } from 'drizzle-orm/pg-core';
 
 // ── access_requests ────────────────────────────────────────────────────────
@@ -196,6 +197,21 @@ export const moduleContributors = pgTable('module_contributors', {
   unique('module_contributors_module_slug_name_unique').on(t.moduleSlug, t.name),
 ]);
 
+// ── module_completions ─────────────────────────────────────────────────────
+// CPD tracking — one record per quiz attempt where the user passed (>=80%)
+export const moduleCompletions = pgTable('module_completions', {
+  id:                   uuid('id').primaryKey().defaultRandom(),
+  userId:               uuid('user_id').notNull().references(() => usersV2.id),
+  moduleSlug:           text('module_slug').notNull(),   // e.g. 'cardiac', 'msk-back'
+  moduleName:           text('module_name').notNull(),   // e.g. 'Cardiac', 'MSK — Back'
+  quizScore:            integer('quiz_score').notNull(),  // percentage 0–100
+  passed:               boolean('passed').notNull(),      // true if score >= 80
+  completedAt:          timestamp('completed_at').notNull().defaultNow(),
+  cpdHours:             numeric('cpd_hours', { precision: 4, scale: 2 }).notNull().default('1.00'),
+  certificateGenerated: boolean('certificate_generated').notNull().default(false),
+  certificateUrl:       text('certificate_url'),
+});
+
 // ── Type exports ───────────────────────────────────────────────────────────
 export type AccessRequest         = typeof accessRequests.$inferSelect;
 export type NewAccessRequest      = typeof accessRequests.$inferInsert;
@@ -223,3 +239,5 @@ export type SiteSetting           = typeof siteSettings.$inferSelect;
 export type NewSiteSetting        = typeof siteSettings.$inferInsert;
 export type ModuleContributor     = typeof moduleContributors.$inferSelect;
 export type NewModuleContributor  = typeof moduleContributors.$inferInsert;
+export type ModuleCompletion      = typeof moduleCompletions.$inferSelect;
+export type NewModuleCompletion   = typeof moduleCompletions.$inferInsert;

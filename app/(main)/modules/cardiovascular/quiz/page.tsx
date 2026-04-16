@@ -13,9 +13,7 @@ export default function CardiovascularQuizPage() {
       </div>
       <ModuleTabs moduleId="cardiovascular" />
 
-      <Quiz
-        moduleId="cardiovascular"
-        questions={questions}
+      <Quiz moduleId="cardiovascular" moduleName="Cardiovascular" questions={questions}
       />
 
       <ModuleNav moduleId="cardiovascular" />

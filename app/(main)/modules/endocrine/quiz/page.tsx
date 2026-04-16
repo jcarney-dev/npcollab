@@ -25,7 +25,7 @@ export default function EndocrineQuizPage() {
         <h3 style={{ color: 'var(--navy)', marginBottom: '6px', fontFamily: 'var(--font-body)' }}>Endocrine Quiz — 20 Questions</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Mixed difficulty — covers T2DM management, thyroid disease, adrenal conditions, and pharmacology. Each question includes a detailed explanation.</p>
       </div>
-      <Quiz moduleId="endocrine" questions={questions} />
+      <Quiz moduleId="endocrine" moduleName="Endocrine" questions={questions} />
       </div>
 
       <ModuleNav moduleId="endocrine" />

@@ -3,14 +3,16 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 import { db } from '@/lib/db';
-import { usersV2 } from '@/lib/schema';
-import { eq } from 'drizzle-orm';
+import { usersV2, moduleCompletions } from '@/lib/schema';
+import { eq, and, desc } from 'drizzle-orm';
 
 export const metadata = {
   title: 'Dashboard | NPCollab',
 };
 
 export const dynamic = 'force-dynamic';
+
+const TOTAL_MODULES = 21;
 
 export default async function DashboardPage() {
   const cookieStore = await cookies();
@@ -31,6 +33,43 @@ export default async function DashboardPage() {
 
   const firstName = user.name.split(' ')[0];
   const profileIncomplete = !user.profileComplete;
+
+  // ── CPD data ───────────────────────────────────────────────────────────────
+  // Fetch all passed completions for this user
+  let passedCompletions: { moduleSlug: string; moduleName: string; completedAt: Date; quizScore: number; cpdHours: string }[] = [];
+  try {
+    passedCompletions = await db
+      .select({
+        moduleSlug:  moduleCompletions.moduleSlug,
+        moduleName:  moduleCompletions.moduleName,
+        completedAt: moduleCompletions.completedAt,
+        quizScore:   moduleCompletions.quizScore,
+        cpdHours:    moduleCompletions.cpdHours,
+      })
+      .from(moduleCompletions)
+      .where(
+        and(
+          eq(moduleCompletions.userId, session.userId),
+          eq(moduleCompletions.passed, true)
+        )
+      )
+      .orderBy(desc(moduleCompletions.completedAt));
+  } catch {
+    // Table may not exist yet — fail silently
+  }
+
+  // Deduplicate by moduleSlug (keep first/most recent pass per module)
+  const seenSlugs = new Set<string>();
+  const uniqueCompletions = passedCompletions.filter(c => {
+    if (seenSlugs.has(c.moduleSlug)) return false;
+    seenSlugs.add(c.moduleSlug);
+    return true;
+  });
+
+  const totalModulesCompleted = uniqueCompletions.length;
+  const totalCpdHours = uniqueCompletions.reduce((sum, c) => sum + parseFloat(c.cpdHours || '1'), 0);
+  const progressPct = Math.round((totalModulesCompleted / TOTAL_MODULES) * 100);
+  const recentCompletions = uniqueCompletions.slice(0, 3);
 
   const quickLinks = [
     {
@@ -197,31 +236,168 @@ export default async function DashboardPage() {
           </div>
         </div>
 
-        {/* CPD placeholder */}
+        {/* ── CPD Summary card ─────────────────────────────────────────────── */}
         <div style={{
-          padding: '20px 24px',
+          padding: '22px 24px',
           background: 'var(--navy)',
           borderRadius: '10px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '18px',
           marginBottom: '28px',
         }}>
-          <div style={{ fontSize: '32px', flexShrink: 0 }}>📋</div>
-          <div>
-            <div style={{
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 700,
-              fontSize: '15px',
-              color: '#fff',
-              marginBottom: '4px',
-            }}>
-              CPD Summary
+          {/* Header row */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '18px',
+            gap: '12px',
+            flexWrap: 'wrap',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ fontSize: '28px', flexShrink: 0 }}>📋</div>
+              <div>
+                <div style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 700,
+                  fontSize: '16px',
+                  color: '#fff',
+                  marginBottom: '2px',
+                }}>
+                  CPD Summary
+                </div>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>
+                  NPCollab module completions
+                </div>
+              </div>
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.5 }}>
-              CPD tracking coming soon — complete modules to earn CPD certificates
+            <Link
+              href="/dashboard/cpd"
+              style={{
+                fontSize: '12px',
+                fontWeight: 600,
+                color: 'var(--gold)',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              View all CPD records →
+            </Link>
+          </div>
+
+          {/* Stat row */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
+            gap: '14px',
+            marginBottom: '18px',
+          }}>
+            <div style={{
+              background: 'rgba(255,255,255,0.07)',
+              borderRadius: '8px',
+              padding: '12px 16px',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 900,
+                fontSize: '26px',
+                color: 'var(--gold)',
+                lineHeight: 1,
+                marginBottom: '4px',
+              }}>
+                {totalCpdHours % 1 === 0 ? totalCpdHours : totalCpdHours.toFixed(1)}
+              </div>
+              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                CPD Hours
+              </div>
+            </div>
+            <div style={{
+              background: 'rgba(255,255,255,0.07)',
+              borderRadius: '8px',
+              padding: '12px 16px',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 900,
+                fontSize: '26px',
+                color: '#fff',
+                lineHeight: 1,
+                marginBottom: '4px',
+              }}>
+                {totalModulesCompleted}
+                <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontWeight: 400 }}>
+                  /{TOTAL_MODULES}
+                </span>
+              </div>
+              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Modules
+              </div>
             </div>
           </div>
+
+          {/* Progress bar */}
+          <div style={{ marginBottom: totalModulesCompleted > 0 ? '18px' : '0' }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              fontSize: '11px',
+              color: 'rgba(255,255,255,0.45)',
+              marginBottom: '6px',
+            }}>
+              <span>Module completion</span>
+              <span>{progressPct}%</span>
+            </div>
+            <div style={{
+              height: '6px',
+              background: 'rgba(255,255,255,0.1)',
+              borderRadius: '3px',
+              overflow: 'hidden',
+            }}>
+              <div style={{
+                height: '100%',
+                width: `${progressPct}%`,
+                background: 'var(--gold)',
+                borderRadius: '3px',
+                transition: 'width 0.4s ease',
+              }} />
+            </div>
+          </div>
+
+          {/* Recent completions */}
+          {recentCompletions.length > 0 && (
+            <div>
+              <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '10px' }}>
+                Recent completions
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {recentCompletions.map((c, i) => (
+                  <div key={i} style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    fontSize: '13px',
+                    gap: '8px',
+                  }}>
+                    <span style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
+                      {c.moduleName}
+                    </span>
+                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexShrink: 0 }}>
+                      <span style={{ fontSize: '11px', color: 'var(--gold)', fontWeight: 600 }}>
+                        {c.quizScore}%
+                      </span>
+                      <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.35)' }}>
+                        {new Date(c.completedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {totalModulesCompleted === 0 && (
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', marginTop: '4px' }}>
+              Complete a module quiz (80% or above) to earn your first CPD hour.
+            </div>
+          )}
         </div>
 
         {/* Getting started tip */}

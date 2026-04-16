@@ -17,7 +17,7 @@ export default function ShoulderQuizPage() {
 
       <ModuleTabs moduleId="musculoskeletal/shoulder" />
 
-      <Quiz moduleId="musculoskeletal/shoulder" questions={questions} />
+      <Quiz moduleId="musculoskeletal/shoulder" moduleName="MSK — Shoulder" questions={questions} />
       <ModuleNav moduleId="musculoskeletal/shoulder" />
 
     </>

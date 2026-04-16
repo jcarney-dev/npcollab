@@ -19,7 +19,7 @@ export default function PaediatricsQuizPage() {
 
 
       <div className="content-prose">
-      <Quiz moduleId="paediatrics" questions={questions} />
+      <Quiz moduleId="paediatrics" moduleName="Paediatrics" questions={questions} />
       </div>
 
       <ModuleNav moduleId="paediatrics" />

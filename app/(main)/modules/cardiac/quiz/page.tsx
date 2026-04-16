@@ -23,7 +23,7 @@ export default function CardiacQuizPage() {
         <h3 style={{ color: 'var(--navy)', marginBottom: '6px', fontFamily: 'var(--font-body)' }}>Cardiac Quiz — 20 Questions</h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>Mixed difficulty — covers ACS, heart failure, AF, hypertension, and ECG interpretation. Each question includes a detailed explanation.</p>
       </div>
-      <Quiz moduleId="cardiac" questions={questions} />
+      <Quiz moduleId="cardiac" moduleName="Cardiac" questions={questions} />
       <ModuleNav moduleId="cardiac" />
 
     </>
