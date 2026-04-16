@@ -1,18 +1,27 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 
-interface Question {
+// ── Raw question shape from JSON ─────────────────────────────────────────────
+interface RawQuestion {
   q: string;
   options: string[];
   correct: number;
   explanation: string;
 }
 
+// ── Shuffled question: options are reordered, correct tracks the new index ──
+interface ShuffledQuestion {
+  q: string;
+  options: string[];
+  correct: number;       // new index after shuffle
+  explanation: string;
+}
+
 interface QuizProps {
   moduleId: string;
   moduleName: string;
-  questions: Question[];
+  questions: RawQuestion[];
 }
 
 interface QuizState {
@@ -24,7 +33,41 @@ interface QuizState {
 
 type SubmitState = 'idle' | 'submitting' | 'done' | 'error';
 
+// ── Fisher-Yates in-place shuffle ────────────────────────────────────────────
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ── Prepare questions: shuffle order + shuffle each option set ───────────────
+function prepareQuestions(raw: RawQuestion[]): ShuffledQuestion[] {
+  // 1. Shuffle question order
+  const shuffledQs = shuffle(raw);
+
+  // 2. For each question, shuffle options and track correct answer by text
+  return shuffledQs.map(q => {
+    const correctText = q.options[q.correct];
+    const shuffledOptions = shuffle(q.options);
+    const newCorrectIndex = shuffledOptions.indexOf(correctText);
+    return {
+      q: q.q,
+      options: shuffledOptions,
+      correct: newCorrectIndex,
+      explanation: q.explanation,
+    };
+  });
+}
+
 export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
+  // ── Shuffled questions — initialised once, reshuffled on retry ──────────────
+  const [shuffledQuestions, setShuffledQuestions] = useState<ShuffledQuestion[]>(
+    () => prepareQuestions(questions)
+  );
+
   const [state, setState] = useState<QuizState>({
     current: 0,
     answers: {},
@@ -35,19 +78,22 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
   const [firstCompletion, setFirstCompletion] = useState(false);
   const [completionId, setCompletionId] = useState<string | null>(null);
 
-  const total = questions.length;
-  const q = questions[state.current];
+  const total = shuffledQuestions.length;
+  const q = shuffledQuestions[state.current];
   const answered = state.answers[state.current];
   const progress = state.done ? 100 : Math.round((state.current / total) * 100);
 
   const selectAnswer = useCallback((selected: number) => {
     if (state.answers[state.current] !== undefined) return;
-    setState(prev => ({
-      ...prev,
-      answers: { ...prev.answers, [prev.current]: selected },
-      score: selected === questions[prev.current].correct ? prev.score + 1 : prev.score,
-    }));
-  }, [state.answers, state.current, questions]);
+    setState(prev => {
+      const currentQ = shuffledQuestions[prev.current];
+      return {
+        ...prev,
+        answers: { ...prev.answers, [prev.current]: selected },
+        score: selected === currentQ.correct ? prev.score + 1 : prev.score,
+      };
+    });
+  }, [state.answers, state.current, shuffledQuestions]);
 
   const submitCompletion = async (pct: number) => {
     setSubmitState('submitting');
@@ -81,6 +127,8 @@ export default function Quiz({ moduleId, moduleName, questions }: QuizProps) {
   };
 
   const retry = () => {
+    // Reshuffle questions and answers on every retry
+    setShuffledQuestions(prepareQuestions(questions));
     setState({ current: 0, answers: {}, score: 0, done: false });
     setSubmitState('idle');
     setFirstCompletion(false);

@@ -12,31 +12,42 @@ export const metadata = {
 
 export const dynamic = 'force-dynamic';
 
-const TOTAL_MODULES = 21;
+// 20 non-MSK modules + 9 MSK sub-modules = 29 total trackable modules
+const TOTAL_MODULES = 29;
 
-// All 21 clinical modules — slug, display name, emoji, path
+// All trackable clinical modules — slug matches module_completions.module_slug
 const ALL_MODULES = [
-  { slug: 'aged-care',           name: 'Aged Care',              emoji: '🏥', path: '/modules/aged-care' },
-  { slug: 'cardiac',             name: 'Cardiac',                emoji: '❤️', path: '/modules/cardiac' },
-  { slug: 'cardiovascular',      name: 'Cardiovascular',         emoji: '🩺', path: '/modules/cardiovascular' },
-  { slug: 'drugs-alcohol',       name: 'Drugs & Alcohol',        emoji: '💊', path: '/modules/drugs-alcohol' },
-  { slug: 'endocrine',           name: 'Endocrine',              emoji: '🔬', path: '/modules/endocrine' },
-  { slug: 'ent',                 name: 'ENT',                    emoji: '👂', path: '/modules/ent' },
-  { slug: 'eyes',                name: 'Ophthalmology',          emoji: '👁️', path: '/modules/eyes' },
-  { slug: 'general-medical',     name: 'General Medical',        emoji: '🩻', path: '/modules/general-medical' },
-  { slug: 'gi-hepatobiliary',    name: 'GI & Hepatobiliary',     emoji: '🫁', path: '/modules/gi-hepatobiliary' },
-  { slug: 'gu-nephrology',       name: 'GU & Nephrology',        emoji: '🫘', path: '/modules/gu-nephrology' },
-  { slug: 'integumentary',       name: 'Integumentary',          emoji: '🩹', path: '/modules/integumentary' },
-  { slug: 'maxillofacial-dental',name: 'Maxillofacial & Dental', emoji: '🦷', path: '/modules/maxillofacial-dental' },
-  { slug: 'mens-health',         name: "Men's Health",          emoji: '🧔', path: '/modules/mens-health' },
-  { slug: 'mental-health',       name: 'Mental Health',          emoji: '🧠', path: '/modules/mental-health' },
-  { slug: 'musculoskeletal',     name: 'Musculoskeletal',        emoji: '🦴', path: '/modules/musculoskeletal' },
-  { slug: 'neurology',           name: 'Neurology',              emoji: '🧬', path: '/modules/neurology' },
-  { slug: 'onco-haematology',    name: 'Oncology & Haem',        emoji: '🔴', path: '/modules/onco-haematology' },
-  { slug: 'paediatrics',         name: 'Paediatrics',            emoji: '👶', path: '/modules/paediatrics' },
-  { slug: 'palliative-care',     name: 'Palliative Care',        emoji: '🕊️', path: '/modules/palliative-care' },
-  { slug: 'respiratory',         name: 'Respiratory',            emoji: '🫀', path: '/modules/respiratory' },
-  { slug: "womens-health",       name: "Women's Health",        emoji: '🌸', path: '/modules/womens-health' },
+  { slug: 'aged-care',                   name: 'Aged Care',              emoji: '🏥', path: '/modules/aged-care' },
+  { slug: 'cardiac',                     name: 'Cardiac',                emoji: '❤️', path: '/modules/cardiac' },
+  { slug: 'cardiovascular',              name: 'Cardiovascular',         emoji: '🩺', path: '/modules/cardiovascular' },
+  { slug: 'drugs-alcohol',               name: 'Drugs & Alcohol',        emoji: '💊', path: '/modules/drugs-alcohol' },
+  { slug: 'endocrine',                   name: 'Endocrine',              emoji: '🔬', path: '/modules/endocrine' },
+  { slug: 'ent',                         name: 'ENT',                    emoji: '👂', path: '/modules/ent' },
+  { slug: 'eyes',                        name: 'Ophthalmology',          emoji: '👁️', path: '/modules/eyes' },
+  { slug: 'general-medical',             name: 'General Medical',        emoji: '🩻', path: '/modules/general-medical' },
+  { slug: 'gi-hepatobiliary',            name: 'GI & Hepatobiliary',     emoji: '🫁', path: '/modules/gi-hepatobiliary' },
+  { slug: 'gu-nephrology',               name: 'GU & Nephrology',        emoji: '🫘', path: '/modules/gu-nephrology' },
+  { slug: 'integumentary',               name: 'Integumentary',          emoji: '🩹', path: '/modules/integumentary' },
+  { slug: 'maxillofacial-dental',        name: 'Maxillofacial & Dental', emoji: '🦷', path: '/modules/maxillofacial-dental' },
+  { slug: "mens-health",                 name: "Men's Health",           emoji: '🧔', path: '/modules/mens-health' },
+  { slug: 'mental-health',               name: 'Mental Health',          emoji: '🧠', path: '/modules/mental-health' },
+  // MSK sub-modules (all live)
+  { slug: 'musculoskeletal/shoulder',    name: 'MSK — Shoulder',         emoji: '🦴', path: '/modules/musculoskeletal/shoulder' },
+  { slug: 'musculoskeletal/back',        name: 'MSK — Back',             emoji: '🦴', path: '/modules/musculoskeletal/back' },
+  { slug: 'musculoskeletal/neck',        name: 'MSK — Neck',             emoji: '🦴', path: '/modules/musculoskeletal/neck' },
+  { slug: 'musculoskeletal/knee',        name: 'MSK — Knee',             emoji: '🦴', path: '/modules/musculoskeletal/knee' },
+  { slug: 'musculoskeletal/hip-pelvis',  name: 'MSK — Hip & Pelvis',     emoji: '🦴', path: '/modules/musculoskeletal/hip-pelvis' },
+  { slug: 'musculoskeletal/elbow',       name: 'MSK — Elbow',            emoji: '🦴', path: '/modules/musculoskeletal/elbow' },
+  { slug: 'musculoskeletal/wrist',       name: 'MSK — Wrist',            emoji: '🦴', path: '/modules/musculoskeletal/wrist' },
+  { slug: 'musculoskeletal/foot-ankle',  name: 'MSK — Foot & Ankle',     emoji: '🦴', path: '/modules/musculoskeletal/foot-ankle' },
+  { slug: 'musculoskeletal/chest',       name: 'MSK — Chest Wall',       emoji: '🦴', path: '/modules/musculoskeletal/chest' },
+  // Remaining modules
+  { slug: 'neurology',                   name: 'Neurology',              emoji: '🧬', path: '/modules/neurology' },
+  { slug: 'onco-haematology',            name: 'Oncology & Haem',        emoji: '🔴', path: '/modules/onco-haematology' },
+  { slug: 'paediatrics',                 name: 'Paediatrics',            emoji: '👶', path: '/modules/paediatrics' },
+  { slug: 'palliative-care',             name: 'Palliative Care',        emoji: '🕊️', path: '/modules/palliative-care' },
+  { slug: 'respiratory',                 name: 'Respiratory',            emoji: '🫀', path: '/modules/respiratory' },
+  { slug: "womens-health",               name: "Women's Health",         emoji: '🌸', path: '/modules/womens-health' },
 ] as const;
 
 export default async function DashboardPage() {
@@ -101,25 +112,17 @@ export default async function DashboardPage() {
 
   // Build a quick lookup: moduleSlug → completion record
   const completionBySlug = new Map(uniqueCompletions.map(c => [c.moduleSlug, c]));
-  // MSK sub-modules map to parent slug
-  const mskSlugs = ['musculoskeletal/back','musculoskeletal/shoulder','musculoskeletal/neck',
-    'musculoskeletal/knee','musculoskeletal/hip-pelvis','musculoskeletal/elbow',
-    'musculoskeletal/wrist','musculoskeletal/foot-ankle','musculoskeletal/chest'];
-  const mskCompletion = mskSlugs.map(s => completionBySlug.get(s)).find(Boolean);
-  if (mskCompletion) completionBySlug.set('musculoskeletal', mskCompletion);
 
-  const totalModulesCompleted = uniqueCompletions.length > TOTAL_MODULES
-    ? TOTAL_MODULES
-    : uniqueCompletions.length;
+  const totalModulesCompleted = Math.min(uniqueCompletions.length, TOTAL_MODULES);
   const totalCpdHours = uniqueCompletions.reduce((sum, c) => sum + parseFloat(c.cpdHours || '1'), 0);
   const progressPct = Math.round((totalModulesCompleted / TOTAL_MODULES) * 100);
   const recentCompletions = uniqueCompletions.slice(0, 3);
 
   const quickLinks = [
-    { href: '/modules/cardiac',  icon: '❤️', title: 'Clinical Modules', desc: 'Evidence-based content across all specialties', badge: 'Featured' },
-    { href: '/community/jobs',   icon: '💼', title: 'Job Board',         desc: 'NP roles across Australia — updated regularly', badge: null },
-    { href: '/community/courses',icon: '🎓', title: 'CPD Courses',       desc: 'Conferences, workshops, and online learning', badge: null },
-    { href: '/community/news',   icon: '📰', title: 'Community News',    desc: 'Announcements, articles, and resources for NPs', badge: null },
+    { href: '/modules/cardiac',   icon: '❤️', title: 'Clinical Modules', desc: 'Evidence-based content across all specialties', badge: 'Featured' },
+    { href: '/community/jobs',    icon: '💼', title: 'Job Board',         desc: 'NP roles across Australia — updated regularly', badge: null },
+    { href: '/community/courses', icon: '🎓', title: 'CPD Courses',       desc: 'Conferences, workshops, and online learning',  badge: null },
+    { href: '/community/news',    icon: '📰', title: 'Community News',    desc: 'Announcements, articles, and resources for NPs', badge: null },
   ];
 
   const formatDate = (d: Date) =>
@@ -283,10 +286,8 @@ export default async function DashboardPage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     fontSize: '24px',
-                    transition: 'transform 0.15s, box-shadow 0.15s',
                   }}>
                     {mod.emoji}
-                    {/* Gold checkmark overlay */}
                     {isDone && (
                       <div style={{
                         position: 'absolute',
@@ -333,10 +334,10 @@ export default async function DashboardPage() {
         {/* Getting started tip */}
         <div className="info-box">
           <p style={{ margin: 0, fontSize: '13px', lineHeight: 1.6 }}>
-            <strong>Getting started?</strong> Browse the{" "}
-            <Link href="/intro" style={{ color: 'var(--gold)', fontWeight: 600 }}>Introduction</Link>{" "}
-            for an overview of NPCollab, or jump straight into the{" "}
-            <Link href="/modules/cardiac" style={{ color: 'var(--gold)', fontWeight: 600 }}>Clinical Modules</Link>{" "}
+            <strong>Getting started?</strong> Browse the{' '}
+            <Link href="/intro" style={{ color: 'var(--gold)', fontWeight: 600 }}>Introduction</Link>{' '}
+            for an overview of NPCollab, or jump straight into the{' '}
+            <Link href="/modules/cardiac" style={{ color: 'var(--gold)', fontWeight: 600 }}>Clinical Modules</Link>{' '}
             for evidence-based clinical content.
           </p>
         </div>
