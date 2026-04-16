@@ -174,7 +174,7 @@ export default function StartingYourOwnPracticePage() {
 
         <h4 style={{ color: 'var(--navy)', marginTop: '20px' }}>NP MBS Item Groups</h4>
         <div className="table-scroll">
-          <table className="data-table">
+          <table className="np-table">
             <thead>
               <tr>
                 <th>MBS Group</th>
@@ -205,14 +205,14 @@ export default function StartingYourOwnPracticePage() {
           ))}
         </div>
 
-        <div className="highlight-box" style={{ borderLeft: '4px solid #d97706', background: '#fffbeb' }}>
-          <h4 style={{ color: '#92400e', marginTop: 0 }}>⚠ Common Billing Mistakes to Avoid</h4>
-          <ul style={{ marginBottom: 0 }}>
-            <li>Billing for services outside your endorsement scope</li>
-            <li>Billing telehealth items without meeting patient-provider relationship requirements</li>
-            <li>Not retaining adequate clinical documentation to support the billed item</li>
-            <li>Billing higher-complexity items for consultations that don&rsquo;t meet time or content thresholds</li>
-            <li>Not obtaining signed assignment of benefit forms for bulk-billed consultations</li>
+        <div style={{ borderLeft: '4px solid #d97706', background: '#fffbeb', borderRadius: '0 8px 8px 0', padding: '16px 20px', margin: '20px 0' }}>
+          <h4 style={{ color: '#92400e', marginTop: 0, marginBottom: '10px', fontFamily: 'var(--font-body)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>⚠ Common Billing Mistakes to Avoid</h4>
+          <ul style={{ marginBottom: 0, paddingLeft: '18px', color: '#92400e' }}>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}>Billing for services outside your endorsement scope</li>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}>Billing telehealth items without meeting patient-provider relationship requirements</li>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}>Not retaining adequate clinical documentation to support the billed item</li>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}>Billing higher-complexity items for consultations that don&rsquo;t meet time or content thresholds</li>
+            <li style={{ fontSize: '0.93rem' }}>Not obtaining signed assignment of benefit forms for bulk-billed consultations</li>
           </ul>
         </div>
 
@@ -343,7 +343,7 @@ export default function StartingYourOwnPracticePage() {
         <h3>Client Management Systems (CMS)</h3>
         <p>Choose a clinical records system before seeing your first patient. Ensure your chosen system supports Medicare billing, My Health Record integration, electronic prescribing (eRx), and AHPRA-compliant clinical documentation.</p>
         <div className="table-scroll">
-          <table className="data-table">
+          <table className="np-table">
             <thead>
               <tr>
                 <th>Software</th>
@@ -455,16 +455,16 @@ export default function StartingYourOwnPracticePage() {
         {/* ═══════════════════════════════════════════════════════════════ */}
         <h2>6. Marketing &amp; Digital Presence</h2>
 
-        <div className="highlight-box" style={{ borderLeft: '4px solid #d97706', background: '#fffbeb' }}>
-          <h4 style={{ color: '#92400e', marginTop: 0 }}>⚠ AHPRA Advertising Rules — Mandatory Reading</h4>
-          <p>Healthcare advertising in Australia is regulated by AHPRA&rsquo;s advertising guidelines and the Australian Consumer Law. All advertising must be:</p>
-          <ul>
-            <li>Truthful and not misleading</li>
-            <li>Not claim to cure conditions that cannot be cured</li>
-            <li><strong>Not use testimonials</strong> — patient testimonials are prohibited under AHPRA guidelines</li>
-            <li>Not create unrealistic expectations</li>
+        <div style={{ borderLeft: '4px solid #d97706', background: '#fffbeb', borderRadius: '0 8px 8px 0', padding: '16px 20px', margin: '20px 0' }}>
+          <h4 style={{ color: '#92400e', marginTop: 0, marginBottom: '10px', fontFamily: 'var(--font-body)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>⚠ AHPRA Advertising Rules — Mandatory Reading</h4>
+          <p style={{ color: '#92400e', fontSize: '0.93rem', marginBottom: '8px' }}>Healthcare advertising in Australia is regulated by AHPRA&rsquo;s advertising guidelines and the Australian Consumer Law. All advertising must be:</p>
+          <ul style={{ paddingLeft: '18px', color: '#92400e', marginBottom: '8px' }}>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}>Truthful and not misleading</li>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}>Not claim to cure conditions that cannot be cured</li>
+            <li style={{ fontSize: '0.93rem', marginBottom: '4px' }}><strong>Not use testimonials</strong> — patient testimonials are prohibited under AHPRA guidelines</li>
+            <li style={{ fontSize: '0.93rem' }}>Not create unrealistic expectations</li>
           </ul>
-          <p style={{ marginBottom: 0 }}>Read the full AHPRA advertising guidelines at <a href="https://www.ahpra.gov.au/resources/advertising-hub" target="_blank" rel="noopener">ahpra.gov.au/resources/advertising-hub</a> before any marketing activity.</p>
+          <p style={{ marginBottom: 0, color: '#92400e', fontSize: '0.93rem' }}>Read the full AHPRA advertising guidelines at <a href="https://www.ahpra.gov.au/resources/advertising-hub" target="_blank" rel="noopener" style={{ color: '#92400e', fontWeight: 600 }}>ahpra.gov.au/resources/advertising-hub</a> before any marketing activity.</p>
         </div>
 
         <h3>Marketing Channels</h3>
@@ -566,7 +566,7 @@ export default function StartingYourOwnPracticePage() {
         <h3>Start-Up Cost Budget</h3>
 
         <div className="table-scroll">
-          <table className="data-table">
+          <table className="np-table">
             <thead>
               <tr>
                 <th>Item</th>
