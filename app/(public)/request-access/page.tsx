@@ -6,6 +6,7 @@ export const metadata: Metadata = {
 };
 
 export default function RequestAccessPage() {
-  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+  console.log('Turnstile key at build:', turnstileSiteKey ? 'PRESENT' : 'MISSING');
   return <RequestAccessForm turnstileSiteKey={turnstileSiteKey} />;
 }
