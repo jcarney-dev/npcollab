@@ -95,4 +95,4 @@ export async function POST(req: NextRequest) {
     .where(eq(jobListings.id, listing.id));
 
   return Response.json({ url: session.url });
-}
+}
