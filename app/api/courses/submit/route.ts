@@ -4,6 +4,20 @@ import { courses } from '@/lib/schema';
 import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 import { Resend } from 'resend';
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
+    });
+    const data = await res.json() as { success: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
@@ -23,12 +37,21 @@ export async function POST(req: NextRequest) {
   const {
     courseName, providerName, providerEmail, courseType, specialty,
     description, dateStart, dateEnd, location, cost, cpdHours,
-    registrationUrl, submitterName, submitterEmail,
+    registrationUrl, submitterName, submitterEmail, turnstileToken,
   } = body;
 
   if (!courseName?.trim() || !providerName?.trim() || !description?.trim() ||
       !dateStart || !location?.trim() || !registrationUrl?.trim()) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+  }
+
+  // Turnstile verification
+  if (!turnstileToken) {
+    return NextResponse.json({ error: 'CAPTCHA verification required.' }, { status: 400 });
+  }
+  const turnstileOk = await verifyTurnstile(turnstileToken);
+  if (!turnstileOk) {
+    return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
   }
 
   try {

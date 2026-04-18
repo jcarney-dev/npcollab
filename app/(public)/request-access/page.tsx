@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const STATES = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'];
 
@@ -33,6 +34,7 @@ export default function RequestAccessPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
   const [error, setError] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   const fs: React.CSSProperties = {
     width: '100%',
@@ -73,6 +75,7 @@ export default function RequestAccessPage() {
     }
     if (!form.state) { setError('Please select your state.'); return; }
     if (!form.npEndorsement) { setError('Please select your NP endorsement type.'); return; }
+    if (!turnstileToken) { setError('Please complete the CAPTCHA verification.'); return; }
 
     setSubmitting(true);
     setError('');
@@ -82,14 +85,15 @@ export default function RequestAccessPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:          form.name.trim(),
-          email:         form.email.trim().toLowerCase(),
-          state:         form.state,
-          npEndorsement: form.npEndorsement,
-          employer:      form.employer.trim() || null,
-          specialtyArea: form.specialtyArea.trim() || null,
-          currentRole:   form.currentRole.trim() || null,
-          statement:     form.statement.trim() || null,
+          name:            form.name.trim(),
+          email:           form.email.trim().toLowerCase(),
+          state:           form.state,
+          npEndorsement:   form.npEndorsement,
+          employer:        form.employer.trim() || null,
+          specialtyArea:   form.specialtyArea.trim() || null,
+          currentRole:     form.currentRole.trim() || null,
+          statement:       form.statement.trim() || null,
+          turnstileToken,
         }),
       });
       const json = await res.json();
@@ -322,21 +326,32 @@ export default function RequestAccessPage() {
                   />
                 </div>
 
+                <div>
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken('')}
+                    onExpire={() => setTurnstileToken('')}
+                    options={{ theme: 'light' }}
+                  />
+                </div>
+
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || !turnstileToken}
                   style={{
                     width: '100%',
                     padding: '12px',
-                    background: submitting ? 'var(--navy-light)' : 'var(--navy)',
+                    background: (submitting || !turnstileToken) ? 'var(--navy-light)' : 'var(--navy)',
                     color: '#fff',
                     border: 'none',
                     borderRadius: '7px',
                     fontSize: '15px',
                     fontWeight: 700,
                     fontFamily: 'var(--font-body)',
-                    cursor: submitting ? 'not-allowed' : 'pointer',
+                    cursor: (submitting || !turnstileToken) ? 'not-allowed' : 'pointer',
                     marginTop: '4px',
+                    opacity: !turnstileToken ? 0.65 : 1,
                   }}
                 >
                   {submitting ? 'Submitting…' : 'Request Access'}

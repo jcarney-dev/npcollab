@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const COURSE_TYPES = ['conference', 'workshop', 'online', 'webinar', 'simulation', 'other'];
 const TYPE_LABEL: Record<string, string> = {
@@ -29,6 +30,7 @@ export default function SubmitCoursePage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   const fs: React.CSSProperties = {
     width: '100%', padding: '9px 12px',
@@ -50,13 +52,17 @@ export default function SubmitCoursePage() {
       setError('Please fill in all required fields.');
       return;
     }
+    if (!turnstileToken) {
+      setError('Please complete the CAPTCHA verification.');
+      return;
+    }
     setSubmitting(true);
     setError('');
     try {
       const res = await fetch('/api/courses/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       const json = await res.json();
       if (!res.ok) {
@@ -233,10 +239,20 @@ export default function SubmitCoursePage() {
               </div>
             </div>
 
+            <div>
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={(token) => setTurnstileToken(token)}
+                onError={() => setTurnstileToken('')}
+                onExpire={() => setTurnstileToken('')}
+                options={{ theme: 'light' }}
+              />
+            </div>
+
             <div style={{ paddingTop: '4px' }}>
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !turnstileToken}
                 style={{
                   padding: '11px 28px',
                   background: 'var(--navy)',
@@ -245,8 +261,8 @@ export default function SubmitCoursePage() {
                   borderRadius: '6px',
                   fontWeight: 700,
                   fontSize: '14px',
-                  cursor: submitting ? 'not-allowed' : 'pointer',
-                  opacity: submitting ? 0.65 : 1,
+                  cursor: (submitting || !turnstileToken) ? 'not-allowed' : 'pointer',
+                  opacity: (submitting || !turnstileToken) ? 0.65 : 1,
                 }}
               >
                 {submitting ? 'Submitting…' : 'Submit for Review'}

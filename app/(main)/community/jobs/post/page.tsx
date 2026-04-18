@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const EMPLOYMENT_TYPES = ['Full-time', 'Part-time', 'Casual', 'Contract', 'Locum'];
 const SPECIALTIES = [
@@ -36,6 +37,7 @@ export default function PostJobPage() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   function update(field: string, value: string) {
     setForm(f => ({ ...f, [field]: value }));
@@ -52,13 +54,14 @@ export default function PostJobPage() {
     if (!form.location.trim()) return setError('Please enter a location.');
     if (!form.description.trim()) return setError('Please provide a job description.');
     if (!form.applicationUrl.trim()) return setError('Please enter an application URL.');
+    if (!turnstileToken) return setError('Please complete the CAPTCHA verification.');
 
     setLoading(true);
     try {
       const res = await fetch('/api/jobs/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       const json = await res.json();
       if (!res.ok) {
@@ -204,6 +207,16 @@ export default function PostJobPage() {
 
         {error && <div className="form-error">{error}</div>}
 
+        <div style={{ marginBottom: '8px' }}>
+          <Turnstile
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+            onSuccess={(token) => setTurnstileToken(token)}
+            onError={() => setTurnstileToken('')}
+            onExpire={() => setTurnstileToken('')}
+            options={{ theme: 'light' }}
+          />
+        </div>
+
         <div style={{ padding: '20px', background: 'var(--gold-pale)', border: '1px solid var(--gold-light)', borderRadius: '8px', marginBottom: '16px' }}>
           <p style={{ margin: 0, fontSize: '14px', color: 'var(--navy)', fontWeight: 500 }}>
             💳 $99 AUD for 30 days — secure payment via Stripe
@@ -216,7 +229,8 @@ export default function PostJobPage() {
         <button
           type="submit"
           className="btn-primary"
-          disabled={loading}
+          disabled={loading || !turnstileToken}
+          style={{ opacity: !turnstileToken ? 0.65 : undefined, cursor: !turnstileToken ? 'not-allowed' : undefined }}
         >
           {loading ? 'Redirecting to payment…' : 'Proceed to payment — $99 AUD →'}
         </button>

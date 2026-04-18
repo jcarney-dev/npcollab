@@ -5,6 +5,46 @@ import { eq } from 'drizzle-orm';
 import { randomBytes } from 'crypto';
 import { Resend } from 'resend';
 
+// ---------------------------------------------------------------------------
+// In-memory rate limiting — max 5 registration attempts per IP per hour
+// ---------------------------------------------------------------------------
+interface RateEntry { count: number; resetTime: number; }
+const rateMap = new Map<string, RateEntry>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.resetTime) {
+    rateMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW_MS });
+    return true; // allowed
+  }
+  if (entry.count >= RATE_LIMIT) return false; // blocked
+  entry.count++;
+  return true; // allowed
+}
+
+// ---------------------------------------------------------------------------
+// Cloudflare Turnstile verification
+// ---------------------------------------------------------------------------
+async function verifyTurnstile(token: string): Promise<boolean> {
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret:   process.env.TURNSTILE_SECRET_KEY,
+        response: token,
+      }),
+    });
+    const data = await res.json() as { success: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 function adminEmailHtml(opts: {
@@ -85,6 +125,19 @@ function adminEmailHtml(opts: {
 }
 
 export async function POST(req: NextRequest) {
+  // Rate limiting — keyed by IP
+  const ip =
+    req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+    req.headers.get('x-real-ip') ||
+    '127.0.0.1';
+
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { error: 'Too many registration attempts. Please try again in an hour.' },
+      { status: 429 }
+    );
+  }
+
   let body: Record<string, string | null>;
   try {
     body = await req.json();
@@ -92,7 +145,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
   }
 
-  const { name, email, state, npEndorsement, employer, specialtyArea, currentRole, statement } = body as Record<string, string | null>;
+  const { name, email, state, npEndorsement, employer, specialtyArea, currentRole, statement, turnstileToken } = body as Record<string, string | null>;
+
+  // Turnstile verification
+  if (!turnstileToken) {
+    return NextResponse.json({ error: 'CAPTCHA verification required.' }, { status: 400 });
+  }
+  const turnstileOk = await verifyTurnstile(turnstileToken);
+  if (!turnstileOk) {
+    return NextResponse.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
+  }
 
   // Validate required fields
   if (!name?.trim() || name.trim().length < 2) {

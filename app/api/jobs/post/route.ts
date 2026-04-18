@@ -4,9 +4,23 @@ import { eq } from 'drizzle-orm';
 import Stripe from 'stripe';
 import { NextRequest } from 'next/server';
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
+    });
+    const data = await res.json() as { success: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { employerName, contactEmail, jobTitle, location, employmentType, specialty, description, salaryRange, applicationUrl } = body;
+  const { employerName, contactEmail, jobTitle, location, employmentType, specialty, description, salaryRange, applicationUrl, turnstileToken } = body;
 
   if (!employerName?.trim() || !contactEmail?.trim() || !jobTitle?.trim() || !location?.trim() || !description?.trim() || !applicationUrl?.trim()) {
     return Response.json({ error: 'Required fields missing.' }, { status: 400 });
@@ -15,6 +29,15 @@ export async function POST(req: NextRequest) {
   // Validate email
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)) {
     return Response.json({ error: 'Invalid email address.' }, { status: 400 });
+  }
+
+  // Turnstile verification
+  if (!turnstileToken) {
+    return Response.json({ error: 'CAPTCHA verification required.' }, { status: 400 });
+  }
+  const turnstileOk = await verifyTurnstile(turnstileToken);
+  if (!turnstileOk) {
+    return Response.json({ error: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
   }
 
   // Save listing to DB with status 'pending', payment_status 'unpaid'
