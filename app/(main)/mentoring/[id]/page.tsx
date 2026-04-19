@@ -10,16 +10,17 @@ import IntroRequestForm from './IntroRequestForm';
 export const dynamic = 'force-dynamic';
 
 interface Props {
-  params:      { id: string };
-  searchParams: { saved?: string };
+  params:       Promise<{ id: string }>;
+  searchParams: Promise<{ saved?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
+    const { id } = await params;
     const [mentor] = await db
       .select({ name: mentors.name, specialtyArea: mentors.specialtyArea })
       .from(mentors)
-      .where(eq(mentors.id, parseInt(params.id, 10)))
+      .where(eq(mentors.id, parseInt(id, 10)))
       .limit(1);
     if (!mentor) return { title: 'Mentor Profile — NPCollab' };
     return {
@@ -32,10 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function MentorProfilePage({ params, searchParams }: Props) {
+  const { id } = await params;
+  const { saved } = await searchParams;
   const session = await getSession();
-  if (!session) redirect(`/login?redirect=/mentoring/${params.id}`);
+  if (!session) redirect(`/login?redirect=/mentoring/${id}`);
 
-  const mentorId = parseInt(params.id, 10);
+  const mentorId = parseInt(id, 10);
   if (isNaN(mentorId)) notFound();
 
   // Fetch mentor + their email
@@ -86,7 +89,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
     .toUpperCase()
     .slice(0, 2);
 
-  const savedSuccess = searchParams.saved === '1';
+  const savedSuccess = saved === '1';
 
   return (
     <>
