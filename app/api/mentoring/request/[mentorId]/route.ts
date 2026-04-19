@@ -7,15 +7,16 @@ import { sendMentoringIntroduction } from '@/lib/email';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { mentorId: string } }
+  { params }: { params: Promise<{ mentorId: string }> }
 ) {
   const token = req.cookies.get(SESSION_COOKIE_NAME)?.value;
-  if (!token) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  if (\!token) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
 
   const session = await verifySessionToken(token);
-  if (!session) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
+  if (\!session) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
 
-  const mentorId = parseInt(params.mentorId, 10);
+  const { mentorId: mentorIdStr } = await params;
+  const mentorId = parseInt(mentorIdStr, 10);
   if (isNaN(mentorId)) return NextResponse.json({ error: 'Invalid mentor ID.' }, { status: 400 });
 
   // Fetch mentor + their email via join
@@ -30,8 +31,8 @@ export async function POST(
     .where(eq(mentors.id, mentorId))
     .limit(1);
 
-  if (!mentor) return NextResponse.json({ error: 'Mentor not found.' }, { status: 404 });
-  if (!mentor.active) return NextResponse.json({ error: 'This mentor is not currently accepting requests.' }, { status: 400 });
+  if (\!mentor) return NextResponse.json({ error: 'Mentor not found.' }, { status: 404 });
+  if (\!mentor.active) return NextResponse.json({ error: 'This mentor is not currently accepting requests.' }, { status: 400 });
 
   // Prevent self-request
   if (mentor.userId === session.userId) {
@@ -45,7 +46,7 @@ export async function POST(
     .where(eq(usersV2.id, session.userId))
     .limit(1);
 
-  if (!mentee || !mentee.active || !mentee.approved) {
+  if (\!mentee || \!mentee.active || \!mentee.approved) {
     return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
   }
 
@@ -56,7 +57,7 @@ export async function POST(
     .where(eq(usersV2.id, mentor.userId))
     .limit(1);
 
-  if (!mentorUser) return NextResponse.json({ error: 'Mentor account not found.' }, { status: 404 });
+  if (\!mentorUser) return NextResponse.json({ error: 'Mentor account not found.' }, { status: 404 });
 
   // 30-day duplicate guard
   const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
@@ -82,7 +83,7 @@ export async function POST(
   const body = await req.json();
   const { message } = body;
 
-  if (!message?.trim()) return NextResponse.json({ error: 'A message is required.' }, { status: 400 });
+  if (\!message?.trim()) return NextResponse.json({ error: 'A message is required.' }, { status: 400 });
   if (message.length > 500) return NextResponse.json({ error: 'Message must be 500 characters or fewer.' }, { status: 400 });
 
   // Insert request record
@@ -107,7 +108,7 @@ export async function POST(
     });
   } catch (err) {
     console.error('[mentoring] Failed to send introduction email:', err);
-    // Don't fail the request — record is saved, email failure is non-blocking
+    // Don't fail the request -- record is saved, email failure is non-blocking
   }
 
   return NextResponse.json({ ok: true });

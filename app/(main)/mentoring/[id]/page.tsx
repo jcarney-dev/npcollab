@@ -10,32 +10,36 @@ import IntroRequestForm from './IntroRequestForm';
 export const dynamic = 'force-dynamic';
 
 interface Props {
-  params:      { id: string };
-  searchParams: { saved?: string };
+  params:       Promise<{ id: string }>;
+  searchParams: Promise<{ saved?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
+    const { id } = await params;
     const [mentor] = await db
       .select({ name: mentors.name, specialtyArea: mentors.specialtyArea })
       .from(mentors)
-      .where(eq(mentors.id, parseInt(params.id, 10)))
+      .where(eq(mentors.id, parseInt(id, 10)))
       .limit(1);
-    if (!mentor) return { title: 'Mentor Profile — NPCollab' };
+    if (\!mentor) return { title: 'Mentor Profile -- NPCollab' };
     return {
-      title: `${mentor.name} — NPCollab Mentoring`,
+      title: `${mentor.name} -- NPCollab Mentoring`,
       description: `${mentor.name} is a mentor on NPCollab specialising in ${mentor.specialtyArea}.`,
     };
   } catch {
-    return { title: 'Mentor Profile — NPCollab' };
+    return { title: 'Mentor Profile -- NPCollab' };
   }
 }
 
 export default async function MentorProfilePage({ params, searchParams }: Props) {
   const session = await getSession();
-  if (!session) redirect(`/login?redirect=/mentoring/${params.id}`);
+  const { id } = await params;
+  const { saved } = await searchParams;
 
-  const mentorId = parseInt(params.id, 10);
+  if (\!session) redirect(`/login?redirect=/mentoring/${id}`);
+
+  const mentorId = parseInt(id, 10);
   if (isNaN(mentorId)) notFound();
 
   // Fetch mentor + their email
@@ -62,7 +66,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
       .where(eq(mentors.id, mentorId))
       .limit(1);
 
-    if (!row) notFound();
+    if (\!row) notFound();
     mentor = row;
 
     // Fetch email for display
@@ -86,7 +90,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
     .toUpperCase()
     .slice(0, 2);
 
-  const savedSuccess = searchParams.saved === '1';
+  const savedSuccess = saved === '1';
 
   return (
     <>
@@ -109,7 +113,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
             marginBottom: '24px',
           }}
         >
-          ← Back to mentor directory
+          &larr; Back to mentor directory
         </Link>
 
         {/* Save success banner */}
@@ -128,7 +132,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
           </div>
         )}
 
-        {!mentor.active && !isSelf && (
+        {\!mentor.active && \!isSelf && (
           <div style={{
             padding: '14px 18px',
             background: 'var(--off-white)',
