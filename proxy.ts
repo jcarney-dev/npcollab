@@ -36,6 +36,7 @@ const PROTECTED_PREFIXES = [
   '/community/',
   '/dashboard',
   '/profile/',
+  '/mentoring',
 ];
 
 // Admin-only routes

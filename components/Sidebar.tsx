@@ -99,6 +99,13 @@ const navGroups: NavGroup[] = [
     ]
   },
   {
+    label: 'Mentoring',
+    items: [
+      { label: 'Find a Mentor',     href: '/mentoring',          icon: '🤝' },
+      { label: 'Register as Mentor', href: '/mentoring/register', icon: '✏️' },
+    ]
+  },
+  {
     label: 'Business',
     items: [
       { label: 'Starting Your Own Practice', href: '/business/starting-your-own-practice', icon: '🏢' },
@@ -410,7 +417,7 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
               <div className="support-badge">
                 <p>Free forever for Australian NPs. Help cover hosting costs.</p>
                 <Link href="/support" className="btn-support" onClick={onClose}>☕ Support NPCollab</Link>
-              </div>
+                        </div>
             </div>
           )}
         </div>

@@ -7,28 +7,27 @@ import {
   integer,
   unique,
   numeric,
+  serial,
 } from 'drizzle-orm/pg-core';
 
-// ── access_requests ────────────────────────────────────────────────────────
-// Stores incoming access requests from prospective users (step 1 of the flow)
+// access_requests
 export const accessRequests = pgTable('access_requests', {
   id:        uuid('id').primaryKey().defaultRandom(),
   name:      text('name').notNull(),
   email:     text('email').notNull(),
-  role:      text('role').notNull(),      // 'Endorsed NP' | 'TNP' | 'NP Student' | 'RN considering NP' | 'Other'
+  role:      text('role').notNull(),
   reason:    text('reason').notNull(),
-  status:    text('status').notNull().default('pending'), // 'pending' | 'approved' | 'denied'
+  status:    text('status').notNull().default('pending'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── users ──────────────────────────────────────────────────────────────────
-// Created when Jason approves an access request; holds the unique access code
+// users
 export const users = pgTable('users', {
   id:          uuid('id').primaryKey().defaultRandom(),
   name:        text('name').notNull(),
   email:       text('email').notNull(),
   role:        text('role').notNull(),
-  accessCode:  text('access_code').notNull().unique(), // format: NPC-YYYY-XXXX
+  accessCode:  text('access_code').notNull().unique(),
   active:      boolean('active').notNull().default(true),
   approvedAt:  timestamp('approved_at').notNull().defaultNow(),
   requestId:   uuid('request_id')
@@ -36,8 +35,7 @@ export const users = pgTable('users', {
                .references(() => accessRequests.id),
 });
 
-// ── sponsors ───────────────────────────────────────────────────────────────
-// Stores sponsor enquiries and active sponsors
+// sponsors
 export const sponsors = pgTable('sponsors', {
   id:           uuid('id').primaryKey().defaultRandom(),
   companyName:  text('company_name').notNull(),
@@ -45,25 +43,23 @@ export const sponsors = pgTable('sponsors', {
   contactEmail: text('contact_email').notNull(),
   logoUrl:      text('logo_url'),
   websiteUrl:   text('website_url').notNull().default(''),
-  placement:    text('placement').notNull().default('sidebar'), // 'sidebar' | 'module' | 'homepage'
-  moduleSlug:   text('module_slug'),                             // set when placement = 'module'
-  message:      text('message'),                                 // original enquiry message
+  placement:    text('placement').notNull().default('sidebar'),
+  moduleSlug:   text('module_slug'),
+  message:      text('message'),
   active:       boolean('active').notNull().default(false),
   startDate:    timestamp('start_date'),
   endDate:      timestamp('end_date'),
   createdAt:    timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── podcast_subscribers ────────────────────────────────────────────────────
-// Stores email addresses of users who want to be notified when the podcast launches
+// podcast_subscribers
 export const podcastSubscribers = pgTable('podcast_subscribers', {
   id:        uuid('id').primaryKey().defaultRandom(),
   email:     text('email').notNull().unique(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── podcast_broadcasts ─────────────────────────────────────────────────────
-// Log of broadcast emails sent to all podcast subscribers
+// podcast_broadcasts
 export const podcastBroadcasts = pgTable('podcast_broadcasts', {
   id:             uuid('id').primaryKey().defaultRandom(),
   subject:        text('subject').notNull(),
@@ -72,22 +68,20 @@ export const podcastBroadcasts = pgTable('podcast_broadcasts', {
   sentAt:         timestamp('sent_at').notNull().defaultNow(),
 });
 
-// ── news_items ─────────────────────────────────────────────────────────────
-// Admin-managed news items for the Community > News section
+// news_items
 export const newsItems = pgTable('news_items', {
   id:          uuid('id').primaryKey().defaultRandom(),
   title:       text('title').notNull(),
   summary:     text('summary').notNull(),
-  url:         text('url'),                              // external link (optional)
-  type:        text('type').notNull().default('article'), // 'article' | 'external' | 'announcement'
+  url:         text('url'),
+  type:        text('type').notNull().default('article'),
   sourceName:  text('source_name').notNull().default(''),
-  status:      text('status').notNull().default('draft'), // 'draft' | 'published' | 'rejected'
+  status:      text('status').notNull().default('draft'),
   publishedAt: timestamp('published_at'),
   createdAt:   timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── job_listings ───────────────────────────────────────────────────────────
-// Job postings submitted by employers (Stripe-paid or manual/imported)
+// job_listings
 export const jobListings = pgTable('job_listings', {
   id:              uuid('id').primaryKey().defaultRandom(),
   employerName:    text('employer_name').notNull(),
@@ -99,22 +93,21 @@ export const jobListings = pgTable('job_listings', {
   description:     text('description').notNull(),
   salaryRange:     text('salary_range'),
   applicationUrl:  text('application_url').notNull(),
-  status:          text('status').notNull().default('pending'),        // 'pending' | 'pending_approval' | 'approved' | 'rejected' | 'draft'
-  paymentStatus:   text('payment_status').notNull().default('unpaid'), // 'unpaid' | 'paid' | 'manual' | 'imported'
+  status:          text('status').notNull().default('pending'),
+  paymentStatus:   text('payment_status').notNull().default('unpaid'),
   stripeSessionId: text('stripe_session_id'),
   postedAt:        timestamp('posted_at'),
   expiresAt:       timestamp('expires_at'),
   createdAt:       timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── courses ────────────────────────────────────────────────────────────────
-// CPD and education course listings
+// courses
 export const courses = pgTable('courses', {
   id:              uuid('id').primaryKey().defaultRandom(),
   courseName:      text('course_name').notNull(),
   providerName:    text('provider_name').notNull(),
   providerEmail:   text('provider_email'),
-  courseType:      text('course_type').notNull().default('other'), // 'conference'|'workshop'|'online'|'webinar'|'simulation'|'other'
+  courseType:      text('course_type').notNull().default('other'),
   specialty:       text('specialty').notNull().default(''),
   description:     text('description').notNull(),
   dateStart:       timestamp('date_start').notNull(),
@@ -124,14 +117,13 @@ export const courses = pgTable('courses', {
   cpdHours:        text('cpd_hours'),
   registrationUrl: text('registration_url').notNull(),
   source:          text('source'),
-  status:          text('status').notNull().default('draft'),       // 'draft'|'approved'|'expired'
-  paymentStatus:   text('payment_status').notNull().default('manual'), // 'manual'|'imported'|'paid'
+  status:          text('status').notNull().default('draft'),
+  paymentStatus:   text('payment_status').notNull().default('manual'),
   postedAt:        timestamp('posted_at'),
   createdAt:       timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── users_v2 ───────────────────────────────────────────────────────────────
-// New user table for magic-link auth system (replaces access-code flow)
+// users_v2
 export const usersV2 = pgTable('users_v2', {
   id:              uuid('id').primaryKey().defaultRandom(),
   name:            text('name').notNull(),
@@ -141,7 +133,7 @@ export const usersV2 = pgTable('users_v2', {
   employer:        text('employer'),
   specialtyArea:   text('specialty_area'),
   currentRole:     text('current_role'),
-  role:            text('role').notNull().default('user'),      // 'user' | 'admin'
+  role:            text('role').notNull().default('user'),
   active:          boolean('active').notNull().default(true),
   approved:        boolean('approved').notNull().default(false),
   createdAt:       timestamp('created_at').notNull().defaultNow(),
@@ -149,8 +141,7 @@ export const usersV2 = pgTable('users_v2', {
   profileComplete: boolean('profile_complete').notNull().default(false),
 });
 
-// ── magic_links ────────────────────────────────────────────────────────────
-// One-time login tokens sent via email
+// magic_links
 export const magicLinks = pgTable('magic_links', {
   id:        uuid('id').primaryKey().defaultRandom(),
   email:     text('email').notNull(),
@@ -160,20 +151,18 @@ export const magicLinks = pgTable('magic_links', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── admin_actions ──────────────────────────────────────────────────────────
-// One-time tokens embedded in admin notification emails (approve/reject links)
+// admin_actions
 export const adminActions = pgTable('admin_actions', {
   id:        uuid('id').primaryKey().defaultRandom(),
-  action:    text('action').notNull(),        // 'approve' | 'reject'
-  userId:    uuid('user_id').notNull(),        // references users_v2.id
+  action:    text('action').notNull(),
+  userId:    uuid('user_id').notNull(),
   token:     text('token').notNull().unique(),
   used:      boolean('used').notNull().default(false),
   expiresAt: timestamp('expires_at').notNull(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
-// ── site_settings ──────────────────────────────────────────────────────────
-// Key/value store for admin-configurable site settings
+// site_settings
 export const siteSettings = pgTable('site_settings', {
   id:        uuid('id').primaryKey().defaultRandom(),
   key:       text('key').notNull().unique(),
@@ -181,63 +170,94 @@ export const siteSettings = pgTable('site_settings', {
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
 
-// ── module_contributors ────────────────────────────────────────────────────
-// Stores contributors (authors) for clinical module overview pages
+// module_contributors
 export const moduleContributors = pgTable('module_contributors', {
-  id:              uuid('id').primaryKey().defaultRandom(),
-  moduleSlug:      text('module_slug').notNull(),
-  name:            text('name').notNull(),
-  title:           text('title').notNull(),
-  credentials:     text('credentials'),
-  bio:             text('bio'),
-  avatarInitials:  text('avatar_initials').notNull(),
-  displayOrder:    integer('display_order').notNull().default(0),
-  createdAt:       timestamp('created_at').notNull().defaultNow(),
+  id:             uuid('id').primaryKey().defaultRandom(),
+  moduleSlug:     text('module_slug').notNull(),
+  name:           text('name').notNull(),
+  title:          text('title').notNull(),
+  credentials:    text('credentials'),
+  bio:            text('bio'),
+  avatarInitials: text('avatar_initials').notNull(),
+  displayOrder:   integer('display_order').notNull().default(0),
+  createdAt:      timestamp('created_at').notNull().defaultNow(),
 }, (t) => [
   unique('module_contributors_module_slug_name_unique').on(t.moduleSlug, t.name),
 ]);
 
-// ── module_completions ─────────────────────────────────────────────────────
-// CPD tracking — one record per quiz attempt where the user passed (>=80%)
+// module_completions
 export const moduleCompletions = pgTable('module_completions', {
   id:                   uuid('id').primaryKey().defaultRandom(),
   userId:               uuid('user_id').notNull().references(() => usersV2.id),
-  moduleSlug:           text('module_slug').notNull(),   // e.g. 'cardiac', 'msk-back'
-  moduleName:           text('module_name').notNull(),   // e.g. 'Cardiac', 'MSK — Back'
-  quizScore:            integer('quiz_score').notNull(),  // percentage 0–100
-  passed:               boolean('passed').notNull(),      // true if score >= 80
+  moduleSlug:           text('module_slug').notNull(),
+  moduleName:           text('module_name').notNull(),
+  quizScore:            integer('quiz_score').notNull(),
+  passed:               boolean('passed').notNull(),
   completedAt:          timestamp('completed_at').notNull().defaultNow(),
   cpdHours:             numeric('cpd_hours', { precision: 4, scale: 2 }).notNull().default('1.00'),
   certificateGenerated: boolean('certificate_generated').notNull().default(false),
   certificateUrl:       text('certificate_url'),
 });
 
-// ── Type exports ───────────────────────────────────────────────────────────
-export type AccessRequest         = typeof accessRequests.$inferSelect;
-export type NewAccessRequest      = typeof accessRequests.$inferInsert;
-export type User                  = typeof users.$inferSelect;
-export type NewUser               = typeof users.$inferInsert;
-export type Sponsor               = typeof sponsors.$inferSelect;
-export type NewSponsor            = typeof sponsors.$inferInsert;
-export type PodcastSubscriber     = typeof podcastSubscribers.$inferSelect;
-export type NewPodcastSubscriber  = typeof podcastSubscribers.$inferInsert;
-export type PodcastBroadcast      = typeof podcastBroadcasts.$inferSelect;
-export type NewPodcastBroadcast   = typeof podcastBroadcasts.$inferInsert;
-export type NewsItem              = typeof newsItems.$inferSelect;
-export type NewNewsItem           = typeof newsItems.$inferInsert;
-export type JobListing            = typeof jobListings.$inferSelect;
-export type NewJobListing         = typeof jobListings.$inferInsert;
-export type Course                = typeof courses.$inferSelect;
-export type NewCourse             = typeof courses.$inferInsert;
-export type UserV2                = typeof usersV2.$inferSelect;
-export type NewUserV2             = typeof usersV2.$inferInsert;
-export type MagicLink             = typeof magicLinks.$inferSelect;
-export type NewMagicLink          = typeof magicLinks.$inferInsert;
-export type AdminAction           = typeof adminActions.$inferSelect;
-export type NewAdminAction        = typeof adminActions.$inferInsert;
-export type SiteSetting           = typeof siteSettings.$inferSelect;
-export type NewSiteSetting        = typeof siteSettings.$inferInsert;
-export type ModuleContributor     = typeof moduleContributors.$inferSelect;
-export type NewModuleContributor  = typeof moduleContributors.$inferInsert;
-export type ModuleCompletion      = typeof moduleCompletions.$inferSelect;
-export type NewModuleCompletion   = typeof moduleCompletions.$inferInsert;
+// mentors
+export const mentors = pgTable('mentors', {
+  id:            serial('id').primaryKey(),
+  userId:        uuid('user_id').notNull().references(() => usersV2.id).unique(),
+  name:          text('name').notNull(),
+  credentials:   text('credentials').notNull().default(''),
+  specialtyArea: text('specialty_area').notNull().default(''),
+  state:         text('state').notNull().default(''),
+  currentRole:   text('current_role').notNull().default(''),
+  employer:      text('employer').notNull().default(''),
+  bio:           text('bio').notNull().default(''),
+  mode:          text('mode').notNull().default(''),
+  maxMentees:    integer('max_mentees').notNull().default(3),
+  active:        boolean('active').notNull().default(true),
+  createdAt:     timestamp('created_at').notNull().defaultNow(),
+  updatedAt:     timestamp('updated_at').notNull().defaultNow(),
+});
+
+// mentoring_requests
+export const mentoringRequests = pgTable('mentoring_requests', {
+  id:           serial('id').primaryKey(),
+  mentorId:     integer('mentor_id').notNull().references(() => mentors.id),
+  menteeUserId: uuid('mentee_user_id').notNull().references(() => usersV2.id),
+  menteeName:   text('mentee_name').notNull(),
+  menteeEmail:  text('mentee_email').notNull(),
+  message:      text('message').notNull(),
+  createdAt:    timestamp('created_at').notNull().defaultNow(),
+});
+
+// Type exports
+export type AccessRequest        = typeof accessRequests.$inferSelect;
+export type NewAccessRequest     = typeof accessRequests.$inferInsert;
+export type User                 = typeof users.$inferSelect;
+export type NewUser              = typeof users.$inferInsert;
+export type Sponsor              = typeof sponsors.$inferSelect;
+export type NewSponsor           = typeof sponsors.$inferInsert;
+export type PodcastSubscriber    = typeof podcastSubscribers.$inferSelect;
+export type NewPodcastSubscriber = typeof podcastSubscribers.$inferInsert;
+export type PodcastBroadcast     = typeof podcastBroadcasts.$inferSelect;
+export type NewPodcastBroadcast  = typeof podcastBroadcasts.$inferInsert;
+export type NewsItem             = typeof newsItems.$inferSelect;
+export type NewNewsItem          = typeof newsItems.$inferInsert;
+export type JobListing           = typeof jobListings.$inferSelect;
+export type NewJobListing        = typeof jobListings.$inferInsert;
+export type Course               = typeof courses.$inferSelect;
+export type NewCourse            = typeof courses.$inferInsert;
+export type UserV2               = typeof usersV2.$inferSelect;
+export type NewUserV2            = typeof usersV2.$inferInsert;
+export type MagicLink            = typeof magicLinks.$inferSelect;
+export type NewMagicLink         = typeof magicLinks.$inferInsert;
+export type AdminAction          = typeof adminActions.$inferSelect;
+export type NewAdminAction       = typeof adminActions.$inferInsert;
+export type SiteSetting          = typeof siteSettings.$inferSelect;
+export type NewSiteSetting       = typeof siteSettings.$inferInsert;
+export type ModuleContributor    = typeof moduleContributors.$inferSelect;
+export type NewModuleContributor = typeof moduleContributors.$inferInsert;
+export type ModuleCompletion     = typeof moduleCompletions.$inferSelect;
+export type NewModuleCompletion  = typeof moduleCompletions.$inferInsert;
+export type Mentor               = typeof mentors.$inferSelect;
+export type NewMentor            = typeof mentors.$inferInsert;
+export type MentoringRequest     = typeof mentoringRequests.$inferSelect;
+export type NewMentoringRequest  = typeof mentoringRequests.$inferInsert;

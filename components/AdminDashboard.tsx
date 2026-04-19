@@ -2498,6 +2498,126 @@ function ContributorsSection({ initial }: { initial: ModuleContributor[] }) {
   );
 }
 
+// ── Mentoring section ───────────────────────────────────────────────────────
+
+interface AdminMentor {
+  id:            number;
+  name:          string;
+  credentials:   string;
+  specialtyArea: string;
+  state:         string;
+  mode:          string;
+  active:        boolean;
+  createdAt:     string | Date | null;
+  email:         string | null;
+  requestCount:  number;
+}
+
+function MentoringSection() {
+  const [mentors, setMentors] = React.useState<AdminMentor[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [saving, setSaving]   = React.useState<number | null>(null);
+  const [error, setError]     = React.useState('');
+
+  React.useEffect(() => {
+    fetch('/api/admin/mentoring/list')
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data)) setMentors(data);
+        else setError('Failed to load mentors.');
+      })
+      .catch(() => setError('Failed to load mentors.'))
+      .finally(() => setLoading(false));
+  }, []);
+
+  async function toggleActive(mentor: AdminMentor) {
+    setSaving(mentor.id);
+    try {
+      const res = await fetch(`/api/admin/mentoring/${mentor.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ active: !mentor.active }),
+      });
+      if (!res.ok) { setError('Failed to update mentor.'); return; }
+      setMentors(prev => prev.map(m => m.id === mentor.id ? { ...m, active: !m.active } : m));
+    } catch {
+      setError('Network error.');
+    } finally {
+      setSaving(null);
+    }
+  }
+
+  return (
+    <section className="admin-section">
+      <h2 className="admin-section-title">
+        Mentoring
+        <span style={{ marginLeft: '12px', fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 400 }}>
+          {mentors.length} registered mentor{mentors.length !== 1 ? 's' : ''}
+        </span>
+      </h2>
+
+      {error && <p style={{ color: 'var(--error)', marginBottom: '16px' }}>{error}</p>}
+      {loading && <p className="admin-empty">Loading…</p>}
+
+      {!loading && mentors.length === 0 && (
+        <p className="admin-empty">No mentors registered yet.</p>
+      )}
+
+      {!loading && mentors.length > 0 && (
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Specialty</th>
+                <th>State</th>
+                <th>Mode</th>
+                <th>Requests</th>
+                <th>Registered</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {mentors.map(m => (
+                <tr key={m.id} className={m.active ? '' : 'admin-row--disabled'}>
+                  <td className="admin-td-name">
+                    {m.name}
+                    {m.credentials && (
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{m.credentials}</div>
+                    )}
+                  </td>
+                  <td style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>{m.email || '—'}</td>
+                  <td>{m.specialtyArea || '—'}</td>
+                  <td>{m.state || '—'}</td>
+                  <td style={{ fontSize: '0.82rem' }}>{m.mode || '—'}</td>
+                  <td style={{ textAlign: 'center' }}>{m.requestCount}</td>
+                  <td>{formatDate(m.createdAt)}</td>
+                  <td>
+                    <span className={`admin-status-badge admin-status-badge--${m.active ? 'active' : 'disabled'}`}>
+                      {m.active ? 'Active' : 'Inactive'}
+                    </span>
+                  </td>
+                  <td>
+                    <button
+                      className={m.active ? 'btn-disable' : 'btn-enable'}
+                      onClick={() => toggleActive(m)}
+                      disabled={saving === m.id}
+                    >
+                      {saving === m.id ? '…' : m.active ? 'Deactivate' : 'Activate'}
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
+
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
 export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats }: Props) {
@@ -2506,7 +2626,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'registrations' | 'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'analytics' | 'settings'>('registrations');
+  const [activeTab, setActiveTab] = useState<'registrations' | 'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'settings'>('registrations');
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
@@ -2636,6 +2756,7 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
             { key: 'courses',       label: '🎓 Courses',          badge: 0 },
             { key: 'news',          label: '📰 News',             badge: pendingNewsCount },
             { key: 'contributors',  label: '✍️ Contributors',    badge: 0 },
+            { key: 'mentoring',     label: '🤝 Mentoring',        badge: 0 },
             { key: 'analytics',     label: 'Analytics',          badge: 0 },
             { key: 'settings',      label: '⚙️ Settings',        badge: 0 },
           ] as const;
@@ -2752,6 +2873,9 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         {activeTab === 'contributors' && (
           <ContributorsSection initial={initialContributors} />
         )}
+
+        {/* Mentoring */}
+        {activeTab === 'mentoring' && <MentoringSection />}
 
         {/* Analytics */}
         {activeTab === 'analytics' && (
