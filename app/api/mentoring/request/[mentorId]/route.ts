@@ -7,7 +7,7 @@ import { sendMentoringIntroduction } from '@/lib/email';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: Promise<{ mentorId: string }> }
+  { params }: { params: { mentorId: string } }
 ) {
   const token = req.cookies.get(SESSION_COOKIE_NAME)?.value;
   if (!token) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
@@ -15,11 +15,10 @@ export async function POST(
   const session = await verifySessionToken(token);
   if (!session) return NextResponse.json({ error: 'Unauthorised' }, { status: 401 });
 
-  const { mentorId: mentorIdStr } = await params;
-  const mentorId = parseInt(mentorIdStr, 10);
+  const mentorId = parseInt(params.mentorId, 10);
   if (isNaN(mentorId)) return NextResponse.json({ error: 'Invalid mentor ID.' }, { status: 400 });
 
-  // Fetch mentor
+  // Fetch mentor + their email via join
   const [mentor] = await db
     .select({
       id:      mentors.id,
@@ -39,7 +38,7 @@ export async function POST(
     return NextResponse.json({ error: 'You cannot request yourself as a mentor.' }, { status: 400 });
   }
 
-  // Fetch mentee
+  // Fetch mentee user details
   const [mentee] = await db
     .select()
     .from(usersV2)
@@ -95,7 +94,7 @@ export async function POST(
     message:      message.trim(),
   });
 
-  // Send email (non-blocking)
+  // Send email
   try {
     await sendMentoringIntroduction({
       mentorName:        mentor.name,
@@ -108,6 +107,7 @@ export async function POST(
     });
   } catch (err) {
     console.error('[mentoring] Failed to send introduction email:', err);
+    // Don't fail the request — record is saved, email failure is non-blocking
   }
 
   return NextResponse.json({ ok: true });
