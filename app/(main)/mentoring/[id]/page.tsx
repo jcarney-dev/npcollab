@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       .from(mentors)
       .where(eq(mentors.id, parseInt(id, 10)))
       .limit(1);
-    if (\!mentor) return { title: 'Mentor Profile -- NPCollab' };
+    if (!mentor) return { title: 'Mentor Profile -- NPCollab' };
     return {
       title: `${mentor.name} -- NPCollab Mentoring`,
       description: `${mentor.name} is a mentor on NPCollab specialising in ${mentor.specialtyArea}.`,
@@ -37,7 +37,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
   const { id } = await params;
   const { saved } = await searchParams;
 
-  if (\!session) redirect(`/login?redirect=/mentoring/${id}`);
+  if (!session) redirect(`/login?redirect=/mentoring/${id}`);
 
   const mentorId = parseInt(id, 10);
   if (isNaN(mentorId)) notFound();
@@ -66,7 +66,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
       .where(eq(mentors.id, mentorId))
       .limit(1);
 
-    if (\!row) notFound();
+    if (!row) notFound();
     mentor = row;
 
     // Fetch email for display
@@ -132,7 +132,7 @@ export default async function MentorProfilePage({ params, searchParams }: Props)
           </div>
         )}
 
-        {\!mentor.active && \!isSelf && (
+        {!mentor.active && !isSelf && (
           <div style={{
             padding: '14px 18px',
             background: 'var(--off-white)',
