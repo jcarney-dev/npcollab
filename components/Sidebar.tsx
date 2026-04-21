@@ -9,6 +9,46 @@ import type { Sponsor, UserV2 } from '@/lib/schema';
 type NavItem = { label: string; href: string; icon: string; disabled?: boolean; coming?: boolean };
 type NavGroup = { label: string; items: NavItem[] };
 
+// Maps module_lock_* keys → nav path prefixes they gate
+const LOCK_KEY_TO_PATH: Record<string, string> = {
+  'module_lock_metaspecialties':              '/metaspecialties',
+  'module_lock_scope':                        '/scope',
+  'module_lock_assessment':                   '/assessment',
+  'module_lock_aged-care':                    '/modules/aged-care',
+  'module_lock_cardiac':                      '/modules/cardiac',
+  'module_lock_cardiovascular':               '/modules/cardiovascular',
+  'module_lock_drugs-alcohol':                '/modules/drugs-alcohol',
+  'module_lock_endocrine':                    '/modules/endocrine',
+  'module_lock_ent':                          '/modules/ent',
+  'module_lock_general-medical':              '/modules/general-medical',
+  'module_lock_gi-hepatobiliary':             '/modules/gi-hepatobiliary',
+  'module_lock_gu-nephrology':                '/modules/gu-nephrology',
+  'module_lock_integumentary':                '/modules/integumentary',
+  'module_lock_maxillofacial-dental':         '/modules/maxillofacial-dental',
+  'module_lock_mens-health':                  '/modules/mens-health',
+  'module_lock_mental-health':                '/modules/mental-health',
+  'module_lock_musculoskeletal':              '/modules/musculoskeletal',
+  'module_lock_neurology':                    '/modules/neurology',
+  'module_lock_onco-haematology':             '/modules/onco-haematology',
+  'module_lock_eyes':                         '/modules/eyes',
+  'module_lock_paediatrics':                  '/modules/paediatrics',
+  'module_lock_palliative-care':              '/modules/palliative-care',
+  'module_lock_respiratory':                  '/modules/respiratory',
+  'module_lock_surgical':                     '/modules/surgical',
+  'module_lock_toxicology':                   '/modules/toxicology',
+  'module_lock_womens-health':                '/modules/womens-health',
+  'module_lock_billing-medicare':             '/clinical-essentials/billing-medicare',
+  'module_lock_prescribing-pbs':              '/clinical-essentials/prescribing-pbs',
+  'module_lock_radiology-pathology':          '/clinical-essentials/radiology-pathology',
+  'module_lock_ai-clinical-tools':            '/health-tech/ai-clinical-tools',
+  'module_lock_digital-scribes':              '/health-tech/digital-scribes',
+  'module_lock_medical-software':             '/health-tech/medical-software',
+  'module_lock_research-getting-started':     '/research/getting-started',
+  'module_lock_research-funding':             '/research/funding',
+  'module_lock_research-networks':            '/research/networks',
+  'module_lock_starting-your-own-practice':   '/business/starting-your-own-practice',
+};
+
 // MSK sub-modules shown inside the collapsible group
 const MSK_CHILDREN: NavItem[] = [
   { label: 'Shoulder',     href: '/modules/musculoskeletal/shoulder',   icon: '🦴' },
@@ -133,9 +173,15 @@ interface SidebarProps {
   sponsor?: Sponsor | null;
   adPreviewMode?: boolean;
   sessionUser?: UserV2 | null;
+  lockedSettings?: Record<string, string>;
 }
 
-export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false, sessionUser = null }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false, sessionUser = null, lockedSettings = {} }: SidebarProps) {
+  const lockedPaths = new Set(
+    Object.entries(LOCK_KEY_TO_PATH)
+      .filter(([key]) => lockedSettings[key] === 'true')
+      .map(([, path]) => path)
+  );
   const pathname = usePathname();
 
   // MSK group is expanded by default when on any MSK sub-page
@@ -157,6 +203,15 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
   function renderItem(item: NavItem) {
     // Render the Scope parent as a collapsible toggle
     if (item.href === SCOPE_PREFIX) {
+      if (lockedPaths.has(SCOPE_PREFIX)) {
+        return (
+          <span key="scope-group" className="nav-item disabled" title="Under review">
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>🔒</span>
+          </span>
+        );
+      }
       return (
         <div key="scope-group">
           <button
@@ -221,6 +276,16 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
 
     // Render the MSK parent as a collapsible toggle instead of a plain link
     if (item.href === MSK_PREFIX) {
+      const mskLocked = lockedPaths.has(MSK_PREFIX);
+      if (mskLocked) {
+        return (
+          <span key="msk-group" className="nav-item disabled" title="Under review">
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>🔒</span>
+          </span>
+        );
+      }
       return (
         <div key="msk-group">
           {/* Parent toggle button */}
@@ -285,6 +350,18 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
           {item.coming && (
             <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>SOON</span>
           )}
+        </span>
+      );
+    }
+
+    // Locked item
+    const isLocked = lockedPaths.has(item.href);
+    if (isLocked) {
+      return (
+        <span key={item.label} className="nav-item disabled" title="Under review">
+          <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+          {item.label}
+          <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>🔒</span>
         </span>
       );
     }

@@ -2156,13 +2156,49 @@ function CoursesSection({ initial }: { initial: Course[] }) {
 // ── Modules section ──────────────────────────────────────────────────────────
 
 const LOCKABLE_MODULES = [
-  {
-    key:         'module_lock_starting-your-own-practice',
-    label:       'Starting Your Own Practice',
-    path:        '/business/starting-your-own-practice',
-    description: 'Business guide for establishing an independent NP practice.',
-  },
-] as const;
+  // Getting Started
+  { key: 'module_lock_metaspecialties',    label: 'Metaspecialties',     path: '/metaspecialties',   description: 'Overview of NP metaspecialty areas.' },
+  { key: 'module_lock_scope',              label: 'Scope of Practice',   path: '/scope',             description: 'Scope of practice overview, by-metaspecialty, and generator.' },
+  { key: 'module_lock_assessment',         label: 'Patient Assessment',  path: '/assessment',        description: 'Systematic patient assessment frameworks for NPs.' },
+  // Clinical Modules
+  { key: 'module_lock_aged-care',          label: 'Aged Care',           path: '/modules/aged-care',           description: 'Clinical module — aged care.' },
+  { key: 'module_lock_cardiac',            label: 'Cardiac',             path: '/modules/cardiac',             description: 'Clinical module — cardiac.' },
+  { key: 'module_lock_cardiovascular',     label: 'Cardiovascular',      path: '/modules/cardiovascular',      description: 'Clinical module — cardiovascular.' },
+  { key: 'module_lock_drugs-alcohol',      label: 'Drugs & Alcohol',     path: '/modules/drugs-alcohol',       description: 'Clinical module — drugs & alcohol.' },
+  { key: 'module_lock_endocrine',          label: 'Endocrine',           path: '/modules/endocrine',           description: 'Clinical module — endocrine.' },
+  { key: 'module_lock_ent',               label: 'ENT',                 path: '/modules/ent',                 description: 'Clinical module — ear, nose & throat.' },
+  { key: 'module_lock_general-medical',    label: 'General Medical',     path: '/modules/general-medical',     description: 'Clinical module — general medical.' },
+  { key: 'module_lock_gi-hepatobiliary',   label: 'GI & Hepatobiliary',  path: '/modules/gi-hepatobiliary',    description: 'Clinical module — gastrointestinal & hepatobiliary.' },
+  { key: 'module_lock_gu-nephrology',      label: 'GU & Nephrology',     path: '/modules/gu-nephrology',       description: 'Clinical module — genitourinary & nephrology.' },
+  { key: 'module_lock_integumentary',      label: 'Integumentary',       path: '/modules/integumentary',       description: 'Clinical module — integumentary (skin).' },
+  { key: 'module_lock_maxillofacial-dental', label: 'Maxillofacial/Dental', path: '/modules/maxillofacial-dental', description: 'Clinical module — maxillofacial & dental.' },
+  { key: 'module_lock_mens-health',        label: "Men's Health",        path: '/modules/mens-health',         description: "Clinical module — men's health." },
+  { key: 'module_lock_mental-health',      label: 'Mental Health',       path: '/modules/mental-health',       description: 'Clinical module — mental health.' },
+  { key: 'module_lock_musculoskeletal',    label: 'Musculoskeletal',     path: '/modules/musculoskeletal',     description: 'Clinical module — musculoskeletal (all sub-regions).' },
+  { key: 'module_lock_neurology',          label: 'Neurology',           path: '/modules/neurology',           description: 'Clinical module — neurology.' },
+  { key: 'module_lock_onco-haematology',   label: 'Onco-Haematology',    path: '/modules/onco-haematology',    description: 'Clinical module — oncology & haematology.' },
+  { key: 'module_lock_eyes',              label: 'Ophthalmology',       path: '/modules/eyes',                description: 'Clinical module — ophthalmology.' },
+  { key: 'module_lock_paediatrics',        label: 'Paediatrics',         path: '/modules/paediatrics',         description: 'Clinical module — paediatrics.' },
+  { key: 'module_lock_palliative-care',    label: 'Palliative Care',     path: '/modules/palliative-care',     description: 'Clinical module — palliative care.' },
+  { key: 'module_lock_respiratory',        label: 'Respiratory',         path: '/modules/respiratory',         description: 'Clinical module — respiratory.' },
+  { key: 'module_lock_surgical',           label: 'Surgical',            path: '/modules/surgical',            description: 'Clinical module — surgical.' },
+  { key: 'module_lock_toxicology',         label: 'Toxicology',          path: '/modules/toxicology',          description: 'Clinical module — toxicology.' },
+  { key: 'module_lock_womens-health',      label: "Women's Health",      path: '/modules/womens-health',       description: "Clinical module — women's health." },
+  // Clinical Practice Essentials
+  { key: 'module_lock_billing-medicare',    label: 'Billing Medicare',      path: '/clinical-essentials/billing-medicare',    description: 'Medicare billing guide for NPs.' },
+  { key: 'module_lock_prescribing-pbs',     label: 'Prescribing & the PBS', path: '/clinical-essentials/prescribing-pbs',     description: 'PBS prescribing guide for NPs.' },
+  { key: 'module_lock_radiology-pathology', label: 'Radiology & Pathology', path: '/clinical-essentials/radiology-pathology', description: 'Radiology & pathology ordering guide.' },
+  // Health Tech & Tools
+  { key: 'module_lock_ai-clinical-tools', label: 'AI Clinical Tools', path: '/health-tech/ai-clinical-tools', description: 'AI tools for clinical practice.' },
+  { key: 'module_lock_digital-scribes',   label: 'Digital Scribes',   path: '/health-tech/digital-scribes',   description: 'Digital scribe tools and guidance.' },
+  { key: 'module_lock_medical-software',  label: 'Medical Software',  path: '/health-tech/medical-software',  description: 'Medical software selection guide.' },
+  // Research
+  { key: 'module_lock_research-getting-started', label: 'Research — Getting Started', path: '/research/getting-started', description: 'Introduction to NP research.' },
+  { key: 'module_lock_research-funding',          label: 'Research — Funding',         path: '/research/funding',         description: 'Research funding opportunities.' },
+  { key: 'module_lock_research-networks',         label: 'Research — Networks',        path: '/research/networks',        description: 'Research networks and collaboration.' },
+  // Business
+  { key: 'module_lock_starting-your-own-practice', label: 'Starting Your Own Practice', path: '/business/starting-your-own-practice', description: 'Business guide for establishing an independent NP practice.' },
+];
 
 function ModulesSection({ initialSettings }: { initialSettings: Record<string, string> }) {
   const [locks, setLocks] = useState<Record<string, boolean>>(() => {
@@ -2206,7 +2242,7 @@ function ModulesSection({ initialSettings }: { initialSettings: Record<string, s
     <section className="admin-section">
       <h2 className="admin-section-title">🔒 Modules</h2>
       <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '20px' }}>
-        Locked modules show a &ldquo;Coming Soon&rdquo; page to all users. Toggle to control availability.
+        Locked modules show an &ldquo;Under Review&rdquo; page to all users. Toggle to control availability.
       </p>
 
       {msg && (
