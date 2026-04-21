@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { getSession } from '@/lib/session';
 import { db } from '@/lib/db';
-import { mentors, usersV2 } from '@/lib/schema';
-import { eq } from 'drizzle-orm';
+import { mentors } from '@/lib/schema';
+import { eq, and } from 'drizzle-orm';
 import { redirect } from 'next/navigation';
 import MentoringClient from './MentoringClient';
+import type { MentorCardData } from '@/components/MentorCard';
 
 export const metadata: Metadata = {
   title: 'Find a Mentor — NPCollab',
@@ -17,17 +18,36 @@ export default async function MentoringPage() {
   const session = await getSession();
   if (!session) redirect('/login?redirect=/mentoring');
 
-  // Check if the current user is a registered mentor
   let existingMentorId: number | null = null;
+  let initialMentors: MentorCardData[] = [];
+
   try {
-    const [existing] = await db
-      .select({ id: mentors.id })
+    const rows = await db
+      .select({
+        id:            mentors.id,
+        userId:        mentors.userId,
+        name:          mentors.name,
+        credentials:   mentors.credentials,
+        specialtyArea: mentors.specialtyArea,
+        state:         mentors.state,
+        currentRole:   mentors.currentRole,
+        employer:      mentors.employer,
+        bio:           mentors.bio,
+        mode:          mentors.mode,
+        maxMentees:    mentors.maxMentees,
+      })
       .from(mentors)
-      .where(eq(mentors.userId, session.userId))
-      .limit(1);
-    if (existing) existingMentorId = existing.id;
+      .where(eq(mentors.active, true));
+
+    for (const row of rows) {
+      if (row.userId === session.userId) {
+        existingMentorId = row.id;
+      } else {
+        initialMentors.push(row);
+      }
+    }
   } catch {
-    // Table may not exist yet — fail silently
+    // Table may not exist yet — renders with empty list
   }
 
   const isMentor = existingMentorId !== null;
@@ -67,7 +87,7 @@ export default async function MentoringPage() {
           NPCollab facilitates introductions only and does not monitor or guarantee mentoring relationships.
         </div>
 
-        <MentoringClient isMentor={isMentor} existingMentorId={existingMentorId} />
+        <MentoringClient isMentor={isMentor} existingMentorId={existingMentorId} initialMentors={initialMentors} />
       </div>
     </>
   );
