@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useState, useTransition } from 'react';
-import type { AccessRequest, User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor } from '@/lib/schema';
+import type { User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor } from '@/lib/schema';
 
 interface Props {
-  pendingRequests: AccessRequest[];
   users: User[];
   sponsors: Sponsor[];
   podcastSubscribers: PodcastSubscriber[];
@@ -15,7 +14,7 @@ interface Props {
   registrations: UserV2[];
   contributors: ModuleContributor[];
   siteSettings: Record<string, string>;
-  stats: { pending: number; active: number; disabled: number; total: number };
+  stats: { active: number; disabled: number; total: number };
 }
 
 function formatDate(d: Date | null | string) {
@@ -2650,13 +2649,12 @@ function MentoringSection() {
 
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ pendingRequests: initial, users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats }: Props) {
-  const [pending, setPending] = useState(initial);
+export default function AdminDashboard({ users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats }: Props) {
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
-  const [isPending, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'registrations' | 'requests' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'settings'>('registrations');
+  const [, startTransition] = useTransition();
+  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'settings'>('registrations');
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
@@ -2664,47 +2662,6 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
   function notify(msg: string, type: 'success' | 'error' = 'success') {
     setNotification({ msg, type });
     setTimeout(() => setNotification(null), 4000);
-  }
-
-  async function handleApprove(id: string) {
-    startTransition(async () => {
-      const res = await fetch('/api/admin/approve', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id }),
-      });
-      const json = await res.json();
-      if (!res.ok) {
-        notify(json.error || 'Failed to approve request.', 'error');
-        return;
-      }
-      setPending(prev => prev.filter(r => r.id !== id));
-      setUsers(prev => [json.user, ...prev]);
-      setStats(prev => ({
-        ...prev,
-        pending: Math.max(0, prev.pending - 1),
-        active: prev.active + 1,
-        total: prev.total + 1,
-      }));
-      notify(`${json.user.name} approved.`);
-    });
-  }
-
-  async function handleDeny(id: string) {
-    startTransition(async () => {
-      const res = await fetch('/api/admin/deny', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id }),
-      });
-      if (!res.ok) {
-        notify('Failed to deny request.', 'error');
-        return;
-      }
-      setPending(prev => prev.filter(r => r.id !== id));
-      setStats(prev => ({ ...prev, pending: Math.max(0, prev.pending - 1) }));
-      notify('Request denied.');
-    });
   }
 
   async function handleToggle(userId: string, currentActive: boolean) {
@@ -2757,10 +2714,6 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         {/* Stats */}
         <div className="admin-stats">
           <div className="admin-stat">
-            <div className="admin-stat-value">{stats.pending}</div>
-            <div className="admin-stat-label">Pending</div>
-          </div>
-          <div className="admin-stat">
             <div className="admin-stat-value">{stats.active}</div>
             <div className="admin-stat-label">Active users</div>
           </div>
@@ -2778,7 +2731,6 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         {(() => {
           const TABS = [
             { key: 'registrations', label: '🆕 Registrations',  badge: pendingRegCount },
-            { key: 'requests',      label: 'Access Requests',    badge: stats.pending },
             { key: 'users',         label: 'Users',              badge: 0 },
             { key: 'sponsors',      label: 'Sponsors',           badge: 0 },
             { key: 'podcast',       label: '🎙️ Podcast',         badge: 0 },
@@ -2825,54 +2777,6 @@ export default function AdminDashboard({ pendingRequests: initial, users: initia
         {/* Registrations (users_v2) */}
         {activeTab === 'registrations' && (
           <RegistrationsSection initial={initialRegistrations} />
-        )}
-
-        {/* Access Requests */}
-        {activeTab === 'requests' && (
-          <section className="admin-section">
-            <h2 className="admin-section-title">
-              Pending requests
-              {stats.pending > 0 && <span className="admin-badge">{stats.pending}</span>}
-            </h2>
-
-            {pending.length === 0 ? (
-              <p className="admin-empty">No pending requests.</p>
-            ) : (
-              <div className="admin-requests">
-                {pending.map(r => (
-                  <div key={r.id} className="admin-request-card">
-                    <div className="admin-request-info">
-                      <div className="admin-request-name">{r.name}</div>
-                      <div className="admin-request-meta">
-                        <span>{r.email}</span>
-                        <span className="admin-dot">·</span>
-                        <span>{r.role}</span>
-                        <span className="admin-dot">·</span>
-                        <span>{formatDate(r.createdAt)}</span>
-                      </div>
-                      <div className="admin-request-reason">{r.reason}</div>
-                    </div>
-                    <div className="admin-request-actions">
-                      <button
-                        className="btn-approve"
-                        onClick={() => handleApprove(r.id)}
-                        disabled={isPending}
-                      >
-                        Approve
-                      </button>
-                      <button
-                        className="btn-deny"
-                        onClick={() => handleDeny(r.id)}
-                        disabled={isPending}
-                      >
-                        Deny
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
         )}
 
         {/* Users */}

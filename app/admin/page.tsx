@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { accessRequests, users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2, moduleContributors } from '@/lib/schema';
+import { users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2, moduleContributors } from '@/lib/schema';
 import { eq, desc, count } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -13,7 +13,6 @@ export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
   const [
-    pendingRequests,
     allUsers,
     allSponsors,
     allPodcastSubscribers,
@@ -26,7 +25,6 @@ export default async function AdminPage() {
     allContributors,
     stats,
   ] = await Promise.all([
-    db.select().from(accessRequests).where(eq(accessRequests.status, 'pending')).orderBy(desc(accessRequests.createdAt)),
     db.select().from(users).orderBy(desc(users.approvedAt)),
     db.select().from(sponsors).orderBy(desc(sponsors.createdAt)),
     db.select().from(podcastSubscribers).orderBy(desc(podcastSubscribers.createdAt)),
@@ -38,14 +36,13 @@ export default async function AdminPage() {
     db.select().from(usersV2).orderBy(desc(usersV2.createdAt)),
     db.select().from(moduleContributors).orderBy(desc(moduleContributors.createdAt)),
     Promise.all([
-      db.select({ count: count() }).from(accessRequests).where(eq(accessRequests.status, 'pending')),
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
       db.select({ count: count() }).from(users).where(eq(users.active, false)),
       db.select({ count: count() }).from(users),
     ]),
   ]);
 
-  const [pending, active, disabled, total] = stats;
+  const [active, disabled, total] = stats;
 
   // Convert site_settings rows to a key/value map
   const settingsMap: Record<string, string> = {};
@@ -55,7 +52,6 @@ export default async function AdminPage() {
 
   return (
     <AdminDashboard
-      pendingRequests={pendingRequests}
       users={allUsers}
       sponsors={allSponsors}
       podcastSubscribers={allPodcastSubscribers}
@@ -67,7 +63,6 @@ export default async function AdminPage() {
       registrations={allUsersV2}
       contributors={allContributors}
       stats={{
-        pending: pending[0].count,
         active: active[0].count,
         disabled: disabled[0].count,
         total: total[0].count,
