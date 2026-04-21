@@ -104,6 +104,29 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
     }
   }
 
+  async function deleteSponsor(id: string) {
+    if (!confirm('Delete this sponsor enquiry? This cannot be undone.')) return;
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/sponsors/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      const json = await res.json();
+      if (!res.ok) {
+        notify(json.error || 'Failed to delete sponsor.', 'error');
+      } else {
+        setSponsorList(prev => prev.filter(s => s.id !== id));
+        notify('Sponsor deleted.');
+      }
+    } catch {
+      notify('Network error.', 'error');
+    } finally {
+      setSaving(false);
+    }
+  }
+
   async function toggleActive(s: Sponsor) {
     setSaving(true);
     try {
@@ -223,6 +246,13 @@ function SponsorsSection({ initial, notify }: { initial: Sponsor[]; notify: (msg
                           title="Toggle preview — shows this sponsor in its placement slot on the live site (session only)"
                         >
                           {previewing.has(s.id) ? '👁️ Previewing' : 'Preview'}
+                        </button>
+                        <button
+                          className="btn-danger"
+                          onClick={() => deleteSponsor(s.id)}
+                          disabled={saving}
+                        >
+                          Delete
                         </button>
                       </div>
                       {previewing.has(s.id) && (

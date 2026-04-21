@@ -1384,6 +1384,19 @@ a:hover { color: var(--gold-light); }
 .btn-enable:hover:not(:disabled) { background: #dcfce7; }
 .btn-enable:disabled { opacity: 0.5; cursor: not-allowed; }
 
+.btn-danger {
+  font-size: 12px;
+  color: #fff;
+  background: var(--error);
+  border: 1px solid var(--error);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.btn-danger:hover:not(:disabled) { background: #b91c1c; border-color: #b91c1c; }
+.btn-danger:disabled { opacity: 0.5; cursor: not-allowed; }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1466,7 +1479,7 @@ a:hover { color: var(--gold-light); }
   .admin-section-title { flex-wrap: wrap; font-size: 16px; }
 
   /* Buttons: minimum touch target */
-  .btn-approve, .btn-deny, .btn-disable, .btn-enable, .admin-copy-btn {
+  .btn-approve, .btn-deny, .btn-disable, .btn-enable, .btn-danger, .admin-copy-btn {
     min-height: 36px;
     padding: 8px 12px;
   }
