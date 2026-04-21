@@ -2153,6 +2153,99 @@ function CoursesSection({ initial }: { initial: Course[] }) {
   );
 }
 
+// ── Modules section ──────────────────────────────────────────────────────────
+
+const LOCKABLE_MODULES = [
+  {
+    key:         'module_lock_starting-your-own-practice',
+    label:       'Starting Your Own Practice',
+    path:        '/business/starting-your-own-practice',
+    description: 'Business guide for establishing an independent NP practice.',
+  },
+] as const;
+
+function ModulesSection({ initialSettings }: { initialSettings: Record<string, string> }) {
+  const [locks, setLocks] = useState<Record<string, boolean>>(() => {
+    const init: Record<string, boolean> = {};
+    for (const m of LOCKABLE_MODULES) init[m.key] = initialSettings[m.key] === 'true';
+    return init;
+  });
+  const [saving, setSaving] = useState<string | null>(null);
+  const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  function notify(text: string, type: 'success' | 'error' = 'success') {
+    setMsg({ text, type });
+    setTimeout(() => setMsg(null), 4000);
+  }
+
+  async function toggleLock(key: string) {
+    const newVal = !locks[key];
+    setLocks(prev => ({ ...prev, [key]: newVal }));
+    setSaving(key);
+    try {
+      const res = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key, value: String(newVal) }),
+      });
+      if (!res.ok) {
+        setLocks(prev => ({ ...prev, [key]: !newVal }));
+        notify('Failed to save.', 'error');
+      } else {
+        notify(newVal ? 'Module locked.' : 'Module unlocked.');
+      }
+    } catch {
+      setLocks(prev => ({ ...prev, [key]: !newVal }));
+      notify('Network error.', 'error');
+    } finally {
+      setSaving(null);
+    }
+  }
+
+  return (
+    <section className="admin-section">
+      <h2 className="admin-section-title">🔒 Modules</h2>
+      <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '20px' }}>
+        Locked modules show a &ldquo;Coming Soon&rdquo; page to all users. Toggle to control availability.
+      </p>
+
+      {msg && (
+        <div style={{ padding: '10px 14px', borderRadius: '6px', marginBottom: '20px', fontSize: '13px', background: msg.type === 'success' ? '#f0fdf4' : '#fef2f2', border: `1px solid ${msg.type === 'success' ? '#bbf7d0' : '#fecaca'}`, color: msg.type === 'success' ? '#166534' : 'var(--error)' }}>
+          {msg.text}
+        </div>
+      )}
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {LOCKABLE_MODULES.map(m => {
+          const locked = locks[m.key];
+          return (
+            <div key={m.key} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'var(--off-white)', border: `1px solid ${locked ? 'var(--error)' : 'var(--border)'}`, borderRadius: '8px' }}>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '3px' }}>
+                  <span style={{ fontWeight: 600, fontSize: '15px', color: 'var(--navy)' }}>{m.label}</span>
+                  <span style={{ fontSize: '11px', padding: '2px 7px', borderRadius: '4px', fontWeight: 600, background: locked ? '#fef2f2' : '#f0fdf4', color: locked ? 'var(--error)' : 'var(--success)', border: `1px solid ${locked ? '#fecaca' : '#bbf7d0'}` }}>
+                    {locked ? 'Locked' : 'Live'}
+                  </span>
+                </div>
+                <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{m.description}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px', fontFamily: 'monospace' }}>{m.path}</div>
+              </div>
+              <button
+                onClick={() => toggleLock(m.key)}
+                disabled={saving === m.key}
+                className={locked ? 'btn-enable' : 'btn-disable'}
+                style={{ flexShrink: 0, minWidth: '80px' }}
+              >
+                {saving === m.key ? '…' : locked ? 'Unlock' : 'Lock'}
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 // ── Settings section ─────────────────────────────────────────────────────────
 
 function SettingsSection({ initialSettings }: { initialSettings: Record<string, string> }) {
@@ -2654,7 +2747,7 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'settings'>('registrations');
+  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'modules' | 'settings'>('registrations');
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
@@ -2740,6 +2833,7 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
             { key: 'contributors',  label: '✍️ Contributors',    badge: 0 },
             { key: 'mentoring',     label: '🤝 Mentoring',        badge: 0 },
             { key: 'analytics',     label: 'Analytics',          badge: 0 },
+            { key: 'modules',       label: '🔒 Modules',          badge: 0 },
             { key: 'settings',      label: '⚙️ Settings',        badge: 0 },
           ] as const;
           return (
@@ -2814,6 +2908,11 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
         {/* Analytics */}
         {activeTab === 'analytics' && (
           <AnalyticsSection umamiUrl={siteSettings.umami_dashboard_url || undefined} />
+        )}
+
+        {/* Modules */}
+        {activeTab === 'modules' && (
+          <ModulesSection initialSettings={siteSettings} />
         )}
 
         {/* Settings */}

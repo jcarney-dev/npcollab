@@ -1,4 +1,9 @@
 import type { Metadata } from 'next';
+import { db } from '@/lib/db';
+import { siteSettings } from '@/lib/schema';
+import { eq } from 'drizzle-orm';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Starting Your Own NP Practice',
@@ -13,7 +18,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function StartingYourOwnPracticePage() {
+export default async function StartingYourOwnPracticePage() {
+  const [row] = await db
+    .select()
+    .from(siteSettings)
+    .where(eq(siteSettings.key, 'module_lock_starting-your-own-practice'))
+    .limit(1);
+
+  if (row?.value === 'true') {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', textAlign: 'center', padding: '40px 20px' }}>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🔒</div>
+        <h1 style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--navy)', marginBottom: '12px' }}>Coming Soon</h1>
+        <p style={{ fontSize: '1rem', color: 'var(--text-muted)', maxWidth: '420px', lineHeight: 1.6 }}>
+          This section is currently being updated and will be available shortly.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* ── PAGE HEADER ── */}
