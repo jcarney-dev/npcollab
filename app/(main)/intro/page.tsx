@@ -28,7 +28,7 @@ export default function IntroPage() {
         <h2>What is NPCollab?</h2>
         <p>NPCollab is a free educational resource designed specifically for Australian Nurse Practitioners, Transitional Nurse Practitioners, and NP students. Whether you are just beginning your NP journey, preparing for your AHPRA endorsement, or looking for a clinical reference to keep your practice sharp — this is a space built for you.</p>
 
-        <p>Everything here is written by practising Australian NPs, grounded in Australian guidelines, and structured to reflect the realities of NP practice in this country. No paywalls. No advertising. No generic overseas content that does not translate.</p>
+        <p>Everything here is written by practising Australian NPs, grounded in Australian guidelines, and structured to reflect the realities of NP practice in this country. No paywalls. No generic overseas content that does not translate.</p>
 
         <div className="highlight-box">
           <h4>Who NPCollab is For</h4>
