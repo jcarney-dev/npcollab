@@ -180,6 +180,65 @@ export async function sendMentoringIntroduction(data: {
   });
 }
 
+/** Send a "get in touch" contact form submission to the site admin. */
+export async function sendContactEmail(data: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  source: 'about' | 'support';
+}) {
+  const adminEmail = process.env.ADMIN_EMAIL;
+  if (!adminEmail) {
+    console.warn('[email] ADMIN_EMAIL not set — skipping contact notification');
+    return;
+  }
+
+  const resend = getResend();
+  const sourceLabel = data.source === 'about' ? 'About page' : 'Support page';
+
+  await resend.emails.send({
+    from: FROM,
+    to: adminEmail,
+    replyTo: data.email,
+    subject: `NPCollab contact — ${data.subject} (via ${sourceLabel})`,
+    html: `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: system-ui, sans-serif; color: #1A2B3C; max-width: 600px; margin: 0 auto; padding: 32px 20px;">
+  <div style="background: #0B1829; border-radius: 8px 8px 0 0; padding: 24px 32px; border-bottom: 3px solid #C9A84C;">
+    <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 700;">NPCollab — Contact Form</h1>
+    <p style="margin: 6px 0 0; color: #a0b0c0; font-size: 13px;">Submitted via the ${escapeHtml(sourceLabel)}</p>
+  </div>
+  <div style="background: #ffffff; border: 1px solid #DDE3EC; border-top: none; border-radius: 0 0 8px 8px; padding: 28px 32px;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 24px;">
+      <tr>
+        <td style="padding: 8px 0; color: #4A6080; width: 80px; font-weight: 500; vertical-align: top;">Name</td>
+        <td style="padding: 8px 0; font-weight: 600;">${escapeHtml(data.name)}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #4A6080; font-weight: 500; vertical-align: top;">Email</td>
+        <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #C9A84C;">${escapeHtml(data.email)}</a></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #4A6080; font-weight: 500; vertical-align: top;">Subject</td>
+        <td style="padding: 8px 0;">${escapeHtml(data.subject)}</td>
+      </tr>
+    </table>
+    <div style="background: #FBF3DF; border: 1.5px solid #C9A84C; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px;">
+      <p style="margin: 0 0 6px; font-size: 12px; color: #4A6080; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Message</p>
+      <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #1A2B3C; white-space: pre-wrap;">${escapeHtml(data.message)}</p>
+    </div>
+    <p style="margin: 0; font-size: 12px; color: #4A6080;">
+      Reply directly to this email to respond to ${escapeHtml(data.name)}.
+    </p>
+  </div>
+</body>
+</html>`,
+  });
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, '&amp;')
