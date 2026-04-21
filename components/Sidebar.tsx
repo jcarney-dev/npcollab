@@ -24,6 +24,13 @@ const MSK_CHILDREN: NavItem[] = [
 
 const MSK_PREFIX = '/modules/musculoskeletal';
 
+const SCOPE_CHILDREN: NavItem[] = [
+  { label: 'Scope by Metaspecialty', href: '/scope/by-metaspecialty', icon: '🗂️' },
+  { label: 'Scope Generator',        href: '/scope/generator',         icon: '📄' },
+];
+
+const SCOPE_PREFIX = '/scope';
+
 const navGroups: NavGroup[] = [
   {
     label: 'Getting Started',
@@ -135,15 +142,83 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
   const onMskPage = pathname.startsWith(MSK_PREFIX + '/');
   const [mskOpen, setMskOpen] = useState(onMskPage);
 
+  // Scope group is expanded by default when on any Scope sub-page
+  const onScopePage = pathname.startsWith(SCOPE_PREFIX + '/');
+  const [scopeOpen, setScopeOpen] = useState(onScopePage);
+
   function isActive(href: string) {
     if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   }
 
-  // Is the current page inside MSK (any sub-module)?
   const mskGroupActive = onMskPage;
+  const scopeGroupActive = onScopePage;
 
   function renderItem(item: NavItem) {
+    // Render the Scope parent as a collapsible toggle
+    if (item.href === SCOPE_PREFIX) {
+      return (
+        <div key="scope-group">
+          <button
+            onClick={() => setScopeOpen(o => !o)}
+            className={`nav-item${scopeGroupActive || pathname === SCOPE_PREFIX ? ' active' : ''}`}
+            style={{
+              width: '100%',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              textAlign: 'left',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+            aria-expanded={scopeOpen}
+          >
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{
+              marginLeft: 'auto',
+              fontSize: '10px',
+              opacity: 0.6,
+              transition: 'transform 0.2s',
+              transform: scopeOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+              display: 'inline-block',
+              lineHeight: 1,
+            }}>
+              ▾
+            </span>
+          </button>
+
+          {scopeOpen && (
+            <div style={{ paddingLeft: '0' }}>
+              <Link
+                href={SCOPE_PREFIX}
+                className={`nav-item${pathname === SCOPE_PREFIX ? ' active' : ''}`}
+                aria-current={pathname === SCOPE_PREFIX ? 'page' : undefined}
+                onClick={onClose}
+                style={{ paddingLeft: '2.4rem' }}
+              >
+                <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                Overview
+              </Link>
+              {SCOPE_CHILDREN.map(child => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  className={`nav-item${isActive(child.href) ? ' active' : ''}`}
+                  aria-current={isActive(child.href) ? 'page' : undefined}
+                  onClick={onClose}
+                  style={{ paddingLeft: '2.4rem' }}
+                >
+                  <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
     // Render the MSK parent as a collapsible toggle instead of a plain link
     if (item.href === MSK_PREFIX) {
       return (

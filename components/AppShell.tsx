@@ -13,6 +13,8 @@ function getBreadcrumb(pathname: string): string {
     '/metaspecialties': 'Metaspecialties',
     '/starting-role': 'Starting Your Role',
     '/scope': 'Scope of Practice',
+    '/scope/by-metaspecialty': 'Scope by Metaspecialty',
+    '/scope/generator': 'Scope of Practice Generator',
     '/assessment': 'Patient Assessment',
     '/modules/cardiac': 'Cardiac',
     '/modules/cardiac/assessment': 'Cardiac — Assessment',
