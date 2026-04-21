@@ -1475,19 +1475,11 @@ a:hover { color: var(--gold-light); }
 /* ─── Admin Tabs ─────────────────────────────────────────── */
 .admin-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   border-bottom: 2px solid var(--border);
   margin-bottom: 28px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  /* Show a thin scrollbar on desktop so users know it scrolls */
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
-  padding-bottom: 1px;
 }
-.admin-tabs::-webkit-scrollbar { height: 4px; }
-.admin-tabs::-webkit-scrollbar-track { background: transparent; }
-.admin-tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 .admin-tab {
   padding: 10px 14px;
   font-size: 13px;
@@ -1500,7 +1492,6 @@ a:hover { color: var(--gold-light); }
   cursor: pointer;
   transition: color 0.15s;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 .admin-tab:hover { color: var(--text); }
 .admin-tab--active {
@@ -1512,7 +1503,7 @@ a:hover { color: var(--gold-light); }
 .admin-tabs-mobile {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .admin-tabs {
     display: none;
   }
