@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-// Lazy-load the PDF download button to avoid SSR issues with @react-pdf/renderer
 const ScopeDownloadButton = dynamic(() => import('./ScopeDownloadButton'), { ssr: false, loading: () => (
   <button disabled style={{ opacity: 0.5, padding: '12px 28px', borderRadius: '8px', background: 'var(--navy)', color: 'var(--gold)', fontWeight: 700, fontSize: '1rem', border: 'none', cursor: 'not-allowed' }}>
     Preparing PDF...
@@ -40,13 +39,16 @@ const PRACTICE_SETTINGS = [
   'Other',
 ];
 
+const WORK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Public Holidays'];
+
+const REVIEW_FREQUENCIES = ['Annually', '6-monthly', 'Quarterly', 'As required', 'Other'];
+
 export type NpType = 'endorsed' | 'transitional' | 'candidate';
 
 export type ScopeFormData = {
-  // Registration type
   npType: NpType;
 
-  // Section 1: Practitioner details
+  // 1. Practitioner details
   fullName: string;
   credentials: string;
   ahpraNumber: string;
@@ -58,28 +60,61 @@ export type ScopeFormData = {
   practicePhone: string;
   practiceEmail: string;
 
-  // Section 2: Practice context
+  // 2. Purpose of document
+  purposeStatement: string;
+
+  // 3. Operational aspects
+  fte: string;
+  workDays: string[];
+  workHoursNotes: string;
+
+  // 4. Operational responsibility
+  clinicalDirector: string;
+  lineManager: string;
+  additionalReporting: string;
+
+  // 5. Practice context
   practiceSetting: string;
   isPrivatePractice: boolean;
   abn: string;
 
-  // Section 3: Patient population
+  // 6. Patient population
   patientPopulation: string;
   ageGroups: string[];
   exclusions: string;
 
-  // Section 4: Clinical scope — procedures
+  // 7. Clinical practice
+  clinicalPracticeScope: string;
+
+  // 8. Clinical procedures
   procedures: string;
 
-  // Section 5: Prescribing (endorsed NPs only)
+  // 9. Prescribing (endorsed only)
   prescribingScope: string;
   hasS8Authority: boolean;
   s8AuthorityDetails: string;
 
-  // Section 6: Referrals and ordering
+  // 10. Referrals and ordering
   referralsOrdering: string;
 
-  // Section 7: Signature
+  // 11. Expanded scope activities
+  expandedScopeActivities: string;
+
+  // 12. Non-clinical arrangements
+  nonClinicalPercentage: string;
+  nonClinicalActivities: string;
+
+  // 13. Research
+  researchInvolvement: string;
+
+  // 14. Teaching and learning
+  teachingLearning: string;
+
+  // 15. Performance review
+  performanceReviewType: string;
+  performanceReviewFrequency: string;
+
+  // 16. Declaration
   signatureDate: string;
 };
 
@@ -95,21 +130,59 @@ const EMPTY_FORM: ScopeFormData = {
   practiceAddress: '',
   practicePhone: '',
   practiceEmail: '',
+  purposeStatement: '',
+  fte: '',
+  workDays: [],
+  workHoursNotes: '',
+  clinicalDirector: '',
+  lineManager: '',
+  additionalReporting: '',
   practiceSetting: '',
   isPrivatePractice: false,
   abn: '',
   patientPopulation: '',
   ageGroups: [],
   exclusions: '',
+  clinicalPracticeScope: '',
   procedures: '',
   prescribingScope: '',
   hasS8Authority: false,
   s8AuthorityDetails: '',
   referralsOrdering: '',
+  expandedScopeActivities: '',
+  nonClinicalPercentage: '',
+  nonClinicalActivities: '',
+  researchInvolvement: '',
+  teachingLearning: '',
+  performanceReviewType: '',
+  performanceReviewFrequency: '',
   signatureDate: '',
 };
 
-const AGE_GROUP_OPTIONS = ['Neonates (0–28 days)', 'Infants (1 month–1 year)', 'Children (1–12 years)', 'Adolescents (13–17 years)', 'Adults (18–64 years)', 'Older adults (65+)'];
+const AGE_GROUP_OPTIONS = [
+  'Neonates (0–28 days)', 'Infants (1 month–1 year)', 'Children (1–12 years)',
+  'Adolescents (13–17 years)', 'Adults (18–64 years)', 'Older adults (65+)',
+];
+
+const NP_TYPE_OPTIONS: { value: NpType; label: string; description: string }[] = [
+  {
+    value: 'endorsed',
+    label: 'Endorsed Nurse Practitioner',
+    description: 'Holds current AHPRA NP endorsement. Full prescribing authority under PBS and state/territory legislation.',
+  },
+  {
+    value: 'transitional',
+    label: 'Transitional Nurse Practitioner',
+    description: 'Registered nurse working toward NP endorsement in a transitional NP role. Prescribing is not within scope of this document.',
+  },
+  {
+    value: 'candidate',
+    label: 'Nurse Practitioner Candidate',
+    description: 'Undertaking the clinical practice hours and academic requirements toward NP endorsement. Prescribing is not within scope of this document.',
+  },
+];
+
+// ── Shared styles ────────────────────────────────────────────────────────────
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -146,10 +219,18 @@ const sectionHeaderStyle: React.CSSProperties = {
   borderBottom: '2px solid var(--gold-light)',
 };
 
+const sectionBox: React.CSSProperties = {
+  background: 'var(--off-white)',
+  border: '1px solid var(--border)',
+  borderRadius: '10px',
+  padding: '28px',
+  marginBottom: '24px',
+};
+
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: '18px' }}>
-      <label style={labelStyle}>{label}</label>
+      {label && <label style={labelStyle}>{label}</label>}
       {hint && <p style={{ margin: '0 0 6px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>{hint}</p>}
       {children}
     </div>
@@ -164,23 +245,25 @@ function Row({ children }: { children: React.ReactNode }) {
   );
 }
 
-const NP_TYPE_OPTIONS: { value: NpType; label: string; description: string }[] = [
-  {
-    value: 'endorsed',
-    label: 'Endorsed Nurse Practitioner',
-    description: 'Holds current AHPRA NP endorsement. Full prescribing authority under PBS and state/territory legislation.',
-  },
-  {
-    value: 'transitional',
-    label: 'Transitional Nurse Practitioner',
-    description: 'Registered nurse working toward NP endorsement in a transitional NP role. Prescribing is not within scope of this document.',
-  },
-  {
-    value: 'candidate',
-    label: 'Nurse Practitioner Candidate',
-    description: 'Undertaking the clinical practice hours and academic requirements toward NP endorsement. Prescribing is not within scope of this document.',
-  },
-];
+function CheckGroup({ options, selected, onToggle }: { options: string[]; selected: string[]; onToggle: (v: string) => void }) {
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '4px' }}>
+      {options.map(opt => (
+        <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 500 }}>
+          <input
+            type="checkbox"
+            checked={selected.includes(opt)}
+            onChange={() => onToggle(opt)}
+            style={{ width: '15px', height: '15px', accentColor: 'var(--navy)' }}
+          />
+          {opt}
+        </label>
+      ))}
+    </div>
+  );
+}
+
+// ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ScopeGeneratorPage() {
   const [form, setForm] = useState<ScopeFormData>(EMPTY_FORM);
@@ -196,20 +279,22 @@ export default function ScopeGeneratorPage() {
     setForm(f => ({ ...f, [field]: value }));
   }
 
-  function toggleAgeGroup(group: string) {
+  function toggleList(field: 'ageGroups' | 'workDays', value: string) {
     setForm(f => {
-      const current = f.ageGroups;
+      const current = f[field] as string[];
       return {
         ...f,
-        ageGroups: current.includes(group)
-          ? current.filter(g => g !== group)
-          : [...current, group],
+        [field]: current.includes(value) ? current.filter(v => v !== value) : [...current, value],
       };
     });
   }
 
   const isEndorsed = form.npType === 'endorsed';
-  const isComplete = form.fullName && form.ahpraNumber && form.metaspecialty && form.state && form.npType;
+  const isComplete = !!(form.fullName && form.ahpraNumber && form.metaspecialty && form.state && form.npType);
+
+  // Dynamic section counter for the form UI — prescribing is only shown for endorsed
+  let sectionNum = 0;
+  const n = () => { sectionNum += 1; return sectionNum; };
 
   return (
     <>
@@ -229,7 +314,7 @@ export default function ScopeGeneratorPage() {
         </div>
 
         {/* ── Registration Type ── */}
-        <div style={{ background: 'var(--off-white)', border: '2px solid var(--gold)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
+        <div style={{ ...sectionBox, border: '2px solid var(--gold)' }}>
           <h2 style={{ ...sectionHeaderStyle, borderBottomColor: 'var(--gold)' }}>Registration Type</h2>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '20px', marginTop: 0 }}>
             Select your current AHPRA registration status. The form will adjust to show only the sections relevant to your role.
@@ -239,23 +324,15 @@ export default function ScopeGeneratorPage() {
               <label
                 key={opt.value}
                 style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '12px',
-                  padding: '14px 16px',
-                  borderRadius: '8px',
+                  display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '14px 16px', borderRadius: '8px',
                   border: `2px solid ${form.npType === opt.value ? 'var(--navy)' : 'var(--border)'}`,
                   background: form.npType === opt.value ? '#f0f4f8' : '#fff',
-                  cursor: 'pointer',
-                  transition: 'border-color 0.15s, background 0.15s',
+                  cursor: 'pointer', transition: 'border-color 0.15s, background 0.15s',
                 }}
               >
                 <input
-                  type="radio"
-                  name="npType"
-                  value={opt.value}
-                  checked={form.npType === opt.value}
-                  onChange={() => set('npType', opt.value)}
+                  type="radio" name="npType" value={opt.value}
+                  checked={form.npType === opt.value} onChange={() => set('npType', opt.value)}
                   style={{ marginTop: '3px', accentColor: 'var(--navy)', flexShrink: 0 }}
                 />
                 <div>
@@ -267,9 +344,9 @@ export default function ScopeGeneratorPage() {
           </div>
         </div>
 
-        {/* ── Section 1: Practitioner Details ── */}
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-          <h2 style={sectionHeaderStyle}>1. Practitioner Details</h2>
+        {/* ── 1. Practitioner Details ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Practitioner Details</h2>
 
           <Row>
             <div>
@@ -291,15 +368,9 @@ export default function ScopeGeneratorPage() {
               </Field>
             </div>
             <div>
-              {isEndorsed ? (
-                <Field label="NP Endorsement Date">
-                  <input type="date" style={inputStyle} value={form.endorsementDate} onChange={e => set('endorsementDate', e.target.value)} />
-                </Field>
-              ) : (
-                <Field label="Role Commencement Date">
-                  <input type="date" style={inputStyle} value={form.endorsementDate} onChange={e => set('endorsementDate', e.target.value)} />
-                </Field>
-              )}
+              <Field label={isEndorsed ? 'NP Endorsement Date' : 'Role Commencement Date'}>
+                <input type="date" style={inputStyle} value={form.endorsementDate} onChange={e => set('endorsementDate', e.target.value)} />
+              </Field>
             </div>
           </Row>
 
@@ -344,9 +415,79 @@ export default function ScopeGeneratorPage() {
           </Row>
         </div>
 
-        {/* ── Section 2: Practice Context ── */}
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-          <h2 style={sectionHeaderStyle}>2. Practice Context</h2>
+        {/* ── 2. Purpose of Document ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Purpose of Document</h2>
+
+          <Field
+            label="Purpose Statement"
+            hint="Describe the purpose of this scope of practice document and the framework within which this NP role operates."
+          >
+            <textarea
+              style={textareaStyle}
+              value={form.purposeStatement}
+              onChange={e => set('purposeStatement', e.target.value)}
+              placeholder={`The scope of practice of an individual nurse practitioner (NP) is that which they are educated, authorised and competent to perform. An individual's scope of practice is also determined by the employer's requirement (position description) to perform their role.
+
+The NP role is predominantly clinical but also includes education, research and leadership as defined by the Nursing and Midwifery Board of Australia (NMBA) Standards for Practice.
+
+This document defines the scope of practice for the NP role at [Employer / Organisation] and is intended to be read in conjunction with the NMBA Standards for Practice, the relevant position description, and applicable state/territory legislation.`}
+            />
+          </Field>
+        </div>
+
+        {/* ── 3. Operational Aspects ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Operational Aspects</h2>
+
+          <Row>
+            <div>
+              <Field label="FTE" hint="Full-time equivalent (e.g. 1.0, 0.8, 0.6)">
+                <input style={inputStyle} value={form.fte} onChange={e => set('fte', e.target.value)} placeholder="e.g. 1.0" />
+              </Field>
+            </div>
+            <div>
+              <Field label="Additional Hours Notes" hint="e.g. 8-hour shifts, on-call arrangements">
+                <input style={inputStyle} value={form.workHoursNotes} onChange={e => set('workHoursNotes', e.target.value)} placeholder="e.g. 8-hour rotating shifts" />
+              </Field>
+            </div>
+          </Row>
+
+          <Field label="Rostered Work Days">
+            <CheckGroup options={WORK_DAYS} selected={form.workDays} onToggle={v => toggleList('workDays', v)} />
+          </Field>
+        </div>
+
+        {/* ── 4. Operational Responsibility ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Operational Responsibility</h2>
+
+          <Row>
+            <div>
+              <Field label="Clinical Lead / Director of Service" hint="Professional/clinical accountability">
+                <input style={inputStyle} value={form.clinicalDirector} onChange={e => set('clinicalDirector', e.target.value)} placeholder="e.g. Director of Nursing, Clinical Director" />
+              </Field>
+            </div>
+            <div>
+              <Field label="Direct Line Manager" hint="Administrative/operational accountability">
+                <input style={inputStyle} value={form.lineManager} onChange={e => set('lineManager', e.target.value)} placeholder="e.g. Nurse Unit Manager, Service Manager" />
+              </Field>
+            </div>
+          </Row>
+
+          <Field label="Additional Reporting Arrangements" hint="Any other reporting lines, committees, or governance structures.">
+            <textarea
+              style={{ ...textareaStyle, minHeight: '70px' }}
+              value={form.additionalReporting}
+              onChange={e => set('additionalReporting', e.target.value)}
+              placeholder="e.g. Reports to Medical Director for clinical governance matters; participates in hospital Executive Nursing Committee..."
+            />
+          </Field>
+        </div>
+
+        {/* ── 5. Practice Context ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Practice Context</h2>
 
           <Field label="Practice Setting">
             <select style={inputStyle} value={form.practiceSetting} onChange={e => set('practiceSetting', e.target.value)}>
@@ -358,8 +499,7 @@ export default function ScopeGeneratorPage() {
           <Field label="">
             <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontWeight: 500, fontSize: '0.9rem' }}>
               <input
-                type="checkbox"
-                checked={form.isPrivatePractice}
+                type="checkbox" checked={form.isPrivatePractice}
                 onChange={e => set('isPrivatePractice', e.target.checked)}
                 style={{ width: '16px', height: '16px', accentColor: 'var(--navy)' }}
               />
@@ -374,9 +514,9 @@ export default function ScopeGeneratorPage() {
           )}
         </div>
 
-        {/* ── Section 3: Patient Population ── */}
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-          <h2 style={sectionHeaderStyle}>3. Patient Population</h2>
+        {/* ── 6. Patient Population ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Patient Population</h2>
 
           <Field label="Patient Population Description" hint="Describe the patient group you manage — diagnosis types, care complexity, referral source.">
             <textarea
@@ -388,19 +528,7 @@ export default function ScopeGeneratorPage() {
           </Field>
 
           <Field label="Age Groups Managed">
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '4px' }}>
-              {AGE_GROUP_OPTIONS.map(group => (
-                <label key={group} style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 500 }}>
-                  <input
-                    type="checkbox"
-                    checked={form.ageGroups.includes(group)}
-                    onChange={() => toggleAgeGroup(group)}
-                    style={{ width: '15px', height: '15px', accentColor: 'var(--navy)' }}
-                  />
-                  {group}
-                </label>
-              ))}
-            </div>
+            <CheckGroup options={AGE_GROUP_OPTIONS} selected={form.ageGroups} onToggle={v => toggleList('ageGroups', v)} />
           </Field>
 
           <Field label="Exclusions / Limitations" hint="Document patient groups or conditions explicitly excluded from your scope.">
@@ -413,13 +541,50 @@ export default function ScopeGeneratorPage() {
           </Field>
         </div>
 
-        {/* ── Section 4: Procedures ── */}
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-          <h2 style={sectionHeaderStyle}>4. Clinical Procedures</h2>
+        {/* ── 7. Clinical Practice ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Clinical Practice</h2>
+
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: 0, marginBottom: '16px', lineHeight: 1.6 }}>
+            Describe the breadth of clinical activities within this role. This encompasses the full scope of NP clinical practice
+            including but not limited to the activities listed below.
+          </p>
+
+          <Field
+            label="Clinical Care Activities"
+            hint="Include the clinical functions performed in this role. Edit or expand the default list to match your practice."
+          >
+            <textarea
+              style={{ ...textareaStyle, minHeight: '180px' }}
+              value={form.clinicalPracticeScope}
+              onChange={e => set('clinicalPracticeScope', e.target.value)}
+              placeholder={`Clinical care includes, but is not limited to:
+• History taking and comprehensive clinical assessments
+• Diagnosis and differential diagnosis
+• Medication safety review and reconciliation
+• Prescribing (where endorsed) and medication management
+• Medication order review and deprescribing
+• Requesting and interpreting diagnostic investigations (pathology, imaging)
+• Care coordination across the health continuum
+• Clinical procedures within credentialed scope
+• Collaboration with and referral to other health professionals and teams
+• Documentation in accordance with legal and professional standards
+• Discharge planning and care transition
+• Clinical supervision of nursing staff
+• Mentorship of NP candidates and registered nurses
+• Clinical leadership within the service
+• Participation in research and quality improvement`}
+            />
+          </Field>
+        </div>
+
+        {/* ── 8. Clinical Procedures ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Clinical Procedures</h2>
 
           <Field
             label="Procedures Within Scope"
-            hint="List clinical procedures you are competent to perform. Include any that require specific credentialing or are subject to conditions."
+            hint="List specific clinical procedures you are competent to perform. Include any that require specific credentialing or are subject to conditions."
           >
             <textarea
               style={textareaStyle}
@@ -444,10 +609,10 @@ export default function ScopeGeneratorPage() {
           </div>
         </div>
 
-        {/* ── Section 5: Prescribing — endorsed NPs only ── */}
+        {/* ── 9. Prescribing — endorsed NPs only ── */}
         {isEndorsed ? (
-          <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-            <h2 style={sectionHeaderStyle}>5. Prescribing Scope</h2>
+          <div style={sectionBox}>
+            <h2 style={sectionHeaderStyle}>{n()}. Prescribing Scope</h2>
 
             <Field
               label="Prescribing Scope"
@@ -471,8 +636,7 @@ export default function ScopeGeneratorPage() {
             <Field label="">
               <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontWeight: 500, fontSize: '0.9rem' }}>
                 <input
-                  type="checkbox"
-                  checked={form.hasS8Authority}
+                  type="checkbox" checked={form.hasS8Authority}
                   onChange={e => set('hasS8Authority', e.target.checked)}
                   style={{ width: '16px', height: '16px', accentColor: 'var(--navy)' }}
                 />
@@ -492,14 +656,12 @@ export default function ScopeGeneratorPage() {
             )}
           </div>
         ) : (
-          <div style={{ background: '#fafafa', border: '1px dashed var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px', opacity: 0.75 }}>
-            <h2 style={{ ...sectionHeaderStyle, color: 'var(--text-muted)' }}>5. Prescribing Scope</h2>
+          <div style={{ ...sectionBox, background: '#fafafa', border: '1px dashed var(--border)', opacity: 0.75 }}>
+            <h2 style={{ ...sectionHeaderStyle, color: 'var(--text-muted)' }}>{n()}. Prescribing Scope</h2>
             <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '14px 16px', background: '#fff3cd', border: '1px solid #ffc107', borderRadius: '8px' }}>
               <span style={{ fontSize: '1.2rem', flexShrink: 0 }}>⚠️</span>
               <div>
-                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#856404', marginBottom: '4px' }}>
-                  Prescribing not applicable for this registration type
-                </div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#856404', marginBottom: '4px' }}>Prescribing not applicable for this registration type</div>
                 <div style={{ fontSize: '0.85rem', color: '#856404', lineHeight: 1.6 }}>
                   Independent prescribing authority under the PBS is available to <strong>Endorsed Nurse Practitioners</strong> only.
                   {form.npType === 'transitional'
@@ -512,9 +674,9 @@ export default function ScopeGeneratorPage() {
           </div>
         )}
 
-        {/* ── Section 6: Referrals & Ordering ── */}
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-          <h2 style={sectionHeaderStyle}>6. Referrals, Ordering & Investigation</h2>
+        {/* ── 10. Referrals & Ordering ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Referrals, Ordering & Investigation</h2>
 
           <Field
             label="Referrals, Ordering, and Investigation Scope"
@@ -537,9 +699,136 @@ export default function ScopeGeneratorPage() {
           </Field>
         </div>
 
-        {/* ── Section 7: Sign & Generate ── */}
-        <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '28px', marginBottom: '24px' }}>
-          <h2 style={sectionHeaderStyle}>7. Declaration & Generate</h2>
+        {/* ── 11. Expanded Scope Activities ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Expanded Scope Activities</h2>
+
+          <Field
+            label="Credentialed / Expanded Scope Activities"
+            hint="List any activities that require specific institutional credentialing, endorsement, or approval beyond standard NP scope. Include the credentialing body and any conditions."
+          >
+            <textarea
+              style={textareaStyle}
+              value={form.expandedScopeActivities}
+              onChange={e => set('expandedScopeActivities', e.target.value)}
+              placeholder={`e.g.
+• Credentialed first assistant — laparoscopic and open surgical procedures (credentialed by [Hospital] Credentialing Committee, [Date])
+• Point-of-care ultrasound — FAST examination and procedural guidance (credentialed by [Service], [Date])
+• Advanced airway management — RSI and surgical airway (credentialed by Emergency Department, [Date])
+• Peripheral nerve blocks — upper and lower limb (credentialed by [Department], [Date])`}
+            />
+          </Field>
+        </div>
+
+        {/* ── 12. Non-Clinical Arrangements ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Non-Clinical Arrangements</h2>
+
+          <Row>
+            <div>
+              <Field label="Non-Clinical Time Allocation" hint="Percentage of rostered hours dedicated to non-clinical activities">
+                <input
+                  style={inputStyle}
+                  value={form.nonClinicalPercentage}
+                  onChange={e => set('nonClinicalPercentage', e.target.value)}
+                  placeholder="e.g. 10% of rostered hours"
+                />
+              </Field>
+            </div>
+          </Row>
+
+          <Field
+            label="Non-Clinical Activities"
+            hint="Describe the non-clinical responsibilities included in this role."
+          >
+            <textarea
+              style={{ ...textareaStyle, minHeight: '120px' }}
+              value={form.nonClinicalActivities}
+              onChange={e => set('nonClinicalActivities', e.target.value)}
+              placeholder={`e.g.
+• Professional development and continuing education
+• Participation in quality improvement and clinical audit activities
+• Research and evidence-based practice activities
+• Committee participation (e.g. Clinical Governance, Drug and Therapeutics)
+• Administration, documentation review, and policy development
+• Mentoring and supervision of NP candidates and junior staff`}
+            />
+          </Field>
+        </div>
+
+        {/* ── 13. Research ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Research</h2>
+
+          <Field
+            label="Research Involvement"
+            hint="Describe participation in research, evaluation, safety and quality, and clinical trials relevant to this role."
+          >
+            <textarea
+              style={textareaStyle}
+              value={form.researchInvolvement}
+              onChange={e => set('researchInvolvement', e.target.value)}
+              placeholder={`e.g.
+• Participates in service evaluation, safety and quality projects, and clinical audit within the department
+• Contributes to care delivery improvement initiatives and implementation of evidence-based practice changes
+• Eligible to participate in ethical clinical trials conducted within the service
+• Supports data collection and reporting for service KPIs and outcome measures
+• Actively engages in reviewing and applying current evidence to clinical practice`}
+            />
+          </Field>
+        </div>
+
+        {/* ── 14. Teaching & Learning ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Teaching & Learning</h2>
+
+          <Field
+            label="Teaching and Learning Activities"
+            hint="Describe participation in clinical teaching, education, supervision, and ongoing professional learning."
+          >
+            <textarea
+              style={textareaStyle}
+              value={form.teachingLearning}
+              onChange={e => set('teachingLearning', e.target.value)}
+              placeholder={`e.g.
+• Attends and contributes to clinical teaching, ward rounds, case presentations, and clinical tutorials
+• Participates in study days, in-service education, and relevant conferences
+• Provides clinical supervision and mentorship to NP candidates, registered nurses, and students
+• Maintains continuing professional development (CPD) requirements as per NMBA standards
+• Contributes to orientation and onboarding of new clinical staff`}
+            />
+          </Field>
+        </div>
+
+        {/* ── 15. Performance Review ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Performance Review</h2>
+
+          <Row>
+            <div>
+              <Field label="Performance Review Type" hint="Describe the format of performance review used in this role.">
+                <input
+                  style={inputStyle}
+                  value={form.performanceReviewType}
+                  onChange={e => set('performanceReviewType', e.target.value)}
+                  placeholder="e.g. Annual performance appraisal with direct line manager"
+                />
+              </Field>
+            </div>
+            <div>
+              <Field label="Review Frequency">
+                <select style={inputStyle} value={form.performanceReviewFrequency} onChange={e => set('performanceReviewFrequency', e.target.value)}>
+                  <option value="">Select frequency</option>
+                  {REVIEW_FREQUENCIES.map(f => <option key={f} value={f}>{f}</option>)}
+                </select>
+              </Field>
+            </div>
+          </Row>
+        </div>
+
+        {/* ── Declaration ── */}
+        <div style={sectionBox}>
+          <h2 style={sectionHeaderStyle}>{n()}. Declaration & Generate</h2>
 
           <Field label="Document Date">
             <input type="date" style={{ ...inputStyle, maxWidth: '200px' }} value={form.signatureDate} onChange={e => set('signatureDate', e.target.value)} />
