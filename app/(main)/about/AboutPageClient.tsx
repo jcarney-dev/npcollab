@@ -1,7 +1,5 @@
 'use client';
 
-import ContactForm from '@/components/ContactForm';
-
 export default function AboutPageClient() {
   return (
     <>
@@ -83,14 +81,6 @@ export default function AboutPageClient() {
           <p style={{ marginBottom: '20px', maxWidth: '580px' }}>
             NPCollab welcomes clinical content contributions from practising NPs and healthcare educators. Contributors are acknowledged on the modules they help create.
           </p>
-        </div>
-
-        <div style={{ marginBottom: '48px' }}>
-          <h2 style={{ marginBottom: '12px' }}>Get in Touch</h2>
-          <p style={{ marginBottom: '20px', maxWidth: '560px' }}>
-            Interested in contributing content, have a question, or want to get in touch? Fill in the form below.
-          </p>
-          <ContactForm source="about" />
         </div>
 
         <div style={{

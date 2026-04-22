@@ -163,6 +163,7 @@ const navGroups: NavGroup[] = [
     items: [
       { label: 'About & Contributors', href: '/about',   icon: '👥' },
       { label: 'Support NPCollab',     href: '/support', icon: '❤️' },
+      { label: 'Get in Touch',         href: '/contact', icon: '✉️' },
     ]
   }
 ];

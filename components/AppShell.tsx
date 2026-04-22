@@ -175,6 +175,7 @@ function getBreadcrumb(pathname: string): string {
     '/community/news': 'Community — News',
     '/about': 'About & Contributors',
     '/support': 'Support NPCollab',
+    '/contact': 'Get in Touch',
     '/analytics': 'Analytics',
   };
 

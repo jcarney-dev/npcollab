@@ -1,7 +1,5 @@
 'use client';
 
-import ContactForm from '@/components/ContactForm';
-
 export default function SupportPageClient() {
   const shareText = 'NPCollab is a free clinical education resource for Australian Nurse Practitioners. Check it out at npcollab.com';
   const shareUrl = 'https://npcollab.com';
@@ -47,10 +45,6 @@ export default function SupportPageClient() {
             <p>Are you an NP with expertise to share? We welcome clinical contributors for new modules, quiz questions, and SOAP note examples.</p>
           </div>
         </div>
-
-        <h2>Get in Touch</h2>
-        <p>Want to contribute content, report an issue, or just say hello? Fill in the form below.</p>
-        <ContactForm source="support" />
 
         <h2 style={{ marginTop: '48px' }}>Spread the Word</h2>
         <p>The best thing you can do for NPCollab is share it with NP students and colleagues. Every share helps more NPs find free, quality clinical education.</p>

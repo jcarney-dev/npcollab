@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const SUBJECTS = [
   'Content contribution',
@@ -12,13 +13,15 @@ const SUBJECTS = [
 ];
 
 interface Props {
-  source: 'about' | 'support';
+  source: 'about' | 'support' | 'contact';
+  turnstileSiteKey: string;
 }
 
-export default function ContactForm({ source }: Props) {
+export default function ContactForm({ source, turnstileSiteKey }: Props) {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   function set(field: keyof typeof form, value: string) {
     setForm(f => ({ ...f, [field]: value }));
@@ -33,7 +36,7 @@ export default function ContactForm({ source }: Props) {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source }),
+        body: JSON.stringify({ ...form, source, turnstileToken }),
       });
 
       const data = await res.json();
@@ -90,6 +93,8 @@ export default function ContactForm({ source }: Props) {
     );
   }
 
+  const canSubmit = !!(form.name && form.email && form.subject && form.message && turnstileToken);
+
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: '560px', display: 'flex', flexDirection: 'column', gap: '16px' }} noValidate>
 
@@ -145,6 +150,16 @@ export default function ContactForm({ source }: Props) {
         />
       </div>
 
+      <div>
+        <Turnstile
+          siteKey={turnstileSiteKey}
+          onSuccess={(token) => setTurnstileToken(token)}
+          onError={() => setTurnstileToken('')}
+          onExpire={() => setTurnstileToken('')}
+          options={{ theme: 'light' }}
+        />
+      </div>
+
       {status === 'error' && (
         <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--error)', padding: '10px 12px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '6px' }}>
           {errorMsg}
@@ -154,9 +169,9 @@ export default function ContactForm({ source }: Props) {
       <div>
         <button
           type="submit"
-          disabled={status === 'sending' || !form.name || !form.email || !form.subject || !form.message}
+          disabled={status === 'sending' || !canSubmit}
           className="btn-primary"
-          style={{ fontSize: '0.9rem', padding: '10px 24px', cursor: status === 'sending' ? 'wait' : 'pointer', opacity: status === 'sending' ? 0.7 : 1 }}
+          style={{ fontSize: '0.9rem', padding: '10px 24px', cursor: (status === 'sending' || !canSubmit) ? 'not-allowed' : 'pointer', opacity: (status === 'sending' || !canSubmit) ? 0.7 : 1 }}
         >
           {status === 'sending' ? 'Sending…' : 'Send Message'}
         </button>

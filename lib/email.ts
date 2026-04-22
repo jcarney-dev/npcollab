@@ -186,7 +186,7 @@ export async function sendContactEmail(data: {
   email: string;
   subject: string;
   message: string;
-  source: 'about' | 'support';
+  source: 'about' | 'support' | 'contact';
 }) {
   const adminEmail = process.env.ADMIN_EMAIL;
   if (!adminEmail) {
@@ -195,7 +195,7 @@ export async function sendContactEmail(data: {
   }
 
   const resend = getResend();
-  const sourceLabel = data.source === 'about' ? 'About page' : 'Support page';
+  const sourceLabel = data.source === 'about' ? 'About page' : data.source === 'support' ? 'Support page' : 'Contact page';
 
   await resend.emails.send({
     from: FROM,
