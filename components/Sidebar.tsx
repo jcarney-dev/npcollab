@@ -383,6 +383,10 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
     );
   }
 
+  function getInitials(name: string) {
+    return name.split(' ').slice(0, 2).map(w => w[0]?.toUpperCase() ?? '').join('');
+  }
+
   return (
     <>
       <aside className={`sidebar${isOpen ? ' open' : ''}`} id="sidebar">
@@ -390,6 +394,136 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
           <Link href="/" className="wordmark" onClick={onClose}>NP<span>Collab</span></Link>
           <span className="tagline">Australian Nurse Practitioner Resources</span>
         </div>
+
+        {/* ── Logged-in user panel ───────────────────────────────────────── */}
+        {sessionUser && (
+          <div style={{
+            margin: '0 0 4px',
+            borderTop: '3px solid var(--gold)',
+            borderBottom: '1px solid rgba(255,255,255,0.07)',
+            background: 'rgba(201,168,76,0.07)',
+            padding: '14px 16px 12px',
+          }}>
+            {/* Avatar + name row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '12px' }}>
+              <div style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                background: 'var(--gold)',
+                color: 'var(--navy)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '14px',
+                fontWeight: 800,
+                fontFamily: 'var(--font-heading)',
+                flexShrink: 0,
+                letterSpacing: '-0.01em',
+              }}>
+                {getInitials(sessionUser.name)}
+              </div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  color: '#fff',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  lineHeight: 1.3,
+                }}>
+                  {sessionUser.name}
+                </div>
+                <div style={{ fontSize: '11px', color: 'var(--gold)', opacity: 0.8, marginTop: '1px', lineHeight: 1.3 }}>
+                  {sessionUser.npEndorsement || 'NP'}{sessionUser.state ? ` · ${sessionUser.state}` : ''}
+                </div>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div style={{ display: 'flex', gap: '6px', marginBottom: sessionUser.role === 'admin' ? '6px' : '0' }}>
+              <Link
+                href="/dashboard"
+                onClick={onClose}
+                style={{
+                  flex: 1,
+                  textAlign: 'center',
+                  fontSize: '11px',
+                  fontWeight: 700,
+                  padding: '6px 0',
+                  borderRadius: '6px',
+                  background: 'var(--gold)',
+                  color: 'var(--navy)',
+                  textDecoration: 'none',
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Dashboard
+              </Link>
+              <Link
+                href="/profile/edit"
+                onClick={onClose}
+                style={{
+                  flex: 1,
+                  textAlign: 'center',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  padding: '6px 0',
+                  borderRadius: '6px',
+                  background: 'rgba(201,168,76,0.15)',
+                  color: 'var(--gold)',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(201,168,76,0.25)',
+                }}
+              >
+                My Profile
+              </Link>
+              <button
+                onClick={async () => {
+                  await fetch('/api/auth/logout', { method: 'POST' });
+                  window.location.href = '/login';
+                }}
+                style={{
+                  flex: 1,
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  padding: '6px 0',
+                  borderRadius: '6px',
+                  background: 'rgba(255,255,255,0.06)',
+                  color: 'rgba(255,255,255,0.5)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  cursor: 'pointer',
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Log Out
+              </button>
+            </div>
+
+            {sessionUser.role === 'admin' && (
+              <Link
+                href="/admin"
+                onClick={onClose}
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  padding: '5px 0',
+                  borderRadius: '6px',
+                  background: 'rgba(255,255,255,0.04)',
+                  color: 'rgba(255,255,255,0.4)',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  letterSpacing: '0.03em',
+                }}
+              >
+                ⚙ Admin Panel
+              </Link>
+            )}
+          </div>
+        )}
 
         <nav className="sidebar-nav">
           {sessionUser && (
@@ -453,95 +587,7 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
         )}
 
         <div className="sidebar-footer">
-          {sessionUser ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {/* User info */}
-              <div style={{
-                padding: '10px 12px',
-                background: 'rgba(255,255,255,0.06)',
-                borderRadius: '8px',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}>
-                <div style={{
-                  fontSize: '13px',
-                  fontWeight: 600,
-                  color: '#fff',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}>
-                  {sessionUser.name}
-                </div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>
-                  {sessionUser.npEndorsement}{sessionUser.state ? ` · ${sessionUser.state}` : ''}
-                </div>
-              </div>
-
-              {/* My Profile + Logout */}
-              <div style={{ display: 'flex', gap: '6px' }}>
-                <Link
-                  href="/profile/edit"
-                  onClick={onClose}
-                  style={{
-                    flex: 1,
-                    textAlign: 'center',
-                    fontSize: '12px',
-                    fontWeight: 600,
-                    padding: '7px 0',
-                    borderRadius: '6px',
-                    background: 'rgba(201,168,76,0.15)',
-                    color: 'var(--gold-light)',
-                    textDecoration: 'none',
-                    border: '1px solid rgba(201,168,76,0.25)',
-                    transition: 'background 0.15s',
-                  }}
-                >
-                  My Profile
-                </Link>
-                <button
-                  onClick={async () => {
-                    await fetch('/api/auth/logout', { method: 'POST' });
-                    window.location.href = '/login';
-                  }}
-                  style={{
-                    flex: 1,
-                    fontSize: '12px',
-                    fontWeight: 600,
-                    padding: '7px 0',
-                    borderRadius: '6px',
-                    background: 'rgba(255,255,255,0.06)',
-                    color: 'rgba(255,255,255,0.55)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    cursor: 'pointer',
-                    transition: 'background 0.15s',
-                  }}
-                >
-                  Log Out
-                </button>
-              </div>
-
-              {sessionUser.role === 'admin' && (
-                <Link
-                  href="/admin"
-                  onClick={onClose}
-                  style={{
-                    textAlign: 'center',
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    padding: '6px 0',
-                    borderRadius: '6px',
-                    background: 'rgba(255,255,255,0.04)',
-                    color: 'rgba(255,255,255,0.4)',
-                    textDecoration: 'none',
-                    border: '1px solid rgba(255,255,255,0.07)',
-                    letterSpacing: '0.03em',
-                  }}
-                >
-                  ⚙ Admin Panel
-                </Link>
-              )}
-            </div>
-          ) : (
+          {!sessionUser && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <Link
                 href="/login"
