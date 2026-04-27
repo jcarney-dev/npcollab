@@ -2197,7 +2197,15 @@ const LOCKABLE_MODULES = [
   { key: 'module_lock_research-funding',          label: 'Research — Funding',         path: '/research/funding',         description: 'Research funding opportunities.' },
   { key: 'module_lock_research-networks',         label: 'Research — Networks',        path: '/research/networks',        description: 'Research networks and collaboration.' },
   // Business
-  { key: 'module_lock_starting-your-own-practice', label: 'Starting Your Own Practice', path: '/business/starting-your-own-practice', description: 'Business guide for establishing an independent NP practice.' },
+  { key: 'module_lock_starting-your-own-practice', label: 'Starting Your Own Practice',        path: '/business/starting-your-own-practice',                      description: 'Business overview page — links to all sub-modules.' },
+  { key: 'module_lock_business-structures',         label: 'Business — Structures & Reg.',      path: '/business/starting-your-own-practice/business-structures',   description: 'Business structures, ABN, ASIC, and GST registration.' },
+  { key: 'module_lock_funding-revenue',             label: 'Business — Funding & Revenue',      path: '/business/starting-your-own-practice/funding-revenue',        description: 'Medicare billing, NDIS, and PBS prescribing.' },
+  { key: 'module_lock_provider-essentials',         label: 'Business — Provider Essentials',    path: '/business/starting-your-own-practice/provider-essentials',    description: 'Provider numbers, PRODA, HPOS, and healthcare identifiers.' },
+  { key: 'module_lock_operations-governance',       label: 'Business — Operations & Governance',path: '/business/starting-your-own-practice/operations-governance',  description: 'Insurance, CMS, clinical governance, MOUs, and leases.' },
+  { key: 'module_lock_contracts-tendering',         label: 'Business — Contracts & Tendering',  path: '/business/starting-your-own-practice/contracts-tendering',    description: 'Contractor agreements, AusTender, and PHN commissioning.' },
+  { key: 'module_lock_marketing',                   label: 'Business — Marketing',              path: '/business/starting-your-own-practice/marketing',              description: 'AHPRA-compliant marketing and digital presence.' },
+  { key: 'module_lock_equipment',                   label: 'Business — Equipment & Hardware',   path: '/business/starting-your-own-practice/equipment',              description: 'Clinical equipment, office hardware, and POCT.' },
+  { key: 'module_lock_financial-planning',          label: 'Business — Financial Planning',     path: '/business/starting-your-own-practice/financial-planning',     description: 'Start-up budgeting, income modelling, and tax obligations.' },
 ];
 
 function ModulesSection({ initialSettings }: { initialSettings: Record<string, string> }) {

@@ -47,6 +47,14 @@ const LOCK_KEY_TO_PATH: Record<string, string> = {
   'module_lock_research-funding':             '/research/funding',
   'module_lock_research-networks':            '/research/networks',
   'module_lock_starting-your-own-practice':   '/business/starting-your-own-practice',
+  'module_lock_business-structures':          '/business/starting-your-own-practice/business-structures',
+  'module_lock_funding-revenue':              '/business/starting-your-own-practice/funding-revenue',
+  'module_lock_provider-essentials':          '/business/starting-your-own-practice/provider-essentials',
+  'module_lock_operations-governance':        '/business/starting-your-own-practice/operations-governance',
+  'module_lock_contracts-tendering':          '/business/starting-your-own-practice/contracts-tendering',
+  'module_lock_marketing':                    '/business/starting-your-own-practice/marketing',
+  'module_lock_equipment':                    '/business/starting-your-own-practice/equipment',
+  'module_lock_financial-planning':           '/business/starting-your-own-practice/financial-planning',
 };
 
 // MSK sub-modules shown inside the collapsible group
@@ -63,6 +71,18 @@ const MSK_CHILDREN: NavItem[] = [
 ];
 
 const MSK_PREFIX = '/modules/musculoskeletal';
+
+const BUSINESS_PREFIX = '/business/starting-your-own-practice';
+const BUSINESS_CHILDREN: NavItem[] = [
+  { label: 'Business Structures',     href: '/business/starting-your-own-practice/business-structures',   icon: '🏗️' },
+  { label: 'Funding & Revenue',        href: '/business/starting-your-own-practice/funding-revenue',        icon: '💰' },
+  { label: 'Provider Essentials',      href: '/business/starting-your-own-practice/provider-essentials',    icon: '🏥' },
+  { label: 'Operations & Governance',  href: '/business/starting-your-own-practice/operations-governance',  icon: '⚖️' },
+  { label: 'Contracts & Tendering',    href: '/business/starting-your-own-practice/contracts-tendering',    icon: '📄' },
+  { label: 'Marketing',                href: '/business/starting-your-own-practice/marketing',              icon: '📣' },
+  { label: 'Equipment & Hardware',     href: '/business/starting-your-own-practice/equipment',              icon: '🩺' },
+  { label: 'Financial Planning',       href: '/business/starting-your-own-practice/financial-planning',     icon: '📊' },
+];
 
 const SCOPE_CHILDREN: NavItem[] = [
   { label: 'Scope by Metaspecialty', href: '/scope/by-metaspecialty', icon: '🗂️' },
@@ -156,7 +176,7 @@ const navGroups: NavGroup[] = [
   {
     label: 'Business',
     items: [
-      { label: 'Starting Your Own Practice', href: '/business/starting-your-own-practice', icon: '🏢' },
+      { label: 'Starting Your Own Practice', href: BUSINESS_PREFIX, icon: '🏢' },
     ]
   },
   {
@@ -193,6 +213,10 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
   // Scope group is expanded by default when on any Scope sub-page
   const onScopePage = pathname.startsWith(SCOPE_PREFIX + '/');
   const [scopeOpen, setScopeOpen] = useState(onScopePage);
+
+  // Business group is expanded by default when on any business sub-page
+  const onBusinessPage = pathname.startsWith(BUSINESS_PREFIX + '/');
+  const [businessOpen, setBusinessOpen] = useState(onBusinessPage);
 
   function isActive(href: string) {
     if (href === '/') return pathname === '/';
@@ -337,6 +361,74 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
                   {child.label}
                 </Link>
               ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Render the Business parent as a collapsible toggle
+    if (item.href === BUSINESS_PREFIX) {
+      const businessLocked = lockedPaths.has(BUSINESS_PREFIX);
+      if (businessLocked) {
+        return (
+          <span key="business-group" className="nav-item disabled" title="Under review">
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>🔒</span>
+          </span>
+        );
+      }
+      return (
+        <div key="business-group">
+          <button
+            onClick={() => setBusinessOpen(o => !o)}
+            className={`nav-item${onBusinessPage || pathname === BUSINESS_PREFIX ? ' active' : ''}`}
+            style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'flex', alignItems: 'center' }}
+            aria-expanded={businessOpen}
+          >
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{ marginLeft: 'auto', fontSize: '10px', opacity: 0.6, transition: 'transform 0.2s', transform: businessOpen ? 'rotate(180deg)' : 'rotate(0deg)', display: 'inline-block', lineHeight: 1 }}>▾</span>
+          </button>
+
+          {businessOpen && (
+            <div style={{ paddingLeft: '0' }}>
+              <Link
+                href={BUSINESS_PREFIX}
+                className={`nav-item${pathname === BUSINESS_PREFIX ? ' active' : ''}`}
+                aria-current={pathname === BUSINESS_PREFIX ? 'page' : undefined}
+                onClick={onClose}
+                style={{ paddingLeft: '2.4rem' }}
+              >
+                <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                Overview
+              </Link>
+              {BUSINESS_CHILDREN.map(child => {
+                const childLocked = lockedPaths.has(child.href);
+                if (childLocked) {
+                  return (
+                    <span key={child.href} className="nav-item disabled" style={{ paddingLeft: '2.4rem' }} title="Under review">
+                      <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                      {child.label}
+                      <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>🔒</span>
+                    </span>
+                  );
+                }
+                return (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className={`nav-item${isActive(child.href) ? ' active' : ''}`}
+                    aria-current={isActive(child.href) ? 'page' : undefined}
+                    onClick={onClose}
+                    style={{ paddingLeft: '2.4rem' }}
+                  >
+                    <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                    {child.label}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>
