@@ -395,31 +395,29 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
           <span className="tagline">Australian Nurse Practitioner Resources</span>
         </div>
 
-        {/* ── Logged-in user panel ───────────────────────────────────────── */}
+        {/* ── Logged-in user identity card ──────────────────────────────── */}
         {sessionUser && (
           <div style={{
-            margin: '0 0 4px',
-            borderTop: '3px solid var(--gold)',
-            borderBottom: '1px solid rgba(255,255,255,0.07)',
-            background: 'rgba(201,168,76,0.07)',
-            padding: '14px 16px 12px',
+            margin: '0',
+            borderLeft: '3px solid var(--gold)',
+            borderBottom: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(255,255,255,0.04)',
+            padding: '12px 14px',
           }}>
-            {/* Avatar + name row */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{
-                width: '38px',
-                height: '38px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '50%',
                 background: 'var(--gold)',
                 color: 'var(--navy)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: 800,
                 fontFamily: 'var(--font-heading)',
                 flexShrink: 0,
-                letterSpacing: '-0.01em',
               }}>
                 {getInitials(sessionUser.name)}
               </div>
@@ -435,93 +433,11 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
                 }}>
                   {sessionUser.name}
                 </div>
-                <div style={{ fontSize: '11px', color: 'var(--gold)', opacity: 0.8, marginTop: '1px', lineHeight: 1.3 }}>
+                <div style={{ fontSize: '11px', color: 'var(--gold)', opacity: 0.75, marginTop: '1px', lineHeight: 1.3 }}>
                   {sessionUser.npEndorsement || 'NP'}{sessionUser.state ? ` · ${sessionUser.state}` : ''}
                 </div>
               </div>
             </div>
-
-            {/* Action buttons */}
-            <div style={{ display: 'flex', gap: '6px', marginBottom: sessionUser.role === 'admin' ? '6px' : '0' }}>
-              <Link
-                href="/dashboard"
-                onClick={onClose}
-                style={{
-                  flex: 1,
-                  textAlign: 'center',
-                  fontSize: '11px',
-                  fontWeight: 700,
-                  padding: '6px 0',
-                  borderRadius: '6px',
-                  background: 'var(--gold)',
-                  color: 'var(--navy)',
-                  textDecoration: 'none',
-                  letterSpacing: '0.01em',
-                }}
-              >
-                Dashboard
-              </Link>
-              <Link
-                href="/profile/edit"
-                onClick={onClose}
-                style={{
-                  flex: 1,
-                  textAlign: 'center',
-                  fontSize: '11px',
-                  fontWeight: 600,
-                  padding: '6px 0',
-                  borderRadius: '6px',
-                  background: 'rgba(201,168,76,0.15)',
-                  color: 'var(--gold)',
-                  textDecoration: 'none',
-                  border: '1px solid rgba(201,168,76,0.25)',
-                }}
-              >
-                My Profile
-              </Link>
-              <button
-                onClick={async () => {
-                  await fetch('/api/auth/logout', { method: 'POST' });
-                  window.location.href = '/login';
-                }}
-                style={{
-                  flex: 1,
-                  fontSize: '11px',
-                  fontWeight: 600,
-                  padding: '6px 0',
-                  borderRadius: '6px',
-                  background: 'rgba(255,255,255,0.06)',
-                  color: 'rgba(255,255,255,0.5)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  cursor: 'pointer',
-                  letterSpacing: '0.01em',
-                }}
-              >
-                Log Out
-              </button>
-            </div>
-
-            {sessionUser.role === 'admin' && (
-              <Link
-                href="/admin"
-                onClick={onClose}
-                style={{
-                  display: 'block',
-                  textAlign: 'center',
-                  fontSize: '11px',
-                  fontWeight: 600,
-                  padding: '5px 0',
-                  borderRadius: '6px',
-                  background: 'rgba(255,255,255,0.04)',
-                  color: 'rgba(255,255,255,0.4)',
-                  textDecoration: 'none',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  letterSpacing: '0.03em',
-                }}
-              >
-                ⚙ Admin Panel
-              </Link>
-            )}
           </div>
         )}
 
@@ -530,10 +446,38 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
             <div>
               <span className="nav-section-label">My Account</span>
               {([
-                { label: 'Dashboard',   href: '/dashboard',       icon: '🏠' },
-                { label: 'CPD Record',  href: '/dashboard/cpd',   icon: '📋' },
-                { label: 'My Profile',  href: '/profile/edit',    icon: '👤' },
+                { label: 'Dashboard',   href: '/dashboard',     icon: '🏠' },
+                { label: 'CPD Record',  href: '/dashboard/cpd', icon: '📋' },
+                { label: 'My Profile',  href: '/profile/edit',  icon: '👤' },
               ] as NavItem[]).map(item => renderItem(item))}
+              {sessionUser.role === 'admin' && (
+                <Link
+                  href="/admin"
+                  onClick={onClose}
+                  className={`nav-item${isActive('/admin') ? ' active' : ''}`}
+                >
+                  <span className="nav-icon" aria-hidden="true">⚙️</span>
+                  Admin Panel
+                </Link>
+              )}
+              <button
+                onClick={async () => {
+                  await fetch('/api/auth/logout', { method: 'POST' });
+                  window.location.href = '/login';
+                }}
+                className="nav-item"
+                style={{
+                  width: '100%',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  color: 'rgba(255,255,255,0.4)',
+                }}
+              >
+                <span className="nav-icon" aria-hidden="true">🚪</span>
+                Log Out
+              </button>
             </div>
           )}
           {navGroups.map(group => (
