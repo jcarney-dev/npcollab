@@ -171,6 +171,7 @@ function getBreadcrumb(pathname: string): string {
     '/modules/toxicology/soap': 'Toxicology — SOAP Note',
     '/modules/toxicology/resources': 'Toxicology — Resources',
     '/modules/toxicology/quiz': 'Toxicology — Quiz',
+    '/community/showcase': 'Community — NP Showcase',
     '/community/jobs': 'Community — Job Board',
     '/community/news': 'Community — News',
     '/about': 'About & Contributors',

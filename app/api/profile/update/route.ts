@@ -29,7 +29,7 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
   }
 
-  const { name, state, npEndorsement, employer, specialtyArea, currentRole } = body;
+  const { name, state, npEndorsement, employer, specialtyArea, currentRole, bio } = body;
 
   // Validate required fields
   if (!name?.trim() || name.trim().length < 2) {
@@ -51,6 +51,7 @@ export async function PATCH(req: NextRequest) {
       employer:        employer?.trim() || null,
       specialtyArea:   specialtyArea?.trim() || null,
       currentRole:     currentRole?.trim() || null,
+      bio:             bio?.trim() || null,
       profileComplete: true,
     })
     .where(eq(usersV2.id, session.userId))
@@ -67,6 +68,7 @@ export async function PATCH(req: NextRequest) {
       employer:        updated.employer,
       specialtyArea:   updated.specialtyArea,
       currentRole:     updated.currentRole,
+      bio:             updated.bio,
       profileComplete: updated.profileComplete,
     },
   });

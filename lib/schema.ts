@@ -133,6 +133,7 @@ export const usersV2 = pgTable('users_v2', {
   employer:        text('employer'),
   specialtyArea:   text('specialty_area'),
   currentRole:     text('current_role'),
+  bio:             text('bio'),
   role:            text('role').notNull().default('user'),
   active:          boolean('active').notNull().default(true),
   approved:        boolean('approved').notNull().default(false),

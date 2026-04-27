@@ -31,6 +31,7 @@ export async function GET(req: NextRequest) {
     employer:        user.employer,
     specialtyArea:   user.specialtyArea,
     currentRole:     user.currentRole,
+    bio:             user.bio,
     profileComplete: user.profileComplete,
     role:            user.role,
   });

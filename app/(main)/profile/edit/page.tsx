@@ -26,6 +26,7 @@ interface ProfileData {
   employer: string;
   specialtyArea: string;
   currentRole: string;
+  bio: string;
 }
 
 export default function ProfileEditPage() {
@@ -38,6 +39,7 @@ export default function ProfileEditPage() {
     employer: '',
     specialtyArea: '',
     currentRole: '',
+    bio: '',
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -60,6 +62,7 @@ export default function ProfileEditPage() {
           employer:      data.employer      || '',
           specialtyArea: data.specialtyArea || '',
           currentRole:   data.currentRole   || '',
+          bio:           data.bio           || '',
         });
       })
       .catch(() => setError('Failed to load profile. Please try again.'))
@@ -100,6 +103,7 @@ export default function ProfileEditPage() {
           employer:      form.employer.trim() || null,
           specialtyArea: form.specialtyArea.trim() || null,
           currentRole:   form.currentRole.trim() || null,
+          bio:           form.bio.trim() || null,
         }),
       });
       const json = await res.json();
@@ -309,6 +313,26 @@ export default function ProfileEditPage() {
                 onFocus={e => { e.currentTarget.style.borderColor = 'var(--gold)'; }}
                 onBlur={e => { e.currentTarget.style.borderColor = 'var(--border)'; }}
               />
+            </div>
+
+            {/* Bio */}
+            <div>
+              <label style={ls}>
+                Bio{' '}
+                <span style={{ color: 'var(--text-muted)', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>(optional — shown in NP Showcase)</span>
+              </label>
+              <textarea
+                style={{ ...fs, minHeight: '90px', resize: 'vertical' }}
+                value={form.bio}
+                onChange={e => set('bio', e.target.value)}
+                placeholder="A short introduction about your NP journey, interests, or practice area…"
+                maxLength={400}
+                onFocus={e => { e.currentTarget.style.borderColor = 'var(--gold)'; }}
+                onBlur={e => { e.currentTarget.style.borderColor = 'var(--border)'; }}
+              />
+              <p style={{ margin: '4px 0 0', fontSize: '11px', color: 'var(--text-muted)' }}>
+                {form.bio.length}/400 characters
+              </p>
             </div>
 
             <button
