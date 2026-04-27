@@ -392,6 +392,16 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
         </div>
 
         <nav className="sidebar-nav">
+          {sessionUser && (
+            <div>
+              <span className="nav-section-label">My Account</span>
+              {([
+                { label: 'Dashboard',   href: '/dashboard',       icon: '🏠' },
+                { label: 'CPD Record',  href: '/dashboard/cpd',   icon: '📋' },
+                { label: 'My Profile',  href: '/profile/edit',    icon: '👤' },
+              ] as NavItem[]).map(item => renderItem(item))}
+            </div>
+          )}
           {navGroups.map(group => (
             <div key={group.label}>
               <span className="nav-section-label">{group.label}</span>
