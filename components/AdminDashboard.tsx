@@ -1376,6 +1376,8 @@ const ENDORSEMENTS_LIST = [
   'Aged Care', "Women's Health", 'Perioperative', 'Musculoskeletal', 'Other',
 ];
 
+const BLANK_ADD_FORM = { name: '', email: '', state: '', npEndorsement: '', employer: '', specialtyArea: '', currentRole: '' };
+
 function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: string, type?: 'success' | 'error') => void }) {
   const [users, setUsers] = useState(initial);
   const [search, setSearch] = useState('');
@@ -1386,6 +1388,9 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<UserV2>>({});
   const [saving, setSaving] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [addForm, setAddForm] = useState(BLANK_ADD_FORM);
+  const [adding, setAdding] = useState(false);
 
   // Stats
   const total     = users.length;
@@ -1503,6 +1508,25 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
     } catch { notify('Network error.', 'error'); }
   }
 
+  async function addUser(e: React.FormEvent) {
+    e.preventDefault();
+    setAdding(true);
+    try {
+      const res = await fetch('/api/admin/users/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(addForm),
+      });
+      const json = await res.json();
+      if (!res.ok) { notify(json.error || 'Failed to create user.', 'error'); return; }
+      setUsers(prev => [json.user, ...prev]);
+      setAddForm(BLANK_ADD_FORM);
+      setShowAddForm(false);
+      notify(`${json.user.name} added — welcome email sent.`);
+    } catch { notify('Network error.', 'error'); }
+    finally { setAdding(false); }
+  }
+
   const thStyle: React.CSSProperties = { padding: '8px 12px', textAlign: 'left', fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid var(--border)', whiteSpace: 'nowrap' };
   const tdStyle: React.CSSProperties = { padding: '10px 12px', fontSize: '13px', color: 'var(--text)', verticalAlign: 'middle', borderBottom: '1px solid var(--border)' };
   const inputStyle: React.CSSProperties = { padding: '6px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' };
@@ -1515,7 +1539,58 @@ function UsersV2Section({ initial, notify }: { initial: UserV2[]; notify: (msg: 
     <section className="admin-section">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <h2 className="admin-section-title" style={{ margin: 0 }}>Users</h2>
+        <button
+          onClick={() => { setShowAddForm(v => !v); setAddForm(BLANK_ADD_FORM); }}
+          style={{ padding: '7px 16px', fontSize: '13px', fontWeight: 600, background: showAddForm ? 'var(--off-white)' : 'var(--navy)', color: showAddForm ? 'var(--text)' : '#fff', border: '1px solid var(--border)', borderRadius: '7px', cursor: 'pointer', fontFamily: 'inherit' }}
+        >
+          {showAddForm ? 'Cancel' : '+ Add User'}
+        </button>
       </div>
+
+      {/* Add User form */}
+      {showAddForm && (
+        <form onSubmit={addUser} style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '20px', marginBottom: '24px' }}>
+          <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--navy)', marginBottom: '16px' }}>Add User Manually</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px', marginBottom: '14px' }}>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>Full Name *</label>
+              <input required style={{ padding: '7px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' as const }} value={addForm.name} onChange={e => setAddForm(f => ({ ...f, name: e.target.value }))} placeholder="Jane Smith" />
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>Email *</label>
+              <input required type="email" style={{ padding: '7px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' as const }} value={addForm.email} onChange={e => setAddForm(f => ({ ...f, email: e.target.value }))} placeholder="jane@example.com" />
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>State *</label>
+              <select required style={{ padding: '7px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' as const }} value={addForm.state} onChange={e => setAddForm(f => ({ ...f, state: e.target.value }))}>
+                <option value="">Select state…</option>
+                {STATES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>NP Endorsement *</label>
+              <select required style={{ padding: '7px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' as const }} value={addForm.npEndorsement} onChange={e => setAddForm(f => ({ ...f, npEndorsement: e.target.value }))}>
+                <option value="">Select endorsement…</option>
+                {ENDORSEMENTS_LIST.map(en => <option key={en} value={en}>{en}</option>)}
+              </select>
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>Employer</label>
+              <input style={{ padding: '7px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' as const }} value={addForm.employer} onChange={e => setAddForm(f => ({ ...f, employer: e.target.value }))} placeholder="Optional" />
+            </div>
+            <div>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px', textTransform: 'uppercase' }}>Current Role</label>
+              <input style={{ padding: '7px 10px', border: '1.5px solid var(--border)', borderRadius: '6px', fontSize: '13px', fontFamily: 'inherit', color: 'var(--text)', background: '#fff', width: '100%', boxSizing: 'border-box' as const }} value={addForm.currentRole} onChange={e => setAddForm(f => ({ ...f, currentRole: e.target.value }))} placeholder="Optional" />
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            <button type="submit" disabled={adding} style={{ padding: '8px 20px', fontSize: '13px', fontWeight: 700, background: 'var(--navy)', color: '#fff', border: 'none', borderRadius: '7px', cursor: adding ? 'not-allowed' : 'pointer', fontFamily: 'inherit', opacity: adding ? 0.7 : 1 }}>
+              {adding ? 'Adding…' : 'Add & Send Welcome Email'}
+            </button>
+            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Account will be created as approved and active.</span>
+          </div>
+        </form>
+      )}
 
       {/* Stats row */}
       <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
