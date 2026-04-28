@@ -1,4 +1,5 @@
 import AppShell from '@/components/AppShell';
+import PageTracker from '@/components/PageTracker';
 import { getActiveSponsor, isAdPreviewMode } from '@/lib/sponsors';
 import { getSession } from '@/lib/session';
 import { db } from '@/lib/db';
@@ -51,6 +52,7 @@ export default async function MainLayout({ children }: { children: React.ReactNo
       lockedSettings={lockedSettings}
     >
       {children}
+      {sessionUser && <PageTracker userId={sessionUser.id} />}
     </AppShell>
   );
 }

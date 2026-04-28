@@ -2477,77 +2477,235 @@ function SettingsSection({ initialSettings }: { initialSettings: Record<string, 
 
 // ── Analytics section ────────────────────────────────────────────────────────
 
-function AnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
-  if (umamiUrl) {
-    return (
-      <section className="admin-section">
-        <h2 className="admin-section-title">📊 Analytics</h2>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: 0 }}>
-            Live Umami analytics dashboard. Use the Umami interface to filter by date, page, and device.
-          </p>
-          <a
-            href={umamiUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              background: 'var(--gold)',
-              color: 'var(--navy)',
-              fontWeight: 600,
-              fontSize: '13px',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              flexShrink: 0,
-              minHeight: '36px',
-            }}
-          >
-            Open Analytics Dashboard ↗
-          </a>
-        </div>
-        <div className="admin-analytics-iframe-wrap" style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
-          <iframe
-            src={umamiUrl}
-            width="100%"
-            height="800"
-            frameBorder="0"
-            className="admin-analytics-iframe"
-            style={{ display: 'block', minHeight: '500px' }}
-            title="Umami Analytics Dashboard"
-          />
-        </div>
-      </section>
-    );
+interface PageViewSession {
+  userId:        string;
+  sessionId:     string;
+  pageCount:     number;
+  totalDuration: string | null;
+  firstView:     string | null;
+  lastView:      string | null;
+  userName:      string | null;
+  userEmail:     string | null;
+}
+
+interface TopPage {
+  path:          string;
+  visitCount:    number;
+  totalDuration: string | null;
+}
+
+interface ActiveUser {
+  id:    string;
+  name:  string | null;
+  email: string | null;
+}
+
+interface AnalyticsData {
+  topPages:   TopPage[];
+  sessions:   PageViewSession[];
+  userDetail: Array<{ path: string; duration: number; sessionId: string; viewedAt: string }>;
+  activeUsers: ActiveUser[];
+}
+
+function formatDuration(secs: string | number | null): string {
+  if (!secs) return '0s';
+  const n = Number(secs);
+  if (n < 60) return `${n}s`;
+  const m = Math.floor(n / 60);
+  const s = n % 60;
+  return s > 0 ? `${m}m ${s}s` : `${m}m`;
+}
+
+function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
+  const [data, setData]             = React.useState<AnalyticsData | null>(null);
+  const [loading, setLoading]       = React.useState(true);
+  const [error, setError]           = React.useState('');
+  const [filterUser, setFilterUser] = React.useState('');
+  const [filterFrom, setFilterFrom] = React.useState('');
+  const [filterTo, setFilterTo]     = React.useState('');
+
+  function buildUrl() {
+    const params = new URLSearchParams();
+    if (filterUser) params.set('userId', filterUser);
+    if (filterFrom) params.set('from', filterFrom);
+    if (filterTo)   params.set('to', filterTo);
+    const qs = params.toString();
+    return `/api/admin/analytics${qs ? '?' + qs : ''}`;
   }
+
+  function load() {
+    setLoading(true);
+    setError('');
+    fetch(buildUrl())
+      .then(r => r.json())
+      .then((d: AnalyticsData & { error?: string }) => {
+        if (d.error) { setError(d.error); return; }
+        setData(d);
+      })
+      .catch(() => setError('Failed to load analytics.'))
+      .finally(() => setLoading(false));
+  }
+
+  React.useEffect(() => { load(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const inputStyle: React.CSSProperties = {
+    fontSize: '13px', padding: '6px 10px',
+    border: '1px solid var(--border)', borderRadius: '6px', background: '#fff',
+  };
+
   return (
     <section className="admin-section">
-      <h2 className="admin-section-title">📊 Analytics</h2>
-      <div style={{ padding: '48px 32px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', textAlign: 'center' }}>
-        <p style={{ fontSize: '40px', marginBottom: '16px', lineHeight: 1 }}>📊</p>
-        <h3 style={{ color: 'var(--navy)', marginBottom: '10px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '17px' }}>Analytics powered by Umami</h3>
-        <p style={{ color: 'var(--text-muted)', fontSize: '14px', maxWidth: '480px', margin: '0 auto 20px', lineHeight: 1.6 }}>
-          Paste your Umami dashboard URL in Settings to enable the analytics dashboard here. The iframe will load automatically.
-        </p>
-        <a
-          href="https://umami.is"
-          target="_blank"
-          rel="noopener"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-            fontSize: '13px',
-            color: 'var(--gold)',
-            textDecoration: 'underline',
-            fontWeight: 500,
-          }}
-        >
-          Learn about Umami →
-        </a>
+      <h2 className="admin-section-title">Session Analytics</h2>
+
+      {/* Filters */}
+      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '20px', alignItems: 'flex-end' }}>
+        <div>
+          <label style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>User</label>
+          <select value={filterUser} onChange={e => setFilterUser(e.target.value)} style={inputStyle}>
+            <option value="">All users</option>
+            {data?.activeUsers.map(u => (
+              <option key={u.id} value={u.id}>{u.name || u.email || u.id}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>From</label>
+          <input type="date" value={filterFrom} onChange={e => setFilterFrom(e.target.value)} style={inputStyle} />
+        </div>
+        <div>
+          <label style={{ display: 'block', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '4px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>To</label>
+          <input type="date" value={filterTo} onChange={e => setFilterTo(e.target.value)} style={inputStyle} />
+        </div>
+        <button onClick={load}
+          style={{ padding: '7px 18px', background: 'var(--gold)', color: 'var(--navy)', fontWeight: 600, border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}>
+          Apply
+        </button>
+        {(filterUser || filterFrom || filterTo) && (
+          <button onClick={() => { setFilterUser(''); setFilterFrom(''); setFilterTo(''); }}
+            style={{ fontSize: '12px', color: 'var(--text-muted)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
+            Clear
+          </button>
+        )}
       </div>
+
+      {error && <p style={{ color: '#b91c1c' }}>{error}</p>}
+      {loading && <p className="admin-empty">Loading analytics…</p>}
+
+      {!loading && data && (
+        <>
+          {/* Top Pages */}
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Top Visited Pages</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '32px' }}>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th style={{ textAlign: 'right' }}>Visits</th>
+                  <th style={{ textAlign: 'right' }}>Total Time</th>
+                  <th style={{ textAlign: 'right' }}>Avg Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.topPages.length === 0 ? (
+                  <tr><td colSpan={4} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '24px' }}>No data yet</td></tr>
+                ) : data.topPages.map(p => (
+                  <tr key={p.path}>
+                    <td style={{ fontFamily: 'monospace', fontSize: '12px' }}>{p.path}</td>
+                    <td style={{ textAlign: 'right' }}>{p.visitCount}</td>
+                    <td style={{ textAlign: 'right' }}>{formatDuration(p.totalDuration)}</td>
+                    <td style={{ textAlign: 'right' }}>
+                      {p.visitCount > 0 ? formatDuration(Math.round(Number(p.totalDuration) / p.visitCount)) : '—'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Recent Sessions */}
+          <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Recent Sessions</h3>
+          <div className="admin-table-wrap" style={{ marginBottom: '32px' }}>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Session</th>
+                  <th style={{ textAlign: 'right' }}>Pages</th>
+                  <th style={{ textAlign: 'right' }}>Total Time</th>
+                  <th>First View</th>
+                  <th>Last View</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.sessions.length === 0 ? (
+                  <tr><td colSpan={6} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '24px' }}>No sessions yet</td></tr>
+                ) : data.sessions.map(s => (
+                  <tr key={`${s.userId}-${s.sessionId}`}>
+                    <td>
+                      <div style={{ fontWeight: 500 }}>{s.userName || '—'}</div>
+                      <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{s.userEmail || s.userId}</div>
+                    </td>
+                    <td style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--text-muted)' }}>{s.sessionId.slice(0, 8)}…</td>
+                    <td style={{ textAlign: 'right' }}>{s.pageCount}</td>
+                    <td style={{ textAlign: 'right' }}>{formatDuration(s.totalDuration)}</td>
+                    <td style={{ fontSize: '12px' }}>{formatDate(s.firstView)}</td>
+                    <td style={{ fontSize: '12px' }}>{formatDate(s.lastView)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Per-user page detail */}
+          {filterUser && data.userDetail.length > 0 && (
+            <>
+              <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Page Detail</h3>
+              <div className="admin-table-wrap" style={{ marginBottom: '32px' }}>
+                <table className="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Page</th>
+                      <th style={{ textAlign: 'right' }}>Duration</th>
+                      <th>Session</th>
+                      <th>Viewed At</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.userDetail.map((v, i) => (
+                      <tr key={i}>
+                        <td style={{ fontFamily: 'monospace', fontSize: '12px' }}>{v.path}</td>
+                        <td style={{ textAlign: 'right' }}>{formatDuration(v.duration)}</td>
+                        <td style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--text-muted)' }}>{v.sessionId.slice(0, 8)}…</td>
+                        <td style={{ fontSize: '12px' }}>{formatDate(v.viewedAt)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
+        </>
+      )}
+
+      {/* Umami preserved as a collapsible */}
+      {umamiUrl && (
+        <details style={{ marginTop: '24px' }}>
+          <summary style={{ cursor: 'pointer', fontSize: '14px', fontWeight: 600, color: 'var(--navy)', marginBottom: '8px' }}>
+            Umami Dashboard (external)
+          </summary>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginBottom: '10px' }}>
+            <a href={umamiUrl} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'var(--gold)', color: 'var(--navy)', fontWeight: 600, fontSize: '13px', padding: '8px 16px', borderRadius: '6px', textDecoration: 'none' }}>
+              Open ↗
+            </a>
+          </div>
+          <div className="admin-analytics-iframe-wrap" style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+            <iframe src={umamiUrl} width="100%" height="800" frameBorder="0"
+              className="admin-analytics-iframe" style={{ display: 'block', minHeight: '500px' }}
+              title="Umami Analytics Dashboard" />
+          </div>
+        </details>
+      )}
     </section>
   );
 }
@@ -3026,7 +3184,7 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
 
         {/* Analytics */}
         {activeTab === 'analytics' && (
-          <AnalyticsSection umamiUrl={siteSettings.umami_dashboard_url || undefined} />
+          <PageAnalyticsSection umamiUrl={siteSettings.umami_dashboard_url || undefined} />
         )}
 
         {/* Modules */}

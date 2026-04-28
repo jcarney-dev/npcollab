@@ -229,6 +229,16 @@ export const mentoringRequests = pgTable('mentoring_requests', {
   createdAt:    timestamp('created_at').notNull().defaultNow(),
 });
 
+// page_views
+export const pageViews = pgTable('page_views', {
+  id:        uuid('id').primaryKey().defaultRandom(),
+  userId:    uuid('user_id').notNull().references(() => usersV2.id),
+  sessionId: text('session_id').notNull(),
+  path:      text('path').notNull(),
+  duration:  integer('duration').notNull().default(0),
+  viewedAt:  timestamp('viewed_at').notNull().defaultNow(),
+});
+
 // Type exports
 export type AccessRequest        = typeof accessRequests.$inferSelect;
 export type NewAccessRequest     = typeof accessRequests.$inferInsert;
@@ -262,3 +272,5 @@ export type Mentor               = typeof mentors.$inferSelect;
 export type NewMentor            = typeof mentors.$inferInsert;
 export type MentoringRequest     = typeof mentoringRequests.$inferSelect;
 export type NewMentoringRequest  = typeof mentoringRequests.$inferInsert;
+export type PageView             = typeof pageViews.$inferSelect;
+export type NewPageView          = typeof pageViews.$inferInsert;
