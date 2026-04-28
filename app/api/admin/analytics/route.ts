@@ -24,12 +24,13 @@ export async function GET(req: NextRequest) {
   }
   const where = conditions.length > 0 ? and(...conditions) : undefined;
 
-  // Top visited pages
+  // Top visited pages with engagement metrics
   const topPages = await db
     .select({
-      path:          pageViews.path,
-      visitCount:    count(),
-      totalDuration: sum(pageViews.duration),
+      path:            pageViews.path,
+      visitCount:      count(),
+      totalDuration:   sum(pageViews.duration),
+      avgScrollDepth:  sql<number>`ROUND(AVG(${pageViews.scrollDepth}))`,
     })
     .from(pageViews)
     .where(where)
@@ -46,6 +47,8 @@ export async function GET(req: NextRequest) {
       totalDuration: sum(pageViews.duration),
       firstView:     sql<string>`MIN(${pageViews.viewedAt})`,
       lastView:      sql<string>`MAX(${pageViews.viewedAt})`,
+      deviceType:    sql<string>`MAX(${pageViews.deviceType})`,
+      browser:       sql<string>`MAX(${pageViews.browser})`,
       userName:      usersV2.name,
       userEmail:     usersV2.email,
     })
@@ -56,28 +59,62 @@ export async function GET(req: NextRequest) {
     .orderBy(desc(sql`MAX(${pageViews.viewedAt})`))
     .limit(100);
 
-  // Detailed page-level rows for a specific user
-  let userDetail: Array<{ path: string; duration: number; sessionId: string; viewedAt: Date }> = [];
+  // Full page-level detail for a specific user
+  let userDetail: Array<{
+    path: string; referrer: string; duration: number;
+    scrollDepth: number; sessionId: string; viewedAt: Date;
+  }> = [];
   if (filterUserId) {
     userDetail = await db
       .select({
-        path:      pageViews.path,
-        duration:  pageViews.duration,
-        sessionId: pageViews.sessionId,
-        viewedAt:  pageViews.viewedAt,
+        path:        pageViews.path,
+        referrer:    pageViews.referrer,
+        duration:    pageViews.duration,
+        scrollDepth: pageViews.scrollDepth,
+        sessionId:   pageViews.sessionId,
+        viewedAt:    pageViews.viewedAt,
       })
       .from(pageViews)
       .where(where)
       .orderBy(desc(pageViews.viewedAt))
-      .limit(200);
+      .limit(500);
   }
 
-  // Distinct users who have any page views (for filter dropdown)
+  // Device breakdown
+  const deviceBreakdown = await db
+    .select({
+      deviceType: pageViews.deviceType,
+      visits:     count(),
+    })
+    .from(pageViews)
+    .where(where)
+    .groupBy(pageViews.deviceType)
+    .orderBy(desc(count()));
+
+  // Browser breakdown
+  const browserBreakdown = await db
+    .select({
+      browser: pageViews.browser,
+      visits:  count(),
+    })
+    .from(pageViews)
+    .where(where)
+    .groupBy(pageViews.browser)
+    .orderBy(desc(count()));
+
+  // Distinct users who have page views (for filter dropdown)
   const activeUsers = await db
     .selectDistinct({ id: pageViews.userId, name: usersV2.name, email: usersV2.email })
     .from(pageViews)
     .leftJoin(usersV2, eq(pageViews.userId, usersV2.id))
     .orderBy(usersV2.name);
 
-  return NextResponse.json({ topPages, sessions, userDetail, activeUsers });
+  return NextResponse.json({
+    topPages,
+    sessions,
+    userDetail,
+    deviceBreakdown,
+    browserBreakdown,
+    activeUsers,
+  });
 }

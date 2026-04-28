@@ -2484,14 +2484,17 @@ interface PageViewSession {
   totalDuration: string | null;
   firstView:     string | null;
   lastView:      string | null;
+  deviceType:    string | null;
+  browser:       string | null;
   userName:      string | null;
   userEmail:     string | null;
 }
 
 interface TopPage {
-  path:          string;
-  visitCount:    number;
-  totalDuration: string | null;
+  path:           string;
+  visitCount:     number;
+  totalDuration:  string | null;
+  avgScrollDepth: number | null;
 }
 
 interface ActiveUser {
@@ -2501,10 +2504,12 @@ interface ActiveUser {
 }
 
 interface AnalyticsData {
-  topPages:   TopPage[];
-  sessions:   PageViewSession[];
-  userDetail: Array<{ path: string; duration: number; sessionId: string; viewedAt: string }>;
-  activeUsers: ActiveUser[];
+  topPages:         TopPage[];
+  sessions:         PageViewSession[];
+  userDetail:       Array<{ path: string; referrer: string; duration: number; scrollDepth: number; sessionId: string; viewedAt: string }>;
+  deviceBreakdown:  Array<{ deviceType: string; visits: number }>;
+  browserBreakdown: Array<{ browser: string; visits: number }>;
+  activeUsers:      ActiveUser[];
 }
 
 function formatDuration(secs: string | number | null): string {
@@ -2593,6 +2598,48 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
 
       {!loading && data && (
         <>
+          {/* Device + Browser breakdown */}
+          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', marginBottom: '32px' }}>
+            <div style={{ flex: '1', minWidth: '200px' }}>
+              <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Device</h3>
+              <div className="admin-table-wrap">
+                <table className="admin-table">
+                  <thead><tr><th>Type</th><th style={{ textAlign: 'right' }}>Visits</th></tr></thead>
+                  <tbody>
+                    {data.deviceBreakdown.length === 0
+                      ? <tr><td colSpan={2} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '16px' }}>No data</td></tr>
+                      : data.deviceBreakdown.map(d => (
+                        <tr key={d.deviceType}>
+                          <td style={{ textTransform: 'capitalize' }}>{d.deviceType || 'Unknown'}</td>
+                          <td style={{ textAlign: 'right' }}>{d.visits}</td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div style={{ flex: '1', minWidth: '200px' }}>
+              <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Browser</h3>
+              <div className="admin-table-wrap">
+                <table className="admin-table">
+                  <thead><tr><th>Browser</th><th style={{ textAlign: 'right' }}>Visits</th></tr></thead>
+                  <tbody>
+                    {data.browserBreakdown.length === 0
+                      ? <tr><td colSpan={2} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '16px' }}>No data</td></tr>
+                      : data.browserBreakdown.map(b => (
+                        <tr key={b.browser}>
+                          <td>{b.browser || 'Unknown'}</td>
+                          <td style={{ textAlign: 'right' }}>{b.visits}</td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
           {/* Top Pages */}
           <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Top Visited Pages</h3>
           <div className="admin-table-wrap" style={{ marginBottom: '32px' }}>
@@ -2603,11 +2650,12 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
                   <th style={{ textAlign: 'right' }}>Visits</th>
                   <th style={{ textAlign: 'right' }}>Total Time</th>
                   <th style={{ textAlign: 'right' }}>Avg Time</th>
+                  <th style={{ textAlign: 'right' }}>Avg Scroll</th>
                 </tr>
               </thead>
               <tbody>
                 {data.topPages.length === 0 ? (
-                  <tr><td colSpan={4} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '24px' }}>No data yet</td></tr>
+                  <tr><td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '24px' }}>No data yet</td></tr>
                 ) : data.topPages.map(p => (
                   <tr key={p.path}>
                     <td style={{ fontFamily: 'monospace', fontSize: '12px' }}>{p.path}</td>
@@ -2616,6 +2664,7 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
                     <td style={{ textAlign: 'right' }}>
                       {p.visitCount > 0 ? formatDuration(Math.round(Number(p.totalDuration) / p.visitCount)) : '—'}
                     </td>
+                    <td style={{ textAlign: 'right' }}>{p.avgScrollDepth != null ? `${p.avgScrollDepth}%` : '—'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -2629,7 +2678,7 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
               <thead>
                 <tr>
                   <th>User</th>
-                  <th>Session</th>
+                  <th>Device / Browser</th>
                   <th style={{ textAlign: 'right' }}>Pages</th>
                   <th style={{ textAlign: 'right' }}>Total Time</th>
                   <th>First View</th>
@@ -2640,12 +2689,17 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
                 {data.sessions.length === 0 ? (
                   <tr><td colSpan={6} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '24px' }}>No sessions yet</td></tr>
                 ) : data.sessions.map(s => (
-                  <tr key={`${s.userId}-${s.sessionId}`}>
+                  <tr key={`${s.userId}-${s.sessionId}`}
+                    style={{ cursor: filterUser ? 'default' : 'pointer' }}
+                    onClick={() => { if (!filterUser) setFilterUser(s.userId); }}>
                     <td>
                       <div style={{ fontWeight: 500 }}>{s.userName || '—'}</div>
                       <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{s.userEmail || s.userId}</div>
                     </td>
-                    <td style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--text-muted)' }}>{s.sessionId.slice(0, 8)}…</td>
+                    <td style={{ fontSize: '12px' }}>
+                      <span style={{ textTransform: 'capitalize' }}>{s.deviceType || '—'}</span>
+                      {s.browser ? <span style={{ color: 'var(--text-muted)' }}> / {s.browser}</span> : null}
+                    </td>
                     <td style={{ textAlign: 'right' }}>{s.pageCount}</td>
                     <td style={{ textAlign: 'right' }}>{formatDuration(s.totalDuration)}</td>
                     <td style={{ fontSize: '12px' }}>{formatDate(s.firstView)}</td>
@@ -2654,19 +2708,23 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
                 ))}
               </tbody>
             </table>
+            {!filterUser && data.sessions.length > 0 && (
+              <p style={{ fontSize: '11px', color: 'var(--text-muted)', margin: '6px 0 0', padding: '0 4px' }}>Click a row to drill into that user&apos;s page history.</p>
+            )}
           </div>
 
           {/* Per-user page detail */}
           {filterUser && data.userDetail.length > 0 && (
             <>
-              <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Page Detail</h3>
+              <h3 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--navy)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Page-level Detail</h3>
               <div className="admin-table-wrap" style={{ marginBottom: '32px' }}>
                 <table className="admin-table">
                   <thead>
                     <tr>
                       <th>Page</th>
-                      <th style={{ textAlign: 'right' }}>Duration</th>
-                      <th>Session</th>
+                      <th>Came From</th>
+                      <th style={{ textAlign: 'right' }}>Time</th>
+                      <th style={{ textAlign: 'right' }}>Scroll</th>
                       <th>Viewed At</th>
                     </tr>
                   </thead>
@@ -2674,8 +2732,9 @@ function PageAnalyticsSection({ umamiUrl }: { umamiUrl?: string }) {
                     {data.userDetail.map((v, i) => (
                       <tr key={i}>
                         <td style={{ fontFamily: 'monospace', fontSize: '12px' }}>{v.path}</td>
+                        <td style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--text-muted)' }}>{v.referrer || '—'}</td>
                         <td style={{ textAlign: 'right' }}>{formatDuration(v.duration)}</td>
-                        <td style={{ fontFamily: 'monospace', fontSize: '11px', color: 'var(--text-muted)' }}>{v.sessionId.slice(0, 8)}…</td>
+                        <td style={{ textAlign: 'right' }}>{v.scrollDepth}%</td>
                         <td style={{ fontSize: '12px' }}>{formatDate(v.viewedAt)}</td>
                       </tr>
                     ))}

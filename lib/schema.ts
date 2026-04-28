@@ -231,12 +231,16 @@ export const mentoringRequests = pgTable('mentoring_requests', {
 
 // page_views
 export const pageViews = pgTable('page_views', {
-  id:        uuid('id').primaryKey().defaultRandom(),
-  userId:    uuid('user_id').notNull().references(() => usersV2.id),
-  sessionId: text('session_id').notNull(),
-  path:      text('path').notNull(),
-  duration:  integer('duration').notNull().default(0),
-  viewedAt:  timestamp('viewed_at').notNull().defaultNow(),
+  id:          uuid('id').primaryKey().defaultRandom(),
+  userId:      uuid('user_id').notNull().references(() => usersV2.id),
+  sessionId:   text('session_id').notNull(),
+  path:        text('path').notNull(),
+  referrer:    text('referrer').notNull().default(''),
+  duration:    integer('duration').notNull().default(0),
+  scrollDepth: integer('scroll_depth').notNull().default(0),
+  deviceType:  text('device_type').notNull().default(''),
+  browser:     text('browser').notNull().default(''),
+  viewedAt:    timestamp('viewed_at').notNull().defaultNow(),
 });
 
 // Type exports
