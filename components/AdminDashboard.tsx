@@ -3076,6 +3076,70 @@ function MentoringSection() {
   );
 }
 
+// ── Reminders alert ─────────────────────────────────────────────────────────
+
+function RemindersAlert({
+  expiredJobs,
+  pastCourses,
+  onGoToJobs,
+  onGoToCourses,
+}: {
+  expiredJobs: JobListing[];
+  pastCourses: Course[];
+  onGoToJobs: () => void;
+  onGoToCourses: () => void;
+}) {
+  if (expiredJobs.length === 0 && pastCourses.length === 0) return null;
+  const total = expiredJobs.length + pastCourses.length;
+  return (
+    <div style={{ background: '#fffbeb', border: '1px solid #f59e0b', borderRadius: '8px', padding: '16px 20px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+        <span style={{ fontSize: '16px' }}>⚠️</span>
+        <strong style={{ color: '#92400e', fontSize: '14px' }}>Action Required</strong>
+        <span style={{ fontSize: '13px', color: '#92400e' }}>— {total} post{total !== 1 ? 's' : ''} need attention</span>
+      </div>
+
+      {expiredJobs.length > 0 && (
+        <div style={{ marginBottom: pastCourses.length > 0 ? '12px' : 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+            <span style={{ fontSize: '13px', fontWeight: 600, color: '#78350f' }}>Expired Job Listings ({expiredJobs.length})</span>
+            <button onClick={onGoToJobs} style={{ fontSize: '12px', color: '#d97706', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
+              Go to Jobs tab →
+            </button>
+          </div>
+          <ul style={{ margin: 0, padding: '0 0 0 16px', listStyle: 'disc' }}>
+            {expiredJobs.map(j => (
+              <li key={j.id} style={{ fontSize: '13px', color: '#92400e', marginBottom: '2px' }}>
+                <strong>{j.jobTitle}</strong> — {j.employerName}
+                <span style={{ color: '#b45309', marginLeft: '8px' }}>expired {formatDate(j.expiresAt)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {pastCourses.length > 0 && (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+            <span style={{ fontSize: '13px', fontWeight: 600, color: '#78350f' }}>Past Courses Still Active ({pastCourses.length})</span>
+            <button onClick={onGoToCourses} style={{ fontSize: '12px', color: '#d97706', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
+              Go to Courses tab →
+            </button>
+          </div>
+          <ul style={{ margin: 0, padding: '0 0 0 16px', listStyle: 'disc' }}>
+            {pastCourses.map(c => (
+              <li key={c.id} style={{ fontSize: '13px', color: '#92400e', marginBottom: '2px' }}>
+                <strong>{c.courseName}</strong> — {c.providerName}
+                <span style={{ color: '#b45309', marginLeft: '8px' }}>ended {formatDate(c.dateEnd || c.dateStart)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
 export default function AdminDashboard({ users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats }: Props) {
@@ -3087,6 +3151,16 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
+  const now = new Date();
+  const expiredJobs = initialJobs.filter(j =>
+    j.status === 'approved' && j.expiresAt && new Date(j.expiresAt) <= now
+  );
+  const pastCourses = initialCourses.filter(c =>
+    c.status === 'approved' && (
+      (c.dateEnd && new Date(c.dateEnd) < now) ||
+      (!c.dateEnd && new Date(c.dateStart) < now)
+    )
+  );
 
   function notify(msg: string, type: 'success' | 'error' = 'success') {
     setNotification({ msg, type });
@@ -3140,6 +3214,14 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
           </div>
         )}
 
+        {/* Reminders */}
+        <RemindersAlert
+          expiredJobs={expiredJobs}
+          pastCourses={pastCourses}
+          onGoToJobs={() => setActiveTab('jobs')}
+          onGoToCourses={() => setActiveTab('courses')}
+        />
+
         {/* Stats */}
         <div className="admin-stats">
           <div className="admin-stat">
@@ -3163,8 +3245,8 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
             { key: 'users',         label: 'Users',              badge: 0 },
             { key: 'sponsors',      label: 'Sponsors',           badge: 0 },
             { key: 'podcast',       label: '🎙️ Podcast',         badge: 0 },
-            { key: 'jobs',          label: '💼 Job Board',       badge: pendingJobCount },
-            { key: 'courses',       label: '🎓 Courses',          badge: 0 },
+            { key: 'jobs',          label: '💼 Job Board',       badge: pendingJobCount + expiredJobs.length },
+            { key: 'courses',       label: '🎓 Courses',          badge: pastCourses.length },
             { key: 'news',          label: '📰 News',             badge: pendingNewsCount },
             { key: 'contributors',  label: '✍️ Contributors',    badge: 0 },
             { key: 'mentoring',     label: '🤝 Mentoring',        badge: 0 },
