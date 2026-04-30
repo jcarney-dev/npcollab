@@ -111,7 +111,7 @@ export default function AssessmentFormClient({ formType, streamSlug, procedureSl
   }
 
   const isMiniCEX = formType === 'mini-cex';
-  const d = traineeData as Record<string, string>;
+  const d = traineeData as unknown as Record<string, string>;
 
   return (
     <form onSubmit={handleSubmit}>
