@@ -5,6 +5,9 @@ import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 import { db } from '@/lib/db';
 import { usersV2, moduleCompletions } from '@/lib/schema';
 import { eq, and, desc } from 'drizzle-orm';
+import PortfolioEntryRow from '@/components/PortfolioEntryRow';
+import type { PortfolioEntry } from '@/lib/schema';
+import { portfolioEntries } from '@/lib/schema';
 
 export const metadata = {
   title: 'Dashboard | NPCollab',
@@ -127,6 +130,19 @@ export default async function DashboardPage() {
     { href: '/community/news',    icon: '📰', title: 'Community News',    desc: 'Announcements, articles, and resources for NPs', badge: null },
   ];
 
+  // ── Portfolio entries ──────────────────────────────────────────────────────
+  let myPortfolioEntries: PortfolioEntry[] = [];
+  try {
+    myPortfolioEntries = await db
+      .select()
+      .from(portfolioEntries)
+      .where(eq(portfolioEntries.userId, session.userId))
+      .orderBy(desc(portfolioEntries.updatedAt))
+      .limit(10);
+  } catch {
+    // Table may not exist yet — fail silently
+  }
+
   const formatDate = (d: Date) =>
     new Date(d).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
 
@@ -245,6 +261,23 @@ export default async function DashboardPage() {
             </div>
           )}
         </div>
+
+        {/* ── Clinical Portfolio ───────────────────────────────────────────── */}
+        {myPortfolioEntries.length > 0 && (
+          <div style={{ marginBottom: '28px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '16px', color: 'var(--navy)', margin: 0 }}>
+                Clinical Portfolio
+              </h2>
+              <Link href="/streams/emergency" style={{ fontSize: '12px', fontWeight: 600, color: 'var(--gold)', textDecoration: 'none' }}>
+                Add assessment →
+              </Link>
+            </div>
+            {myPortfolioEntries.map(entry => (
+              <PortfolioEntryRow key={entry.id} entry={entry} />
+            ))}
+          </div>
+        )}
 
         {/* ── Completed Modules badge grid ─────────────────────────────────── */}
         <div style={{ marginBottom: '28px' }}>

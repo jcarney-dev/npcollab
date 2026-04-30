@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState, useTransition } from 'react';
-import type { User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor } from '@/lib/schema';
+import type { User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor, StreamAccessGrant, PortfolioEntry } from '@/lib/schema';
+
+type StreamGrantWithUser = StreamAccessGrant & { userName: string | null; userEmail: string | null };
+type PortfolioEntryWithUser = PortfolioEntry & { userName: string | null; userEmail: string | null };
 
 interface Props {
   users: User[];
@@ -15,6 +18,8 @@ interface Props {
   contributors: ModuleContributor[];
   siteSettings: Record<string, string>;
   stats: { active: number; disabled: number; total: number };
+  streamGrants: StreamGrantWithUser[];
+  portfolioSubmissions: PortfolioEntryWithUser[];
 }
 
 function formatDate(d: Date | null | string) {
@@ -3140,14 +3145,218 @@ function RemindersAlert({
   );
 }
 
+// ── Streams section ─────────────────────────────────────────────────────────
+
+function StreamsSection({
+  initialSettings,
+  initialGrants,
+  initialPortfolio,
+  allUsers,
+}: {
+  initialSettings: Record<string, string>;
+  initialGrants: StreamGrantWithUser[];
+  initialPortfolio: PortfolioEntryWithUser[];
+  allUsers: UserV2[];
+}) {
+  const [settings, setSettings] = useState(initialSettings);
+  const [grants, setGrants] = useState(initialGrants);
+  const [portfolio] = useState(initialPortfolio);
+  const [portfolioFilter, setPortfolioFilter] = useState<string>('');
+  const [searchEmail, setSearchEmail] = useState('');
+  const [grantMsg, setGrantMsg] = useState('');
+  const [saving, setSaving] = useState(false);
+
+  const emergencyLocked = settings['stream_lock_emergency'] === 'true';
+
+  async function toggleEmergencyLock() {
+    setSaving(true);
+    const newVal = emergencyLocked ? 'false' : 'true';
+    const res = await fetch('/api/admin/settings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key: 'stream_lock_emergency', value: newVal }),
+    });
+    if (res.ok) setSettings(s => ({ ...s, stream_lock_emergency: newVal }));
+    setSaving(false);
+  }
+
+  async function grantAccess() {
+    const user = allUsers.find(u => u.email.toLowerCase() === searchEmail.toLowerCase());
+    if (!user) { setGrantMsg('User not found with that email.'); return; }
+    const res = await fetch('/api/admin/streams/access/grant', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: user.id, streamSlug: 'emergency' }),
+    });
+    if (res.ok) {
+      setGrants(g => {
+        const existing = g.find(x => x.userId === user.id && x.streamSlug === 'emergency');
+        if (existing) return g.map(x => x.id === existing.id ? { ...x, revokedAt: null } : x);
+        return [...g, { id: crypto.randomUUID(), userId: user.id, streamSlug: 'emergency', grantedBy: '', grantedAt: new Date(), revokedAt: null, userName: user.name, userEmail: user.email }];
+      });
+      setGrantMsg(`Access granted to ${user.name}.`);
+      setSearchEmail('');
+    } else {
+      setGrantMsg('Failed to grant access.');
+    }
+  }
+
+  async function revokeAccess(grantId: string, userName: string | null) {
+    if (!confirm(`Revoke Emergency access for ${userName ?? 'this user'}?`)) return;
+    const res = await fetch('/api/admin/streams/access/revoke', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: grantId }),
+    });
+    if (res.ok) setGrants(g => g.filter(x => x.id !== grantId));
+  }
+
+  const STATUS_LABELS: Record<string, string> = { draft: 'Draft', pending_review: 'Pending Review', complete: 'Complete' };
+  const filteredPortfolio = portfolioFilter ? portfolio.filter(e => e.status === portfolioFilter) : portfolio;
+
+  const thStyle: React.CSSProperties = { padding: '8px 12px', textAlign: 'left', fontSize: '11px', fontWeight: 700, color: '#4A6080', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC' };
+  const tdStyle: React.CSSProperties = { padding: '10px 12px', fontSize: '13px', color: '#1A2B3C', borderBottom: '1px solid #F1F5F9', verticalAlign: 'top' };
+
+  return (
+    <div style={{ padding: '24px 0' }}>
+      <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#0B1829', marginBottom: '24px' }}>Streams</h2>
+
+      {/* Emergency stream lock toggle */}
+      <div style={{ marginBottom: '32px', padding: '20px', border: '1px solid #E2E8F0', borderRadius: '10px', background: '#fff' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <div style={{ fontWeight: 700, fontSize: '15px', color: '#0B1829', marginBottom: '4px' }}>Emergency Stream</div>
+            <div style={{ fontSize: '13px', color: '#4A6080' }}>
+              {emergencyLocked ? '🔒 Currently locked — only users with explicit access grants can view it.' : '🔓 Unlocked — all approved users can access this stream.'}
+            </div>
+          </div>
+          <button
+            onClick={toggleEmergencyLock}
+            disabled={saving}
+            style={{ padding: '8px 18px', background: emergencyLocked ? '#10B981' : '#EF4444', color: '#fff', border: 'none', borderRadius: '7px', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}
+          >
+            {saving ? '…' : emergencyLocked ? 'Unlock Stream' : 'Lock Stream'}
+          </button>
+        </div>
+      </div>
+
+      {/* Per-user access grants */}
+      <div style={{ marginBottom: '32px' }}>
+        <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0B1829', marginBottom: '14px' }}>Per-User Access Grants</h3>
+        <p style={{ fontSize: '13px', color: '#4A6080', marginBottom: '14px' }}>
+          Users listed here can access the Emergency stream even when it is globally locked.
+        </p>
+
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
+          <input
+            type="email"
+            value={searchEmail}
+            onChange={e => { setSearchEmail(e.target.value); setGrantMsg(''); }}
+            placeholder="User email address"
+            style={{ flex: 1, minWidth: '220px', padding: '8px 12px', border: '1px solid #CBD5E0', borderRadius: '7px', fontSize: '13px' }}
+          />
+          <button
+            onClick={grantAccess}
+            style={{ padding: '8px 18px', background: '#0B1829', color: '#fff', border: 'none', borderRadius: '7px', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}
+          >
+            Grant Access
+          </button>
+        </div>
+        {grantMsg && <div style={{ fontSize: '13px', color: '#475569', marginBottom: '12px' }}>{grantMsg}</div>}
+
+        {grants.length === 0 ? (
+          <p style={{ fontSize: '13px', color: '#94A3B8' }}>No active access grants.</p>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #E2E8F0', borderRadius: '8px', overflow: 'hidden' }}>
+            <thead>
+              <tr>
+                <th style={thStyle}>User</th>
+                <th style={thStyle}>Email</th>
+                <th style={thStyle}>Stream</th>
+                <th style={thStyle}>Granted</th>
+                <th style={thStyle}>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {grants.map(g => (
+                <tr key={g.id}>
+                  <td style={tdStyle}>{g.userName ?? '—'}</td>
+                  <td style={tdStyle}>{g.userEmail ?? '—'}</td>
+                  <td style={tdStyle}>{g.streamSlug}</td>
+                  <td style={tdStyle}>{formatDate(g.grantedAt)}</td>
+                  <td style={tdStyle}>
+                    <button
+                      onClick={() => revokeAccess(g.id, g.userName)}
+                      style={{ padding: '4px 12px', background: '#FEE2E2', color: '#991B1B', border: 'none', borderRadius: '5px', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}
+                    >
+                      Revoke
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      {/* Portfolio submissions */}
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+          <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0B1829', margin: 0 }}>Portfolio Submissions</h3>
+          <select
+            value={portfolioFilter}
+            onChange={e => setPortfolioFilter(e.target.value)}
+            style={{ padding: '6px 10px', border: '1px solid #CBD5E0', borderRadius: '6px', fontSize: '13px' }}
+          >
+            <option value="">All statuses</option>
+            <option value="draft">Draft</option>
+            <option value="pending_review">Pending Review</option>
+            <option value="complete">Complete</option>
+          </select>
+        </div>
+
+        {filteredPortfolio.length === 0 ? (
+          <p style={{ fontSize: '13px', color: '#94A3B8' }}>No submissions found.</p>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #E2E8F0', borderRadius: '8px', overflow: 'hidden' }}>
+            <thead>
+              <tr>
+                <th style={thStyle}>User</th>
+                <th style={thStyle}>Form</th>
+                <th style={thStyle}>Procedure</th>
+                <th style={thStyle}>Status</th>
+                <th style={thStyle}>Mentor</th>
+                <th style={thStyle}>Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredPortfolio.map(e => (
+                <tr key={e.id}>
+                  <td style={tdStyle}>{e.userName ?? '—'}</td>
+                  <td style={tdStyle}><span style={{ fontWeight: 600, textTransform: 'uppercase', fontSize: '11px' }}>{e.formType}</span></td>
+                  <td style={tdStyle} title={e.procedureSlug}>{e.title}</td>
+                  <td style={tdStyle}>{STATUS_LABELS[e.status] ?? e.status}</td>
+                  <td style={tdStyle}>{e.mentorEmail ?? '—'}</td>
+                  <td style={tdStyle}>{e.submittedAt ? formatDate(e.submittedAt) : '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats }: Props) {
+export default function AdminDashboard({ users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats, streamGrants: initialStreamGrants, portfolioSubmissions: initialPortfolioSubmissions }: Props) {
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'modules' | 'settings'>('registrations');
+  const pendingPortfolioCount = initialPortfolioSubmissions.filter(e => e.status === 'pending_review').length;
+  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'modules' | 'settings' | 'streams'>('registrations');
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
@@ -3253,6 +3462,7 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
             { key: 'analytics',     label: 'Analytics',          badge: 0 },
             { key: 'modules',       label: '🔒 Modules',          badge: 0 },
             { key: 'settings',      label: '⚙️ Settings',        badge: 0 },
+            { key: 'streams',       label: '🚨 Streams',          badge: pendingPortfolioCount },
           ] as const;
           return (
             <>
@@ -3336,6 +3546,16 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
         {/* Settings */}
         {activeTab === 'settings' && (
           <SettingsSection initialSettings={siteSettings} />
+        )}
+
+        {/* Streams */}
+        {activeTab === 'streams' && (
+          <StreamsSection
+            initialSettings={siteSettings}
+            initialGrants={initialStreamGrants}
+            initialPortfolio={initialPortfolioSubmissions}
+            allUsers={initialRegistrations}
+          />
         )}
       </div>
     </div>

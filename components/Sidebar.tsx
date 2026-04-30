@@ -46,6 +46,7 @@ const LOCK_KEY_TO_PATH: Record<string, string> = {
   'module_lock_research-getting-started':     '/research/getting-started',
   'module_lock_research-funding':             '/research/funding',
   'module_lock_research-networks':            '/research/networks',
+  'stream_lock_emergency':                     '/streams/emergency',
   'module_lock_starting-your-own-practice':   '/business/starting-your-own-practice',
   'module_lock_business-structures':          '/business/starting-your-own-practice/business-structures',
   'module_lock_funding-revenue':              '/business/starting-your-own-practice/funding-revenue',
@@ -91,7 +92,20 @@ const SCOPE_CHILDREN: NavItem[] = [
 
 const SCOPE_PREFIX = '/scope';
 
+const EMERGENCY_PREFIX = '/streams/emergency';
+const EMERGENCY_CHILDREN: NavItem[] = [
+  { label: 'Level 1 — Foundation',      href: '/streams/emergency/level-1', icon: '1️⃣' },
+  { label: 'Level 2 — Intermediate',    href: '/streams/emergency/level-2', icon: '2️⃣' },
+  { label: 'Level 3 — Advanced',        href: '/streams/emergency/level-3', icon: '3️⃣' },
+];
+
 const navGroups: NavGroup[] = [
+  {
+    label: 'Streams',
+    items: [
+      { label: 'Emergency', href: EMERGENCY_PREFIX, icon: '🚨' },
+    ]
+  },
   {
     label: 'Getting Started',
     items: [
@@ -217,6 +231,10 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
   // Business group is expanded by default when on any business sub-page
   const onBusinessPage = pathname.startsWith(BUSINESS_PREFIX + '/');
   const [businessOpen, setBusinessOpen] = useState(onBusinessPage);
+
+  // Emergency stream group is expanded by default when on any emergency sub-page
+  const onEmergencyPage = pathname.startsWith(EMERGENCY_PREFIX + '/');
+  const [emergencyOpen, setEmergencyOpen] = useState(onEmergencyPage);
 
   function isActive(href: string) {
     if (href === '/') return pathname === '/';
@@ -349,6 +367,62 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
           {mskOpen && (
             <div style={{ paddingLeft: '0' }}>
               {MSK_CHILDREN.map(child => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  className={`nav-item${isActive(child.href) ? ' active' : ''}`}
+                  aria-current={isActive(child.href) ? 'page' : undefined}
+                  onClick={onClose}
+                  style={{ paddingLeft: '2.4rem' }}
+                >
+                  <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // Render the Emergency stream parent as a collapsible toggle
+    if (item.href === EMERGENCY_PREFIX) {
+      const emergencyLocked = lockedPaths.has(EMERGENCY_PREFIX);
+      if (emergencyLocked) {
+        return (
+          <span key="emergency-group" className="nav-item disabled" title="Access restricted">
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{ marginLeft: 'auto', fontSize: '0.6rem', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', color: 'rgba(255,255,255,0.4)' }}>🔒</span>
+          </span>
+        );
+      }
+      return (
+        <div key="emergency-group">
+          <button
+            onClick={() => setEmergencyOpen(o => !o)}
+            className={`nav-item${onEmergencyPage || pathname === EMERGENCY_PREFIX ? ' active' : ''}`}
+            style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'flex', alignItems: 'center' }}
+            aria-expanded={emergencyOpen}
+          >
+            <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+            {item.label}
+            <span style={{ marginLeft: 'auto', fontSize: '10px', opacity: 0.6, transition: 'transform 0.2s', transform: emergencyOpen ? 'rotate(180deg)' : 'rotate(0deg)', display: 'inline-block', lineHeight: 1 }}>▾</span>
+          </button>
+
+          {emergencyOpen && (
+            <div style={{ paddingLeft: '0' }}>
+              <Link
+                href={EMERGENCY_PREFIX}
+                className={`nav-item${pathname === EMERGENCY_PREFIX ? ' active' : ''}`}
+                aria-current={pathname === EMERGENCY_PREFIX ? 'page' : undefined}
+                onClick={onClose}
+                style={{ paddingLeft: '2.4rem' }}
+              >
+                <span className="nav-icon" aria-hidden="true" style={{ fontSize: '11px' }}>—</span>
+                Overview
+              </Link>
+              {EMERGENCY_CHILDREN.map(child => (
                 <Link
                   key={child.href}
                   href={child.href}

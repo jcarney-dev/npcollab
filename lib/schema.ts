@@ -8,6 +8,7 @@ import {
   unique,
   numeric,
   serial,
+  jsonb,
 } from 'drizzle-orm/pg-core';
 
 // access_requests
@@ -243,6 +244,49 @@ export const pageViews = pgTable('page_views', {
   viewedAt:    timestamp('viewed_at').notNull().defaultNow(),
 });
 
+// stream_access_grants
+export const streamAccessGrants = pgTable('stream_access_grants', {
+  id:         uuid('id').primaryKey().defaultRandom(),
+  userId:     uuid('user_id').notNull().references(() => usersV2.id),
+  streamSlug: text('stream_slug').notNull(),
+  grantedBy:  uuid('granted_by').notNull(),
+  grantedAt:  timestamp('granted_at').notNull().defaultNow(),
+  revokedAt:  timestamp('revoked_at'),
+}, (t) => [
+  unique('stream_access_grants_user_stream_unique').on(t.userId, t.streamSlug),
+]);
+
+// portfolio_entries
+export const portfolioEntries = pgTable('portfolio_entries', {
+  id:             uuid('id').primaryKey().defaultRandom(),
+  userId:         uuid('user_id').notNull().references(() => usersV2.id),
+  formType:       text('form_type').notNull(),
+  streamSlug:     text('stream_slug').notNull(),
+  procedureSlug:  text('procedure_slug').notNull(),
+  title:          text('title').notNull(),
+  status:         text('status').notNull().default('draft'),
+  traineeData:    jsonb('trainee_data').notNull().default({}),
+  assessorData:   jsonb('assessor_data').notNull().default({}),
+  mentorEmail:    text('mentor_email'),
+  mentorName:     text('mentor_name'),
+  mentorComments: text('mentor_comments'),
+  mentorSignedAt: timestamp('mentor_signed_at'),
+  createdAt:      timestamp('created_at').notNull().defaultNow(),
+  updatedAt:      timestamp('updated_at').notNull().defaultNow(),
+  submittedAt:    timestamp('submitted_at'),
+});
+
+// mentor_review_tokens
+export const mentorReviewTokens = pgTable('mentor_review_tokens', {
+  id:               uuid('id').primaryKey().defaultRandom(),
+  portfolioEntryId: uuid('portfolio_entry_id').notNull().references(() => portfolioEntries.id),
+  token:            text('token').notNull().unique(),
+  mentorEmail:      text('mentor_email').notNull(),
+  used:             boolean('used').notNull().default(false),
+  expiresAt:        timestamp('expires_at').notNull(),
+  createdAt:        timestamp('created_at').notNull().defaultNow(),
+});
+
 // Type exports
 export type AccessRequest        = typeof accessRequests.$inferSelect;
 export type NewAccessRequest     = typeof accessRequests.$inferInsert;
@@ -278,3 +322,9 @@ export type MentoringRequest     = typeof mentoringRequests.$inferSelect;
 export type NewMentoringRequest  = typeof mentoringRequests.$inferInsert;
 export type PageView             = typeof pageViews.$inferSelect;
 export type NewPageView          = typeof pageViews.$inferInsert;
+export type StreamAccessGrant    = typeof streamAccessGrants.$inferSelect;
+export type NewStreamAccessGrant = typeof streamAccessGrants.$inferInsert;
+export type PortfolioEntry       = typeof portfolioEntries.$inferSelect;
+export type NewPortfolioEntry    = typeof portfolioEntries.$inferInsert;
+export type MentorReviewToken    = typeof mentorReviewTokens.$inferSelect;
+export type NewMentorReviewToken = typeof mentorReviewTokens.$inferInsert;

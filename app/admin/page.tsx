@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2, moduleContributors } from '@/lib/schema';
-import { eq, desc, count } from 'drizzle-orm';
+import { users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2, moduleContributors, streamAccessGrants, portfolioEntries } from '@/lib/schema';
+import { eq, desc, count, isNull } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
 export const metadata: Metadata = {
@@ -23,6 +23,8 @@ export default async function AdminPage() {
     allSiteSettings,
     allUsersV2,
     allContributors,
+    allStreamGrants,
+    allPortfolioSubmissions,
     stats,
   ] = await Promise.all([
     db.select().from(users).orderBy(desc(users.approvedAt)),
@@ -35,6 +37,36 @@ export default async function AdminPage() {
     db.select().from(siteSettings),
     db.select().from(usersV2).orderBy(desc(usersV2.createdAt)),
     db.select().from(moduleContributors).orderBy(desc(moduleContributors.createdAt)),
+    db.select({
+      id:         streamAccessGrants.id,
+      userId:     streamAccessGrants.userId,
+      streamSlug: streamAccessGrants.streamSlug,
+      grantedBy:  streamAccessGrants.grantedBy,
+      grantedAt:  streamAccessGrants.grantedAt,
+      revokedAt:  streamAccessGrants.revokedAt,
+      userName:   usersV2.name,
+      userEmail:  usersV2.email,
+    }).from(streamAccessGrants).leftJoin(usersV2, eq(streamAccessGrants.userId, usersV2.id)).where(isNull(streamAccessGrants.revokedAt)).orderBy(desc(streamAccessGrants.grantedAt)),
+    db.select({
+      id:             portfolioEntries.id,
+      userId:         portfolioEntries.userId,
+      formType:       portfolioEntries.formType,
+      streamSlug:     portfolioEntries.streamSlug,
+      procedureSlug:  portfolioEntries.procedureSlug,
+      title:          portfolioEntries.title,
+      status:         portfolioEntries.status,
+      traineeData:    portfolioEntries.traineeData,
+      assessorData:   portfolioEntries.assessorData,
+      mentorEmail:    portfolioEntries.mentorEmail,
+      mentorName:     portfolioEntries.mentorName,
+      mentorComments: portfolioEntries.mentorComments,
+      mentorSignedAt: portfolioEntries.mentorSignedAt,
+      createdAt:      portfolioEntries.createdAt,
+      updatedAt:      portfolioEntries.updatedAt,
+      submittedAt:    portfolioEntries.submittedAt,
+      userName:       usersV2.name,
+      userEmail:      usersV2.email,
+    }).from(portfolioEntries).leftJoin(usersV2, eq(portfolioEntries.userId, usersV2.id)).orderBy(desc(portfolioEntries.createdAt)),
     Promise.all([
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
       db.select({ count: count() }).from(users).where(eq(users.active, false)),
@@ -62,6 +94,8 @@ export default async function AdminPage() {
       siteSettings={settingsMap}
       registrations={allUsersV2}
       contributors={allContributors}
+      streamGrants={allStreamGrants}
+      portfolioSubmissions={allPortfolioSubmissions}
       stats={{
         active: active[0].count,
         disabled: disabled[0].count,

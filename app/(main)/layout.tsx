@@ -4,7 +4,7 @@ import { getActiveSponsor, isAdPreviewMode } from '@/lib/sponsors';
 import { getSession } from '@/lib/session';
 import { db } from '@/lib/db';
 import { usersV2, siteSettings } from '@/lib/schema';
-import { eq, like } from 'drizzle-orm';
+import { eq, like, or } from 'drizzle-orm';
 import type { UserV2 } from '@/lib/schema';
 
 // Force dynamic so ad_preview_mode, session and lock states are read from DB on every request
@@ -21,7 +21,9 @@ export default async function MainLayout({ children }: { children: React.ReactNo
       getActiveSponsor('sidebar'),
       isAdPreviewMode(),
       getSession(),
-      db.select().from(siteSettings).where(like(siteSettings.key, 'module_lock_%')),
+      db.select().from(siteSettings).where(
+        or(like(siteSettings.key, 'module_lock_%'), like(siteSettings.key, 'stream_lock_%'))
+      ),
     ]);
 
     sidebarSponsor = sponsor;

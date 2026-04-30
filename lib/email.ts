@@ -239,6 +239,69 @@ export async function sendContactEmail(data: {
   });
 }
 
+/** Send a mentor review request email with a unique token link. */
+export async function sendMentorReviewEmail(data: {
+  mentorEmail:    string;
+  userName:       string;
+  formType:       'mini-cex' | 'dops';
+  procedureTitle: string;
+  reviewUrl:      string;
+}) {
+  const resend = getResend();
+  const formLabel = data.formType === 'mini-cex' ? 'Mini CEX' : 'DOPS';
+
+  await resend.emails.send({
+    from: FROM,
+    to: data.mentorEmail,
+    subject: `NPCollab — Clinical assessment review requested by ${data.userName}`,
+    html: `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: system-ui, sans-serif; color: #1A2B3C; max-width: 600px; margin: 0 auto; padding: 32px 20px;">
+  <div style="background: #0B1829; border-radius: 8px 8px 0 0; padding: 24px 32px; border-bottom: 3px solid #C9A84C;">
+    <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 700;">NPCollab &mdash; Assessment Review Request</h1>
+  </div>
+  <div style="background: #ffffff; border: 1px solid #DDE3EC; border-top: none; border-radius: 0 0 8px 8px; padding: 28px 32px;">
+    <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6;">
+      <strong>${escapeHtml(data.userName)}</strong> has asked you to review and sign their
+      <strong>${escapeHtml(formLabel)}</strong> clinical assessment on NPCollab.
+    </p>
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 24px;">
+      <tr>
+        <td style="padding: 8px 0; color: #4A6080; width: 110px; font-weight: 500; vertical-align: top;">Form type</td>
+        <td style="padding: 8px 0; font-weight: 600;">${escapeHtml(formLabel)}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #4A6080; font-weight: 500; vertical-align: top;">Procedure</td>
+        <td style="padding: 8px 0;">${escapeHtml(data.procedureTitle)}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #4A6080; font-weight: 500; vertical-align: top;">Submitted by</td>
+        <td style="padding: 8px 0;">${escapeHtml(data.userName)}</td>
+      </tr>
+    </table>
+    <div style="background: #FBF3DF; border: 1.5px solid #C9A84C; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px;">
+      <p style="margin: 0 0 8px; font-size: 13px; color: #4A6080; line-height: 1.5;">
+        Click the button below to open the assessment. You do not need an account &mdash;
+        the link will take you directly to the review page. You can add comments and sign
+        the assessment to mark it as complete in ${escapeHtml(data.userName)}&rsquo;s portfolio.
+      </p>
+      <p style="margin: 0; font-size: 12px; color: #7A8A99;">This link expires in 30 days.</p>
+    </div>
+    <a href="${data.reviewUrl}" style="display: inline-block; background: #0B1829; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: 6px;">
+      Review assessment &rarr;
+    </a>
+    <p style="margin: 28px 0 0; font-size: 12px; color: #4A6080; line-height: 1.5;">
+      NPCollab &mdash; Free education for Australian Nurse Practitioners.<br>
+      You are receiving this because ${escapeHtml(data.userName)} listed you as their assessor.
+    </p>
+  </div>
+</body>
+</html>`,
+  });
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, '&amp;')
