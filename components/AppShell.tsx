@@ -212,16 +212,17 @@ interface AppShellProps {
   adPreviewMode?: boolean;
   sessionUser?: UserV2 | null;
   lockedSettings?: Record<string, string>;
+  userGrantedStreams?: string[];
 }
 
-export default function AppShell({ children, sidebarSponsor, adPreviewMode = false, sessionUser = null, lockedSettings = {} }: AppShellProps) {
+export default function AppShell({ children, sidebarSponsor, adPreviewMode = false, sessionUser = null, lockedSettings = {}, userGrantedStreams = [] }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const breadcrumb = getBreadcrumb(pathname);
 
   return (
     <div className="app-shell">
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} adPreviewMode={adPreviewMode} sessionUser={sessionUser} lockedSettings={lockedSettings} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} sponsor={sidebarSponsor} adPreviewMode={adPreviewMode} sessionUser={sessionUser} lockedSettings={lockedSettings} userGrantedStreams={userGrantedStreams} />
 
       <div className="main-content">
         <header className="topbar">

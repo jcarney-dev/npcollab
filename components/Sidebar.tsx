@@ -216,9 +216,10 @@ interface SidebarProps {
   adPreviewMode?: boolean;
   sessionUser?: UserV2 | null;
   lockedSettings?: Record<string, string>;
+  userGrantedStreams?: string[];
 }
 
-export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false, sessionUser = null, lockedSettings = {} }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = false, sessionUser = null, lockedSettings = {}, userGrantedStreams = [] }: SidebarProps) {
   const lockedPaths = new Set(
     Object.entries(LOCK_KEY_TO_PATH)
       .filter(([key]) => lockedSettings[key] === 'true')
@@ -393,7 +394,7 @@ export default function Sidebar({ isOpen, onClose, sponsor, adPreviewMode = fals
 
     // Render the Emergency stream parent as a collapsible toggle
     if (item.href === EMERGENCY_PREFIX) {
-      const emergencyLocked = lockedPaths.has(EMERGENCY_PREFIX);
+      const emergencyLocked = lockedPaths.has(EMERGENCY_PREFIX) && !userGrantedStreams.includes('emergency');
       if (emergencyLocked) {
         return (
           <span key="emergency-group" className="nav-item disabled" title="Access restricted">
