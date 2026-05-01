@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2, moduleContributors, streamAccessGrants, portfolioEntries } from '@/lib/schema';
+import { users, sponsors, podcastSubscribers, podcastBroadcasts, newsItems, jobListings, courses, siteSettings, usersV2, moduleContributors, streamAccessGrants, portfolioEntries, errorLogs } from '@/lib/schema';
 import { eq, desc, count, isNull } from 'drizzle-orm';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -25,6 +25,7 @@ export default async function AdminPage() {
     allContributors,
     allStreamGrants,
     allPortfolioSubmissions,
+    allErrorLogs,
     stats,
   ] = await Promise.all([
     db.select().from(users).orderBy(desc(users.approvedAt)),
@@ -67,6 +68,7 @@ export default async function AdminPage() {
       userName:       usersV2.name,
       userEmail:      usersV2.email,
     }).from(portfolioEntries).leftJoin(usersV2, eq(portfolioEntries.userId, usersV2.id)).orderBy(desc(portfolioEntries.createdAt)),
+    db.select().from(errorLogs).orderBy(desc(errorLogs.createdAt)).limit(50),
     Promise.all([
       db.select({ count: count() }).from(users).where(eq(users.active, true)),
       db.select({ count: count() }).from(users).where(eq(users.active, false)),
@@ -96,6 +98,7 @@ export default async function AdminPage() {
       contributors={allContributors}
       streamGrants={allStreamGrants}
       portfolioSubmissions={allPortfolioSubmissions}
+      errorLogs={allErrorLogs}
       stats={{
         active: active[0].count,
         disabled: disabled[0].count,

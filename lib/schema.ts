@@ -287,7 +287,19 @@ export const mentorReviewTokens = pgTable('mentor_review_tokens', {
   createdAt:        timestamp('created_at').notNull().defaultNow(),
 });
 
+// error_logs
+export const errorLogs = pgTable('error_logs', {
+  id:        serial('id').primaryKey(),
+  route:     text('route').notNull(),
+  message:   text('message').notNull(),
+  stack:     text('stack'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
 // Type exports
+export type ErrorLog    = typeof errorLogs.$inferSelect;
+export type NewErrorLog = typeof errorLogs.$inferInsert;
+
 export type AccessRequest        = typeof accessRequests.$inferSelect;
 export type NewAccessRequest     = typeof accessRequests.$inferInsert;
 export type User                 = typeof users.$inferSelect;

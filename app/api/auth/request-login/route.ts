@@ -4,11 +4,28 @@ import { usersV2, magicLinks } from '@/lib/schema';
 import { eq, and } from 'drizzle-orm';
 import { randomBytes } from 'crypto';
 import { Resend } from 'resend';
+import { logError } from '@/lib/logger';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Always return the same message to avoid email enumeration
 const SUCCESS_MSG = { message: 'If your account is approved you will receive a login link shortly' };
+
+// In-memory rate limiter: 3 requests per IP per 15 minutes
+const loginAttempts = new Map<string, { count: number; resetAt: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const window = 15 * 60 * 1000;
+  const entry = loginAttempts.get(ip);
+  if (!entry || now > entry.resetAt) {
+    loginAttempts.set(ip, { count: 1, resetAt: now + window });
+    return true;
+  }
+  if (entry.count >= 3) return false;
+  entry.count++;
+  return true;
+}
 
 export async function POST(req: NextRequest) {
   let body: { email?: string };
@@ -21,6 +38,11 @@ export async function POST(req: NextRequest) {
   const email = body.email?.trim().toLowerCase();
   if (!email || !email.includes('@')) {
     return NextResponse.json({ error: 'Valid email address required' }, { status: 400 });
+  }
+
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || req.headers.get('x-real-ip') || 'unknown';
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ error: 'too_many_requests' }, { status: 429 });
   }
 
   try {
@@ -145,7 +167,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(SUCCESS_MSG);
   } catch (err) {
-    console.error('[request-login]', err);
+    await logError('[request-login]', err);
     // Still return success to avoid leaking info
     return NextResponse.json(SUCCESS_MSG);
   }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendContactEmail } from '@/lib/email';
+import { logError } from '@/lib/logger';
 
 async function verifyTurnstile(token: string): Promise<boolean> {
   try {
@@ -59,7 +60,7 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('[contact] Failed to send email:', err);
+    await logError('[contact]', err);
     return NextResponse.json({ error: 'Failed to send message. Please try again.' }, { status: 500 });
   }
 }

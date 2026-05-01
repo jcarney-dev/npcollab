@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useTransition } from 'react';
-import type { User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor, StreamAccessGrant, PortfolioEntry } from '@/lib/schema';
+import type { User, Sponsor, PodcastSubscriber, NewsItem, JobListing, PodcastBroadcast, Course, UserV2, ModuleContributor, StreamAccessGrant, PortfolioEntry, ErrorLog } from '@/lib/schema';
 
 type StreamGrantWithUser = StreamAccessGrant & { userName: string | null; userEmail: string | null };
 type PortfolioEntryWithUser = PortfolioEntry & { userName: string | null; userEmail: string | null };
@@ -20,6 +20,7 @@ interface Props {
   stats: { active: number; disabled: number; total: number };
   streamGrants: StreamGrantWithUser[];
   portfolioSubmissions: PortfolioEntryWithUser[];
+  errorLogs: ErrorLog[];
 }
 
 function formatDate(d: Date | null | string) {
@@ -3348,15 +3349,72 @@ function StreamsSection({
   );
 }
 
+// ── Error Logs section ──────────────────────────────────────────────────────
+
+function ErrorLogsSection({ initial }: { initial: ErrorLog[] }) {
+  const [logs, setLogs] = React.useState(initial);
+  const [loading, setLoading] = React.useState(false);
+
+  async function refresh() {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/admin/error-logs');
+      const json = await res.json();
+      if (res.ok) setLogs(json.logs);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const thStyle: React.CSSProperties = { textAlign: 'left', padding: '8px 12px', background: '#f1f5f9', fontWeight: 600, fontSize: '12px', color: '#64748b', whiteSpace: 'nowrap' };
+  const tdStyle: React.CSSProperties = { padding: '8px 12px', fontSize: '13px', borderBottom: '1px solid #f1f5f9', verticalAlign: 'top' };
+
+  return (
+    <div style={{ padding: '24px 0' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+        <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: 'var(--navy)' }}>Error Logs</h2>
+        <button onClick={refresh} disabled={loading} className="admin-btn admin-btn--sm">
+          {loading ? 'Refreshing…' : 'Refresh'}
+        </button>
+        <span style={{ fontSize: '13px', color: '#64748b' }}>Last 50 errors</span>
+      </div>
+      {logs.length === 0 ? (
+        <p style={{ color: '#64748b', fontSize: '14px' }}>No errors recorded.</p>
+      ) : (
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+            <thead>
+              <tr>
+                <th style={thStyle}>Time</th>
+                <th style={thStyle}>Route</th>
+                <th style={thStyle}>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              {logs.map(log => (
+                <tr key={log.id}>
+                  <td style={{ ...tdStyle, whiteSpace: 'nowrap', color: '#64748b' }}>{formatDate(log.createdAt)}</td>
+                  <td style={{ ...tdStyle, fontFamily: 'monospace', color: '#b91c1c', whiteSpace: 'nowrap' }}>{log.route}</td>
+                  <td style={{ ...tdStyle, wordBreak: 'break-word', maxWidth: '600px' }}>{log.message}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main dashboard ──────────────────────────────────────────────────────────
 
-export default function AdminDashboard({ users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats, streamGrants: initialStreamGrants, portfolioSubmissions: initialPortfolioSubmissions }: Props) {
+export default function AdminDashboard({ users: initialUsers, sponsors: initialSponsors, podcastSubscribers, podcastBroadcasts: initialBroadcasts, newsItems: initialNews, jobListings: initialJobs, courses: initialCourses, registrations: initialRegistrations, contributors: initialContributors, siteSettings, stats: initialStats, streamGrants: initialStreamGrants, portfolioSubmissions: initialPortfolioSubmissions, errorLogs: initialErrorLogs }: Props) {
   const [users, setUsers] = useState(initialUsers);
   const [stats, setStats] = useState(initialStats);
   const [notification, setNotification] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [, startTransition] = useTransition();
   const pendingPortfolioCount = initialPortfolioSubmissions.filter(e => e.status === 'pending_review').length;
-  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'modules' | 'settings' | 'streams'>('registrations');
+  const [activeTab, setActiveTab] = useState<'registrations' | 'users' | 'sponsors' | 'podcast' | 'jobs' | 'courses' | 'news' | 'contributors' | 'mentoring' | 'analytics' | 'modules' | 'settings' | 'streams' | 'errors'>('registrations');
   const pendingJobCount   = initialJobs.filter(j => j.status === 'pending_approval').length;
   const pendingNewsCount  = initialNews.filter(n => n.status === 'pending').length;
   const pendingRegCount   = initialRegistrations.filter(r => !r.approved).length;
@@ -3463,6 +3521,7 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
             { key: 'modules',       label: '🔒 Modules',          badge: 0 },
             { key: 'settings',      label: '⚙️ Settings',        badge: 0 },
             { key: 'streams',       label: '🚨 Streams',          badge: pendingPortfolioCount },
+            { key: 'errors',        label: '🔴 Errors',            badge: initialErrorLogs.length },
           ] as const;
           return (
             <>
@@ -3556,6 +3615,11 @@ export default function AdminDashboard({ users: initialUsers, sponsors: initialS
             initialPortfolio={initialPortfolioSubmissions}
             allUsers={initialRegistrations}
           />
+        )}
+
+        {/* Error Logs */}
+        {activeTab === 'errors' && (
+          <ErrorLogsSection initial={initialErrorLogs} />
         )}
       </div>
     </div>

@@ -4,6 +4,7 @@ import { usersV2, adminActions } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import { randomBytes } from 'crypto';
 import { Resend } from 'resend';
+import { logError } from '@/lib/logger';
 
 // ---------------------------------------------------------------------------
 // In-memory rate limiting — max 5 registration attempts per IP per hour
@@ -242,7 +243,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('[auth/register]', err);
+    await logError('[auth/register]', err);
     return NextResponse.json({ error: 'Server error. Please try again later.' }, { status: 500 });
   }
 }

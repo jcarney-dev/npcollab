@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import { usersV2, magicLinks } from '@/lib/schema';
 import { eq, and, gt } from 'drizzle-orm';
 import { createSessionToken, sessionCookieOptions } from '@/lib/session';
+import { logError } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   let body: { token?: string };
@@ -72,7 +73,7 @@ export async function POST(req: NextRequest) {
     res.cookies.set(cookieOpts);
     return res;
   } catch (err) {
-    console.error('[auth/verify]', err);
+    await logError('[auth/verify]', err);
     return NextResponse.json({ success: false, error: 'server_error' }, { status: 500 });
   }
 }
