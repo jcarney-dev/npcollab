@@ -3,10 +3,10 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/session';
 import { db } from '@/lib/db';
-import { usersV2, moduleCompletions } from '@/lib/schema';
+import { usersV2, moduleCompletions, procedureLogs } from '@/lib/schema';
 import { eq, and, desc } from 'drizzle-orm';
 import PortfolioEntryRow from '@/components/PortfolioEntryRow';
-import type { PortfolioEntry } from '@/lib/schema';
+import type { PortfolioEntry, ProcedureLog } from '@/lib/schema';
 import { portfolioEntries } from '@/lib/schema';
 
 export const metadata = {
@@ -143,6 +143,19 @@ export default async function DashboardPage() {
     // Table may not exist yet — fail silently
   }
 
+  // ── Procedure Passport ────────────────────────────────────────────────────
+  let recentProcedureLogs: ProcedureLog[] = [];
+  let passportTotal = myPortfolioEntries.length;
+  try {
+    const allLogs = await db
+      .select()
+      .from(procedureLogs)
+      .where(eq(procedureLogs.userId, session.userId))
+      .orderBy(desc(procedureLogs.performedAt));
+    recentProcedureLogs = allLogs.slice(0, 3);
+    passportTotal = allLogs.length + myPortfolioEntries.length;
+  } catch { /* fail silently */ }
+
   const formatDate = (d: Date) =>
     new Date(d).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
 
@@ -258,6 +271,47 @@ export default async function DashboardPage() {
           {totalModulesCompleted === 0 && (
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', marginTop: '4px' }}>
               Complete a module quiz (80% or above) to earn your first CPD hour.
+            </div>
+          )}
+        </div>
+
+        {/* ── Procedure Passport card ──────────────────────────────────────── */}
+        <div style={{ padding: '22px 24px', background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', marginBottom: '28px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ fontSize: '28px', flexShrink: 0 }}>🛂</div>
+              <div>
+                <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '16px', color: 'var(--navy)', marginBottom: '2px' }}>Procedure Passport</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                  {passportTotal > 0 ? `${passportTotal} procedure${passportTotal === 1 ? '' : 's'} recorded` : 'Start logging your clinical procedures'}
+                </div>
+              </div>
+            </div>
+            <Link href="/passport" style={{ fontSize: '12px', fontWeight: 600, color: 'var(--gold)', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+              View Passport →
+            </Link>
+          </div>
+          {recentProcedureLogs.length > 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {recentProcedureLogs.map(log => (
+                <div key={log.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', padding: '8px 12px', background: 'var(--off-white)', borderRadius: '7px', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+                    <span style={{ fontSize: '14px' }}>📋</span>
+                    <span style={{ fontWeight: 600, color: 'var(--navy)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{log.procedureName}</span>
+                    {log.setting && <span style={{ fontSize: '11px', color: 'var(--text-muted)', flexShrink: 0 }}>{log.setting}</span>}
+                  </div>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', flexShrink: 0 }}>
+                    {formatDate(log.performedAt)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 14px', background: 'var(--off-white)', borderRadius: '8px', gap: '12px' }}>
+              <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Log procedures you perform to build your clinical portfolio.</span>
+              <Link href="/passport" style={{ fontSize: '12px', fontWeight: 700, color: 'var(--navy)', background: 'var(--gold)', padding: '6px 14px', borderRadius: '6px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                + Log Procedure
+              </Link>
             </div>
           )}
         </div>

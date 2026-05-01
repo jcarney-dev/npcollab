@@ -101,6 +101,12 @@ const EMERGENCY_CHILDREN: NavItem[] = [
 
 const navGroups: NavGroup[] = [
   {
+    label: 'My Portfolio',
+    items: [
+      { label: 'Procedure Passport', href: '/passport', icon: '🛂' },
+    ]
+  },
+  {
     label: 'Streams',
     items: [
       { label: 'Emergency', href: EMERGENCY_PREFIX, icon: '🚨' },

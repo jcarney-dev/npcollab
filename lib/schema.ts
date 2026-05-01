@@ -287,6 +287,20 @@ export const mentorReviewTokens = pgTable('mentor_review_tokens', {
   createdAt:        timestamp('created_at').notNull().defaultNow(),
 });
 
+// procedure_logs
+export const procedureLogs = pgTable('procedure_logs', {
+  id:              uuid('id').primaryKey().defaultRandom(),
+  userId:          uuid('user_id').notNull().references(() => usersV2.id),
+  procedureName:   text('procedure_name').notNull(),
+  category:        text('category').notNull().default('General'),
+  performedAt:     timestamp('performed_at').notNull(),
+  setting:         text('setting').notNull().default(''),
+  supervisorName:  text('supervisor_name'),
+  supervisorEmail: text('supervisor_email'),
+  notes:           text('notes'),
+  createdAt:       timestamp('created_at').notNull().defaultNow(),
+});
+
 // error_logs
 export const errorLogs = pgTable('error_logs', {
   id:        serial('id').primaryKey(),
@@ -297,6 +311,8 @@ export const errorLogs = pgTable('error_logs', {
 });
 
 // Type exports
+export type ProcedureLog    = typeof procedureLogs.$inferSelect;
+export type NewProcedureLog = typeof procedureLogs.$inferInsert;
 export type ErrorLog    = typeof errorLogs.$inferSelect;
 export type NewErrorLog = typeof errorLogs.$inferInsert;
 
